@@ -1,0 +1,139 @@
+<!DOCTYPE html> 
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IEI</title>
+        <link rel="shortcut icon" type="x-icon" href="imagens/favicon.ico">
+        <script src="js/botaoclosenav.js"></script>
+        
+        <link rel="stylesheet" href="css/style.css">
+        
+        <!-- Icones para embelezar a estrutura -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head> 
+    <body>
+        <header class="intro"><div id="intro"><h1 id="Titulo">História </h1></div></header>
+        
+        <div class="botoes">
+            <button id="openPopupBtn" onclick="abrir_ajuda()"><p id="ajuda" class="material-icons">help</p></button>
+            <br>
+
+            <button id="botaoscroll" type="btn" onclick="scrollcima()"><p id = "casa" class="material-icons">home</p></button>
+        </div>
+        <ul id="menu" class="menu">
+            <li><h1 style="text-align:left;margin-left:5%;font-size:45px;margin-bottom:15px;">Menu</h1>
+                <hr>
+                <button id="navbutton" class="navbutton"; onclick="toggleNav()" >
+                    <span id="icon" class="material-icons">menu</span>
+                </button>
+                
+                <!-- <input type="text"x placeholder="Search.." id="myInput" onkeyup="filterFunction()"> -->
+                <div class="dropdown-show">  
+                    
+                    
+                    <li><a style="margin-left:10%" href="index.html">Home</a></li>
+                    
+                    <li class="ativo" onclick="alertar()"><a style="margin-left:5%" class="ativo" href="#">História</a></li>
+                    <li><a style="margin-left:10%" href="funcionamento.html">Funcionamento</a></li>
+                    <li><a style="margin-left:10%" href="tecnicas.html">Técnicas </a></li>
+                    <li><a style="margin-left:10%" href="potencialidades.html">Potencialidades</a></li>
+                    <li><a style="margin-left:10%" href="perigos.html">Perigos</a></li>
+                    <li><a style="margin-left:10%" href="curiosidades.html">Curiosidades</a></li>
+                    <li><a style="margin-left:10%" href="testemunhos.html">Testemunhos</a></li>
+            <li><a style="margin-left:10%" href="about.html">About</a></li>  
+            <br>  
+            <img id="ua" src="imagens/ua.png">
+        </div>
+    </ul>
+
+        <div id="main">
+            <button id="openmenu" type="btn" onclick="toggleNav()"><p id = "setinhamenu" class="material-icons">chevron_right</p></button>
+            <div id="conteudo">
+                
+                
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;width:90%;margin:0 auto;"> 
+                    <p>Enquanto conceito, a IA teve origem na filosofia, ou no pensamento humano, não sendo possível definir uma data em concreto. Inicialmente, surgiu com forma abstrata, permitindo espaço para inúmeras análises, frequentemente alicerçadas na (eventual) existência de Deus, no seu poder de criação e na condição humana.</p>
+                
+                    <p>René Descartes, um matemático, filósofo e cientista, apresentou alguns pontos de vista interessantes no seu livro "Discourse on the Method", relativamente às capacidades futuras da IA e onde se poderiam delinear os seus limites. Este defendia que a capacidade humana para pensar estava intrinsecamente associada à alma, a qual apenas poderia ser criada por Deus. Perante esta ideia, infere-se que uma máquina nunca igualaria o nível do raciocínio humano.</p>
+                </div>
+                <div class="container">
+                    <div class="columnleft" style="width:400px;height:fit-content;margin-top: 70px;margin-left:80px"> 
+                        <p>Apesar de este tipo de noções se terem baseado em grande parte na razão e nas crenças, inúmeras questões, que outrora eram consideradas marcantes e inovadoras, permanecem na atualidade e iram continuar a permanecer no futuro como importantes pontos de vista, principalmente no que diz respeito à aplicabilidade da ética e da moral neste campo, já integrado no quadro científico.</p>
+                    </div>
+                    <div class="columnright" style="width:310px; margin-top:50px;"><img src="imagens/serounaoser.png" style="width:520px"> 
+                    </div>
+                </div>
+                <h3 style="margin-top: 60px;text-align:center;font-size:30px" >Decada de 1940</h3>
+                <div class="container" style="gap:30px">
+                    
+                <div class = "columnleft"><div class="container" style="width:310px; margin-top:50px; margin-left:30px"><img src="imagens/WarrenMcCulloch.png" width=200><img src="imagens/WalterPitts.png" width="200"></div><p> Warren McCulloch e Walter Pitts </p></div>
+                <div class="columnleft" style="height:fit-content;width: 600px; text-align: left;padding-left:30px;padding-right:30px;margin-top:130px;"><p>Em 1943, Walter Pitts e Warren McCulloch apresentaram um
+                    modelo matemático capaz de representar o funcionamento dos neurónios no
+                    cérebro humano. Graças a este modelo revolucionário foi possível a construção
+                    de redes neurais artificiais, que são capazes de aprender a partir de informação
+                    fornecida, melhorar as suas competências ao longo do tempo.
+                    </p></div></div>
+
+                <h3 style="margin-top: 60px;text-align:center;font-size:30px">Década de 1950</h3>
+                <div class="container" style="gap:70px;margin-bottom: 100px;margin-top: 50px;">
+    
+                    <div class="columnleft" style="width:500px; text-align: left;padding-left:30px;padding-right:30px;margin-top:90px;"> 
+                        <p style="margin-bottom: 0;padding-bottom: 0;font-size: 17px;">Em 1950, Turing propôs o
+                            
+                            <div class="dropdown">
+                                <span style="padding-left:50px; text-decoration: underline;font-size: 20px;margin-top:0;color:tomato">“Teste de Turing”</span>
+                                    <div class="dropdown-conteudo">
+                                        <img src="imagens/testeturing.png" alt="Cinque Terre" width="400px" >
+                                        <div class="desc"><h1>Teste Turing</h1><br>Em 2014, pela primeira vez, um programa de computador enganou um número
+                                            considerável de júris no <i>Teste de Turing</i>. Ao tentar distinguir uma máquina
+                                            de um humano, 10 dos 30 júris foram convencidos de que o programa era um
+                                            humano, mas na realidade tratava-se de uma máquina.
+                                            O termo “inteligência artificial” foi usado pela primeira vez em 1956, numa
+                                            conferência de Dartmouth, para descrever o objetivo de criar máquinas que
+                                            pudessem demonstrar inteligência semelhante à humana.</div>
+                                    </div>
+                            </div>
+                    , também conhecido como o “Jogo da Imitação”. Este teste propunha que a verdadeira inteligência poderia ser demonstrada se uma máquina conseguisse fazer-se passar por um ser humano, durante uma conversa escrita e tentar enganar um humano. Turing, com o seu trabalho, impulsionou a pesquisa sobre IA, estabelecendo a questão central de como podemos definir e avaliar a inteligência das máquinas.</p>
+                    </div>
+                    <div class="columnright" style="padding: 20px; border-radius: 20px;"><img src="imagens/Turing.png" style="width:300px"><p>Alan Turing</p></div>    
+                </div> 
+                    
+                    
+     
+                <div class ="container" style="gap:190px">
+                    <h3 style="text-align:center;font-size:30px; margin-left:110px">Década de 1960 e 1970  </h3>
+                    <h3 style="text-align:center;font-size:30px">Década de 1980 e 1990</h3>
+                </div>
+                <div class="container">
+                    <div class="columnleft" style="height:fit-content;margin-bottom: 50px;margin-top: 40px;">
+                        <p>Durante este período, houve um otimismo inicial sobre o potencial da IA, mas também desafios significativos. As limitações computacionais e a falta de dados de treinamento adequados dificultaram o progresso. No entanto, várias técnicas e abordagens, como redes neurais e sistemas especialistas, foram desenvolvidas e aplicadas em diversas áreas.</p>
+                    </div>
+               
+                    <div class="columnleft" style="height:fit-content;margin-bottom: 50px;">
+                        <p>Nesta época, houve avanços notáveis em áreas como o processamento de linguagem natural, visão computacional e sistemas especialistas. No entanto, o progresso da IA foi irregular, com períodos de entusiasmo seguidos de períodos de desilusão, conhecidos como “invernos da IA”, quando o financiamento e o interesse diminuíram devido a expectativas não atendidas.</p>
+                    </div>
+                </div>
+
+                <div class="columnleft" style="margin:0 auto;width:fit-content;padding:30px;margin-bottom:90px"><img src="imagens/aialongthetime.png" style="width:500px"></div>
+                
+                <h3 style="text-align:center;font-size:30px">Século XXI</h3>
+                <div class="columnleft" style="width:fit-content;margin-bottom: 50px;">
+                    <p>Atualmente, a IA está a ter um crescimento significativo, impulsionado avanços tecnológicos e a crescente demanda por soluções inteligentes. Um exemplo notável desse avanço é o Chat GPT, uma das aplicações de IA mais conhecidas. O Chat GPT, desenvolvido pela OpenAI, utiliza a tecnologia de processamento de linguagem natural para interagir com os utilizadores de maneira conversacional. Essa tecnologia tem sido usada em várias áreas, desde assistentes virtuais e suporte ao cliente até chatbots em plataformas de redes sociais.</p>
+                </div>
+                <div class="columnleft" style="width: fit-content;margin:0 auto"><img src="imagens/chatgpt.png" style="width:700px;padding:20px;"></div>
+            </div>
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <b style="color:black;font-size: 30px;">Bem Vindo ao Menu Ajuda</b>
+                <img src="imagens/imagemajuda.jpeg" style="width: 700px;padding-top: 15px;">
+                <button id="button_fechar" ; onclick="fechar_ajuda()" ><span id="sair_ajuda" class="material-icons">close</span></button>
+                <p style="color:black;font-size:15px;">A página web possui uma interface intuitiva, em que <span style="color:red">A</span> corresponde ao menu ao qual o utilizador pode mudar de página. <span style="color:red">B</span>, botão que o utilizador pode recorrer quando se encontra no fundo de qualquer página e quer rapidamente ir para o topo.
+                    <br>
+                Ao longo das páginas existem diferentes recursos interativos como imagens, videos ou palavras que ao passar o cursor pela palavra poderá aparecer mais alguma informação adicional <span style="color:red">C</span>.    </p>
+            </div>    
+        </div> 
+    <!-- ESTA TB -->
+    </body>
+</html>

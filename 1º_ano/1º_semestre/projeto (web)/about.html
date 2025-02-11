@@ -1,0 +1,87 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/botaoclosenav.js"></script>
+        <!-- Icones para embelezar a estrutura -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Grupo 11</title>
+    </head>
+    <body>
+        <header class="intro"><div id="intro"><h1 id="Titulo">Sobre </h1></div></header>
+        <div class="botoes">
+            <button id="openPopupBtn" onclick="abrir_ajuda()"><p id="ajuda" class="material-icons">help</p></button>
+            <br>
+
+        </div>
+        <ul id="menu" class="menu">
+            <li><h1 style="text-align:left;margin-left:5%;font-size:45px;margin-bottom:15px;">Menu</h1>
+                <hr>
+            <button id="navbutton" class="navbutton"; onclick="toggleNav()" >
+                <span id="icon" class="material-icons">menu</span>
+            </button>
+                
+        
+        <div class="dropdown-show">  
+
+            
+            
+            <li><a style="margin-left:10%" href="index.html">Home</a></li>  
+            <li><a style="margin-left:10%" href="historia.html">História</a></li>
+            <li><a style="margin-left:10%" href="funcionamento.html">Funcionamento</a></li>
+            <li><a style="margin-left:10%" href="tecnicas.html">Técnicas </a></li>
+            <li><a style="margin-left:10%" href="potencialidades.html">Potencialidades</a></li>
+            <li><a style="margin-left:10%" href="perigos.html">Perigos</a></li>
+            <li><a style="margin-left:10%" href="curiosidades.html">Curiosidades</a></li>
+            <li><a style="margin-left:10%" href="testemunhos.html">Testemunhos</a></li>
+            <li class="ativo" onclick="alertar()"><a style="margin-left:5%" class="ativo" href="#">About</a></li>
+            <br>  
+            <img id="ua" src="imagens/ua.png">
+        </div>
+        </ul>
+        <div id="main">
+            
+            <button id="openmenu" type="btn" onclick="toggleNav()"><p id = "setinhamenu" class="material-icons">chevron_right</p></button>
+            <div id="conteudo">
+        <h2 style="text-align:center;font-size: 60px;">Grupo 11</h2>
+        <p><span>Martim Leitner (125 122), Tomás  Pinto (125 050) </span></p>
+        <p>leitnermartim@ua.pt, tomascardoso01@ua.pt</p>
+        <p>Caminho para o
+        <a style="font-size: 30px;"href="https://github.com/detiuaveiro/infor2024-ap--infor2024-ap-g11">Git Hub</a>
+        </p>
+        <hr>
+        <br>
+        <h1 style="margin-left:100px">Referências </h1>
+        <div class="columnleft" style="margin:0 auto"><ul><li><a href="https://www.w3schools.com" style="background-color: transparent;">https://www.w3schools.com</a></li>
+            <li><a href="hhttps://www.bbc.com" style="background-color: transparent;">https://www.bbc.com</a></li>
+            <li><a href="https://exame.com/" style="background-color: transparent;">https://exame.com/</a></li>
+            <li><a href="https://observador.pt/" style="background-color: transparent;">https://observador.pt/</a></li>
+            <li><a href="https://www.europarl.europa.eu/portal/en" style="background-color: transparent;">https://www.europarl.europa.eu/portal/en</a></li>
+            <li><a href="https://tecnoblog.net/" style="background-color: transparent;">https://tecnoblog.net</a></li>
+            <li><a href="https://yourstory.com/" style="background-color: transparent;">https://yourstory.com/</a></li>
+            <li><a href="https://www.bbc.com/news/technology-40716301" style="background-color: transparent;">https://www.bbc.com/news/technology-40716301</a></li>
+            <li><a href="https://diferencial.tecnico.ulisboa.pt/" style="background-color: transparent;">https://diferencial.tecnico.ulisboa.pt/</a></li>
+            <li><a href="https://www.nytimes.com/" style="background-color: transparent;">https://www.nytimes.com/</a></li>
+            <li><a href="https://www.rtp.pt/" style="background-color: transparent;">https://www.rtp.pt/</a></li>
+            <li><a href="https://www.hp.com/pt-pt/home.html" style="background-color: transparent;">https://www.hp.com/pt-pt/home.html</a></li>
+            
+            
+            
+        
+        
+        </ul></div>
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <b style="color:black;font-size: 30px;">Bem Vindo ao Menu Ajuda</b>
+                <img src="imagens/imagemajuda.jpeg" style="width: 700px;padding-top: 15px;">
+                <button id="button_fechar" ; onclick="fechar_ajuda()" ><span id="sair_ajuda" class="material-icons">close</span></button>
+                <p style="color:black;font-size:15px;">A página web possui uma interface intuitiva, em que <span style="color:red">A</span> corresponde ao menu ao qual o utilizador pode mudar de página. <span style="color:red">B</span>, botão que o utilizador pode recorrer quando se encontra no fundo de qualquer página e quer rapidamente ir para o topo.
+                    <br>
+                Ao longo das páginas existem diferentes recursos interativos como imagens, videos ou palavras que ao passar o cursor pela palavra poderá aparecer mais alguma informação adicional <span style="color:red">C</span>.    </p>
+            </div>    
+        </div> 
+    </body>
+</html>

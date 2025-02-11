@@ -1,0 +1,131 @@
+<!DOCTYPE html> 
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IEI</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="x-icon" href="imagens/favicon.ico">
+        <script src="js/botaoclosenav.js"></script>
+        <!-- Icones para embelezar a estrutura -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head> 
+    <body>
+        <header class="intro"><div id="intro"><h1 id="Titulo">Curiosidades </h1></div></header>
+        <div class="botoes">
+            <button id="openPopupBtn" onclick="abrir_ajuda()"><p id="ajuda" class="material-icons">help</p></button>
+            <br>
+
+            <button id="botaoscroll" type="btn" onclick="scrollcima()"><p id = "casa" class="material-icons">home</p></button>
+        </div>
+        <ul id="menu" class="menu">
+            <li><h1 style="text-align:left;margin-left:5%;font-size:45px;margin-bottom:15px;">Menu</h1>
+                <hr>
+            <button id="navbutton" class="navbutton"; onclick="toggleNav()" >
+                <span id="icon" class="material-icons">menu</span>
+            </button>
+                
+        <div class="dropdown-show">  
+
+            
+            <li><a style="margin-left:10%" href="index.html">Home</a></li>
+            
+            <li><a style="margin-left:10%" href="historia.html">História</a></li>
+            <li><a style="margin-left:10%" href="funcionamento.html">Funcionamento</a></li>
+            <li><a style="margin-left:10%" href="tecnicas.html">Técnicas </a></li>
+            <li><a style="margin-left:10%" href="potencialidades.html">Potencialidades</a></li>
+            <li><a style="margin-left:10%" href="perigos.html">Perigos</a></li>
+            <li class="ativo" onclick="alertar()"><a style="margin-left:5%" class="ativo" href="#">Curiosidades</a></li>
+            <li><a style="margin-left:10%" href="testemunhos.html">Testemunhos</a></li>
+            <li><a style="margin-left:10%" href="about.html">About</a></li>  
+            <br>  
+            <img id="ua" src="imagens/ua.png">
+        </div>
+        </ul>
+        <div id="main">
+            
+            <button id="openmenu" type="btn" onclick="toggleNav()"><p id = "setinhamenu" class="material-icons">chevron_right</p></button>
+            <div id="conteudo">
+                
+                
+                <h3 style="text-align:center;font-size: 60px;text-align: left;padding-left: 70px;">Xadrez</h3>
+
+                <div class="columnleft" style="height:fit-content;margin:0 auto ;margin-top: 100px;width: 800px;text-align:left;"> 
+                    <p>Garry Kasparov é um Grande Mestre do xadrez, ex-campeão do mundo no mundo do xadrez. Por muitos é considerado um dos maiores, se não, o melhor jogador de xadrez de todos os tempos. É admirado pelos fãs de xadrez pelas suas conquistas. Foi em 1985, com 22 anos, o jogador mais novo a conquistar o título de campeão do mundo e lutou e manteve o título até 1993.</p>
+                </div>
+                <div class="container" style="padding: 40px;">
+                    <div class="columnleft" style="height:fit-content;margin-bottom: 60px;width: 800px;text-align:left;"> 
+                    <p>No ano de 1996, Kasparov realizou 6 jogos contra o computador comandado por IA, ao qual o ex-campeão do mundo conseguiu acabar as 6 partidas com resultado favorável, 4 − 2. Garry venceu o primeiro confronto contra a máquina. Mas logo no ano a seguir realizou-se em Nova Iorque a desforra, à qual o mesmo supercomputador, Deep Blue, derrotou o Grande Mestre, por 3.5 − 2.5.</p>
+                    <p>Foi graças a essa derrota que foi criado um documentário, "Game Over Kasparov and the Machine" que relata essa mesma história. Os jogos foram cuidadosamente analisados, e após a vitória, Deep Blue tornou-se muito famoso. A sua vitória teve um impacto significativo, pois foi necessário alguém com um grande impacto em questões de intelectualidade ir a "baixo", neste caso perder um jogo que maioritariamente depende do intelecto do jogador, para que as pessoas percebessem que aquilo já seria um sinal que a inteligência artificial estaria a alcançar a inteligência dos humanos.</p>
+                </div>
+
+                <div class="columnleft" style="margin-top:90px; flex-direction: column; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px; width: auto; max-width: 400px;">
+                    <img src="imagens/chessmatch.png" alt="Partida de Xadrez" style="width: 400px; height: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                    <p style="text-align: center; margin-top: 10px; font-style: italic; color: #ffffff;">Garry Kasparov vs IA</p>
+                </div></div>
+
+                <h3 style="text-align:center;font-size: 60px;text-align: left;padding-left: 70px;">Pokémon Go</h3>
+                <div class="container" style="padding: 40px;">
+                    <div class="columnleft" style=" display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px; width: auto; max-width: 300px;">
+                        <img src="imagens/pokemongo.png" alt="Pokemon Go" style="width: 80%; height: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                        <p style="text-align: center; margin-top: 10px; font-style: italic; color: #ffffff;">Pokemon Go</p>
+                    </div>
+                    <div class="columnleft" style="height:fit-content;margin-top: 40px;">
+                        <p>Pokemon Go é um videojogo para dispositivos móveis, tendo sido disponibilizado pela primeira vez em 2016, e desde a sua data de lançamento obteve mais de 600 milhões de downloads. O jogo consiste em capturar pokémons. Para isso é necessário que o jogador se movimente, a movimentação do personagem no jogo é feita com base na localização real do jogador. Ou seja, isto obriga ao utilizador/jogador sair de casa para progredir no jogo.</p>
+                    <p>Numa determinada área na vida real, poderão existir mais coisas de interesse no jogo. Contudo, os pontos de interesse na vida real, como museus, monumentos e lojas, estão associados a recursos no jogo, ou seja, se o jogador se encontrar ao lado de um museu e tirar uma foto ao museu o jogador ganha recursos virtuais, recursos estes que necessita para evoluir.</p>
+                </div>
+                
+            </div>
+            <div class="columnleft" style="height:fit-content;margin-bottom: 60px;width:fit-content">
+                <p>Ou mesmo não estando perto de pontos de interesse, o jogo possui um recurso que faz com que através de Realidade Aumentada (RA) o jogador possa observar os seus pokémons no mesmo meio ambiente. A empresa criadora do jogo, Niantic, foi acusada de, através de todas estas funcionalidades, poder estar a usá-las para treinar IA. Foi afirmado que no mundo todo 10 milhões de localizações já foram analisadas e são feitas cerca de 1 milhão de novas análises através destes recursos. Como resposta a essa acusação, a Niantic afirmou que “As funcionalidades que apresentamos no nosso jogo para fazer scan são opcionais...” Ao cativar os jogadores com benefícios, se fizerem uso destas funcionalidades, torna algo que antes era opcional em algo obrigatório.</p>
+            </div>
+
+            <h3 style="text-align:center;font-size: 60px;text-align: left;padding-left: 70px;margin-top: 200px;">Detroit: Become Human</h3>
+            <div class="container" style="padding: 40px;">
+                <div class="columnleft" style="height:fit-content;margin-bottom: 60px;">
+                    <p>O videojogo conta a história de 3 robôs criados pela empresa fictícia CyberLife, e ao desenrolar da história, o jogo depende das escolhas que o jogador escolhe que os robôs tomem. No desenrolar do jogo, os robôs, que eram inicialmente controlados pelo seu respetivo humano, após algo inesperado acontecer, estes começam a pensar por eles próprios, aproximando os seus comportamentos cada vez mais aos comportamentos de um ser humano, desenvolvendo uma aproximação dos sentimentos dos humanos com os seus.</p>
+                </div>
+
+                <div class="columnleft" style="height: fit-content; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 100px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px; width: auto; max-width: 400px;">
+                    <img src="imagens/Detroit.png" alt="Detroit" style="width: 90%; height: auto; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                    <p style="text-align: center; margin-top: 10px; font-style: italic; color: #ffffff;">Detroit: Become Human</p>
+                </div>
+            </div>
+
+            <h3 style="text-align:center;font-size: 60px;text-align: left;padding-left: 70px;">Hal 9000</h3>
+
+                <div class="columnleft" style="height:fit-content;margin-bottom: 60px;width:fit-content">
+                    <p>Lançado em 1968, “2001: Odisseia no Espaço” realizado por Stanley Kubrick é um dos filmes mais marcantes da história do cinema. Uma experiência que começa na pré-história da Humanidade e passa para uma nave que ruma ao infinito, num drama envolvente da luta do homem contra a máquina.</p>
+                    <p>No filme, Hal 9000 é a IA que controla todos os aspetos da nave espacial Discovery One, que se dirige ao planeta Júpiter, e da vida dos astronautas que viajam a bordo. Embora HAL esteja programado para ajudar e levar os astronautas até o seu destino, a IA começa a tomar decisões por conta própria, originando resultados catastróficos. A sua omnipresença e relação com a tripulação destacam a complexa dualidade entre o potencial da tecnologia e os riscos que esta apresenta.</p>
+                </div>
+                <div class="columnleft" style="height:fit-content;width:fit-content;margin:0 auto;margin-bottom: 50px">
+                    
+                    <blockquote>
+                        <p>"I’m sorry Dave, I’m afraid I can’t do that".</p>
+                    </blockquote>
+                </div>
+                <div class="columnleft" style="margin:0 auto;height:fit-content; display: flex; justify-content: center; align-items: center; margin-bottom: 100px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ARJ8cAGm6JE" 
+                            title="YouTube video player" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            style="box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                    </iframe>
+                </div>
+                <div class="columnleft" style="height:fit-content;margin-bottom: 60px;width:fit-content">
+                    <p>Estas perturbadoras palavras do computador HAL 9000 definem a ansiedade atualmente predominante sobre o possível domínio da IA sobre a humanidade. O clássico do realizador Stanley Kubrick explora os avanços da tecnologia, apresentando talvez o cenário mais impressionante do conflito entre a máquina e o ser humano da história do cinema. Mesmo tendo sido lançado em 1968, “2001: Odisseia no Espaço” aborda temas muito à frente do seu tempo, e demonstra de forma brilhante um dos maiores problemas com o avanço das tecnologias.</p>
+                </div>
+
+            </div>
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <b style="color:black;font-size: 30px;">Bem Vindo ao Menu Ajuda</b>
+                    <img src="imagens/imagemajuda.jpeg" style="width: 700px;padding-top: 15px;">
+                    <button id="button_fechar" ; onclick="fechar_ajuda()" ><span id="sair_ajuda" class="material-icons">close</span></button>
+                    <p style="color:black;font-size:15px;">A página web possui uma interface intuitiva, em que <span style="color:red">A</span> corresponde ao menu ao qual o utilizador pode mudar de página. <span style="color:red">B</span>, botão que o utilizador pode recorrer quando se encontra no fundo de qualquer página e quer rapidamente ir para o topo.
+                        <br>
+                    Ao longo das páginas existem diferentes recursos interativos como imagens, videos ou palavras que ao passar o cursor pela palavra poderá aparecer mais alguma informação adicional <span style="color:red">C</span>.    </p>
+                </div>    
+            </div>   
+    </body>
+</html>
