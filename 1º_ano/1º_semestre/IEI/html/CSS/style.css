@@ -1,0 +1,39 @@
+body {
+    font-size: 11pt;
+    font-family:  Palatino, serif;
+}
+
+
+h1 { 
+    color: red;
+
+}
+
+h2 {
+    color: tomato;
+
+}
+
+p {
+    color:blue;
+    
+}
+
+
+table, td, th {
+    border: 1px solid; 
+    }
+
+#cooldest {
+    background-color:aqua;
+}
+
+
+.meses {
+    background-color:burlywood;
+}
+
+.button-ok {
+    background-color: tomato;
+}
+    
