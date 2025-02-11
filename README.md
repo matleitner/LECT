@@ -1,2 +1,2 @@
-# LECI
-Material LECI do Leitnerzinpvp
+# LECT
+Material LECT do Leitnerzinpvp
