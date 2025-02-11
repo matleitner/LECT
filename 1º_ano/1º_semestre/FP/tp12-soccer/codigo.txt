@@ -1,0 +1,54 @@
+import sys 
+
+
+RANKING, NOME, PAIS, SCORE,SUBIDA, SCOREBEFORE, UPDOWN = 0,1,2,3,4,5,6 #posso usar isto ou, desempacotamento 
+
+#for tup in lst:
+#   RANKING, NOME, PAIS, SCORE,SUBIDA, SCOREBEFORE, UPDOWN = tup
+
+
+def loadfile(filename):
+    lista_total = []
+    with open(filename,'r', encoding='utf-8') as f:
+        f.readline() #le a primeira linha (skipa)
+        for line in f:
+            lst = line.strip().split(',')
+            tup  = (int(lst[RANKING]),lst[NOME],lst[PAIS],int(lst[SCORE]), int(lst[SCOREBEFORE]),int(lst[UPDOWN]+lst[SUBIDA]))
+            lista_total.append(tup)
+    return lista_total
+
+def returnclubesfile(lst,pais, f):
+    print(f"Soccer Clubs from: {pais}\n", file =f)
+    print("{:<20s}{:>7s}{:>7s}".format("NOME","RANKING","SCORE"), file =f) #s tring, d numero
+    for tup in lst:
+        if tup[PAIS] == pais:
+            print("{:<20s}{:>7d}{:>7d}".format(tup[NOME],tup[RANKING],tup[SCORE]), file =f) #campos numericos sao auto ajustados a direita
+
+def returnclubes(lst,pais):
+    returnclubesfile(lst,pais, None) #None ou sys.strdout()
+
+
+def savereturnclubes(lst, country,filename):
+    with open(filename,'w',encoding='utf8') as f:
+        returnclubes(lst, country, f)
+
+def countryteams(lst):
+    dic = {}
+    for tup in lst:
+        if tup[PAIS] not in dic:
+            dic[tup[PAIS]] =[]
+        dic[tup[PAIS]].append(tup[NOME])
+    
+    
+    return dic
+
+
+
+def main():
+    lst = loadfile('Soccer_Football_Clubs_Ranking.csv')
+    returnclubes(lst,'Portugal')
+
+    #savereturnclubes(lst, "Spain",'spain.')
+    #print(countryteams(lst))
+if __name__ == '__main__':
+    main()

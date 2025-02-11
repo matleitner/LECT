@@ -1,0 +1,68 @@
+<p>This page contains commented resolutions of some problems in
+<code>aula06.pdf</code>.</p>
+<h1 id="exercise-5a">Exercise 5a)</h1>
+<p>We want to define a <code>floatInput</code> function that will ask
+for a number, but will insist until the user inputs a proper number
+(float).</p>
+<h2 id="analysis">Analysis</h2>
+<p>The function takes a prompt as an argument and should return the
+number as a result. A good first version is below.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> floatInput(prompt):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(<span class="bu">input</span>(prompt))</span></code></pre></div>
+<p>This will work fine if the user inputs a valid number, but will
+produce a <code>ValueError</code> exception if the user inputs some text
+that is not convertible to a <code>float</code>. This is exactly what we
+want to fix. Instead of an error, we’d like the function to show a
+warning message. We need to use <code>try-except</code> for that.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">float</span>(<span class="bu">input</span>(prompt))</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Not a float!&quot;</span>, <span class="bu">file</span><span class="op">=</span>sys.stderr)</span></code></pre></div>
+<p>But we also want to repeat indefinitely if there is an error. So, a
+complete solution is the following.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> floatInput(prompt):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="bu">float</span>(<span class="bu">input</span>(prompt))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;Not a float!&quot;</span>, <span class="bu">file</span><span class="op">=</span>sys.stderr)</span></code></pre></div>
+<h1 id="exercise-5b">Exercise 5b)</h1>
+<p>We want to add two new arguments, <code>min</code> and
+<code>max</code>, to the function so that only values in range
+<code>[min, max]</code> are accepted.</p>
+<h2 id="analysis-1">Analysis</h2>
+<p>Basically, before returning a value, we need to check if it is in the
+valid range. If not, the function should show a different warning, and
+repeat.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> floatInput(prompt, <span class="bu">min</span>, <span class="bu">max</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            v <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(prompt))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">min</span> <span class="op">&lt;=</span> v <span class="op">&lt;=</span> <span class="bu">max</span>: <span class="cf">return</span> v</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;Value should be in [</span><span class="sc">{}</span><span class="st">, </span><span class="sc">{}</span><span class="st">]!&quot;</span>.<span class="bu">format</span>(<span class="bu">min</span>, <span class="bu">max</span>), <span class="bu">file</span><span class="op">=</span>sys.stderr)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;Not a float!&quot;</span>, <span class="bu">file</span><span class="op">=</span>sys.stderr)</span></code></pre></div>
+<h1 id="exercise-5c">Exercise 5c)</h1>
+<p>We want to make the <code>min</code> and <code>max</code> arguments
+optional.</p>
+<h2 id="analysis-2">Analysis</h2>
+<p>To make the two additional arguments optional, we must provide
+appropriate default argument values in the definition.</p>
+<ul>
+<li>If the user calls the function with no <code>min</code> nor
+<code>max</code> argument, we want the function to accept any float
+value in range [-∞, ∞].</li>
+<li>If the user ommits the <code>max</code> argument, we want to accept
+values in [min, ∞].</li>
+<li>If the user ommits the <code>min</code> argument, we want to accept
+values in [-∞, max].</li>
+</ul>
+<p>All of these may be achieved by specifying the following default
+arguments.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> floatInput(prompt, <span class="bu">min</span><span class="op">=-</span>math.inf, <span class="bu">max</span><span class="op">=</span>math.inf):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    ...  <span class="co"># same as before</span></span></code></pre></div>
