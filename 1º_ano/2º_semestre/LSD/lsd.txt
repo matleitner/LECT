@@ -1,0 +1,14 @@
+library IEEE;
+use IEEE.std_logic_1164.all (não sei)
+
+
+entity nome_da_entidade is
+ port ( A: in std.logic;
+	B: in std_logic_vector(1 downto 0);
+	C: out std_logic_vector (2 downto 0));
+
+architecture nome_arquitetura of
+	nome_arcquitetura is
+begin
+	C <= A and B
+end nome_arquitetura
