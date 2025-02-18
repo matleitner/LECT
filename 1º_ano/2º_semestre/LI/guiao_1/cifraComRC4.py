@@ -17,7 +17,7 @@ def abrir_file(filename):
         nome= f.read()
         cipher = ARC4.new(key.encode("utf-8"))
         cryptogram = cipher.encrypt(nome.encode("utf-8"))
-        os.write(1,cryptogram) #Em Python os descritores dos ficheiros stdin, stdout e stderr são representados pelos números inteiros, respetivamente, 0, 1 e 2.
+        os.write(1,cryptogram)                                                                                              #Em Python os descritores dos ficheiros stdin, stdout e stderr são representados pelos números inteiros, respetivamente, 0, 1 e 2.
         
         decipher = ARC4.new(key.encode("utf-8"))
         print()
