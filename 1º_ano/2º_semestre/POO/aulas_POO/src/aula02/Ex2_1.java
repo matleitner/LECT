@@ -14,7 +14,7 @@ public class Ex2_1 {
         int minutos = (seg %3600)/60;
         int s = (seg%3600%60);
         System.out.println(hora+":"+minutos+":"+s);
-
+        sc.close();
         
     }
 }

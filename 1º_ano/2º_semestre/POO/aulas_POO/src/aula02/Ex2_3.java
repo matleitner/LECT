@@ -12,6 +12,6 @@ public class Ex2_3 {
     double angulo_A_C = (Math.asin(cateto_b/hipotenusa_c));
     System.out.print("O valor da hipotenusa do trinângulo é: " + hipotenusa_c);
     System.out.print("O valor do ângulo A^C é: "+ Math.round( Math.toDegrees(angulo_A_C))+"º");
-
+    sc.close();
     }
 }
