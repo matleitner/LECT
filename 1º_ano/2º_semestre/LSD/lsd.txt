@@ -1,3 +1,24 @@
+
+~
+40%
+pratica projeto 1 (10/04/2025)
+
+40%
+
+pratica projeto 2 (05/06/2025)
+
+20%
+
+avaliação na aula
+~
+
+
+uso placas fora das aulas 
+Eng. Manuel Arez manuel.arez@ua.pt 
+sala/gabinete: 04.01.23 
+
+
+
 library IEEE;
 use IEEE.std_logic_1164.all (não sei)
 
@@ -11,4 +32,5 @@ architecture nome_arquitetura of
 	nome_arcquitetura is
 begin
 	C <= A and B
-end nome_arquitetura
+end nome arquitetura
+
