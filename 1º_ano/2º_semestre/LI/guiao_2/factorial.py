@@ -8,9 +8,7 @@ def factorial(x):
     while x>1:
         reg*=x
         x-=1
-
     return reg
-
 def main():
     print( factorial(-1))
 
