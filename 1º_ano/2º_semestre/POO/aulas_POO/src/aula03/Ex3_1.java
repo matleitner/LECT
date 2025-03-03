@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 public class Ex3_1 {
     public static void main(String[] args){
+        System.out.print("Insira um número: ");
         DecimalFormat df = new DecimalFormat("#,###");
         int numeroInt = Extra.Verificador();
         int somador = 0;
