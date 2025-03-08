@@ -6,10 +6,10 @@ public class Extra {
     }        
     
         
-    public static int Verificador(){
+    public static int Verificador(int numeroInteiro){
         
         Scanner sc = new Scanner(System.in);
-        int numeroInteiro = sc.nextInt();
+        
         
             while (numeroInteiro<0)
             {
@@ -19,7 +19,6 @@ public class Extra {
         
         sc.close();
         
-        System.out.println("Check!");
         return numeroInteiro ;
     }
 
