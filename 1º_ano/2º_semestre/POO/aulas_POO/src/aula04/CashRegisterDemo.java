@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+
 class Product {
     private String name;
     private double price;
@@ -28,6 +30,12 @@ class Product {
 
 
 class CashRegister {
+
+    public addProduct(){
+
+        
+
+    }
     
     // TODO: completar implementação da classe
 

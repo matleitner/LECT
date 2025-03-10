@@ -6,10 +6,10 @@ public class Extra {
     }        
     
         
-    public static int Verificador(int numeroInteiro){
+    public static int Verificador(){
         
         Scanner sc = new Scanner(System.in);
-        
+            int numeroInteiro = sc.nextInt();
         
             while (numeroInteiro<0)
             {
@@ -18,9 +18,8 @@ public class Extra {
             }
         
         sc.close();
-        
-        return numeroInteiro ;
-    }
+        return numeroInteiro;
+            }
 
     public static boolean isPrime(int num){
         for(int i= num-1; i>=2; i-- )

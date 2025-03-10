@@ -9,38 +9,25 @@ public class Ex3_2 {
 
         String resposta = sc.next();
         int numero =(int) (Math.random() * 100 +1);
-        int guess;
         System.out.println(resposta);
+        int tentativa = 0;
         System.out.println(numero);
-       
-        while(true)
-        {
-            if(!(resposta.toUpperCase().equals("SIM") || resposta.toUpperCase().equals("S"))){
-                
-            System.out.println("Obrigado"); 
-            break;}
-            
-            System.out.print("Insira um numero 0 a 100: ");
-            do {guess = sc.nextInt();
-            guess = Extra.Verificador(guess);
-            if (guess < numero)System.out.println("O numero que eu estou a pensar é maior que isso...");
-                
-                
-            else if (guess > numero)
-                System.out.println("O numero que eu estou a pensar é menor que isso...");                
 
+        if (resposta.toUpperCase().equals("SIM") || resposta.toUpperCase().equals("S"))
+        {while(true)
+            {
+                tentativa++;
+                System.out.println("Insira um numero");
+                int guess = Extra.Verificador();
                 
-            else {
-                System.out.println("O numero que eu estou a pensar é exatamente esse!\n PARABÉNS!!!!");
+                if (guess == numero){System.out.print("BOUA"+ tentativa); break;}
 
-                }
+                else if (guess < numero) System.out.println("O numero que estou a pensar é maior que isso");
+
+                else System.out.println("O numero que estou a pensar é menor que isso");
+
             }
-            while(guess != numero);
-
-
-            System.out.println("Deseja continuar?");
-            
-            resposta = sc.next();
+        
         }
 
 
