@@ -31,7 +31,7 @@ class Product {
 
 class CashRegister {
 
-    public addProduct(){
+    public void addProduct(){
 
         
 
