@@ -1,3 +1,5 @@
+package aula04;
+
 import java.util.Scanner;
 
 class Car {
@@ -5,29 +7,43 @@ class Car {
     public String model;
     public int year;
     public int kms;
-
     public Car(String make, String model, int year, int kms) {
         this.make = make;
         this.model = model;
         this.year = year;
         this.kms = kms;
     }
-
+    
     public void drive(int distance) {
+        
+        kms += distance;
         //TODO: acumular distância percorrida
     }
-
+    
+    
 }
 
 public class CarDemo {
-
+    
     static Scanner sc = new Scanner(System.in);
-
+    
+    public void toString(String dados){
+        System.out.println(dados.split(","));
+    }
     static int registerCars(Car[] cars) {
         // TODO: pede dados dos carros ao utilizador e acrescenta ao vetor
         // registo de carros termina quando o utilizador inserir uma linha vazia 
         // devolve número de carros registados
-        System.out.print("Insira dados do carro (marca modelo ano quilómetros): ");
+            System.out.print("Insira dados do carro (marca modelo ano quilómetros): ");
+            int counter = 0;
+            String dados ="S";
+            while(dados != ""){
+            dados = sc.nextLine();
+            dados.split(",");
+            counter++;
+            System.out.println(dados.split(","));
+        }
+        return counter;  
    }
 
     static void registerTrips(Car[] cars, int numCars) {

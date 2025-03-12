@@ -1,4 +1,7 @@
-import java.lang.reflect.Array;
+package aula04;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class Product {
     private String name;
@@ -30,15 +33,33 @@ class Product {
 
 
 class CashRegister {
-
-    public void addProduct(){
-
-        
+    List <Product> produtos;
+    public CashRegister(){
+        produtos = new ArrayList<>();
 
     }
-    
-    // TODO: completar implementação da classe
 
+
+    public void addProduct(Product b){
+            produtos.add(b);
+            }
+            
+public String toString(){
+    System.out.println( "Product \t Price \t\t Quantity \t Total");
+    double soma = 0; 
+    for (Product product : produtos){System.out.printf("%-10s \t %-8.2f \t %-8d \t %.2f\n", 
+    product.getName(), 
+    product.getPrice(), 
+    product.getQuantity(), 
+    product.getTotalValue());
+    soma += product.getTotalValue();    
+}
+
+    return "\nTotal value: "+ soma;
+        
+}
+    
+// TODO: completar implementação da classe
 }
 
 public class CashRegisterDemo {
