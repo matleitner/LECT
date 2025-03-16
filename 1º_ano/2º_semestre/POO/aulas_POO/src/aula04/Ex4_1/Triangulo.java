@@ -12,7 +12,7 @@ public class Triangulo {
         this.l3 = l3;
         
     }
-    double AreaTriangulo(){
+    double areaTriangulo(){
         double S = (l1 + l2 +l3)/2;
         return Math.sqrt(S*(S-l1)*(S-l2)*(S-l3));
     }
@@ -30,18 +30,22 @@ public class Triangulo {
     }
 
     @Override
-    public boolean equals(Triangulo t) {
+    public boolean equals(Object obj){
+        if (obj== this){
+            Triangulo t = (Triangulo) obj;
         double[] ladosTriangulos = {t.getL1(), t.getL2(), t.getL3()};
         double[] ladosTriangulos1 = {this.getL1(), this.getL2(), this.getL3()};
         Arrays.sort(ladosTriangulos);
         Arrays.sort(ladosTriangulos1);
-        for (int i=0; i< 2; i++){
+        for (int i=0; i< 3; i++){
             if(ladosTriangulos[i] != ladosTriangulos1[i]){
                 return false;
-
             }
         }
         return true;
-
+    }
+    if (obj == null || getClass() != obj.getClass()) return false;
+    
     }
 }
+
