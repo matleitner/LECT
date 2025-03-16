@@ -1,4 +1,7 @@
+package aula04;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 class Car {
     public String make;
@@ -15,14 +18,23 @@ class Car {
 
     public void drive(int distance) {
         //TODO: acumular distância percorrida
+        kms += distance; 
     }
 }
 
 public class SimpleCarDemo {
 
     static Scanner sc = new Scanner(System.in);
+    
 
     static void listCars(Car[] cars) {
+        System.out.println("Lista de carros registados");
+
+        for (int i = 0; i>10; i++) {
+            
+            System.out.println(cars[i]);
+        
+        }
         // TODO: lista todos os carros registados
         // Exemplo de resultado
         // Carros registados: 
@@ -33,10 +45,10 @@ public class SimpleCarDemo {
 
     public static void main(String[] args) {
 
-        Car[] cars = // TODO: completar
-        cars[0] = // TODO: completar
-        cars[1] = // TODO: completar
-        cars[2] = // TODO: completar
+        Car[] cars = {};// TODO: completar
+        cars[0] = {"FOrd", "a11", 111, 123};// TODO: completar
+        // cars[1] = // TODO: completar
+        // cars[2] = // TODO: completar
 
         listCars(cars);
 

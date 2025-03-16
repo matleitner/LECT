@@ -6,6 +6,8 @@ def main ():
 
     while True:
         str_data = input("<-: ")
+        if not str_data:
+            break
         b_data = str_data.encode("utf-8")
         udp_s.sendto(b_data, server_addr)
 
