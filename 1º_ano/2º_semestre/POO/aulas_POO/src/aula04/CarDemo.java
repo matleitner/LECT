@@ -61,7 +61,7 @@ public class CarDemo {
         System.out.print("Registe uma viagem no formato \"carro:distância\": ");
         String trip = sc.nextLine();
         String [] tripa = trip.split(":");
-        cars[Integer.parseInt(tripa[0])].kms += Integer.parseInt(tripa[1]);  
+        cars[Integer.parseInt(tripa[0])].kms += Integer.parseInt(tripa[1]); 
         // TODO: pede dados das viagens ao utilizador e atualiza informação do carro
         // registo de viagens termina quando o utilizador inserir uma linha vazia 
     }
@@ -70,8 +70,8 @@ public class CarDemo {
     static void listCars(Car[] cars) {
         System.out.println("\nCarros registados: ");
         for (int i = 0; i< cars.length; i++ ){
-
-            System.out.println("O carro " + i + ":" +  cars[i]);
+            if( cars[i] != null)
+            System.out.println("O carro " + i + " : " +  cars[i]);
         }
         // TODO: lista todos os carros registados
         // Exemplo de resultado
