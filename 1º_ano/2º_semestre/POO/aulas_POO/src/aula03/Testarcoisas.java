@@ -14,5 +14,6 @@ public class Testarcoisas {
             int guess = sc.nextInt();
             System.out.println(guess + "Olá");
         }
+    sc.close();
     }
 }
