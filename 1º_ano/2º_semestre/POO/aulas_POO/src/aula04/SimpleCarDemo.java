@@ -1,7 +1,6 @@
 package aula04;
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
+
 
 class Car {
     public String make;
@@ -15,6 +14,13 @@ class Car {
         this.year = year;
         this.kms = kms;
     }
+
+    @Override
+    public String toString(){
+        return make + " " + model + ", " + year + ", kms: " + kms;
+
+    }
+
 
     public void drive(int distance) {
         //TODO: acumular distância percorrida
@@ -30,9 +36,9 @@ public class SimpleCarDemo {
     static void listCars(Car[] cars) {
         System.out.println("Lista de carros registados");
 
-        for (int i = 0; i>10; i++) {
+        for (int i = 0; i<cars.length; i++) {
             
-            System.out.println(cars[i]);
+            System.out.println(cars[i].toString());
         
         }
         // TODO: lista todos os carros registados
@@ -45,10 +51,10 @@ public class SimpleCarDemo {
 
     public static void main(String[] args) {
 
-        Car[] cars = {};// TODO: completar
-        cars[0] = {"FOrd", "a11", 111, 123};// TODO: completar
-        // cars[1] = // TODO: completar
-        // cars[2] = // TODO: completar
+        Car[] cars = new Car[3];// TODO: completar
+        cars[0] = new Car("Renault", "Megane Sport ", 2015, 35356);// TODO: completar
+        cars[1] = new Car("Toyota", "Camry", 2010,  32456); // TODO: completar
+        cars[2] = new Car("Mercedes" ,"Vito", 2008, 273891); // TODO: completar
 
         listCars(cars);
 
@@ -59,6 +65,7 @@ public class SimpleCarDemo {
             System.out.printf("Carro %d viajou %d quilómetros.\n", j, kms);
             
             // TODO: adicionar viagem ao carro j
+            cars[j].drive(kms);
         }
 
         listCars(cars);
