@@ -42,10 +42,10 @@ public class Triangulo {
                 return false;
             }
         }
-        return true;
     }
     if (obj == null || getClass() != obj.getClass()) return false;
+    return true;
     
-    }
+}
 }
 
