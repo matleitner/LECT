@@ -1,6 +1,6 @@
 package aula05.Ex5_1;
 import aula02.Extra;
-
+import java.util.Scanner;
 class DataDiaMesAno{
     int day;
     int month;
@@ -90,7 +90,7 @@ public class DateYMD {
         return 31;
     }
     public static boolean leapYear( int year ){
-        if(year%4== 0 &&  year%100==0){
+        if(year%400==0 || (year%4== 0 &&  year%100!=0)){
             return true;
         }
         return false;
@@ -103,10 +103,32 @@ public class DateYMD {
         return false;
     }
     public static void main(String[] args){
-        DataDiaMesAno data = new DataDiaMesAno(23, 1, 2023);
-        System.out.println("Ola!" + valid(data.getDay(), data.getMonth(), data.getYear()));
-        data.increment(112);
-        System.out.println(data);
-    
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Date opperations:\n1 - create new date\n2 - show current date\n 3 - increment date \n0 - exit");
+        int op = sc.nextInt();
+        while(op!=0){
+        switch(op){
+            case 1:
+                DataDiaMesAno data = new DataDiaMesAno(1, 1, 1);
+                System.out.println("Insira uma data: Dia/Mes/Ano");
+                String inputData = sc.next();
+                String diaMesAno [] = inputData.split("/");
+                data.setDay(Integer.parseInt(diaMesAno[0]));
+                data.setMonth(Integer.parseInt(diaMesAno[1]));
+                data.setYear(Integer.parseInt(diaMesAno[2]));
+            case 2:
+                
+                System.out.println("null");
+            case 3:
+
+
+            case 0:
+                System.out.println("BYE");
+                break;
+            }
+    }
+        
+        
+    sc.close();
     }
 }

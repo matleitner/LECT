@@ -46,10 +46,10 @@ public class Extra {
     // dia de cada mes 
     public static int monthDays(int month, int year){
         if(month == 2){
-            if(year%4== 0 &&  year%100==0){
-                return 28;
+            if(year%400==0 || (year%4== 0 &&  year%100!=0)){
+                return 29;
             }
-            return 27;
+            return 28;
         }
         else if( month == 4 || month == 6 || month == 9|| month == 11 ) return 30;
         return 31;
