@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 import aula02.Extra;
 
     public class CalendarioEx3_6 {
-    public static int getDayNumberOld(String date) 
+    public static int getDayNumberOld(String date)
     // meter aqui inteiros como argumentos e antes de chamar a funcao no main dividir a string 
     {
         //expected to be dd/mm/yy format
