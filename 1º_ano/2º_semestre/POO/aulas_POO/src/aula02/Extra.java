@@ -54,6 +54,16 @@ public class Extra {
         else if( month == 4 || month == 6 || month == 9|| month == 11 ) return 30;
         return 31;
     }
+
+    public static boolean esteArrayTem(int[] numbers, int target){
+        for (int num : numbers) {
+            if (num == target) {
+                return true;
+                
+            }
+        }
+        return false;
+    }
 }
 
 

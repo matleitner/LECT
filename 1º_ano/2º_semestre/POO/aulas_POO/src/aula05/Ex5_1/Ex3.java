@@ -2,6 +2,14 @@ package aula05.Ex5_1;
 
 
 public class Ex3 {
+    class RealEstate{
+            String nome;
+            int 
+        public static void  newProperty(String x, int i, int o){
+            this. = 
+
+        }
+    }
     public static void main(String[] args) {
         RealEstate imobiliaria = new RealEstate();
         imobiliaria.newProperty("Glória", 2, 30000);

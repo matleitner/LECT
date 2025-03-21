@@ -4,5 +4,9 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar"
     ],
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "editor.acceptSuggestionOnEnter": "off",
+    "microsoft-sovereign-cloud.customEnvironment": {
+        
+    }
 }
