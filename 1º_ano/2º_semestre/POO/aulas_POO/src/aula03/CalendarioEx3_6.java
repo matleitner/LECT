@@ -27,47 +27,48 @@ import aula02.Extra;
             "January", "February", "March", "April", "May", "June", 
             "July", "August", "September", "October", "November", "December"
         };
-        for (int y = 2000; y<=2023; y ++){
+        for (int y = 2025; y<=2025; y ++){
             System.out.print("---------------------\n         " + y + "\n");          
-            for (int m = 0; m<=11 ; m ++){
-                if (months[m].length()<=4)
+            for (int m = 1; m<=12 ; m ++){
+                if (months[m-1].length()<=4)
  
-                System.out.printf("\n %10s ", months[m]);          
-                else if(months[m].length() == 6 )
-                System.out.printf("\n %12s ", months[m]);
+                System.out.printf("\n %10s ", months[m-1]);          
+                else if(months[m-1].length() == 6 )
+                System.out.printf("\n %12s ", months[m-1]);
                           
-                else if(months[m].length() == 5 )
-                System.out.printf("\n %11s ", months[m]);
+                else if(months[m-1].length() == 5 )
+                System.out.printf("\n %11s ", months[m-1]);
                 
                 else                          
-                System.out.printf("\n %13s ", months[m]);          
+                System.out.printf("\n %13s ", months[m-1]);          
                 
                 
                 System.out.println("\nSu Mo Tu We Th Fr Sa");
                 for (int d= 1; d<= Extra.monthDays(m,y); d++){
 
-                    semanaDistribuida[getDayNumberOld(d, m, y)-1] = d;
-                    
+                    semanaDistribuida[getDayNumberOld(d, m-1    , y)-1] = d;
                     if(semanaDistribuida[6] != 0 || Extra.esteArrayTem(semanaDistribuida, Extra.monthDays(m, y))){
-                        for (int a = 0; a < semanaDistribuida.length; a++){
-                            if(semanaDistribuida[a] !=0 ){
-                                    if(semanaDistribuida[a]/10 == 0 ){
-                                        System.out.print(" "+semanaDistribuida[a]+" ");
+                        for (int a : semanaDistribuida){
+                            if(a !=0 ){
+                                    if(a/10 == 0 ){
+                                        System.out.print(" "+a+" ");
                                     }
                                     
                                     else {
-                                        System.out.print( semanaDistribuida[a] + " ");
+                                        System.out.print( a + " ");
                                     }
 
                             }
                             else{
-                                    System.out.print("   ");
+                                System.out.print("   ");
                             }
                         }
-                    
+                        
                         System.out.println();
                         semanaDistribuida = new int[7];
                     }
+                    
+                    
                 }
             }
         } 
