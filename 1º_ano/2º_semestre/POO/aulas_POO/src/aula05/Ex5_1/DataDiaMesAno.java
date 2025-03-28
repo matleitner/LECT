@@ -1,12 +1,12 @@
 package aula05.Ex5_1;
 import aula02.Extra;
 import java.util.Scanner;
-class DataDiaMesAno{
+class DateYMD{
     int day;
     int month;
     int year;
 
-    public DataDiaMesAno(int day, int month, int year){
+    public DateYMD(int day, int month, int year){
         this.day = day;
         this.month = month;
         this.year = year;
@@ -72,7 +72,7 @@ class DataDiaMesAno{
     }
 
 
-public class DateYMD {
+public class DataDiaMesAno {
     
     public static boolean validMonth(int month){
         if (1 <= month && month <= 12 ) return true;
@@ -109,7 +109,7 @@ public class DateYMD {
         while(op!=0){
         switch(op){
             case 1:
-                DataDiaMesAno data = new DataDiaMesAno(1, 1, 1);
+                DateYMD data = new DateYMD(1, 1, 1);
                 System.out.println("Insira uma data: Dia/Mes/Ano");
                 String inputData = sc.next();
                 String diaMesAno [] = inputData.split("/");
