@@ -1,10 +1,11 @@
-package aula05.Ex5_1;
+package aula05;
 
 
 public class Ex3 {
     class RealEstate{
             String nome;
-            int 
+            int i;
+            int o;
         public static void  newProperty(String x, int i, int o){
             this. = 
 

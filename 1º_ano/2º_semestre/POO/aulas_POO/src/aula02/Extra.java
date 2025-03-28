@@ -1,4 +1,6 @@
 package aula02;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 public class Extra {
     public static void main(String[] args){
@@ -45,13 +47,13 @@ public class Extra {
 
     // dia de cada mes 
     public static int monthDays(int month, int year){
-        if(month == 2){
+        if(month == 1){
             if(year%400==0 || (year%4== 0 &&  year%100!=0)){
                 return 29;
             }
             return 28;
         }
-        else if( month == 4 || month == 6 || month == 9|| month == 11 ) return 30;
+        else if( month == 3 || month == 5 || month == 8|| month == 10 ) return 30;
         return 31;
     }
 
@@ -64,6 +66,21 @@ public class Extra {
         }
         return false;
     }
+
+
+        public static  int getDayNumberOld(int dia, int mes, int ano)
+        // meter aqui inteiros como argumentos e antes de chamar a funcao no main dividir a string 
+        {
+            Calendar cal = new GregorianCalendar(ano ,mes , dia);
+            return cal.get(Calendar.DAY_OF_WEEK);
+        }
+
+        public static boolean allZero(int[] array){
+            for(int a: array){
+                if(a==0) return false;
+            }
+            return true;
+        }
 }
 
 
