@@ -9,7 +9,6 @@ public class CalendarioForm {
     private int year;
     private int month;
     private int day;
-    private ArrayList<int[]> events = new ArrayList<>();
     
     protected CalendarioForm(int year, int month, int day){
         this.year = year;
@@ -145,12 +144,12 @@ public class CalendarioForm {
 
 class CalendarioEx3_6 {
     public static void main(String[] args){
-        String[] daysOfTheWeek = {"Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        // String[] daysOfTheWeek = {"Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
         // Calendario cacalendario = new Calendario(2025 ,1 ,12);
-        CalendarioForm cal1 = new CalendarioForm(2024, 0, 12);
+        CalendarioForm cal1 = new CalendarioForm(1921, 1, 12);
         // cacalendario.exporMesCalendario();
-        System.out.println(cal1);
-        cal1.showCalendar();
-        System.out.println(daysOfTheWeek[cal1.getDayNumberOld(1,0,2025)]);
+        cal1.exporMesCalendario();
+        // cal1.showCalendar();
+        
     }
 }
