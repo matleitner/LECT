@@ -216,13 +216,13 @@ public class Ex5_2 {
     public static void main(String[] args){
         String[] daysOfTheWeek = {"Sunday", "Monday","Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
         // String[] monhtOfYear = {"Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Julh", "Ago", "Set", "Out", "Nov", "Dez"};
-        Calendario calendar = new Calendario(2024, 1, 12);
+        Calendario calendar = new Calendario(2025, 1, 12);
         System.out.println(calendar+ " and the first day of the year is a " + daysOfTheWeek[calendar.firstWeekOfTheDay()] );
         calendar.addEvent(2, 1, 2024);
         // calendar.addEvent(2, 1, 1234);
         // calendar.addEvent(30, 1, 1234);
         calendar.addEvent(3, 1, 2024);
-        calendar.addEvent(1, 1, 2024);
+        calendar.addEvent(1, 7, 2025);
         
         calendar.printEvents();
         // calendar.removeEvent(1, 1, 1234);
@@ -232,10 +232,10 @@ public class Ex5_2 {
         // System.out.println(daysOfTheWeek[calendar.firstWeekdayOfMonth(1)]);
         // System.out.println(calendar);
         calendar.exporMesCalendario();
-        // calendar.showCalendar();    
-        calendar.removeEvent(3, 1, 2024);
+        calendar.removeEvent(1, 7, 2025);
         calendar.exporMesCalendario();
-
+        calendar.showCalendar();    
+        
     }
     
 }
