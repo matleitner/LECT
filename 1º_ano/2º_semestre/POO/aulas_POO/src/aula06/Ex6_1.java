@@ -1,5 +1,5 @@
 package aula06;
-import aula03.CalendarioEx3_6;
+import aula05.Ex5_1.DateYMD;
 
 public class Ex6_1 {
     public class Pessoa{

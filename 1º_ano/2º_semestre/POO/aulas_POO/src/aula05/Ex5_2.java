@@ -143,7 +143,7 @@ public class Ex5_2 {
         }
         
         @Override
-        public void showCalendar(){         
+        public void showCalendar(){    
             int[] semanaDistribuida = new int[7];
             
             String[] months = {

@@ -1,7 +1,7 @@
 package aula05.Ex5_1;
 import aula02.Extra;
 import java.util.Scanner;
-class DateYMD{
+public class DateYMD{
     int day;
     int month;
     int year;
@@ -68,12 +68,6 @@ class DateYMD{
     }
 
 
-
-    }
-
-
-public class DataDiaMesAno {
-    
     public static boolean validMonth(int month){
         if (1 <= month && month <= 12 ) return true;
         return false;
@@ -127,8 +121,8 @@ public class DataDiaMesAno {
                 break;
             }
     }
-        
-        
     sc.close();
-    }
+
 }
+}
+
