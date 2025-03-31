@@ -1,10 +1,9 @@
 package aula05.Ex5_1;
-import aula02.Extra;
 import java.util.Scanner;
 public class DateYMD{
-    int day;
-    int month;
-    int year;
+    private int day;
+    private int month;
+    private int year;
 
     public DateYMD(int day, int month, int year){
         this.day = day;
@@ -43,7 +42,7 @@ public class DateYMD{
 
     public void increment(int incrementDays){
         while ( incrementDays > 0){
-            int daysInMonth = Extra.monthDays(month, year); // Obtém os dias do mês atual
+            int daysInMonth = monthDays(month, year); // Obtém os dias do mês atual
         
             if (day + incrementDays > daysInMonth) {
                 // Avança para o próximo mês
@@ -96,33 +95,33 @@ public class DateYMD{
         
         return false;
     }
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Date opperations:\n1 - create new date\n2 - show current date\n 3 - increment date \n0 - exit");
-        int op = sc.nextInt();
-        while(op!=0){
-        switch(op){
-            case 1:
-                DateYMD data = new DateYMD(1, 1, 1);
-                System.out.println("Insira uma data: Dia/Mes/Ano");
-                String inputData = sc.next();
-                String diaMesAno [] = inputData.split("/");
-                data.setDay(Integer.parseInt(diaMesAno[0]));
-                data.setMonth(Integer.parseInt(diaMesAno[1]));
-                data.setYear(Integer.parseInt(diaMesAno[2]));
-            case 2:
+    // public static void main(String[] args){
+    //     Scanner sc = new Scanner(System.in);
+    //     System.out.println("Date opperations:\n1 - create new date\n2 - show current date\n 3 - increment date \n0 - exit");
+    //     int op = sc.nextInt();
+    //     while(op!=0){
+    //     switch(op){
+    //         case 1:
+    //             DateYMD data = new DateYMD(1, 1, 1);
+    //             System.out.println("Insira uma data: Dia/Mes/Ano");
+    //             String inputData = sc.next();
+    //             String diaMesAno [] = inputData.split("/");
+    //             data.setDay(Integer.parseInt(diaMesAno[0]));
+    //             data.setMonth(Integer.parseInt(diaMesAno[1]));
+    //             data.setYear(Integer.parseInt(diaMesAno[2]));
+    //         case 2:
                 
-                System.out.println("null");
-            case 3:
+    //             System.out.println("null");
+    //         case 3:
 
 
-            case 0:
-                System.out.println("BYE");
-                break;
-            }
-    }
-    sc.close();
+    //         case 0:
+    //             System.out.println("BYE");
+    //             break;
+    //         }
+    // }
+    // sc.close();
 
 }
-}
+
 

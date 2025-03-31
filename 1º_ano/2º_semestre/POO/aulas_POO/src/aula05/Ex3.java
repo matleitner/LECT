@@ -1,10 +1,15 @@
 package aula05;
 import aula02.Extra.DateYMD;
+import aula05.Ex3.Property;
+
 import java.util.ArrayList;
 public class Ex3 {
 
     static  class Property{
-        private int id=1000;
+        
+        private static int  idCounter = 1000;   
+        private int id;
+
         private double price;
         private int numOfBedrooms;
         private String local;
@@ -15,7 +20,7 @@ public class Ex3 {
             this.local = local;
             this.numOfBedrooms = numOfBedrooms;
             this.price = price;
-            id++;
+            this.id = idCounter++;
         }
 
         public int getId(){return id;}
@@ -30,23 +35,32 @@ public class Ex3 {
         public double getPrice(){return price;}
         @Override
         public  String toString(){
-            return "Id "+id +" Local: "+ local+" Preço: " + price +"€ Disponivel: " + available;
+            return "Id "+id +" Local: "+ local+" Preço: " + price +"$\n" + "Numero de quartos:"+ numOfBedrooms +"\nDisponivel: " + available + "\n";
         }
         
         public boolean compare(int num){
             if(id == num) return true;
             else return false;
         }
-        
+        public void sellProperty(int num){available = false;}
+
+            public String setAuction(DateYMD date){
+                   
+                if (!available) {
+                     return "O imóvel " + id + " não está disponível para leilão.";
+                    
+                }
+                this.date = date;
+                return "O imóvel " + id + " foi colocado em leilão na data: " + date;
+            
+            }
+        }
     }
-    static class RealEstate{
+    
+
+    class RealEstate{
         
-        ArrayList<Object> imoveis;        
-        private double price;
-        private int numOfBedrooms;
-        private String local;
-        private boolean available;
-        private DateYMD date;
+        private ArrayList<Property> imoveis;        
 
         public RealEstate(){
             imoveis = new ArrayList<>();
@@ -57,39 +71,45 @@ public class Ex3 {
             imoveis.add(new Property(local, numOfBedrooms, price));
 
         }
-        public void sell(int id){
-            for (Object imovel : imoveis){
-                Property propriedade = (Property) imovel;
+        public String sell(int id){
+            for (Property propriedade : imoveis){
                 if(propriedade.getId()== id)
                     {
                         if(!propriedade.getAvailable()){
                         
-                        System.out.printf("Este imovel % não está disponivel", id);
+                        return "Este imovel"+ id +"não está disponivel" ;
                     }
-                    System.out.println("Sold! " + propriedade.getId() +" " + propriedade.getLocal());
-                    available = false; 
+                    propriedade.sellProperty(id);
+                    return "Sold! " + propriedade;
+                     
                 }
-                else {System.out.println("Não existe");}
             }
+            return "Não existe";
         }
-        public void setAuction(int id, DateYMD data, int numOfBedrooms){
-            if(available == false) System.out.println("Não é possivel colocar em leilão...");
-
-            else if(available == true) {
-                System.out.println("O imovel "+ id +" com " + numOfBedrooms + " quartos, que custa " + price + "€ foi leiloado no dia " + data);
+        public String setAuction(int id, DateYMD data){
+            for (Property propriedade : imoveis)
+            {
+                if(propriedade.getId() == id )
+                    {System.out.println (propriedade.setAuction(data));
+                     return "";}
             }
+            System.out.println("Imóvel com ID " + id + " não encontrado.");
+            return "";
         }
+            
+        
+    
 
         @Override 
         public String toString(){
-            for(Object a : imoveis)
+            for(Property a : imoveis)
                 System.out.println(a);
             return ""; 
 
         }
 
-    }
     
+
     public static void main(String[] args) {
         RealEstate imobiliaria = new RealEstate();
         imobiliaria.newProperty("Glória", 2, 30000);
@@ -97,16 +117,20 @@ public class Ex3 {
         imobiliaria.newProperty("Santa Joana", 3, 32000);
         imobiliaria.newProperty("Aradas", 2, 24000);
         imobiliaria.newProperty("São Bernardo", 2, 20000);
-
+        
+        System.out.println("putas");
         System.out.println(imobiliaria);
-
+        System.out.println("putas");
+        
         imobiliaria.sell(1001);
-        imobiliaria.setAuction(1002, new DateYMD(21, 3, 2023), 4);
-        imobiliaria.setAuction(1003, new DateYMD(1, 4, 2023), 3);
-        imobiliaria.setAuction(1001, new DateYMD(1, 4, 2023), 4);
-        imobiliaria.setAuction(1010, new DateYMD(1, 4, 2023), 4);
-
+        imobiliaria.sell(1004);
+        imobiliaria.setAuction(1002, new DateYMD(21, 3, 2023));
+        imobiliaria.setAuction(1003, new DateYMD(1, 4, 2023) );
+        imobiliaria.setAuction(1001, new DateYMD(1, 4, 2023));
+        imobiliaria.setAuction(1010, new DateYMD(1, 4, 2023));
+        System.out.println("\n");
         System.out.println(imobiliaria);
 
     }
 }
+

@@ -2,9 +2,13 @@ package aula02;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Month;
 public class Extra {
     public static void main(String[] args){
         System.out.println(isPrime(123));
+        int ola = LocalDate.now().getYear();
+        System.out.println(ola);
     }        
     
         
