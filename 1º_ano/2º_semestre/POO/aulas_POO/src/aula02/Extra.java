@@ -2,13 +2,25 @@ package aula02;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
-import java.time.LocalDate;
-import java.time.Month;
+// import java.time.LocalDate;
+// import java.time.Month;
+
+import java.util.ArrayList;
 public class Extra {
     public static void main(String[] args){
-        System.out.println(isPrime(123));
-        int ola = LocalDate.now().getYear();
-        System.out.println(ola);
+        // System.out.println(isPrime(123));
+        // int ola = LocalDate.now().getYear();
+        // System.out.println(ola);
+        // Calendar ola = new GregorianCalendar(2025,0,31);
+        ArrayList<String[]> aaa = new ArrayList<>();
+
+        String var = "Leitnermmartim@ua.pt.pt";
+
+        System.out.println(var.split("@"));
+        System.out.println(var.split("."));
+
+        for(String a : var.split("\\."))System.out.println(a);
+        // System.out.println(ola.get(Calendar.DAY_OF_WEEK));
     }        
     
         
@@ -86,76 +98,7 @@ public class Extra {
             return true;
         }
 
-        public static class DateYMD{
-            int day;
-            int month;
-            int year;
-        
-            public DateYMD(int day, int month, int year){
-                this.day = day;
-                this.month = month;
-                this.year = year;
-            }
-            
-            
-            public void setDay(int day){
-                this.day = day;
-            }
-        
-            public void setMonth(int month){
-                this.month = month;
-            }
-        
-            public void setYear(int year){
-                this.year = year;
-            }
-        
-        
-        
-        
-            public int getDay(){
-                return day;
-            } 
-        
-            public int getMonth(){
-                return month;
-            } 
-        
-            public int getYear(){
-                return year;
-            } 
-        
-        
-            public void increment(int incrementDays){
-                while ( incrementDays > 0){
-                    int daysInMonth = Extra.monthDays(month, year); // Obtém os dias do mês atual
-                
-                    if (day + incrementDays > daysInMonth) {
-                        // Avança para o próximo mês
-                        incrementDays -= (daysInMonth - day + 1);
-                        day = 1; // Reinicia o dia para o próximo mês
-                        month++;
-                        
-                        if (month > 12) { // Se passar de dezembro, avança para o próximo ano
-                            month = 1;
-                            year++;
-                        }
-                    } else {
-                        day += incrementDays;
-                        incrementDays = 0; // Finaliza o loop
-                    }
-                }
-            }
-        
-            @Override
-            public String toString(){
-                return day+ "-"+ month  +"-"+year; 
-            }
-        
         
         
             }
-        
-}
-
 

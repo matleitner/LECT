@@ -1,5 +1,5 @@
 package aula05.Ex5_1;
-import java.util.Scanner;
+// import java.util.Scanner;
 public class DateYMD{
     private int day;
     private int month;
