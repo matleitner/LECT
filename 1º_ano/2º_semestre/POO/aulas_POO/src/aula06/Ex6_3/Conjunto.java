@@ -10,27 +10,39 @@ public class Conjunto {
     Conjunto(){
         this.inteiros = new ArrayList<>();
     }
+    
     Conjunto(ArrayList<Integer> inteiros){
         this.inteiros = inteiros;
     }
+    
     ArrayList<Integer> getConjunto(){ return inteiros;} 
+    
     void setConjunto(ArrayList<Integer> inteiros){ this.inteiros =  inteiros;} 
+    
     
     @Override
     public String toString(){
         
         return inteiros.toString(); 
     }
+    
     void insert(int n){
         if(!inteiros.contains(n))
         inteiros.add(n);}
 
+    
     boolean contains(int n){
-        for(int a : inteiros){
-            if(a==n) return true;
+    
+        // for(int a : inteiros){
+        //     if(a==n) return true;
+        // }
+        // return false;
+
+
+        return inteiros.contains(n);
         }
-        return false;
-    }
+
+
     void remove(int n)
     {
         ArrayList<Integer> ola = new ArrayList<Integer>();
@@ -46,17 +58,27 @@ public class Conjunto {
     }
 
     Conjunto unir(Conjunto conj){
-        for(int num : inteiros )if(!conj.contains(num)){conj.getConjunto().add(num);}
+        Conjunto unir = new Conjunto(new ArrayList<>());
+        for(int num : inteiros )if(!conj.contains(num)){unir.insert(num);}
         
-        return conj;
+        return unir;
     }
+
+
     Conjunto subtract(Conjunto dif){
         Conjunto diferenca = new Conjunto(new ArrayList<Integer>());
         for(int num : this.getConjunto()){
-            System.out.println(diferenca);
+            
             if(!dif.contains(num))
+
              diferenca.insert(num);
-        }        
+        }     
+        for(int num1 : dif.getConjunto()){
+            
+            if(!this.contains(num1))
+
+             diferenca.insert(num1);
+        }       
         return diferenca;
     }
 
@@ -89,6 +111,7 @@ public class Conjunto {
             System.out.println("Diferença:" + c1.subtract(c2));
             c1.empty();
             System.out.println("c1:" + c1);
+            
  
         }
 

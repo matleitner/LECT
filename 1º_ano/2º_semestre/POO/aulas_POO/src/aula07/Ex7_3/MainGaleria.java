@@ -27,7 +27,31 @@ public class MainGaleria {
                     sc.nextLine();
                     switch (opcaoProduto) {
                         case 1:
-                            // Adicionar um Quadro
+                            System.out.println("Tipo de produto: ");
+                            int tipoDeProduto = sc.nextInt();
+                            switch(tipoDeProduto){
+                                case 1:
+
+                                    break;
+
+
+                                case 2:
+                                    break;
+                                
+                                
+                                case 3:
+                                    break; 
+                                
+                                case 4:
+                                    break;
+
+
+                                
+                            
+                            
+                            }
+
+                            galeria.addObra();
                             break;
                         case 2:
                             // Adicionar uma Escultura
@@ -52,5 +76,7 @@ public class MainGaleria {
                     break;
             }
         } while (opcao != 5);
+
+        
     }
 }

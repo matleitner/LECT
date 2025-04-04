@@ -1,4 +1,5 @@
 package aula05.Ex5_1;
+import aula05.Ex5_1.*;
 // import java.util.Scanner;
 public class DateYMD extends Date{
     
@@ -8,52 +9,43 @@ public class DateYMD extends Date{
     }
     
     
-    public void setDay(int day){
-        this.day = day;
-    }
-
-    public void setMonth(int month){
-        this.month = month;
-    }
-
-    public void setYear(int year){
-        this.year = year;
-    }
-
-
-
-
-    public int getDay(){
-        return day;
-    } 
-
-    public int getMonth(){
-        return month;
-    } 
-
-    public int getYear(){
-        return year;
-    } 
+   
     @Override
-    public void increment(int incrementDays){
-        while ( incrementDays > 0){
-            int daysInMonth = monthDays(month, year); // Obtém os dias do mês atual
+    public boolean equals(Object obj){
+        if (this == obj) return true; 
+            if (obj == null || getClass() != obj.getClass()) return false;
+        DateYMD data = (DateYMD) obj;
+        return this.getDay() == data.getDay() && data.getMonth() == this.getMonth() && data.getYear() == this.getYear(); 
+        }
+    
+
+
+    
+    @Override
+    public Date increment(int incrementDays){
+        while (incrementDays > 0){
+            int daysInMonth = monthDays(this.getMonth(), this.getYear()); 
         
-            if (day + incrementDays > daysInMonth) {
-                // Avança para o próximo mês
-                incrementDays -= (daysInMonth - day + 1);
-                day = 1; // Reinicia o dia para o próximo mês
-                month++;
+            if (this.getDay() + incrementDays > daysInMonth) {
                 
-                if (month > 12) { // Se passar de dezembro, avança para o próximo ano
-                    month = 1;
-                    year++;
+                incrementDays -= (daysInMonth -this.getDay() + 1);
+                this.setDay(1); 
+                this.setMonth(this.getMonth()+1);
+                
+                if (this.getMonth() > 12) { 
+                    this.setMonth(1);
+                    this.setYear(this.getYear()+1);
                 }
             } else {
-                day += incrementDays;
-                incrementDays = 0; // Finaliza o loop
+                this.setDay(this.getDay()+incrementDays);
+                incrementDays = 0; 
             }
+            
         }
+        this.setDay(this.getDay());
+        this.setMonth(this.getMonth());
+        this.setYear(this.getYear());
+        return this;
     }
 
     @Override
@@ -65,23 +57,29 @@ public class DateYMD extends Date{
     
     public static void main(String[] args){
         
-                DateYMD data = new DateYMD(1, 1, 2020);
+                Date data = new DateYMD(1, 1, 2020);
 
-                System.out.println("Insira uma data: Dia/Mes/Ano");
+                // System.out.println("Insira uma data: Dia/Mes/Ano");
 
-                String inputData = "04/2/2025";
+                // String inputData = "04/2/2025";
 
-                String diaMesAno [] = inputData.split("/");
+                // String diaMesAno [] = inputData.split("/");
 
-                data.setDay(Integer.parseInt(diaMesAno[0]));
+                // data.setDay(Integer.parseInt(diaMesAno[0]));
 
-                data.setMonth(Integer.parseInt(diaMesAno[1]));
+                // data.setMonth(Integer.parseInt(diaMesAno[1]));
 
-                data.setYear(Integer.parseInt(diaMesAno[2]));
+                // data.setYear(Integer.parseInt(diaMesAno[2]));
 
-                System.out.println(monthDays(data.getMonth(), data.getYear()));
+                // System.out.println(monthDays(data.getMonth(), data.getYear()));
+                
+                System.out.println(data.increment(10));
                 
     }
+
+
+
+    
 }
 
 

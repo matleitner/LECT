@@ -4,14 +4,43 @@ public abstract class Date{
     protected int day;
     protected int month;
     protected int year;
-    public abstract void increment(int increment);
+    public abstract Date increment(int increment);
     
     public Date(int day,int month, int year){
         this.day = day;
         this.month = month;
         this.year = year;
     }
-    
+    public int getDay(){
+        return day;
+    } 
+
+    public int getMonth(){
+        return month;
+    } 
+
+    public int getYear(){
+        return year;
+    } 
+    public void setDay(int day){
+        this.day = day;
+    }
+
+    public void setMonth(int month){
+        this.month = month;
+    }
+
+    public void setYear(int year){
+        this.year = year;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj) return true; 
+            if (obj == null || getClass() != obj.getClass()) return false;
+        Date data = (Date) obj;
+        return this.getDay() == data.getDay() && data.getMonth() == this.getMonth() && data.getYear() == this.getYear(); 
+        }
     
     public static boolean validMonth(int month){
         if (1 <= month && month <= 12 ) return true;
@@ -37,11 +66,10 @@ public abstract class Date{
 
 
     public static boolean valid(int day, int month, int year){
-        if(year > 0 && validMonth(month) && 0<= day && day <= monthDays(month, year)) return true; 
+        if(year > 0 && validMonth(month) && 0< day && day <= monthDays(month, year)) return true; 
         
         return false;
     }
-
-
+    
 
     }
