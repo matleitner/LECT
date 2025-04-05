@@ -66,7 +66,6 @@ public class Testar6_2 {
                 int numAlterar = sc.nextInt();
                 sc.nextLine();
 
-
             
             }
                 System.out.println("Não há contactos guardados");
@@ -99,7 +98,8 @@ public class Testar6_2 {
         menuResposta = sc.nextInt();
         sc.nextLine();
 
-        }
+    }
+        sc.close();
     }
     
     

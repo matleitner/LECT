@@ -23,7 +23,7 @@ public class Escultura extends Obra {
     @Override
     public String toString(){
         if(unicaPeca)
-        return "Este Quadro (id "+ identificador +"): "+ nomeObra + ", de " + autor + " custa: " + precoBase +" euros. Foi usada a madeira de:" + tipoDeMadeira + " Esta peça é única";
+        return this.getClass()+ "Este Quadro (id "+ identificador +"): "+ nomeObra + ", de " + autor + " custa: " + precoBase +" euros. Foi usada a madeira de:" + tipoDeMadeira + " Esta peça é única";
         
         
         return "Este Quadro (id "+ identificador +"): "+ nomeObra + ", de " + autor + " custa: " + precoBase +" euros. Foi usada a madeira de:" + tipoDeMadeira + " Esta peça tem " + exemplaresDaPeca + " exemplares";}

@@ -13,6 +13,12 @@ public class Obra {
         this.precoBase = precoBase;
         this.identificador = contadorindetificador++;
     }
+    public Obra(){
+        this.nomeObra = "";
+        this.autor = null;
+        this.precoBase = 0;
+        this.identificador = 0;
+    }
     
     public String getNomeObra(){return nomeObra;}
     public void setNomeObra(String nomeObra){this.nomeObra = nomeObra;}

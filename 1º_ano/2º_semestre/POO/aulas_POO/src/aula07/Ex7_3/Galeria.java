@@ -13,12 +13,14 @@ public class Galeria {
         listaObras = new Obra[numOfObras];
         counter = 0;
     }
-    
+
+    Obra[] getArrayObras(){return listaObras;}
     @Override
     public String toString(){ 
         String result = "";
         for (int i = 0; i < counter; i++) {
-            result += listaObras[i].toString() + "\t"; 
+            if(listaObras[i].identificador!= 0) 
+            result += listaObras[i].getidentificador() + ": " + listaObras[i].toString() + "\n"; 
         }
         
         return result;
@@ -31,14 +33,18 @@ public class Galeria {
             System.out.println("Não há mais espaço");    
     }
     public void vender(int identificador, double dinheiro){
-        for(int i = 0; i<numOfObras; i++){
+        int  i = 0;
+        while(i<=numOfObras){
+            
             if(listaObras[i].getidentificador()== identificador){
-                listaObras[i] = null;
                 double lucro = dinheiro - listaObras[i].getPrecoBase(); 
                 lucroTotal += lucro;
                 System.out.println("A " + listaObras[i].getClass() + " " + listaObras[i].getNomeObra() + " foi vendida a " + dinheiro + " lucro: " + lucro);
+                listaObras[i] = new ObraVendida();
+                break;
             }
-
+            i++;
+            System.out.println("Essa obra não existe");
         }
     }
     public double lucro(){return lucroTotal;}
