@@ -6,7 +6,7 @@ public class Contacto {
     private int id;
     private static int counterId = 1;
 
-    Contacto(int numTelefone, String email){
+    public Contacto(int numTelefone, String email){
         this.email = email;
         this.numTelefone = numTelefone;
         this.id = counterId++;

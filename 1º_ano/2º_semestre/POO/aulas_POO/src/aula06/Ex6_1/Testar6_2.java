@@ -63,7 +63,6 @@ public class Testar6_2 {
                 for(Pessoa contact : contactos){
                     System.out.println(contact);
                 }
-                int numAlterar = sc.nextInt();
                 sc.nextLine();
 
             

@@ -1,4 +1,4 @@
-package aula08;
+package aula08.Ex8_2;
 public class A08E02 {
 
 	public static void main(String[] args) {

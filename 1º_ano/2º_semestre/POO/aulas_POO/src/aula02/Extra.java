@@ -13,7 +13,7 @@ public class Extra {
         // System.out.println(ola);
         // Calendar ola = new GregorianCalendar(2025,0,31);
         ArrayList<String[]> aaa = new ArrayList<>();
-
+        System.out.println(aaa);
         String var = "Leitnermmartim@ua.pt.pt";
 
         System.out.println(var.split("@"));
