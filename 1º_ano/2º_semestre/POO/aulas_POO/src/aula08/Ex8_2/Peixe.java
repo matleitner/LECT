@@ -6,4 +6,8 @@ public class Peixe extends Alimento {
         super(calorias, proteinas, peso);
         this.tipoPeixe = tipoPeixe;
     }
+
+    public String toString(){
+        return "Peixe: " +  tipoPeixe + " Proteinas: " + proteinas + ", Calorias: " + calorias + ", Peso: " + peso ;
+    }
 }

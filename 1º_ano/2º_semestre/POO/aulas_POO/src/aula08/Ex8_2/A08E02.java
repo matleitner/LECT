@@ -1,4 +1,7 @@
 package aula08.Ex8_2;
+
+import java.util.ArrayList;
+
 public class A08E02 {
 
 	public static void main(String[] args) {
@@ -6,18 +9,23 @@ public class A08E02 {
 		Prato[] pratos = new Prato[Ementa.DiaSemana.values().length];
 		for (int i = 0; i < pratos.length; i++) {
 			pratos[i] = randPrato(i + 1);
-			System.out.println("A sair .. " + pratos[i]);
+		
+			System.out.println("\nA sair .. " + pratos[i]);
 
 			// Adiciona 2 ingredientes a cada prato
 			int ingred = 1;
 			do {
 				Alimento aux = randAlimento();
-				if (pratos[i].addIngrediente(aux)) {
+				while(!pratos[i].addIngrediente(aux)) {
+					System.out.println("\tERRO: não é possível adicionar Ingrediente " + ingred + ": " + aux);
+					aux = randAlimento();
+				} 
 					System.out.println("\tIngrediente " + ingred + " adicionado: " + aux);
 					ingred++;
-				} else
-					System.out.println("\tERRO: não é possível adicionar Ingrediente " + ingred + ": " + aux);
 			} while (ingred < 3);
+			ArrayList<Alimento> alimentos = pratos[i].getIngradientes();
+			
+			System.out.println(alimentos.get(0).compareTo(alimentos.get(1)));
 
 			ementa.addPrato(pratos[i], Ementa.DiaSemana.values()[i]);
 		}
@@ -35,7 +43,7 @@ public class A08E02 {
 			res = new Peixe(Ementa.TipoPeixe.CONGELADO, 31.3, 25.3, 200);
 			break;
 		case 2:
-			res = new Legume("Couve Flor", 21.3, 22.4, 150);
+			res = new Legume("Couve Flor", 21.3,22.4, 150);
 			break;
 		case 3:
 			res = new Cereal("Milho", 19.3, 32.4, 110);

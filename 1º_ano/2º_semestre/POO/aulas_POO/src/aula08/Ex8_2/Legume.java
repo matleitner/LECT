@@ -6,4 +6,7 @@ public class Legume extends Alimento implements Vegetariano{
         super(calorias, proteinas, peso);
         this.nome=nome;
     }
+    public String toString(){
+        return "Legume: " +  nome  + " Proteinas: " + proteinas + ", Calorias: " + calorias + ", Peso: " + peso ;
+    }
 }

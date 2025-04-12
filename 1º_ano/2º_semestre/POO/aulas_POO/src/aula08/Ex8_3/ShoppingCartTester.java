@@ -1,4 +1,4 @@
-package aula08;
+package aula08.Ex8_3;
 
 
 
@@ -17,6 +17,6 @@ public class ShoppingCartTester {
         carrinho.adicionarProduto(p4, 1);
 
         carrinho.listarProdutos();
-        System.out.printf("Preço total da compra %.2f\n", carrinho.calcularTotal());
+        System.out.printf("Preço total da compra %.2f €\n", carrinho.calcularTotal());
     }
 }

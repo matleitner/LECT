@@ -6,5 +6,8 @@ public class Cereal extends Alimento implements Vegetariano{
         super(calorias, proteinas, peso);
         this.nome = nome;
     }
+    public String toString(){
+        return "Cereal: " +  nome + " Proteinas: " + proteinas + ", Calorias: " + calorias + ", Peso: " + peso ;
+    }
     
 }

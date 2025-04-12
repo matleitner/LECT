@@ -1,5 +1,8 @@
 package aula06.Ex6_1;
+import java.util.Objects;
+
 import aula05.Ex5_1.DateYMD;
+import aula07.Ex7_3.Obra;
 
 
 // Isto faz parte do exercicio 6.2
@@ -48,7 +51,31 @@ import aula05.Ex5_1.DateYMD;
 
         @Override
         public String toString(){
-            return "Esta pessoa é o/a " + name + " nasceu a " + dataNasc + " cc: " + cc + "\nContactos: " + contacto ;
+            return "\nEsta pessoa é o/a " + name + " nasceu a " + dataNasc + " cc: " + cc + " Contactos: " + contacto ;
+
+        }
+        
+        @Override
+        public boolean equals(Object obj){
+        if(this!= obj)
+            return false;
+        if(obj ==null)
+            return false;
+        if(getClass() != obj.getClass()) 
+            return false;
+        Pessoa other = (Pessoa) obj;
+        
+        return name.equals(other.name)&&
+dataNasc.equals(other.dataNasc) && cc == other.cc && contacto == other.contacto; 
+
+ 
+}
+
+        @Override
+        public int hashCode() {
+            
+            
+            return Objects.hash(name, cc,dataNasc, contacto); 
         }
     }
     

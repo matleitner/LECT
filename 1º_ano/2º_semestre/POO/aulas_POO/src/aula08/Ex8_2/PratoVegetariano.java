@@ -6,5 +6,9 @@ public class PratoVegetariano extends Prato {
         super(nomeDoPrato);
 
     }
+    @Override
+    public String toString(){
+        return  nomeDoPrato + " composto por " + conjuntoAlimentos.size() +" ingredientes - Vegetariano";
+    }
     
 }

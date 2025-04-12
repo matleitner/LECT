@@ -12,6 +12,11 @@ public class Contacto {
         this.id = counterId++;
     }
 
+    public Contacto(int numTelefone){
+        this.numTelefone = numTelefone;
+    }
+
+
     public int getNumeroTelefone(){return numTelefone;}
     public String getEmail(){return email;}
     public void setEmail(String email){this.email = email;}
@@ -21,7 +26,7 @@ public class Contacto {
     public String toString(){
 
         if(email == null){
-            return "O id é: "+id+ ";\n O nº de telefone é: " + numTelefone; 
+            return "O id é: "+id+ "; O nº de telefone é: " + numTelefone; 
         }
         else if (numTelefone == 0){return "O id é:"+ id +";\n O email é: " + email;}
 

@@ -6,5 +6,12 @@ public class PratoDieta extends Prato {
         super(nomeDoPrato);
         this.limiteMaxCalorias = limiteMaxCalorias;
     }
-    
+    public double getLimiteMaxCalorias() {
+        return limiteMaxCalorias;
+    }
+    @Override
+    public String toString(){
+        return  nomeDoPrato + " composto por " + conjuntoAlimentos.size()+ " ingredientes. - Dieta (" + limiteMaxCalorias+")";
+    }
+
 }
