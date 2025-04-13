@@ -25,7 +25,7 @@ public class A08E02 {
 			} while (ingred < 3);
 			ArrayList<Alimento> alimentos = pratos[i].getIngradientes();
 			
-			System.out.println(alimentos.get(0).compareTo(alimentos.get(1)));
+			// System.out.println(alimentos.get(0).compareTo(alimentos.get(1)));
 
 			ementa.addPrato(pratos[i], Ementa.DiaSemana.values()[i]);
 		}
@@ -43,7 +43,7 @@ public class A08E02 {
 			res = new Peixe(Ementa.TipoPeixe.CONGELADO, 31.3, 25.3, 200);
 			break;
 		case 2:
-			res = new Legume("Couve Flor", 21.3,22.4, 150);
+			res = new Legume("Couve Flor", 91.3,22.4, 150);
 			break;
 		case 3:
 			res = new Cereal("Milho", 19.3, 32.4, 110);
