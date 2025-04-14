@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Servidor WEB com Conteúdos Estáticos e Dinâmicos</title>
+
+        <!-- Bootstrap minified CSS -->
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+
+        <!-- Personal Styles -->
+        <link rel="stylesheet" href="../css/style.css">
+          
+        <!-- jQuery library -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Bootstrap JavaScript -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+		<!-- Highcharts JavaScript -->
+		<script src="http://code.highcharts.com/highcharts.js"></script>
+
+		<!-- Graphic Draw JavaScript -->
+		<script src="../js/graphic.js"></script>
+
+		<!-- LeaftLet CSS e JavaScript -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css">
+		<script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+		<!-- Image Manipulation JavaScript -->
+		<script src="../js/timer.js"></script>
+
+		<!-- Clock JavaScript -->
+		
+		<!-- Distance JavaScript -->
+    </head>
+
+    <body>
+        <div class="container">
+			<nav class="navbar navbar-default">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><span style="color:red;font-weight:bold;">Laboratórios de Informática</span></a>
+				</div>
+
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#topicA">Topic A</a></li>
+						<li><a href="#topicB">Topic B - Graphics</a></li>
+
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Topic C<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#topicC1">Topic C - Map</a></li>
+									<li class="divider"></li>
+									<li><a href="#topicC2">Topic C - Image</a></li>
+								</ul>
+						</li>
+
+						<li><a href="html/upload.html" target="_blank">Topic D - UpLoad</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="html/about.html" target="_blank">
+							<span class="glyphicon glyphicon-user"></span> About</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<h2 id="topicA" style="text-align:center">Topic A - Dynamic Contents using Web Services</h2>
+			<br>
+			<!-- Clock -->
+
+			<!-- Distance -->			
+
+			<br><br>
+
+			<h2 id="topicB" style="text-align:center">Topic B - Graphics</h2>
+
+			<select id="selection" onchange="graphic()">
+				<option value="line"> Lines </option>
+				<option value="column"> Columns </option>
+				<option value="bar"> Bars </option>
+			</select>
+
+			<div id="myGraph" style="width: 400px; height: 300px;"></div>
+			<button class="btn btn-primary" onclick="draw()">Graphic Draw</button>		
+			<br><br>
+			
+
+			<h2 style="text-align:center">Topics C - Map and Image</h2>
+			<div class="row">
+				<div class="columnleft" style="text-align: center">
+					<h2 id="topicC1">Topic C - Map</h2>  
+					<div id="myMap" style="width: 550px; height: 450px"></div>
+					
+					<!-- JavaScript for map design and other functionalities -->
+					<script src="js/map.js"></script>
+					<span style="color:blue" id="coordinates"></span>
+				</div>
+				<div class="columnright" style="text-align: center">
+					<h2 id="topicC2">Topic C - Image</h2>
+					<img id="myImage" src="images/img.jpg" alt="Ups!" style="width: 550px; height: 450px;">
+					<div>
+						<button onclick="decreaseImage(document.getElementById('myImage'))">
+							Decrease Image
+						</button>
+						<button onclick="resetImage(document.getElementById('myImage'))">
+							Reset Image
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
