@@ -2,10 +2,19 @@ import hashlib
 import sys
 import os.path
 
+# Programa que calcula e apresenta a sintese de ficheiros SHA-1 e SHA-256 ( basta trocar a linha 8 de sha1 para sha256)
+
 def calcular_sha1(filename):
-    with open(filename, "rb"):
-        sha1 = hashlib.sha1()
-    return sha1.hexdigest()
+        sha1 = hashlib.sha1();
+        with open(filename, "rb") as f:
+            buffer = f.read(512);
+            sha1.update(buffer)
+        
+            while len(buffer)> 0:
+                buffer = f.read(512)
+                sha1.update(buffer)
+                
+        return sha1.hexdigest();
 
 if len (sys.argv) < 2 :
     print ("Usage: python3 %s filename" % (sys.argv[0]))

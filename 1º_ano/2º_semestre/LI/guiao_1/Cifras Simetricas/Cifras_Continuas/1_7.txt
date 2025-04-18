@@ -1,0 +1,3 @@
+Se usar uma chave diferente o resultado será o mesmo pois a chave de encriptação usada para encriptar o texto.txt, resultado criptograma.txt é encriptado e decriptado 
+
+tive de criar um progrma para encriptar e outro para descodificar.
