@@ -1,0 +1,6 @@
+4
+100
+10 11 12 13 14 15 16 17 18 19
+Isto é uma String de Teste
+Isto é uma Lista de Strings de Teste
+Esta linha já não é lida
