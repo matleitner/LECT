@@ -14,6 +14,8 @@ def main ():
         b_data, addr = udp_s.recvfrom(4096)
         str_data = b_data.decode("utf-8")
         print("->: %s \n" % str_data)
+
+
     udp_s.close()
 
 main()
