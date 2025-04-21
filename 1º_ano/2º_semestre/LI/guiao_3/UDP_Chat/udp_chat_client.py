@@ -17,5 +17,7 @@ def main():
             elif sock == sys.stdin:
                 str_data = sys.stdin.readline()
                 udp_c.sendto(str_data.encode("utf-8"), server_addr)
-        udp_c.close()
+                if str_data == "vou desligar": 
+                    udp_c.close()
+                    return
 main()
