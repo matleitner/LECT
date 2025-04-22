@@ -5,20 +5,13 @@ class HTMLDocument():
     @cherrypy.expose
     def index(self):
         return open("documento.html","r", encoding="utf-8")
+    
 
 
-# class Root():
-
-#     def __init__(self):
-#         self.html = HTMLDocument()
-
-
-#     @cherrypy.expose
-#     def index(self):
-#         return "Ola"
+# este é o main badass, o html aparece se no url meter /html
 class Root():
     def __init__(self):
-        self.html = HTMLDocument()
+       self.html = HTMLDocument()
 
     @cherrypy.expose
     def index(self):

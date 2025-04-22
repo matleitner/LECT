@@ -1,0 +1,133 @@
+<!DOCTYPE html> 
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IEI</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="x-icon" href="imagens/favicon.ico">
+        <script src="js/botaoclosenav.js"></script>
+        <!-- Icones para embelezar a estrutura -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head> 
+    <body>
+        <header class="intro"><div id="intro"><h1 id="Titulo">Testemunhos </h1></div></header>
+        <div class="botoes">
+            <button id="openPopupBtn" onclick="abrir_ajuda()"><p id="ajuda" class="material-icons">help</p></button>
+            <br>
+
+            <button id="botaoscroll" type="btn" onclick="scrollcima()"><p id = "casa" class="material-icons">home</p></button>
+        </div>
+        <ul id="menu" class="menu">
+            <li><h1 style="text-align:left;margin-left:5%;font-size:45px;margin-bottom:15px;">Menu</h1>
+                <hr>
+            <button id="navbutton" class="navbutton"; onclick="toggleNav()" >
+                <span id="icon" class="material-icons">menu</span>
+            </button>
+                
+        <div class="dropdown-show">  
+
+            
+            
+            <li><a style="margin-left:10%" href="index.html">Home</a></li>
+            <li><a style="margin-left:10%" href="historia.html">História</a></li>
+            <li><a style="margin-left:10%" href="funcionamento.html">Funcionamento</a></li>
+            <li><a style="margin-left:10%" href="tecnicas.html">Técnicas </a></li>
+            <li><a style="margin-left:10%" href="potencialidades.html">Potencialidades</a></li>
+            <li><a style="margin-left:10%" href="perigos.html">Perigos</a></li>
+            <li><a style="margin-left:10%" href="curiosidades.html">Curiosidades</a></li>
+            <li class="ativo" onclick="alertar()"><a style="margin-left:5%" class="ativo" href="#">Testemunhos</a></li>
+            <li><a style="margin-left:10%" href="about.html">About</a></li>  
+            <br>  
+            <img id="ua" src="imagens/ua.png">
+        </div>
+        </ul>
+        <div id="main">
+            
+            <button id="openmenu" type="btn" onclick="toggleNav()"><p id = "setinhamenu" class="material-icons">chevron_right</p></button>
+            <div id="conteudo">
+                
+                
+
+                
+                <div class="container">
+                    <div class="columnleft" style="height:fit-content;margin-top: 100px;"> 
+                        <p>Com o avançar da tecnologia, os nossos comportamentos enquanto seres humanos, alteraram-se completamente. É raro o dia em que nós não pegamos no telemóvel para abrir as nossas redes sociais, e sem darmos conta já passamos demasiado tempo agarrados ao ecrã.</p>
+                    </div>
+                    <div class="columnleft" style="width:fit-content;padding:30px;margin-top:40px;"><img src="imagens/siri.png" style="width:400px"></div>
+                </div>
+                <div class="columnleft" style="width:fit-content;">
+                    <p>Os algoritmos são os responsáveis por contribuir para esse vício, condicionam o conteúdo que nos é disponibilizado, ou seja, não têm como objetivo disponibilizar a melhor informação, mas sim apresentar algo que nos cativa involuntariamente a ficar agarrados ao ecrã.</p>
+                    <p>É com este avanço alarmante que surgem várias questões éticas. 
+                    </p>     
+                </div>
+                <div class="columnleft" style="width:fit-content ; background-color: #020d1f;margin:0 auto">
+                <p style="font-size:25px;margin-top: 0; " >A IA é uma ferramenta para nos <span  style="font-size:25px ; color:rgba(53, 167, 53, 0.798)">ajudar</span> <br>
+                    ou um recurso para nos <span style="font-size:25px ; color:rgba(124, 10, 10, 0.771)">destruir? </span></p>
+                </div>
+                <h3 style="margin-top: 60px;text-align:center;font-size:30px">Mark Zuckerberg vs Elon Musk</h3>
+                <div class="container" style="gap: 4px;">
+                    <div class="columnleft" style="padding:30px;width: 650px;">
+                        <p>Neste debate dois dos grandes nomes da área da tecnologia, <b>Mark Zuckerberg</b> e <b> Elon Musk</b>.</p>
+                        <p>De um lado <b style="color: rgb(168, 133, 90);">Mark Zuckerberg</b>, criador da rede social Facebook e atual dono das redes Instagram e Whatsapp, defende a ideia:</p>
+                        <i style="color:rgb(168, 133, 90); ">
+                            "Não vale a pena alarmismos, a IA apenas servirá como uma ferramenta para facilitar a realização das nossas tarefas".
+                        </i>
+                    </div>
+                    <div class="columnleft" style="height:fit-content;margin-top: 50px;padding:30px;width:630px"> 
+                        <p>Por outro lado, <b style="color:rgb(107, 72, 139)">Elon Musk</b>, dono da antiga rede social Twitter, fundador da Tesla e da SpaceX, considera que a IA será, se já não é, uma ameaça. Ele afirma:</p>
+                        <i style="color:rgb(107, 72, 139)">
+                            "O que nos difere dos outros seres é sermos os únicos a possuir inteligência. Aquilo que está acontecendo é que estamos a criar algo que será mais inteligente que o ser humano mais inteligente do mundo".
+                        </i>
+                    
+                    </div>
+                    
+                </div>
+                <div class="columnleft" style="width:fit-content;padding:30px;margin:0 auto"><img src="imagens/marcvsmusk.png" style="width:500px"></div>
+                <h3 style="margin-top: 60px;text-align:center;font-size:50px;margin-top:100px">Stephen Hawking vs Rollo Carpenter</h3>
+                <div class="columnleft" style="width:fit-content;margin-top: 100px;"> 
+                    <p>Stephen Hawking, um dos maiores cientistas do mundo, afirmou numa entrevista que os esforços para criar máquinas pensantes são uma ameaça à existência humana. Nessa entrevista, constatou que <i>
+                         "O desenvolvimento da IA poderia significar o fim da raça humana"</i>
+                         . Hawking fez a advertência ao responder a uma pergunta sobre os avanços da tecnologia que ele próprio usa para se comunicar, a qual utiliza uma forma básica de IA.</p>
+                    <p>O físico britânico, que sofre de esclerose lateral amiotrófica, usa um novo sistema desenvolvido pela empresa Intel para
+                        se comunicar. Especialistas da empresa britânica Swiftkey também participaram na criação do sistema. A sua
+                        tecnologia, já instalada como uma aplicação para teclados de smartphones, <i>"aprende"</i> a forma como Hawking pensa e suger
+                        e as próximas palavras que ele poderá querer usar.</p>
+                    </div>
+                <div class="container">
+                    <div class="columnleft" style="height:fit-content;margin-top:80px;"> 
+                        <p>Hawking diz que as formas primitivas de IA desenvolvidas até agora têm se mostrado
+                            muito úteis, mas teme eventuais consequências ao se criar máquinas que sejam equivalentes ou superiores aos humanos.<i>
+                                "(Estas máquinas) avançariam sozinhas e redesenhar-se-iam a um ritmo cada vez maior"</i>, afirmou. <i>"Os humanos,
+                                    limitados pela evolução biológica lenta, não conseguiriam competir e seriam superados."</i></p>
+    
+                    </div>
+                    <div class="columnleft" style="width:550px;padding:30px;margin-top:40px">
+                        <img src="imagens/stephenhaw.png" style="width: 550px   ">
+                    </div>
+                </div>
+                <div class="columnleft" style="height:fit-content;margin-top:0px;width:fit-content"> 
+
+                <p>Contudo, nem todos os cientistas partilham da mesma visão negativa de Hawking sobre a IA. <i>"Acredito que 
+                    continuaremos no comando da tecnologia por um período razoável de tempo, e o potencial dela de resolver muitos
+                    dos problemas mundiais será concretizado"</i>, opinou o especialista em IA, Rollo Carpenter, criador do Cleverbot, cujo software aprende a imitar conversas
+                    humanas com crescente eficácia.</p>                
+                        <p>Carpenter disse, ainda, que estamos longe de ter o conhecimento de computação ou de algoritmos necessários para alcançar a IA plena,
+                         mas acredita que isso acontecerá nas próximas décadas.<i>"Não podemos saber exatamente o que acontecerá se uma máquina superar
+                             nossa inteligência, não sabemos se ela nos ajudará ou se nos destruirá"</i>, disse Carpenter, que apesar desta opinião,
+                              continua a ver o cenário da IA com otimismo, pois acredita que esta será uma força positiva.</p>
+                </div> 
+            
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <b style="color:black;font-size: 30px;">Bem Vindo ao Menu Ajuda</b>
+                <img src="imagens/imagemajuda.jpeg" style="width: 700px;padding-top: 15px;">
+                <button id="button_fechar" ; onclick="fechar_ajuda()" ><span id="sair_ajuda" class="material-icons">close</span></button>
+                <p style="color:black;font-size:15px;">A página web possui uma interface intuitiva, em que <span style="color:red">A</span> corresponde ao menu ao qual o utilizador pode mudar de página. <span style="color:red">B</span>, botão que o utilizador pode recorrer quando se encontra no fundo de qualquer página e quer rapidamente ir para o topo.
+                    <br>
+                Ao longo das páginas existem diferentes recursos interativos como imagens, videos ou palavras que ao passar o cursor pela palavra poderá aparecer mais alguma informação adicional <span style="color:red">C</span>.    </p>
+            </div>    
+        </div> 
+    </body>
+</html>

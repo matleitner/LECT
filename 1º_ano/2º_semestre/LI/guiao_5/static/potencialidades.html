@@ -1,0 +1,119 @@
+<!DOCTYPE html> 
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IEI</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="x-icon" href="imagens/favicon.ico">
+        <script src="js/botaoclosenav.js"></script>
+        <!-- Icones para embelezar a estrutura -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head> 
+    <body>
+        <header class="intro"><div id="intro"><h1 id="Titulo">Potencialidades </h1></div></header>
+        <div class="botoes">
+            <button id="openPopupBtn" onclick="abrir_ajuda()"><p id="ajuda" class="material-icons">help</p></button>
+            <br>
+
+            <button id="botaoscroll" type="btn" onclick="scrollcima()"><p id = "casa" class="material-icons">home</p></button>
+        </div>
+        <ul id="menu" class="menu">
+            <li><h1 style="text-align:left;margin-left:5%;font-size:45px;margin-bottom:15px;">Menu</h1>
+                <hr>
+            <button id="navbutton" class="navbutton"; onclick="toggleNav()" >
+                <span id="icon" class="material-icons">menu</span>
+            </button>
+                
+        <div class="dropdown-show">  
+
+            
+            <li><a style="margin-left:10%" href="index.html">Home</a></li>
+            
+            <li><a style="margin-left:10%" href="historia.html">História</a></li>
+            <li><a style="margin-left:10%" href="funcionamento.html">Funcionamento</a></li>
+            <li><a style="margin-left:10%" href="tecnicas.html">Técnicas </a></li>
+            <li class="ativo" onclick="alertar()"><a style="margin-left:5%" class="ativo" href="#">Potencialidades</a></li>
+            <li><a style="margin-left:10%" href="perigos.html">Perigos</a></li>
+            <li><a style="margin-left:10%" href="curiosidades.html">Curiosidades</a></li>
+            <li><a style="margin-left:10%" href="testemunhos.html">Testemunhos</a></li>
+            <li><a style="margin-left:10%" href="about.html">About</a></li>  
+            <br>  
+            <img id="ua" src="imagens/ua.png">
+        </div>
+        </ul>
+        <div id="main">
+
+            <button id="openmenu" type="btn" onclick="toggleNav()"><p id = "setinhamenu" class="material-icons">chevron_right</p></button>
+            <div id="conteudo">
+                
+                
+
+                <p style="text-align:center;"> </p>
+                <div class="container">
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;margin-top:35px"> 
+                    <h3 style="text-align:center;">Automatização de tarefas repetitivas</h3>
+                    <p>Pode ser usada para automatizar tarefas rotineiras e repetitivas, permitindo recursos humanos para atividades mais criativas e estratégicas.</p>
+                </div>
+
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;">
+                    <h3 style="text-align:center;">Análise de dados complexos</h3>
+                    <p>A análise de grandes volumes de dados de forma rápida e eficiente, identificando padrões, tendências e insights que podem ser utilizados para tomar decisões informadas.</p>
+                </div>
+                </div>
+                <div class="container" style="gap:80px">
+                    <div class="columnleft" style="width: 500px; height: fit-content; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                        <h3 style="text-align:center;">Assistência virtual</h3>
+                        <p>Assistentes virtuais baseados em IA, como chatbots e assistentes de voz, podem fornecer suporte e assistência aos usuários numa ampla variedade de tarefas, desde responder a perguntas simples até auxiliar em transações complexas.</p>
+                    </div>
+                    <div class="columnleft" style="width: 300px; height: fit-content; align-items: center; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px; margin-top: 0px;">
+                        <img src="imagens/robo.jpeg" alt="Assistência Virtual" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            
+                <div class="columnleft" style="height:fit-content;margin:0 auto;margin-bottom: 50px;margin-top: 50px;">
+                    <h3 style="text-align:center;">Reconhecimento de padrões e imagens</h3>
+                    <p>A IA pode ser usada para reconhecer padrões em dados de imagens e vídeo, o que é útil em diversas áreas, como diagnóstico médico, vigilância de segurança, reconhecimento facial, entre outros.</p>
+                </div>
+
+                <div class="container" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 50px; gap: 10px; padding-right: 20px;">
+                    <div class="columnleft" style="width: 55%; height: fit-content; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;margin-top: 50px;">
+                        <h3 style="text-align:center;">Tradução de idiomas</h3>
+                        <p>A IA pode ser usada para traduzir texto entre diferentes idiomas de forma rápida e precisa, facilitando a comunicação global.</p>
+                    </div>
+                    <div class="columnright" style="width: 30%; height: fit-content; display: flex; justify-content: center; align-items: center; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                        <img src="imagens/traducao.jpeg" alt="Tradução de Idiomas" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                <div class="columnleft" style="height:fit-content;margin:0 auto;margin-bottom: 50px;">
+                    <h3 style="text-align:center;">Aprendizado de máquina</h3>
+                    <p>Algoritmos de aprendizado de máquina permitem que sistemas de IA aprendam com os dados e melhorem o seu desempenho ao longo do tempo, sem a necessidade de programação explícita.</p>
+                </div>
+                    
+                
+                <div class="container" style="gap: 20px;">
+                    
+                    <div class="columnleft" style="height:fit-content;margin-bottom: 100px;">
+                        <h3 style="text-align:center;">Condução autónoma</h3>
+                        <p>A IA é essencial para o desenvolvimento de veículos autónomos, permitindo que estes percebam o ambiente ao seu redor e tomem decisões em tempo real para navegar com segurança.</p>
+                    </div>
+                    <div class="columnright" style="width: 30%; height: fit-content; display: flex; justify-content: center; align-items: center; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px; margin-top: 14px;">
+                        <img src="imagens/carro.jpeg" alt="Condução Autónoma" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+
+
+                
+            </div>
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <b style="color:black;font-size: 30px;">Bem Vindo ao Menu Ajuda</b>
+                    <img src="imagens/imagemajuda.jpeg" style="width: 700px;padding-top: 15px;">
+                    <button id="button_fechar" ; onclick="fechar_ajuda()" ><span id="sair_ajuda" class="material-icons">close</span></button>
+                    <p style="color:black;font-size:15px;">A página web possui uma interface intuitiva, em que <span style="color:red">A</span> corresponde ao menu ao qual o utilizador pode mudar de página. <span style="color:red">B</span>, botão que o utilizador pode recorrer quando se encontra no fundo de qualquer página e quer rapidamente ir para o topo.
+                        <br>
+                    Ao longo das páginas existem diferentes recursos interativos como imagens, videos ou palavras que ao passar o cursor pela palavra poderá aparecer mais alguma informação adicional <span style="color:red">C</span>.    </p>
+                </div>    
+            </div> 
+    </body>
+</html>

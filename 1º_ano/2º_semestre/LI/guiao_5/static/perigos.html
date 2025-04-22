@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IEI</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="x-icon" href="imagens/favicon.ico">
+        <script src="js/botaoclosenav.js"></script>
+        <!-- Icones para embelezar a estrutura -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head> 
+    <body>
+        <header class="intro"><div id="intro"><h1 id="Titulo">Perigos </h1></div></header>
+        <div class="botoes">
+            <button id="openPopupBtn" onclick="abrir_ajuda()"><p id="ajuda" class="material-icons">help</p></button>
+            <br>
+
+            <button id="botaoscroll" type="btn" onclick="scrollcima()"><p id = "casa" class="material-icons">home</p></button>
+        </div>
+        <ul id="menu" class="menu">
+            <li><h1 style="text-align:left;margin-left:5%;font-size:45px;margin-bottom:15px;">Menu</h1>
+                <hr>
+            <button id="navbutton" class="navbutton"; onclick="toggleNav()" >
+                <span id="icon" class="material-icons">menu</span>
+            </button>
+                
+        <div class="dropdown-show">  
+
+            
+            <li><a style="margin-left:10%" href="index.html">Home</a></li>
+            
+            <li><a style="margin-left:10%" href="historia.html">História</a></li>
+            <li><a style="margin-left:10%" href="funcionamento.html">Funcionamento</a></li>
+            <li><a style="margin-left:10%" href="tecnicas.html">Técnicas </a></li>
+            <li><a style="margin-left:10%" href="potencialidades.html">Potencialidades</a></li>
+            <li class="ativo" onclick="alertar()"><a style="margin-left:5%" class="ativo" href="#">Perigos</a></li>
+            <li><a style="margin-left:10%" href="curiosidades.html">Curiosidades</a></li>
+            <li><a style="margin-left:10%" href="testemunhos.html">Testemunhos</a></li>
+            <li><a style="margin-left:10%" href="about.html">About</a></li>  
+            <br>  
+            <img id="ua" src="imagens/ua.png">
+        </div>
+        </ul>
+        <div id="main">
+            
+            <button id="openmenu" type="btn" onclick="toggleNav()"><p id = "setinhamenu" class="material-icons">chevron_right</p></button>
+            <div id="conteudo">
+                
+                
+                <p style="text-align:center;"> </p>
+
+                <div class="columnleft" style="width: 80%; max-width: 900px; margin: 0 auto; height: fit-content; margin-bottom: 100px; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                    <p>A IA tem despertado grandes expectativas e gerado discussões acaloradas em vários setores da sociedade. A sua capacidade de processar grandes volumes de dados, aprender com padrões complexos e tomar decisões autónomas promete transformar radicalmente a forma como vivemos e trabalhamos, demonstrando claramente as vantagens da IA. No entanto, à medida que a IA se torna uma presença cada vez mais omnipresente nas nossas vidas, somos também confrontados com uma série de desafios e preocupações que precisam de ser abordados com urgência.</p>
+                </div>
+
+                <div class="container" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 100px; gap: 10px; padding-right: 20px;">
+                    <div class="columnleft" style="width: 55%; height: fit-content; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                        <h3 style="text-align:center;">Segurança</h3>
+                        <p>Um dos principais riscos associados à IA é a segurança do sistema. Com a crescente dependência de algoritmos e sistemas autónomos, existe uma preocupação significativa com a possibilidade de ataques cibernéticos dirigidos a estes sistemas. Seja manipulando algoritmos para resultados maliciosos ou explorando vulnerabilidades em sistemas autónomos, os ciberataques representam uma ameaça real à segurança da IA.</p>
+                    </div>
+                    <div class="columnright" style="width: 30%; height: fit-content; display: flex; justify-content: center; align-items: center; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px; margin-top: 35px;">
+                        <img src="imagens/cyborg.jpeg" alt="Segurança da IA" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+               <div class="container">
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;">
+                    <h3 style="text-align:center;">Ética</h3>
+                    <p>A IA levanta questões éticas complexas, especialmente quando se trata de tomar decisões autónomas que afetam a vida das pessoas. De algoritmos de recrutamento a sistemas de justiça criminal, é crucial garantir que a IA seja usada de forma ética e justa. Para abordar questões éticas na IA, é importante desenvolver diretrizes e regulamentos claros que orientem o desenvolvimento responsável e o uso da tecnologia. Além disso, a transparência algorítmica é essencial para garantir a responsabilização e a confiança pública na IA.</p>
+                </div>
+            
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px; margin-top:50px">
+                    <h3 style="text-align:center;">Controlo</h3>
+                    <p>Com a rápida evolução da IA, existe a necessidade de uma governação eficaz para garantir que esta tecnologia seja utilizada de forma responsável e benéfica para a sociedade como um todo. Isso inclui questões relacionadas à regulamentação, supervisão e responsabilização dos sistemas de IA. Para promover uma governação eficaz da IA, é necessário um diálogo colaborativo entre governos, empresas, académicos e sociedade civil.</p>
+                </div>
+               </div>
+                <div class="container" style="gap: 10px;margin-bottom: 70px;">
+                    <div class="columnright" style="width: 30%; height: fit-content; display: flex; justify-content: center; align-items: center; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px; margin-top: 20px;">
+                        <img src="imagens/plataformas-criar-inteligencia-artificial.png" alt="Privacidade de dados" style="max-width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="columnleft" style="width:600px; height: fit-content; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                        <h3 style="text-align:center;">Privacidade de dados</h3>
+                        <p>Com a capacidade da IA de recolher, analisar e interpretar grandes volumes de dados, surgem preocupações significativas com a privacidade. O uso indevido ou violação de dados pessoais pode ter consequências graves para os indivíduos, incluindo o risco de discriminação algorítmica e violações de privacidade.</p>
+                    </div>
+                </div>
+
+                <div class="columnleft" style="height:fit-content;margin: 0 auto;">
+                    <h3 style="text-align:center;">Impacto social e económico</h3>
+                    <p>A IA tem potencial para causar um impacto significativo na sociedade e na economia, considerando questões como o emprego e o aumento da automação. Estas mudanças podem gerar tensões sociais e económicas, exigindo uma resposta cuidadosa por parte dos governos e organizações.</p>
+                </div>
+                
+            </div>
+        </div>  
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <b style="color:black;font-size: 30px;">Bem Vindo ao Menu Ajuda</b>
+                <img src="imagens/imagemajuda.jpeg" style="width: 700px;padding-top: 15px;">
+                <button id="button_fechar" ; onclick="fechar_ajuda()" ><span id="sair_ajuda" class="material-icons">close</span></button>
+                <p style="color:black;font-size:15px;">A página web possui uma interface intuitiva, em que <span style="color:red">A</span> corresponde ao menu ao qual o utilizador pode mudar de página. <span style="color:red">B</span>, botão que o utilizador pode recorrer quando se encontra no fundo de qualquer página e quer rapidamente ir para o topo.
+                    <br>
+                Ao longo das páginas existem diferentes recursos interativos como imagens, videos ou palavras que ao passar o cursor pela palavra poderá aparecer mais alguma informação adicional <span style="color:red">C</span>.    </p>
+            </div>    
+        </div> 
+    </body>
+</html>

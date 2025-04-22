@@ -1,0 +1,115 @@
+<!DOCTYPE html> 
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IEI</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="x-icon" href="imagens/favicon.ico">
+        <script src="js/botaoclosenav.js"></script>
+        <!-- Icones para embelezar a estrutura -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head> 
+    <body>
+        <header class="intro"><div id="intro"><h1 id="Titulo">Funcionamento </h1></div></header>
+        <div class="botoes">
+            <button id="openPopupBtn" onclick="abrir_ajuda()"><p id="ajuda" class="material-icons">help</p></button>
+            <br>
+            
+            <button id="botaoscroll" type="btn" onclick="scrollcima()"><p id = "casa" class="material-icons">home</p></button>
+        </div>
+        <ul id="menu" class="menu">
+            <li><h1 style="text-align:left;margin-left:5%;font-size:45px;margin-bottom:15px;">Menu</h1>
+                <hr>
+            <button id="navbutton" class="navbutton"; onclick="toggleNav()" >
+                <span id="icon" class="material-icons">menu</span>
+            </button>
+            
+            <div class="dropdown-show">  
+                
+                <li><a style="margin-left:10%" href="index.html">Home</a></li>
+                
+            
+                <li><a style="margin-left:10%" href="historia.html">História</a></li>
+            <li class="ativo" onclick="alertar()"><a style="margin-left:5%" class="ativo" href="#">Funcionamento</a></li>
+            <li><a style="margin-left:10%" href="tecnicas.html">Técnicas </a></li>
+            <li><a style="margin-left:10%" href="potencialidades.html">Potencialidades</a></li>
+            <li><a style="margin-left:10%" href="perigos.html">Perigos</a></li>
+            <li><a style="margin-left:10%" href="curiosidades.html">Curiosidades</a></li>
+            <li><a style="margin-left:10%" href="testemunhos.html">Testemunhos</a></li>
+            <li><a style="margin-left:10%" href="about.html">About</a></li>  
+            <br>  
+            <img id="ua" src="imagens/ua.png">
+        </div>
+        </ul>
+        <div id="main">
+            
+            
+            <button id="openmenu" type="btn" onclick="toggleNav()"><p id = "setinhamenu" class="material-icons">chevron_right</p></button>
+            <div id="conteudo">
+                
+                
+
+                <div class="container" style="gap:50px;margin-left: 30px;">
+                    <div class="columnleft" style="height:fit-content;margin-top: 80px;"> 
+                        <p>A IA funciona através de algoritmos e modelos computacionais que permitem sistemas e programas de computador processarem dados, aprenderem com esses dados e tomarem decisões ou realizarem tarefas com base nesse aprendizado.</p>                    <p>René Descartes, um matemático, filósofo e cientista, apresentou alguns pontos de vista interessantes no seu livro "Discourse on the Method", relativamente às capacidades futuras da IA e onde se poderiam delinear os seus limites. Este defendia que a capacidade humana para pensar estava intrinsecamente associada à alma, a qual apenas poderia ser criada por Deus. Perante esta ideia, infere-se que uma máquina nunca igualaria o nível do raciocínio humano.</p>
+                </div>
+
+                <div class="columnleft" style="width:fit-content;padding:20px;"><img src="imagens/descartes.jpeg" style="width:300px"><p>René Descartes</p> 
+                </div>
+                </div>
+                <div class="container" style="gap:20px">
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;"> 
+                    <h3 style="text-align:center;">Recolha de Dados</h3>
+                    <p>A IA depende de dados para aprender e tomar decisões. Esses dados podem ser estruturados (como tabelas de banco de dados) ou não estruturados (como texto, imagens ou áudio).</p>
+                </div>
+
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;">
+                    <h3 style="text-align:center;">Pré-processamento de Dados</h3>
+                    <p>Antes que os dados possam ser usados por algoritmos de IA, estes precisam de ser pré-processados e preparados. Isso pode incluir limpeza de dados, normalização e transformações para tornar os dados adequados para análise.</p>
+                </div>
+                </div>
+                <div class="container" style="gap:20px">
+
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;">
+                    <h3 style="text-align:center;">Escolha do Algoritmo</h3>
+                    <p>Existem vários algoritmos e técnicas de IA, cada um adequado para diferentes tipos de problemas e tipos de dados. A escolha do algoritmo certo depende da natureza do problema a ser resolvido e dos dados disponíveis.</p>
+                </div>
+            
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;">
+                    <h3 style="text-align:center;">Treinamento do Modelo</h3>
+                    <p>O treinamento de um modelo de IA envolve o fornecimento de dados ao algoritmo para que ele possa aprender padrões e fazer previsões ou tomar decisões. Durante o treinamento, o modelo ajusta os seus parâmetros para otimizar o seu desempenho numa tarefa específica.</p>
+                </div>
+                </div>
+                <div class="container" style="gap:20px">
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;">
+                    <h3 style="text-align:center;">Avaliação do Modelo</h3>
+                    <p>Após o treinamento, o modelo é avaliado num conjunto separado de dados (conjunto de teste) para verificar se ele é capaz de generalizar para novos dados e se está produzindo resultados precisos.</p>
+                </div>
+
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;">
+                    <h3 style="text-align:center;">Implantação e Inferência</h3>
+                    <p>Uma vez treinado e avaliado, o modelo de IA pode ser implantado num ambiente de produção, onde pode fazer previsões ou tomar decisões em tempo real com base nos novos dados de entrada.</p>
+                </div>
+                </div>
+                <div class="columnleft" style="height:fit-content;margin:0 auto;">
+                    <h3 style="text-align:center;">Feedback e Melhoria Contínua</h3>
+                    <p>A IA pode ser ajustada e melhorada ao longo do tempo com feedback adicional e novos dados de treinamento. Esse processo de melhoria contínua é fundamental para manter a relevância e o desempenho do sistema de IA ao longo do tempo.</p>
+                </div>
+                <!-- <div class="container"><div class="columnright" style="width:520px;"> <p style="margin:0px"></p></div><div class="columnright" style="width:500px;margin-left:0;background-color:white;height:fit-content;margin-top:60px"> <img src="Imagens/conhecimentoeAI.jpg" style="width:500px"></div></div>
+                <div class="columnleft" style="height:fit-content;margin-bottom: 100px;"> <p> isto é uma caixa que fica a meio do ecra</p></div>
+                <div class="container"><div class="columnright" style="width:520px;"><img src="Imagens/serounaoser.png" style="width:520px"> <p style="margin:0px">podes usar isto assim para meter imagens e texto como quiseres</p></div><div class="columnright" style="width:500px;margin-left:0;background-color:white;height:fit-content;margin-top:60px"><p>ou aqui</p> </div></div> -->
+            </div>
+        </div> 
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <b style="color:black;font-size: 30px;">Bem Vindo ao Menu Ajuda</b>
+                <img src="Imagens/imagemajuda.jpeg" style="width: 700px;padding-top: 15px;">
+                <button id="button_fechar" ; onclick="fechar_ajuda()" ><span id="sair_ajuda" class="material-icons">close</span></button>
+                <p style="color:black;font-size:15px;">A página web possui uma interface intuitiva, em que <span style="color:red">A</span> corresponde ao menu ao qual o utilizador pode mudar de página. <span style="color:red">B</span>, botão que o utilizador pode recorrer quando se encontra no fundo de qualquer página e quer rapidamente ir para o topo.
+                    <br>
+                Ao longo das páginas existem diferentes recursos interativos como imagens, videos ou palavras que ao passar o cursor pela palavra poderá aparecer mais alguma informação adicional <span style="color:red">C</span>.    </p>
+            </div>    
+        </div> 
+    </body>
+</html>

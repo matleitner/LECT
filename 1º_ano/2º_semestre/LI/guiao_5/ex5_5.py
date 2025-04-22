@@ -17,8 +17,8 @@ class Root():
 
     @cherrypy.expose
     def index(self):
-        pcinfo = psutil.cpu_freq()
-        return "Eu sou o indice do Root (Root.index)"
+        pcinfo = psutil.cpu_percent()
+        return "Eu sou o indice do Root (Root.index)" + str(pcinfo)
     
 
     @cherrypy.expose

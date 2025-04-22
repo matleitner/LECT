@@ -1,0 +1,104 @@
+<!DOCTYPE html> 
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IEI</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="x-icon" href="imagens/favicon.ico">
+        <script src="js/botaoclosenav.js"></script>
+        <!-- Icones para embelezar a estrutura -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head> 
+    <body>
+        <div class="intro"><div id="intro"><h1 id="Titulo">Inteligência Artificial</h1></div></div>
+        
+        <div class="botoes">
+            <button id="openPopupBtn" onclick="abrir_ajuda()"><p id="ajuda" class="material-icons">help</p></button>
+            <br>
+
+            <button id="botaoscroll" type="btn" onclick="scrollcima()"><p id = "casa" class="material-icons">home</p></button>
+        </div>
+        <!--  -->
+        <ul id="menu" class="menu">
+            <li><h1 style="text-align:left;margin-left:5%;font-size:45px;margin-bottom: 15px;">Menu</h1>
+                <hr>
+                <button id="navbutton" class="navbutton"; onclick="toggleNav()" >
+                    <span id="icon" class="material-icons">menu</span>
+                </button>
+                    
+                    <div class="dropdown-show">  
+                        
+                        
+                        <li class="ativo" onclick="alertar()"><a style="margin-left:5%" class="ativo" href="#">Home</a></li>
+                        
+                        <li><a style="margin-left:10%" href="historia.html">História</a></li>
+                        <li><a style="margin-left:10%" href="funcionamento.html">Funcionamento</a></li>
+                        <li><a style="margin-left:10%" href="tecnicas.html">Técnicas </a></li>
+                        <li><a style="margin-left:10%" href="potencialidades.html">Potencialidades</a></li>
+                        <li><a style="margin-left:10%" href="perigos.html">Perigos</a></li>
+                <li><a style="margin-left:10%" href="curiosidades.html">Curiosidades</a></li>
+                <li><a style="margin-left:10%" href="testemunhos.html">Testemunhos</a></li>
+                <li><a style="margin-left:10%" href="about.html">About</a></li>  
+                <br>  
+                <img id="ua" src="imagens/ua.png">
+            </div>
+        </ul>
+        <div id="main">
+            
+            <button id="openmenu" type="btn" onclick="toggleNav()"><p id = "setinhamenu" class="material-icons">chevron_right</p></button>
+            <div id="conteudo">
+                
+                
+
+                <div class="columnleft" style="height:fit-content;margin-bottom: 50px;width:auto"> <p>O desenvolvimento da tecnologia é um dos principais fatores para a evolução e transformação da sociedade ao longo da história humana. Desde pequenas ferramentas, da pré-história, até às grandes criações tecnológicas como o
+                    smartphone ou até mesmo o automóvel, que marcaram a nossa forma de viver. A IA é um campo da ciência da computação que desenvolve algoritmos e
+                    sistemas capazes de realizar tarefas que normalmente requerem inteligência humana, como raciocínio, aprendizagem, planeamento e criatividade. Os sistemas
+                    de IA são capazes de adaptar o comportamento autonomamente, analisando os
+                    procedimentos anteriores.
+                    </p>
+                    <br>
+                </div>
+                <div class="columnleft" style="width:fit-content;padding:30px;margin:0 auto;margin-bottom: 100px;"><img src="imagens/ainamao.png"></div>
+                <div class="container">
+                    <div class="columnleft" style="height:fit-content;margin-top: 100px;margin-bottom: 100px;">
+                        <p>
+                        A IA foi uma inovação no mundo tecnológico que facilitou a realização de
+                        várias tarefas. Embora seja uma grande ajuda e o seu uso tenha várias vantagens, pode se tornar cada vez mais perigosa, pois tem uma potencialidade de
+                        evolução muito grande. É essencial utilizar esta ferramenta com cuidado e com
+                        consciência, não ficando dependente da mesma.
+                        </p>
+                    </div>
+                    <div class="columnleft" style="width: 500px;;padding:40px;margin-bottom: 50px;"><img src="imagens/fundo.png" style="width: 500px;">
+                    </div>
+                </div>
+                    <br>
+                    <div class="columnleft" style="height:fit-content;margin:20px;margin-top:0;width:fit-content">
+                        <p style="margin-bottom:0">
+                    Esta página Web foi estruturada para dar a entender ao utilizador os vários aspetos que a IA influência e irá encontrar desde a história da IA
+                    ao seu funcionamento. Algumas
+                    técnicas usadas para trabalhar com IA. As potencialidades
+                    e os seus perigos. Para demonstrar os dois lados da IA, estruturamos uma secção dedicada a exemplos reais aos quais podemos 
+                    não ter a noção. Incluímos também um
+                    capítulo dedicado a testemunhos/opiniões de pessoas relevantes para o ramo tecnologia
+                    que estamos a desenvolver. Finalmente, a ultima secção à qual damos um breve reflexão sobre este tema tão, inevitavelmente, impactante nas nossas vidas.</p>
+                    </div>
+
+
+
+            </div>
+        </div>
+        <div ></div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <b style="color:black;font-size: 30px;">Bem Vindo ao Menu Ajuda</b>
+                <img src="imagens/imagemajuda.jpeg" style="width: 700px;padding-top: 15px;">
+                <button id="button_fechar" ; onclick="fechar_ajuda()" ><span id="sair_ajuda" class="material-icons">close</span></button>
+                <p style="color:black;font-size:15px;">A página web possui uma interface intuitiva, em que <span style="color:red">A</span> corresponde ao menu ao qual o utilizador pode mudar de página. <span style="color:red">B</span>, botão que o utilizador pode recorrer quando se encontra no fundo de qualquer página e quer rapidamente ir para o topo.
+                    <br>
+                Ao longo das páginas existem diferentes recursos interativos como imagens, videos ou palavras que ao passar o cursor pela palavra poderá aparecer mais alguma informação adicional <span style="color:red">C</span>.    </p>
+            </div>    
+        </div> 
+        <div classs="rodapé" style="text-align: center;padding: 30px;"><a href="about.html" style="text-decoration: none;color:whitesmoke">Contact Us</a></div>
+    </body>
+</html>

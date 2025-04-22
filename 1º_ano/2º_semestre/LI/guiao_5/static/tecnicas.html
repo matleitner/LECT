@@ -1,0 +1,111 @@
+<!DOCTYPE html> 
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IEI</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="x-icon" href="imagens/favicon.ico">
+        <script src="js/botaoclosenav.js"></script>
+        <!-- Icones para embelezar a estrutura -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head> 
+    <body>
+        <header class="intro"><div id="intro"><h1 id="Titulo">Técnicas </h1></div></header>
+        <div class="botoes">
+            <button id="openPopupBtn" onclick="abrir_ajuda()"><p id="ajuda" class="material-icons">help</p></button>
+            <br>
+
+            <button id="botaoscroll" type="btn" onclick="scrollcima()"><p id = "casa" class="material-icons">home</p></button>
+        </div>
+        <ul id="menu" class="menu">
+            <li><h1 style="text-align:left;margin-left:5%;font-size:45px;margin-bottom:15px;">Menu</h1>
+                <hr>
+            <button id="navbutton" class="navbutton"; onclick="toggleNav()" >
+                <span id="icon" class="material-icons">menu</span>
+            </button>
+                
+        <div class="dropdown-show">  
+
+            
+            <li><a style="margin-left:10%" href="index.html">Home</a></li>
+            
+            <li><a style="margin-left:10%" href="historia.html">História</a></li>
+            <li><a style="margin-left:10%" href="funcionamento.html">Funcionamento</a></li>
+            <li class="ativo" onclick="alertar()"><a style="margin-left:5%" class="ativo" href="#">Técnicas</a></li>
+            <li><a style="margin-left:10%" href="potencialidades.html">Potencialidades</a></li>
+            <li><a style="margin-left:10%" href="perigos.html">Perigos</a></li>
+            <li><a style="margin-left:10%" href="curiosidades.html">Curiosidades</a></li>
+            <li><a style="margin-left:10%" href="testemunhos.html">Testemunhos</a></li>
+            <li><a style="margin-left:10%" href="about.html">About</a></li>  
+            <br>  
+            <img id="ua" src="imagens/ua.png">
+        </div>
+        </ul>
+        <div id="main">
+            
+            <button id="openmenu" type="btn" onclick="toggleNav()"><p id = "setinhamenu" class="material-icons">chevron_right</p></button>
+            <div id="conteudo">
+                
+                
+                <div class="container" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 50px; gap: 10px; padding-right: 20px;">
+                    <div class="columnleft" style="width: 55%; height: fit-content; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                        <h3 style="text-align:center;">Machine Learning</h3>
+                        <p>
+                            É uma aplicação de IA que fornece aos sistemas de computador a capacidade de aprender e melhorar automaticamente com a experiência, 
+                            não sendo explicitamente programado. O Machine Learning foca no desenvolvimento de algoritmos que podem analisar dados e fazer previsões.
+                        </p>
+                        <p><strong> - Exemplos do uso de Machine Learning:</strong></p>
+                        <ul>
+                            <li>Sugestão de filmes, na Netflix, que o utilizador pode gostar;</li>
+                            <li>Auxílio no diagnóstico de doenças, interpretação de imagens médicas e aceleração no desenvolvimento de medicamentos;</li>
+                        </ul>
+                    </div>
+                    <div class="columnright" style="width: 35%; height: fit-content; display: flex; justify-content: center; align-items: center; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px; margin-top: 70px;">
+                        <img src="imagens/machinelearning.png" alt="Machine Learning" style="max-width: 90%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+                <hr>
+                <div class="columnleft" style="height:fit-content;margin-left:50px;margin-right:50px;margin-top: 70px;width:fit-content">
+                    <h3 style="text-align:center;">Deep Learning</h3>
+                    <p>É um segmento específico do Machine Learning. O Deep Learning emprega redes neurais artificiais que aprendem através do constante processamento de dados (reforço positivo e reforço negativo). As redes neurais artificiais imitam as redes neurais biológicas do cérebro humano. O Deep Learning é a técnica que leva ao reconhecimento de fala.</p>
+                </div>
+               
+                <div class="container" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 100px; gap: 10px; padding-right: 20px;">
+                    <div class="columnleft" style="height:fit-content;margin-top: 100px;">
+                    <h3 style="text-align:center;">Computação Cognitiva</h3>
+                    <p>Tem como objetivo imitar e melhorar a interação entre humanos e máquinas. A computação cognitiva procura recriar o processo de pensamento humano num modelo de computador, especificamente, por meio da compreensão da linguagem e do significado das imagens. A junção da computação cognitiva e da inteligência artificial confere às máquinas comportamentos semelhantes aos humanos e habilidades de processamento de informações.</p>
+                </div>
+                <div class="columnleft" style="height:fit-content;margin-top: 150px;">
+                    <h3 style="text-align:center;">Visão Computacional</h3>
+                    <p>É uma técnica que implementa o Deep Learning e a identificação de padrões para interpretar o conteúdo de uma imagem. A ação é feita entre os mais diversos tipos, incluindo os gráficos, tabelas e imagens em documentos PDF, bem como outros textos e vídeos.</p>
+                </div>
+            
+            </div>
+            <div class="container" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 00px; gap: 10px; padding-right: 20px;">
+                <div class="columnleft" style="width: 55%; height: fit-content; padding: 20px;">
+                    <h3 style="text-align:center;">Natural Language Processing</h3>
+                    <p>
+                        Natural Language Processing (NLP) permite que os computadores interpretem, reconheçam e produzam a linguagem e a fala humanas. 
+                        O objetivo desta técnica é permitir a interação contínua com as máquinas, ensinando os sistemas a compreender a linguagem humana no contexto 
+                        e produzir respostas lógicas. Uns bons exemplos são tradutores de idiomas em tempo real.
+                    </p>
+                </div>
+                <div class="columnright" style="width: 35%; height: fit-content; display: flex; justify-content: center; align-items: center; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); border-radius: 8px;">
+                    <img src="imagens/tecnicas.jpeg" alt="Machine Learning" style="max-width: 90%; height: auto; border-radius: 8px;">
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <b style="color:black;font-size: 30px;">Bem Vindo ao Menu Ajuda</b>
+                <img src="imagens/imagemajuda.jpeg" style="width: 700px;padding-top: 15px;">
+                <button id="button_fechar" ; onclick="fechar_ajuda()" ><span id="sair_ajuda" class="material-icons">close</span></button>
+                <p style="color:black;font-size:15px;">A página web possui uma interface intuitiva, em que <span style="color:red">A</span> corresponde ao menu ao qual o utilizador pode mudar de página. <span style="color:red">B</span>, botão que o utilizador pode recorrer quando se encontra no fundo de qualquer página e quer rapidamente ir para o topo.
+                    <br>
+                Ao longo das páginas existem diferentes recursos interativos como imagens, videos ou palavras que ao passar o cursor pela palavra poderá aparecer mais alguma informação adicional <span style="color:red">C</span>.    </p>
+            </div>    
+        </div> 
+    </body>
+</html>

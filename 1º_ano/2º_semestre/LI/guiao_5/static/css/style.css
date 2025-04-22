@@ -1,0 +1,321 @@
+
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #071326; 
+    color:#abdbec;
+    
+}
+/* sem isto, às vezes; (quando dou refresh à pagina sem uma conexão à internet) a setinha para abrir o menu aparece como chevron_right  */
+.hidden {
+    visibility:hidden;
+}
+#ua {
+    position:relative;
+    bottom:0;
+    width:30px;
+    padding-left:40%;
+}
+p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    padding:10px;
+    text-align:center;
+}
+.divisorioesquerda {
+    float:left;
+    height:100%;
+    margin:90px;
+    display:flex ;
+}
+#main {
+    /* background-color: #530030; */
+    transition: margin-left 0.9s ease;
+    padding:0px;
+    margin:0;
+    overflow-wrap:break-word;
+  }
+
+
+
+  
+  .menu {
+    top:0;
+    left:0;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); */
+    background-color:#152953;
+    list-style-type:none;
+    margin-top:0px;
+    padding:0px;
+    width:0px;
+    /* border-right:3px solid #555; */
+    height:100%;
+    position:fixed;
+    overflow:hidden;
+    transition:0.9s ease;
+}
+/*  */
+
+
+
+
+#icon {
+    font-size:40px;
+}
+
+/*  */
+.navbutton{
+    display:block;
+    background-color:transparent;
+    width:auto;
+    color:white;
+    border:none;
+    width:95%;
+    margin-bottom:15px;
+    text-align:right;
+
+}
+
+
+.navbutton:hover{
+    cursor:pointer;
+    
+}
+
+
+
+
+
+#openmenu{
+    position:fixed;
+    top:50%;
+    transition:.5s ease;
+    background-color:transparent;
+    border: none;
+    border-radius:82px;
+    color:white;
+    
+    
+}
+#openmenu:hover{
+    background-color:white;
+    color:black;
+    
+}
+
+#setinhamenu{
+    font-size:40px;
+    margin:0;
+    height:100%;
+    
+}
+
+li a{
+    display:flex;
+    padding:17px;
+    background-color:#152953;
+    color:#FFF;
+    text-decoration:none;
+    overflow:hidden;
+    font-size:16px;
+    
+    
+}
+
+/* nao mexer no main */
+
+
+li a:hover {
+    color:#999;
+    overflow:hidden;
+    
+    transition:0.3s ease-out;
+}
+.ativo {
+    color:#4aa6c7;
+    font-size:20px;
+    text-decoration:underline;
+    
+}
+
+
+/* nao mexer nisto */
+.intro{
+    position: relative;
+    
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+#intro {
+    padding-top:30px;
+    padding-bottom: 50px;
+    height:100%;
+    border:none;
+    /* background-color:#18141400; */
+    transition: margin-left 0.9s ease;
+}
+
+#Titulo {
+    width:fit-content;
+    text-transform:uppercase;
+    overflow:hidden;
+    color:white;
+    font-size:55px;
+    padding-left:120px;
+
+}   
+
+#conteudo {
+    /* position: relative; */
+    background-color:#0F1E3C;
+    width:1200px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 50px;
+    top:0;
+    padding-top:50px;
+    padding-bottom:40px;
+    border-radius:22px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+    
+}
+
+.rodape{
+    background-color: #000000;
+    width:1000px;
+    
+}
+
+.columnleft {  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);background-color:#071326; height: fit-content; width: 550px; text-align: left; margin:30px ; padding:10px ;overflow-wrap:break-word; border-radius:50px }
+.columnright {text-align: left; background-color:#071326;height: fit-content; width: fit-content; margin-left:40px;  overflow-wrap:break-word;   }
+
+.container{
+    display:flex;
+    gap:10 px;   
+
+}
+
+
+.dropdown {
+    justify-content: center;
+    position: relative;
+    display:inline-block;
+    width:fit-content;
+    cursor: pointer;
+  }
+  
+  .dropdown-conteudo {
+    display: none;
+    position:absolute;
+    width:400px;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 10px;
+  }
+  
+  .dropdown:hover .dropdown-conteudo {
+    display: block;
+  }
+  
+  .desc {
+    color:black;
+    padding: 15px;
+    text-align: center;
+  }
+
+#exitbutton{
+    border:1px solid #000;
+    padding:15px 16px;
+    display:inline-block;
+}
+
+#botaoscroll {
+    margin:0 auto;
+    position:sticky;
+    transition:0.5s ease;
+    background-color:transparent;
+    border: none;
+    border-radius:82px;
+    color:white;
+    font-size:20px;
+    
+}
+#casa {
+    font-size:30px;
+    
+}
+
+#ajuda {
+    font-size:30px;
+    color:white;
+    margin:0 auto;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    padding-top: 140px;
+}
+
+.popup-content {
+    background-color: white;
+    margin:0 auto;
+    width: 1000px;
+    height:530px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top:10px
+    
+}
+
+#button_fechar {
+    position: fixed;
+    top:50px;
+    right:50px;
+    border-radius: 100px;
+    background-color: transparent;
+    color:white;
+    border:none;
+}
+
+#openPopupBtn{
+    background-color: transparent;
+    border: none;
+    border-radius: 100px;
+
+}
+
+
+#sair_ajuda {
+    font-size: 60px;
+    transition:0.8s ease;
+    border-radius: 100px;
+}
+
+#sair_ajuda:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color:#999;
+    transition:0.5s ease-in-out;
+}
+
+.botoes {
+    position:fixed;
+    display:block;
+
+    top:75%;
+}
+
+.Banner {
+    object-fit: cover;
+    width:100%;
+    height: 200px;
+}
+.pitts:hover .image_warren {
+    opacity: 50% ;
+
+}
