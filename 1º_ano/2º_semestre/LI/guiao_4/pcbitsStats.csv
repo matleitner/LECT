@@ -1,0 +1,6 @@
+time,numero_octetos,processador(%)
+1745323615.1739829,"snetio(bytes_sent=1901089, bytes_recv=14768047, packets_sent=6049, packets_recv=14097, errin=0, errout=0, dropin=0, dropout=0)",15.9
+1745323616.1854308,"snetio(bytes_sent=1928333, bytes_recv=14842498, packets_sent=6129, packets_recv=14191, errin=0, errout=0, dropin=0, dropout=0)",10.4
+1745323617.1950145,"snetio(bytes_sent=1939675, bytes_recv=14857367, packets_sent=6160, packets_recv=14221, errin=0, errout=0, dropin=0, dropout=0)",9.7
+1745323618.204856,"snetio(bytes_sent=1954752, bytes_recv=14872614, packets_sent=6185, packets_recv=14251, errin=0, errout=0, dropin=0, dropout=0)",4.7
+1745323619.213672,"snetio(bytes_sent=1959323, bytes_recv=14878086, packets_sent=6205, packets_recv=14267, errin=0, errout=0, dropin=0, dropout=0)",9.5

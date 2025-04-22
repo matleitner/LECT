@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <conf>
-    <interval>1</interval>
+    <interval>4</interval>
     <output>
         <csv active="true" separator="," />
         <xml active="false" />

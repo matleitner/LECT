@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='utf-8'?>
+<stats>
+  <value time="0">
+    <cpu>5.2</cpu>
+    <octetos>13635789</octetos>
+  </value>
+  <value time="1">
+    <cpu>3.0</cpu>
+    <octetos>13648332</octetos>
+  </value>
+  <value time="2">
+    <cpu>1.8</cpu>
+    <octetos>13648332</octetos>
+  </value>
+  <value time="3">
+    <cpu>1.9</cpu>
+    <octetos>13649054</octetos>
+  </value>
+  <value time="4">
+    <cpu>1.7</cpu>
+    <octetos>13649054</octetos>
+  </value>
+  <value time="5">
+    <cpu>2.1</cpu>
+    <octetos>13649205</octetos>
+  </value>
+  <value time="6">
+    <cpu>2.1</cpu>
+    <octetos>13653063</octetos>
+  </value>
+  <value time="7">
+    <cpu>2.6</cpu>
+    <octetos>13653063</octetos>
+  </value>
+  <value time="8">
+    <cpu>3.1</cpu>
+    <octetos>13653415</octetos>
+  </value>
+  <value time="9">
+    <cpu>3.3</cpu>
+    <octetos>13653415</octetos>
+  </value>
+  <value time="10">
+    <cpu>7.7</cpu>
+    <octetos>13666830</octetos>
+  </value>
+  <value time="11">
+    <cpu>6.5</cpu>
+    <octetos>13671077</octetos>
+  </value>
+  <value time="12">
+    <cpu>8.4</cpu>
+    <octetos>13672601</octetos>
+  </value>
+  <value time="13">
+    <cpu>6.5</cpu>
+    <octetos>13678259</octetos>
+  </value>
+  <value time="14">
+    <cpu>9.9</cpu>
+    <octetos>13726201</octetos>
+  </value>
+  <value time="15">
+    <cpu>5.6</cpu>
+    <octetos>13726201</octetos>
+  </value>
+  <value time="16">
+    <cpu>3.6</cpu>
+    <octetos>13772801</octetos>
+  </value>
+  <value time="17">
+    <cpu>8.8</cpu>
+    <octetos>13803369</octetos>
+  </value>
+  <value time="18">
+    <cpu>5.1</cpu>
+    <octetos>13807768</octetos>
+  </value>
+  <value time="19">
+    <cpu>3.4</cpu>
+    <octetos>13811495</octetos>
+  </value>
+  <value time="20">
+    <cpu>3.7</cpu>
+    <octetos>13811495</octetos>
+  </value>
+  <value time="21">
+    <cpu>3.6</cpu>
+    <octetos>13820192</octetos>
+  </value>
+  <value time="22">
+    <cpu>5.9</cpu>
+    <octetos>13835752</octetos>
+  </value>
+  <value time="23">
+    <cpu>8.2</cpu>
+    <octetos>13839491</octetos>
+  </value>
+  <value time="24">
+    <cpu>3.8</cpu>
+    <octetos>13839491</octetos>
+  </value>
+  <value time="25">
+    <cpu>5.1</cpu>
+    <octetos>13840274</octetos>
+  </value>
+  <value time="26">
+    <cpu>5.6</cpu>
+    <octetos>13843508</octetos>
+  </value>
+  <value time="27">
+    <cpu>4.1</cpu>
+    <octetos>13844365</octetos>
+  </value>
+  <value time="28">
+    <cpu>4.5</cpu>
+    <octetos>13844419</octetos>
+  </value>
+  <value time="29">
+    <cpu>4.6</cpu>
+    <octetos>13844419</octetos>
+  </value>
+  <value time="30">
+    <cpu>3.0</cpu>
+    <octetos>13847057</octetos>
+  </value>
+  <value time="31">
+    <cpu>8.1</cpu>
+    <octetos>13862526</octetos>
+  </value>
+  <value time="32">
+    <cpu>9.4</cpu>
+    <octetos>13866005</octetos>
+  </value>
+  <value time="33">
+    <cpu>4.2</cpu>
+    <octetos>13868261</octetos>
+  </value>
+  <value time="34">
+    <cpu>2.5</cpu>
+    <octetos>13868471</octetos>
+  </value>
+  <value time="35">
+    <cpu>9.9</cpu>
+    <octetos>13877495</octetos>
+  </value>
+  <value time="36">
+    <cpu>6.0</cpu>
+    <octetos>13882372</octetos>
+  </value>
+  <value time="37">
+    <cpu>5.6</cpu>
+    <octetos>13882505</octetos>
+  </value>
+  <value time="38">
+    <cpu>3.3</cpu>
+    <octetos>13882755</octetos>
+  </value>
+  <value time="39">
+    <cpu>6.0</cpu>
+    <octetos>13882755</octetos>
+  </value>
+  <value time="40">
+    <cpu>3.3</cpu>
+    <octetos>13882833</octetos>
+  </value>
+  <value time="41">
+    <cpu>4.0</cpu>
+    <octetos>13882833</octetos>
+  </value>
+  <value time="42">
+    <cpu>2.9</cpu>
+    <octetos>13882833</octetos>
+  </value>
+  <value time="43">
+    <cpu>6.3</cpu>
+    <octetos>13883013</octetos>
+  </value>
+  <value time="44">
+    <cpu>3.3</cpu>
+    <octetos>13883122</octetos>
+  </value>
+  <value time="45">
+    <cpu>2.1</cpu>
+    <octetos>13883200</octetos>
+  </value>
+  <value time="46">
+    <cpu>3.4</cpu>
+    <octetos>13883255</octetos>
+  </value>
+  <value time="47">
+    <cpu>3.2</cpu>
+    <octetos>13883255</octetos>
+  </value>
+  <value time="48">
+    <cpu>2.4</cpu>
+    <octetos>13883339</octetos>
+  </value>
+  <value time="49">
+    <cpu>3.2</cpu>
+    <octetos>13883339</octetos>
+  </value>
+  <value time="50">
+    <cpu>2.2</cpu>
+    <octetos>14017707</octetos>
+  </value>
+  <value time="51">
+    <cpu>2.0</cpu>
+    <octetos>14018661</octetos>
+  </value>
+  <value time="52">
+    <cpu>1.8</cpu>
+    <octetos>14018661</octetos>
+  </value>
+  <value time="53">
+    <cpu>2.7</cpu>
+    <octetos>14021633</octetos>
+  </value>
+  <value time="54">
+    <cpu>14.6</cpu>
+    <octetos>14021849</octetos>
+  </value>
+  <value time="55">
+    <cpu>5.9</cpu>
+    <octetos>14021957</octetos>
+  </value>
+  <value time="56">
+    <cpu>2.8</cpu>
+    <octetos>14021957</octetos>
+  </value>
+  <value time="57">
+    <cpu>3.6</cpu>
+    <octetos>14021957</octetos>
+  </value>
+  <value time="58">
+    <cpu>2.8</cpu>
+    <octetos>14022012</octetos>
+  </value>
+  <value time="59">
+    <cpu>3.9</cpu>
+    <octetos>14022211</octetos>
+  </value>
+</stats>

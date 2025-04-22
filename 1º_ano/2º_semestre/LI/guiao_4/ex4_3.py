@@ -11,6 +11,6 @@ def main():
     writer = csv.DictWriter(fout, fieldnames=["time", "numero_octetos", "processador(%)"])
     writer.writeheader()
     for i in range(0,61):
-        writer.writerow({"time": time.time(), "numero_octetos" : psutil.net_io_counters(), "processador(%)" : psutil.cpu_percent(interval=1)} )
+        writer.writerow({"time": time.time(), "numero_octetos" : psutil.net_io_counters()[0], "processador(%)" : psutil.cpu_percent(interval=1)} )
     fout.close()
 main()

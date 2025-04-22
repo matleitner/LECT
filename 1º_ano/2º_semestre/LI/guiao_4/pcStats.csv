@@ -1,62 +1,62 @@
 time,numero_octetos,processador(%)
-1742220601.1424944,"snetio(bytes_sent=21625352, bytes_recv=347943362, packets_sent=168004, packets_recv=294581, errin=0, errout=0, dropin=0, dropout=0)",17.5
-1742220602.2124317,"snetio(bytes_sent=21629192, bytes_recv=347943881, packets_sent=168010, packets_recv=294587, errin=0, errout=0, dropin=0, dropout=0)",9.1
-1742220603.2492564,"snetio(bytes_sent=21635957, bytes_recv=347949378, packets_sent=168021, packets_recv=294598, errin=0, errout=0, dropin=0, dropout=0)",9.2
-1742220604.275071,"snetio(bytes_sent=21636143, bytes_recv=347950269, packets_sent=168024, packets_recv=294604, errin=0, errout=0, dropin=0, dropout=0)",7.4
-1742220605.2973228,"snetio(bytes_sent=21636197, bytes_recv=347950683, packets_sent=168025, packets_recv=294607, errin=0, errout=0, dropin=0, dropout=0)",4.9
-1742220606.314414,"snetio(bytes_sent=21636305, bytes_recv=347951435, packets_sent=168027, packets_recv=294611, errin=0, errout=0, dropin=0, dropout=0)",5.6
-1742220607.3388667,"snetio(bytes_sent=21636401, bytes_recv=347951628, packets_sent=168029, packets_recv=294614, errin=0, errout=0, dropin=0, dropout=0)",4.9
-1742220608.357089,"snetio(bytes_sent=21636401, bytes_recv=347951714, packets_sent=168029, packets_recv=294615, errin=0, errout=0, dropin=0, dropout=0)",6.8
-1742220609.3744798,"snetio(bytes_sent=21636592, bytes_recv=347952047, packets_sent=168032, packets_recv=294619, errin=0, errout=0, dropin=0, dropout=0)",17.6
-1742220610.3971984,"snetio(bytes_sent=21636702, bytes_recv=347952265, packets_sent=168034, packets_recv=294622, errin=0, errout=0, dropin=0, dropout=0)",10.9
-1742220611.4224997,"snetio(bytes_sent=21636702, bytes_recv=347952265, packets_sent=168034, packets_recv=294622, errin=0, errout=0, dropin=0, dropout=0)",3.4
-1742220612.4458883,"snetio(bytes_sent=21636702, bytes_recv=347952265, packets_sent=168034, packets_recv=294622, errin=0, errout=0, dropin=0, dropout=0)",2.6
-1742220613.4655101,"snetio(bytes_sent=21636702, bytes_recv=347952351, packets_sent=168034, packets_recv=294623, errin=0, errout=0, dropin=0, dropout=0)",4.3
-1742220614.4831939,"snetio(bytes_sent=21636982, bytes_recv=347952885, packets_sent=168038, packets_recv=294627, errin=0, errout=0, dropin=0, dropout=0)",3.7
-1742220615.5082858,"snetio(bytes_sent=21637037, bytes_recv=347952951, packets_sent=168039, packets_recv=294628, errin=0, errout=0, dropin=0, dropout=0)",5.9
-1742220616.5265708,"snetio(bytes_sent=21640769, bytes_recv=347959406, packets_sent=168053, packets_recv=294647, errin=0, errout=0, dropin=0, dropout=0)",4.9
-1742220617.5479524,"snetio(bytes_sent=21640823, bytes_recv=347959888, packets_sent=168054, packets_recv=294650, errin=0, errout=0, dropin=0, dropout=0)",5.3
-1742220618.5759103,"snetio(bytes_sent=21640986, bytes_recv=347960388, packets_sent=168057, packets_recv=294655, errin=0, errout=0, dropin=0, dropout=0)",3.3
-1742220619.594387,"snetio(bytes_sent=21641040, bytes_recv=347960670, packets_sent=168058, packets_recv=294656, errin=0, errout=0, dropin=0, dropout=0)",3.5
-1742220620.6134772,"snetio(bytes_sent=21641040, bytes_recv=347960670, packets_sent=168058, packets_recv=294656, errin=0, errout=0, dropin=0, dropout=0)",11.0
-1742220621.6337976,"snetio(bytes_sent=21641094, bytes_recv=347960802, packets_sent=168059, packets_recv=294657, errin=0, errout=0, dropin=0, dropout=0)",7.8
-1742220622.6556766,"snetio(bytes_sent=21641094, bytes_recv=347960888, packets_sent=168059, packets_recv=294658, errin=0, errout=0, dropin=0, dropout=0)",6.2
-1742220623.676339,"snetio(bytes_sent=21641094, bytes_recv=347961060, packets_sent=168059, packets_recv=294660, errin=0, errout=0, dropin=0, dropout=0)",7.2
-1742220624.7004387,"snetio(bytes_sent=21641094, bytes_recv=347961060, packets_sent=168059, packets_recv=294660, errin=0, errout=0, dropin=0, dropout=0)",2.1
-1742220625.7236142,"snetio(bytes_sent=21641094, bytes_recv=347961146, packets_sent=168059, packets_recv=294661, errin=0, errout=0, dropin=0, dropout=0)",6.6
-1742220626.742315,"snetio(bytes_sent=21641094, bytes_recv=347961146, packets_sent=168059, packets_recv=294661, errin=0, errout=0, dropin=0, dropout=0)",13.6
-1742220627.762841,"snetio(bytes_sent=21646419, bytes_recv=347966819, packets_sent=168069, packets_recv=294675, errin=0, errout=0, dropin=0, dropout=0)",1.9
-1742220628.7807705,"snetio(bytes_sent=21646914, bytes_recv=347967756, packets_sent=168076, packets_recv=294685, errin=0, errout=0, dropin=0, dropout=0)",3.3
-1742220629.7978182,"snetio(bytes_sent=21646914, bytes_recv=347967842, packets_sent=168076, packets_recv=294686, errin=0, errout=0, dropin=0, dropout=0)",2.3
-1742220630.8179696,"snetio(bytes_sent=21646914, bytes_recv=347967928, packets_sent=168076, packets_recv=294687, errin=0, errout=0, dropin=0, dropout=0)",7.7
-1742220631.865226,"snetio(bytes_sent=21647762, bytes_recv=347968345, packets_sent=168079, packets_recv=294690, errin=0, errout=0, dropin=0, dropout=0)",19.4
-1742220632.8928576,"snetio(bytes_sent=21683244, bytes_recv=348006851, packets_sent=168189, packets_recv=294796, errin=0, errout=0, dropin=0, dropout=0)",10.7
-1742220633.923195,"snetio(bytes_sent=21685866, bytes_recv=348007826, packets_sent=168197, packets_recv=294804, errin=0, errout=0, dropin=0, dropout=0)",7.5
-1742220634.9471295,"snetio(bytes_sent=21691279, bytes_recv=348008218, packets_sent=168203, packets_recv=294809, errin=0, errout=0, dropin=0, dropout=0)",8.7
-1742220635.965462,"snetio(bytes_sent=21691529, bytes_recv=348008370, packets_sent=168206, packets_recv=294811, errin=0, errout=0, dropin=0, dropout=0)",10.9
-1742220636.9878078,"snetio(bytes_sent=21699698, bytes_recv=348014253, packets_sent=168232, packets_recv=294841, errin=0, errout=0, dropin=0, dropout=0)",17.7
-1742220638.010394,"snetio(bytes_sent=21821405, bytes_recv=352771127, packets_sent=170208, packets_recv=298549, errin=0, errout=0, dropin=0, dropout=0)",4.6
-1742220639.0341675,"snetio(bytes_sent=21821487, bytes_recv=352771181, packets_sent=170209, packets_recv=298550, errin=0, errout=0, dropin=0, dropout=0)",7.5
-1742220640.0502803,"snetio(bytes_sent=21821966, bytes_recv=352771407, packets_sent=170212, packets_recv=298553, errin=0, errout=0, dropin=0, dropout=0)",3.6
-1742220641.0693612,"snetio(bytes_sent=21822445, bytes_recv=352771559, packets_sent=170215, packets_recv=298555, errin=0, errout=0, dropin=0, dropout=0)",3.8
-1742220642.1456573,"snetio(bytes_sent=21822924, bytes_recv=352771883, packets_sent=170218, packets_recv=298559, errin=0, errout=0, dropin=0, dropout=0)",6.9
-1742220643.164303,"snetio(bytes_sent=21845097, bytes_recv=352792830, packets_sent=170334, packets_recv=298668, errin=0, errout=0, dropin=0, dropout=0)",12.2
-1742220644.1839921,"snetio(bytes_sent=21859543, bytes_recv=353000216, packets_sent=170436, packets_recv=298854, errin=0, errout=0, dropin=0, dropout=0)",16.7
-1742220645.2099018,"snetio(bytes_sent=21874057, bytes_recv=353018667, packets_sent=170485, packets_recv=298908, errin=0, errout=0, dropin=0, dropout=0)",8.3
-1742220646.2528458,"snetio(bytes_sent=21876326, bytes_recv=353123751, packets_sent=170527, packets_recv=298990, errin=0, errout=0, dropin=0, dropout=0)",10.2
-1742220647.2716033,"snetio(bytes_sent=21876436, bytes_recv=353123903, packets_sent=170529, packets_recv=298992, errin=0, errout=0, dropin=0, dropout=0)",13.7
-1742220648.2907157,"snetio(bytes_sent=21876436, bytes_recv=353124055, packets_sent=170529, packets_recv=298994, errin=0, errout=0, dropin=0, dropout=0)",12.8
-1742220649.3094625,"snetio(bytes_sent=21876436, bytes_recv=353124055, packets_sent=170529, packets_recv=298994, errin=0, errout=0, dropin=0, dropout=0)",11.9
-1742220650.3367045,"snetio(bytes_sent=21876491, bytes_recv=353124723, packets_sent=170530, packets_recv=299002, errin=0, errout=0, dropin=0, dropout=0)",5.0
-1742220651.3560994,"snetio(bytes_sent=21885112, bytes_recv=353128159, packets_sent=170551, packets_recv=299028, errin=0, errout=0, dropin=0, dropout=0)",18.8
-1742220652.3745952,"snetio(bytes_sent=21916570, bytes_recv=353361238, packets_sent=170689, packets_recv=299254, errin=0, errout=0, dropin=0, dropout=0)",6.9
-1742220653.3932555,"snetio(bytes_sent=21916678, bytes_recv=353361898, packets_sent=170691, packets_recv=299258, errin=0, errout=0, dropin=0, dropout=0)",6.0
-1742220654.4144351,"snetio(bytes_sent=21916787, bytes_recv=353362100, packets_sent=170693, packets_recv=299260, errin=0, errout=0, dropin=0, dropout=0)",5.5
-1742220655.4348583,"snetio(bytes_sent=21927251, bytes_recv=353371049, packets_sent=170721, packets_recv=299296, errin=0, errout=0, dropin=0, dropout=0)",5.4
-1742220656.457624,"snetio(bytes_sent=21927251, bytes_recv=353371049, packets_sent=170721, packets_recv=299296, errin=0, errout=0, dropin=0, dropout=0)",9.5
-1742220657.4790502,"snetio(bytes_sent=21928376, bytes_recv=353372566, packets_sent=170731, packets_recv=299315, errin=0, errout=0, dropin=0, dropout=0)",10.3
-1742220658.5017626,"snetio(bytes_sent=21928376, bytes_recv=353372566, packets_sent=170731, packets_recv=299315, errin=0, errout=0, dropin=0, dropout=0)",8.1
-1742220659.531914,"snetio(bytes_sent=21929780, bytes_recv=353378474, packets_sent=170747, packets_recv=299331, errin=0, errout=0, dropin=0, dropout=0)",9.9
-1742220660.5525758,"snetio(bytes_sent=21937710, bytes_recv=353382076, packets_sent=170777, packets_recv=299356, errin=0, errout=0, dropin=0, dropout=0)",21.7
-1742220661.5808008,"snetio(bytes_sent=21944666, bytes_recv=353556012, packets_sent=170853, packets_recv=299504, errin=0, errout=0, dropin=0, dropout=0)",12.4
-1742220662.6056006,"snetio(bytes_sent=21944666, bytes_recv=353556012, packets_sent=170853, packets_recv=299504, errin=0, errout=0, dropin=0, dropout=0)",8.2
+1745324070.3635726,5007104,9.8
+1745324071.3724232,5025107,12.6
+1745324072.3802629,5056815,12.4
+1745324073.394513,5061245,8.7
+1745324074.4038548,5069675,8.4
+1745324075.418,5185581,7.2
+1745324076.428104,5191932,5.3
+1745324077.4376915,5202582,4.8
+1745324078.4453747,5213701,3.8
+1745324079.458309,5216282,2.8
+1745324080.4691198,5219744,4.8
+1745324081.477936,5222140,5.7
+1745324082.490173,5230623,2.4
+1745324083.499282,5232624,2.4
+1745324084.5163484,5232624,1.1
+1745324085.532295,5232624,1.6
+1745324086.5464282,5232624,2.5
+1745324087.5612068,5232679,3.2
+1745324088.587033,5232679,2.6
+1745324089.5974617,5232679,5.4
+1745324090.6407907,5235652,3.6
+1745324091.6493979,5235803,3.7
+1745324092.6633344,5235803,3.0
+1745324093.6778953,5235803,4.7
+1745324094.6906543,5235803,2.3
+1745324095.6962492,5235803,4.6
+1745324096.710786,5243054,3.7
+1745324097.7268817,5253083,6.0
+1745324098.7428052,5259797,6.1
+1745324099.7544894,5259852,4.8
+1745324100.7904341,5266921,3.9
+1745324101.7970176,5267400,2.3
+1745324102.8098168,5275037,3.7
+1745324103.821661,5280611,4.9
+1745324104.9273255,5281508,5.1
+1745324105.9421382,5284897,3.6
+1745324106.9572473,5304709,3.3
+1745324107.973054,5307534,3.1
+1745324108.9855437,5309997,3.9
+1745324109.9986715,5310963,3.4
+1745324111.0107927,5312434,5.0
+1745324112.02487,5318037,6.4
+1745324113.0334456,5318847,7.8
+1745324114.0415666,5325951,5.8
+1745324115.0484622,5325951,7.2
+1745324116.0573301,5339683,6.3
+1745324117.0709767,5339737,7.3
+1745324118.0790718,5339737,6.8
+1745324119.0913613,5353462,6.9
+1745324120.1049745,5353462,6.9
+1745324121.114773,5353462,7.1
+1745324122.1240506,5358986,7.9
+1745324123.133608,5358986,6.7
+1745324124.1468859,5362417,5.3
+1745324125.155943,5368495,6.0
+1745324126.164827,5384625,5.5
+1745324127.1759508,5384679,6.2
+1745324128.1852996,5384679,6.1
+1745324129.1945426,5384787,6.2
+1745324130.203157,5384787,5.5
+1745324131.2130356,5384907,5.9
