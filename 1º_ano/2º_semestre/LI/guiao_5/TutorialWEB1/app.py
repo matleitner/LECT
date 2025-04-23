@@ -28,7 +28,7 @@ config = {
 class Root():
 	@cherrypy.expose
 	def index(self):
-		return open("html/index.html")
+		return open(os.path.join(baseDir, "html", "index.html")).read()
 
 	# Clock
 
