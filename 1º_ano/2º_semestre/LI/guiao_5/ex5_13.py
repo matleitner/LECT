@@ -27,5 +27,7 @@ class Root():
     @cherrypy.expose
     def index(self):
         return open("static/index.html")
+    
+    # em linux funciona em windows caga se todo
 
 cherrypy.quickstart(Root(), "/", config=conf)

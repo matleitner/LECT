@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
 
         <!-- Personal Styles -->
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="/style.css">
           
         <!-- jQuery library -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -35,8 +35,9 @@
 		<script src="../js/timer.js"></script>
 
 		<!-- Clock JavaScript -->
-		
+		<script src="../js/clock.js"></script>
 		<!-- Distance JavaScript -->
+		<script src="../js/distance.js"></script>
     </head>
 
     <body>
@@ -74,9 +75,21 @@
 			<h2 id="topicA" style="text-align:center">Topic A - Dynamic Contents using Web Services</h2>
 			<br>
 			<!-- Clock -->
-
+			<div class="content_clock">
+				<button id="refresh_clock" class = "btn-btn-block btn-primary">Clock Refresh</button>
+					<div style="border: 2px solid black;">
+						<div id="clock" style="width:100%; text-align:center;"></div>
+					</div>
+			</div>
 			<!-- Distance -->			
-
+			<div class="content_dist">
+					<button id="refresh_dist" class="btn btn-block btn-primary">
+						Distance to Stadium Refresh
+					</button>
+					<div style="border: 2px solid black;">
+						<div id="distance" style="width:100%; text-align:center;"></div>
+					</div>
+				</div>
 			<br><br>
 
 			<h2 id="topicB" style="text-align:center">Topic B - Graphics</h2>

@@ -9,18 +9,24 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
 		<!-- Personal Styles -->
-		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="/style.css">
 
 		<!-- jQuery library -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		
 		<!-- Javascript Image Processing -->
+		 <script src="../js/image.js"></script>
 	</head>
 
 	<body style="text-align:center">
 		<h1>Images UpLoad</h1>
+		<div class="content_image">
+			<div class="btn btn-primary btn-block btn-input">
+				<input type="file" accept="image/*" onchange="updatePhoto(event)">
+				<canvas id="photo" width="530" height="400"></canvas>
+			</div>
+			</div>
 		<br>
-
 		<div>
 			<input type="button" class="btn btn-success" value="Close" onclick="self.close()">
 		</div>
