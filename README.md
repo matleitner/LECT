@@ -1,7 +1,5 @@
 # LECT
 
-
-
 ```bash
-Material LECT do Leitnerzinpvp
+Material LECT de Leitnerzinpvp
 ```
