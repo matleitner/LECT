@@ -1,4 +1,7 @@
 package aula05.Ex5_1;
+
+import aula07.Ex7_2.Date;
+
 // import java.util.Scanner;
 public class DateYMD extends Date{
     

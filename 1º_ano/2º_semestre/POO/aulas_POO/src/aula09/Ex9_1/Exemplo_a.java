@@ -1,6 +1,10 @@
 package aula09.Ex9_1;
 import java.util.Collections;
 import java.util.ArrayList;
+
+// a) Modifique-o livremente para testar algumas das funções que estão disponíveis nesta
+// classe (add, contains, indexOf, lastIndexOf, set, subList, ...).
+
 public class Exemplo_a {
     
     public static void main(String[] args) {

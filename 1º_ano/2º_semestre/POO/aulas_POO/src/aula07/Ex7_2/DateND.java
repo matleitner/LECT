@@ -1,5 +1,4 @@
 package aula07.Ex7_2;
-import aula05.Ex5_1.*;
 
 public class DateND extends Date {
     private long daysDesde2000;

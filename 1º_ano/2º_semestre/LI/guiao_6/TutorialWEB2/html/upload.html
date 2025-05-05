@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>UpLoad</title>
+
+		<!-- Bootstrap minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		
+		<!-- Personal Styles -->
+		<link rel="stylesheet" href="../css/style.css">
+
+		<!-- jQuery library -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		
+		<!-- Javascript Image Processing -->
+		<script src="../js/upload.js"></script>
+	</head>
+
+	<body style="text-align:center">
+		<h1>Images UpLoad</h1>
+		<hr>
+		<div class="content_image">
+			<div class="btn btn-primary btn-block btn-input">
+				<input type="file" accept="image/*" onchange="updatePhoto(event)">
+				<canvas id="photo" width="550" height="450"></canvas>
+			</div>
+			<hr>
+			<!-- Input buttons for obtain Image Name and Image Author -->
+			<div class="btn btn-secondary btn-block btn-input">
+				<label for="nameImg">Image Name</label>
+				<input type="text" id="nameImg" name="nameImg" required>
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+				<label for="authorImg">Image Author</label>
+				<input type="text" id="authorImg" name="authorImg" required>
+				&nbsp; &nbsp;
+				<input type="button" class="btn btn-success" value="Upload" onclick="uploadImage()">
+			</div>
+		</div>
+		<div>
+			<input type="button" class="btn btn-success" value="Close" onclick="self.close()">
+		</div>
+	</body>
+</html>

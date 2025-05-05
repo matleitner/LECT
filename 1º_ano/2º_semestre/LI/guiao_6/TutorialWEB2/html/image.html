@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Image</title>
+
+		<!-- Bootstrap minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		
+		<!-- Personal Styles -->
+		<link rel="stylesheet" href="../css/style.css">
+
+		<!-- jQuery library -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<!-- Javascript for Image Display -->
+		<script src="../js/image.js"></script>
+	</head>
+
+	<body style="font-size: 15px; text-align: center;">
+		<h1>Image and Comments</h1>
+		<hr>
+		<div class="row">
+			<div class="columnleft">
+				<h3>Image Information</h3>
+				<hr>
+				<div id="imageinfo"></div>
+			</div>
+			
+			<div class="columnright">
+				<h3>Users Comments</h3>
+				<hr>
+				<div id="comments" style="border: 3px solid"></div>
+			</div>
+		</div>
+
+		<hr>
+		<div class="btn btn-secondary btn-block btn-input">
+			<label for="user">User Name</label>
+			<input type="text" id="user" name="user" required>
+			&nbsp; &nbsp;
+			<label for="comment">Comment</label>
+			<input type="text" id="comment" name="comment" required>
+			<input type="button" class="btn btn-success" value="Send Comment" onclick="newcomment()">
+		</div>
+
+		<div>
+			<span id="thumbs_up" style="font-weight:bold; font-size:20px;"></span>
+			<img src="../images/ThumbsUp.jpg" alt="Thumbs Up" width="50" height="50" onclick="upvote()">
+			<img src="../images/ThumbsDown.jpg" alt="Thumbs Down" width="50" height="50" onclick="downvote()">
+			<span id="thumbs_down" style="font-weight:bold; font-size:20px;"></span>
+		</div>	
+
+		<hr>
+		<div>
+			<input type="button" class="btn btn-success" value="Close" onclick="self.close()">
+		</div>
+	</body>
+</html>

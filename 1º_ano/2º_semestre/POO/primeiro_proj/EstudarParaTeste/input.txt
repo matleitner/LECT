@@ -1,4 +1,0 @@
-100
-1 2 3 4 5 6 7 8 9 10
-Isto é uma String Teste
-Isto é uma Lista de Strings de Teste
