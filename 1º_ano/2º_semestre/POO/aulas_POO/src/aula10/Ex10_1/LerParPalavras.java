@@ -2,8 +2,9 @@ package aula10.Ex10_1;
 import java.io.File;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
+import java.util.Map;
 public class LerParPalavras{
-    
+    Map<String, Map<String, Integer>> parDePlavavras ;
     public Scanner abrirFicheiro(String filename){
         Scanner fileReader = null;
         try{
