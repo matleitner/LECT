@@ -29,4 +29,8 @@ public class Customer implements Comparable<Customer>{
     public int compareTo(Customer obj){
         return Integer.compare(this.getCustomerId(),obj.getCustomerId());
     }
+    @Override
+    public String toString() {
+        return "Este é o customer nº" + customerId + ", " + meterReadings.toString();
+    }
 }

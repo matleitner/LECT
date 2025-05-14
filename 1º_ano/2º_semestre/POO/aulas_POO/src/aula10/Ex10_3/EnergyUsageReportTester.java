@@ -1,5 +1,8 @@
 package aula10.Ex10_3;
 import java.util.Arrays;
+
+import static java.lang.System.out;
+
 import java.io.IOException;
 
 public class EnergyUsageReportTester {
@@ -21,7 +24,7 @@ public class EnergyUsageReportTester {
         
         // Retrieve a customer from the collection using the getCustomer() method
         Customer retrievedCustomer = energyReport.getCustomer(1025);
-        
+        System.out.println(retrievedCustomer);
         // Calculate the total energy usage for a specific customer using the calculateTotalUsage() method
         double totalEnergyUsage = energyReport.calculateTotalUsage(1003);
         System.out.println("Total energy usage for customer 1003: " + totalEnergyUsage);
