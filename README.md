@@ -6,10 +6,9 @@ Material LECT de Leitnerzinpvp
 
 License
 
-- [1º ano](https://github.com/matleitner/LECT/tree/c8e6c36098f0e3d60c759ecdaa33709d5f0f32a3/1%C2%BA_ano)
-
+# 1º ano
   
- ##1º semestre
+ ## 1º semestre
   
   - [FP]()
   - [ISD]()
@@ -17,7 +16,7 @@ License
   - [CI]()
   - [ALGA]()
  
- ##2º semestre
+ ## 2º semestre
  
   - [MD]()
   - [CII]()
