@@ -35,7 +35,7 @@ License
         <li><a href="#built-with">IEI</a></li>
         <li><a href="#built-with">ISD</a></li>
         <li><a href="#built-with">CI</a></li>
-        <li><a href="#built-with">ALGA</a></li>
+        <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/Alga">ALGA</a></li>
       </ul>
     </li>
     <li>
