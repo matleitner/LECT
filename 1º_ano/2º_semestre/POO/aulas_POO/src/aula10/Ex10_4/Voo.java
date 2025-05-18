@@ -202,10 +202,10 @@ public class Voo {
     public static void main(String[] args){
         
         //load().forEach(System.out::println);
-        //printFlights();
+        printFlights();
         //saveTable();
         //mediaAtradosPorEmpresa(load()).forEach((key,val)-> System.out.println(key+" -> "+val));
-        countFlights(load());
+        //countFlights(load());
         
     
     }

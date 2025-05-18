@@ -5,8 +5,7 @@
         "lib/**/*.jar"
     ],
     "java.debug.settings.onBuildFailureProceed": true,
-    "editor.acceptSuggestionOnEnter": "off",
-    "microsoft-sovereign-cloud.customEnvironment": {
+    "editor.acceptSuggestionOnEnter": "on",
         
-    }
+    
 }
