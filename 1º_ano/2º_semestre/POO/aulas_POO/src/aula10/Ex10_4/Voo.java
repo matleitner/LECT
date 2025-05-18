@@ -1,16 +1,20 @@
 package aula10.Ex10_4;
 
 
-import static java.lang.System.out;
 
 import java.io.File;
 import java.util.Scanner;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 import java.io.FileWriter;
-
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Comparator;
+
 public class Voo {
     
     public static ArrayList<ArrayList<String>> load(){
@@ -120,10 +124,10 @@ public class Voo {
         }
 
     }
-    public static TreeMap<String, Integer> mediaAtradosPorEmpresa(ArrayList<ArrayList<String>> voos){
+    public static TreeMap<String, String> mediaAtradosPorEmpresa(ArrayList<ArrayList<String>> voos){
         TreeMap<String,ArrayList<String>> companhiasAtrasosMedia = new TreeMap<>();
         int totalSoma = 0;
-        TreeMap<String,Integer> mediaCompanhiasAtrasadas = new TreeMap<>();
+        TreeMap<String,String> mediaCompanhiasAtrasadas = new TreeMap<>();
         for(ArrayList<String> voo : voos){
             if(voo.size()==6){
             String companhia = voo.get(4);
@@ -145,23 +149,64 @@ public class Voo {
                 
                 totalSoma += Integer.parseInt(atrasos.get(i).split(":")[1]) + Integer.parseInt(atrasos.get(i).split(":")[0])*60;
             }
-            mediaCompanhiasAtrasadas.put(companhia, (totalSoma /atrasos.size()));
+            mediaCompanhiasAtrasadas.put(companhia, String.format("%02d:%02d",(totalSoma /atrasos.size())/60,(totalSoma /atrasos.size())%60));
             totalSoma = 0;
         }
-        System.out.println(companhiasAtrasosMedia.toString());
+        //System.out.println(companhiasAtrasosMedia.toString());
         return mediaCompanhiasAtrasadas;
 
 
 
     }
+    public static void countFlights(ArrayList<ArrayList<String>> voos){
+        Map<String,Integer> flightsCount = new HashMap<>();
+        
+        
+        
+        for(ArrayList<String> voo : voos){
+            flightsCount.putIfAbsent(voo.get(2),0);
+            flightsCount.put(voo.get(2), flightsCount.get(voo.get(2))+1);
+        }
+        
+        
+        
+    
+        
+        
+        
+        LinkedHashMap<String, Integer> sortedByValue = flightsCount.entrySet()
+            .stream()
+            .sorted(
+                Comparator.comparing(Map.Entry<String,Integer>::getValue, Comparator.reverseOrder()).thenComparing(Map.Entry::getKey)
+            ).collect(Collectors.toMap(
+                Map.Entry::getKey,
+                Map.Entry::getValue,
+                (e1, e2) -> e1,
+                LinkedHashMap::new 
+            ));
+            
+        try(FileWriter fw = new FileWriter(new File("cidades.txt"))){
+        
+        for(Map.Entry<String,Integer> entry: sortedByValue.entrySet()){
+        fw.write(entry.getKey()+ " -> " + entry.getValue()+"\n");
+        };
+    
+    
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
 
+    }
 
    
     public static void main(String[] args){
-        //System.out.printf("%-30s%-30s%-30s%-30s%-30s%-30s\n\n","Hora","Voo","Companhia","Origem","Atraso","Obs");
+        
         //load().forEach(System.out::println);
         //printFlights();
         //saveTable();
-        System.out.println(mediaAtradosPorEmpresa(load()).toString());
+        //mediaAtradosPorEmpresa(load()).forEach((key,val)-> System.out.println(key+" -> "+val));
+        countFlights(load());
+        
+    
     }
 }
