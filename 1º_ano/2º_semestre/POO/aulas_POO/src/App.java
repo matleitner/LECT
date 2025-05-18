@@ -1,5 +1,13 @@
+import java.util.TreeMap;
+
+
+
+
+
+
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        TreeMap<Integer,Integer> ola = new TreeMap<>();
     }
 }

@@ -1,11 +1,15 @@
 package aula10.Ex10_4;
 
 
+import static java.lang.System.out;
+
 import java.io.File;
 import java.util.Scanner;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.TreeMap;
+import java.io.FileWriter;
+
 import java.util.ArrayList;
 public class Voo {
     
@@ -87,16 +91,77 @@ public class Voo {
             System.out.printf("%-30s%-30s%-30s%-30s\n", voo.get(0), voo.get(1), voo.get(3),voo.get(2));
         
         }    
+
+
     
     
     }
 
 
+
+
+    public static void saveTable(){
+
+        try(FileWriter file = new FileWriter(new File("table.txt"), true)){
+            file.write(String.format("%-30s%-30s%-30s%-30s%-30s%-30s\n\n","Hora","Voo","Companhia","Origem","Atraso","Obs"));
+            ArrayList<ArrayList<String>> voosTodos = load();
+            for(ArrayList<String> voo: voosTodos){
+            if(voo.size()==6)
+            file.write(String.format("%-30s%-30s%-30s%-30s%-30s%-30s\n", voo.get(0), voo.get(1), voo.get(4),voo.get(2),voo.get(3), voo.get(5)));
+            else
+            file.write(String.format("%-30s%-30s%-30s%-30s\n", voo.get(0), voo.get(1), voo.get(3),voo.get(2)));
+        
+        }    
+
+
+
+        }catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+
+    }
+    public static TreeMap<String, Integer> mediaAtradosPorEmpresa(ArrayList<ArrayList<String>> voos){
+        TreeMap<String,ArrayList<String>> companhiasAtrasosMedia = new TreeMap<>();
+        int totalSoma = 0;
+        TreeMap<String,Integer> mediaCompanhiasAtrasadas = new TreeMap<>();
+        for(ArrayList<String> voo : voos){
+            if(voo.size()==6){
+            String companhia = voo.get(4);
+            String horaAtraso = voo.get(3);
+            companhiasAtrasosMedia
+        .computeIfAbsent(companhia, k -> new ArrayList<>())
+        .add(horaAtraso);
+            
+    
+            
+        }
+
+    }   
+    
+    for (String companhia : companhiasAtrasosMedia.keySet()) {
+        ArrayList<String> atrasos = companhiasAtrasosMedia.get(companhia);
+            
+            for(int i = 0; i<atrasos.size();i++){
+                
+                totalSoma += Integer.parseInt(atrasos.get(i).split(":")[1]) + Integer.parseInt(atrasos.get(i).split(":")[0])*60;
+            }
+            mediaCompanhiasAtrasadas.put(companhia, (totalSoma /atrasos.size()));
+            totalSoma = 0;
+        }
+        System.out.println(companhiasAtrasosMedia.toString());
+        return mediaCompanhiasAtrasadas;
+
+
+
+    }
+
+
    
     public static void main(String[] args){
-        System.out.printf("%-30s%-30s%-30s%-30s%-30s%-30s\n\n","Hora","Voo","Companhia","Origem","Atraso","Obs");
-//        load().forEach(System.out::println);
-         printFlights();
-
+        //System.out.printf("%-30s%-30s%-30s%-30s%-30s%-30s\n\n","Hora","Voo","Companhia","Origem","Atraso","Obs");
+        //load().forEach(System.out::println);
+        //printFlights();
+        //saveTable();
+        System.out.println(mediaAtradosPorEmpresa(load()).toString());
     }
 }
