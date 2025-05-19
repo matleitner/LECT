@@ -1,0 +1,5 @@
+Maria Santos	918765432	maria@ua.pt	1998-03-20
+Pedro Costa	925678901	pedro@ua.pt	2002-07-05
+Ana Sousa	911234567	ana@ua.pt	1995-11-30
+Rui Pereira	919876543	rui@ua.pt	1990-02-15
+João Silva	912345678	joao@ua.pt	2000-10-12
