@@ -11,7 +11,7 @@ public class StandardCostCalculator implements IContactCostCalculator{
         
         double result = unit*0.10;
         
-        return Math.round(result*100.0)/100.0;
+        return Math.round(result*1000.0)/1000.0;
         
 
     }

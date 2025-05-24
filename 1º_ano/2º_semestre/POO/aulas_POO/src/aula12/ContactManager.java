@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class ContactManager {
     private Set<Contact> contactList;
-
+    private int counter = 1;
     public ContactManager(){
         this.contactList = new LinkedHashSet<>();
     }
@@ -19,11 +19,29 @@ public class ContactManager {
     }
     
     public void addContact(Contact c){
+        int i = contactList.size();
+        
         contactList.add(c);
+        //"debug" System.out.println(c.getNome() + "##" + c.getId());
+        if(i != contactList.size()) c.setId(counter++);
+        // "debug" System.out.println(c.getId());
+ 
     }
+
+    public void sendEmail(int id){
+        Contact c = contactList.stream().filter(n -> n.getId() == id).findFirst().orElse(null);
+        c.addUnitEmail();
+            
     
+    }
+    public void call(int id, double unit){
+        Contact c = contactList.stream().filter(n -> n.getId() == id).findFirst().orElse(null);        
+        c.addUnitCall();
+    }
+
+
     public void removeContact(int i){
-        contactList.removeIf(n-> n.getId()==i);
+        contactList.removeIf(n -> n.getId()==i);
     
     }
     public Contact getContact(int i){
@@ -38,18 +56,19 @@ public class ContactManager {
         StandardCostCalculator s = new StandardCostCalculator();
         
 
-        return s.calculateCost(c.getUnit(), IContactCostCalculator.ContactType.CELLNUMBER);
+        return s.calculateCost(c.getUnitCall(), IContactCostCalculator.ContactType.CELLNUMBER);
 
     }
 
 
     public void readFile(String fname){
         try{Scanner sc = new Scanner(new File(fname));
-            
         while(sc.hasNextLine()){
+            
             // nome telefone email data
             String[] linha  = sc.nextLine().split("\t");
             Contact c = new Contact(linha[0], Integer.parseInt(linha[1]), linha[2], linha[3]);
+            
             this.addContact(c);
         }
         sc.close();
