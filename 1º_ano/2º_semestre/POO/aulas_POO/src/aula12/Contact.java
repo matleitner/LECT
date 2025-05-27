@@ -8,14 +8,14 @@ public class Contact {
     private int numeroTelefone;
     private String email;
     private LocalDate dataDeNascimento;
-    static int counter = 0;
-    private double unit;
+    private double unitEmail;
+    private double unitCall;
     public Contact(String nome, int numeroTelefone, String email, String dataDeNascimento){
         this.nome = nome.trim();
         this.email = email.trim();
         this.numeroTelefone = numeroTelefone;
         this.dataDeNascimento = LocalDate.parse(dataDeNascimento);
-        this.id = ++counter;
+        this.id = -1;
 
     }
     @Override
@@ -61,12 +61,16 @@ public class Contact {
     public int getNumeroTelefone() {
         return numeroTelefone;
     }
-    public void call(double unit){
-        this.unit +=unit;
+    public void call(int id, double unit){
+        this.unitCall +=unit;
 
     }
-    public double getUnit() {
-        return unit;
+    public double getUnitEmail() {
+        return unitEmail;
+    }
+
+    public double getUnitCall() {
+        return unitCall;
     }
     @Override
     public String toString() {
@@ -74,11 +78,18 @@ public class Contact {
         return String.format("Nome: %s, Telefone: %d, Email: %s, Data nascimento: %s", nome, numeroTelefone,email,dataDeNascimento);
     }
 
-    public void email(){
+    public void sendEmail(int id){
 
     }
-
-
+    public void addUnitCall() {
+        this.unitCall += 1;
+    }
+    public void addUnitEmail() {
+        this.unitEmail += 1;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 
 }
 
