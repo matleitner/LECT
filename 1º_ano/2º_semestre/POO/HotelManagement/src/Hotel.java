@@ -1,7 +1,8 @@
 import java.util.ArrayList;
-
+import java.util.List;
 public class Hotel {
-    private ArrayList<Rooms> roomList; 
+    private List<Rooms> roomList; 
+    private List<Clients> clientList;
 
 
     public Hotel(){
