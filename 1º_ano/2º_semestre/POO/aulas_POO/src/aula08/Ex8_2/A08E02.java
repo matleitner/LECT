@@ -25,7 +25,7 @@ public class A08E02 {
 			} while (ingred < 3);
 			ArrayList<Alimento> alimentos = pratos[i].getIngradientes();
 			
-			// System.out.println(alimentos.get(0).compareTo(alimentos.get(1)));
+			System.out.println(alimentos.get(0).compareTo(alimentos.get(1)));
 
 			ementa.addPrato(pratos[i], Ementa.DiaSemana.values()[i]);
 		}

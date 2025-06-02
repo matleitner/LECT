@@ -3,17 +3,22 @@ package aula12;
 public class StandardCostCalculator implements IContactCostCalculator{
     
 
-
+    @Override
     public double calculateCost(double unit, ContactType contactType){
         if(contactType.equals(ContactType.EMAIL)){
-            return 0;
+            
         }
-        
-        double result = unit*0.10;
-        
-        return Math.round(result*1000.0)/1000.0;
-        
+        switch(contactType){
+            case EMAIL:
+                return 0.0;
 
+            case CELLNUMBER:
+                return Math.round((unit*0.10)*1000.0)/1000.0;
+
+            default:
+                return 0.0;
+
+        }
     }
     
 }

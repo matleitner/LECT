@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 
 public class Reserva {
@@ -13,8 +12,8 @@ public class Reserva {
 
     
     
-    public Reserva(int codigo, Clients cliente, LocalDate dataEntrada, LocalDate dataSaida){
-        this.codigo = codigo;
+    public Reserva( Clients cliente, LocalDate dataEntrada, LocalDate dataSaida){
+        this.codigo = counter++;
         this.cliente = cliente;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;

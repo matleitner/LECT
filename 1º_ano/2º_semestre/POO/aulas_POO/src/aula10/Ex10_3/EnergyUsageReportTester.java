@@ -1,7 +1,6 @@
 package aula10.Ex10_3;
 import java.util.Arrays;
 
-import static java.lang.System.out;
 
 import java.io.IOException;
 
