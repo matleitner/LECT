@@ -61,4 +61,5 @@ public class Charge {
         return Objects.hash(id);
     }
     
+    
 }

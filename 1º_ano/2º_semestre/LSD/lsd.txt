@@ -34,3 +34,16 @@ begin
 	C <= A and B
 end nome arquitetura
 
+
+
+
+guiao 2 prtIII 
+2 0100100
+d 0100001
+
+PARA PROJETO:
+
+-SEM GPT SEM INTERNET
+-SO MODULOS DAS AULAS
+-ELEARNING 
+-GUIAO

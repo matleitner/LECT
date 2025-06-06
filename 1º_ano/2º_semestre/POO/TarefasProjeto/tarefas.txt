@@ -1,0 +1,11 @@
+Lavar o carro;Lavar e aspirar o interior;2025-06-15;2;Pendente
+Estudar Java;Revisar coleções e arquivos;2025-06-10;4;Em Progresso
+Enviar relatório mensal;Finalizar e enviar para o gestor;2025-06-05;5;Concluída
+Comprar supermercado;Lista básica de alimentos e produtos;2025-06-08;3;Pendente
+Renovar cartão do cidadão;Agendar e comparecer ao balcão;2025-07-01;4;Pendente
+Reunião com equipa;Planejar metas do próximo trimestre;2025-06-12;3;Em Progresso
+Fazer backup do computador;Salvar arquivos importantes em disco externo;2025-06-06;2;Concluída
+Inscrever-se no curso online;Curso de estruturas de dados em Java;2025-06-20;4;Pendente
+Limpar o jardim;Cortar relva e podar arbustos;2025-06-16;3;Pendente
+Marcar consulta médica;Check-up anual;2025-06-18;1;Pendente
+Preparar apresentação;Slides para a reunião de projeto;2025-06-09;5;Em Progresso

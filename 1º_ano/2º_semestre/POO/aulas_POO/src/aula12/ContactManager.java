@@ -62,8 +62,8 @@ public class ContactManager {
 
 
     public void readFile(String fname){
-        try{Scanner sc = new Scanner(new File(fname));
-        while(sc.hasNextLine()){
+        try(Scanner sc = new Scanner(new File(fname)))
+        {while(sc.hasNextLine()){
             
             // nome telefone email data
             String[] linha  = sc.nextLine().split("\t");
