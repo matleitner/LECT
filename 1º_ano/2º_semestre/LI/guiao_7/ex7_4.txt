@@ -1,0 +1,9 @@
+horizontal
+
+90 / 11 = 8 aprox.
+
+altura 
+
+88 / 11 = 8 aprox.
+
+tamamnho dos blocos 8x8

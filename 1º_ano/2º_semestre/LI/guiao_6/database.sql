@@ -28,7 +28,7 @@ SELECT * FROM contacts ORDER BY numeroTelefone ASC;
 SELECT numeroTelefone FROM contacts WHERE nome ="Martim Leitner";
 
 --Exercicio 6.5
-UPDATE contacts SET numeroTelefone = 967674370 WHERE nome="Bia Baby";
+UPDATE contacts SET numeroTelefone = 967674370 WHERE nome="Bia";
 
 DELETE FROM contacts WHERE numeroTelefone = 925832555;
 
