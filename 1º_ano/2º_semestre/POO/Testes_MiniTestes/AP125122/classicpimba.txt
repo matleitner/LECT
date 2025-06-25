@@ -1,0 +1,31 @@
+ID; Duracao; Local do Concerto; Data e Hora
+1; 90.0; Aveiro, Portugal; 2024-07-25 09:15
+2; 125.0; Vigo, Espanha; 2024-08-20 09:20
+3; 30.0; Chaves, Portugal; 2024-09-04 09:25
+4; 60.0; Lisboa, Portugal; 2024-09-10 09:40
+5; 28.0; Evora, Portugal; 2024-09-19 09:45
+6; 115.0; Faro, Portugal; 2024-09-20 10:05
+7; 46.0; Rio de Janeiro, Brasil; 2024-09-23 10:25
+8; 84.0; Valencia, Espanha; 2024-09-25 10:35
+9; 45.0; Paris, Franca; 2024-10-09 10:50
+10; 111.0; Munique, Alemanha; 2024-10-30 12:05
+11; 15.0; Andorra, Espanha; 2024-12-18 12:15
+12; 93.0; Salamanca, Espanha; 2025-01-09 12:25
+13; 41.0; Viseu, Portugal; 2025-01-10 13:05
+14; 112.0; Porto, Portugal; 2025-01-14 13:15
+15; 53.0; Bragança, Portugal; 2025-01-15 13:25
+16; 15.0; Braga, Portugal; 2025-02-18 13:45
+17; 71.0; Veneza, Italia; 2025-04-09 14:05
+18; 35.0; Zurique, Suica; 2025-04-10 14:50
+19; 16.0; Frankfurt, Alemanha; 2025-04-14 15:10
+20; 32.0; Copenhaga, Dinamarca; 2025-04-16 15:15
+21; 23.0; Lisboa, Portugal; 2025-04-25 15:25
+22; 45.0; Beja, Portugal; 2025-05-07 15:45
+23; 21.0; Almada, Portugal; 2025-05-08 16:00
+24; 26.0; Entroncamento, Portugal; 2025-05-22 16:25
+25; 16.0; Santarem, Portugal; 2025-05-28 16:50
+26; 19.0; Figueira da Foz, Portugal; 2024-06-14 17:20
+27; 92.5; Aveiro, Portugal; 2024-06-19 17:30
+28; 54.0; Luanda, Angola; 2024-06-27 18:00
+29; 14.0; Canes, França; 2024-07-01 18:10
+30; 35.0; Caminha, Portugal; 2024-07-09 19:00

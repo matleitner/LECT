@@ -1,4 +1,3 @@
-
 public class ChargeTester {
     public static void main(String[] args) {
         ChargeManager cm = new ChargeManager();

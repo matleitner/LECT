@@ -1,0 +1,30 @@
+1;90.0;Aveiro, Portugal;2024-07-25T09:15;3050.0
+2;125.0;Vigo, Espanha;2024-08-20T09:20;7050.0
+3;30.0;Chaves, Portugal;2024-09-04T09:25;1550.0
+4;60.0;Lisboa, Portugal;2024-09-10T09:40;2300.0
+5;28.0;Evora, Portugal;2024-09-19T09:45;1500.0
+6;115.0;Faro, Portugal;2024-09-20T10:05;3675.0
+7;46.0;Rio de Janeiro, Brasil;2024-09-23T10:25;3100.0
+8;84.0;Valencia, Espanha;2024-09-25T10:35;5000.0
+9;45.0;Paris, Franca;2024-10-09T10:50;3050.0
+10;111.0;Munique, Alemanha;2024-10-30T12:05;6350.0
+11;15.0;Andorra, Espanha;2024-12-18T12:15;1550.0
+12;93.0;Salamanca, Espanha;2025-01-09T12:25;5450.0
+13;41.0;Viseu, Portugal;2025-01-10T13:05;1825.0
+14;112.0;Porto, Portugal;2025-01-14T13:15;3600.0
+15;53.0;Bragança, Portugal;2025-01-15T13:25;2125.0
+16;15.0;Braga, Portugal;2025-02-18T13:45;1175.0
+17;71.0;Veneza, Italia;2025-04-09T14:05;4350.0
+18;35.0;Zurique, Suica;2025-04-10T14:50;2550.0
+19;16.0;Frankfurt, Alemanha;2025-04-14T15:10;1600.0
+20;32.0;Copenhaga, Dinamarca;2025-04-16T15:15;2400.0
+21;23.0;Lisboa, Portugal;2025-04-25T15:25;1375.0
+22;45.0;Beja, Portugal;2025-05-07T15:45;1925.0
+23;21.0;Almada, Portugal;2025-05-08T16:00;1325.0
+24;26.0;Entroncamento, Portugal;2025-05-22T16:25;1450.0
+25;16.0;Santarem, Portugal;2025-05-28T16:50;1200.0
+26;19.0;Figueira da Foz, Portugal;2024-06-14T17:20;1275.0
+27;92.5;Aveiro, Portugal;2024-06-19T17:30;3112.5
+28;54.0;Luanda, Angola;2024-06-27T18:00;3500.0
+29;14.0;Canes, França;2024-07-01T18:10;1500.0
+30;35.0;Caminha, Portugal;2024-07-09T19:00;1675.0
