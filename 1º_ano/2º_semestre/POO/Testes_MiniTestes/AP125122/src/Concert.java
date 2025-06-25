@@ -51,8 +51,11 @@ public class Concert {
         + dataHora + "\n";
     }
     
-    public static void dontChangeCounter(){
-        Concert.counter -= 1;
+    public static void updateCounter(int count){
+        Concert.counter = count;
+    }
+    public static int getCounter(){
+        return counter;
     }
     @Override
     public int hashCode() {
