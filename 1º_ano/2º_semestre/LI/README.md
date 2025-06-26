@@ -1,10 +1,15 @@
-# LECT
-
-```bash
-LABI
-```
+> # LECT
+## LABI
 
 
 
-# para os programas fucnionarem direitinho, abrir apenas o guiao, por causa dos caminhos do ficheiros suporte imagem som etc 
-  
+
+	  Para os programas funcionarem direitinho, abrir apenas o guião,
+	 por causa dos caminhos do ficheiros suporte imagem som etc...
+
+
+
+
+
+
+
