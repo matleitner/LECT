@@ -1,6 +1,0 @@
-carlos bastos: cbastos@ua.pt
-
-Aula 1:
-
-Guião aula 1 + setup do sistema para compilar e correr programas em java
-
