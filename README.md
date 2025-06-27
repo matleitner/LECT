@@ -9,7 +9,7 @@ Material LECT de Leitnerzinpvp
 # 1º Ano
 | Semestre|
 | --- |
-|<details>
+| <details>
 <summary>1º Semestre</summary>
 
 <ul>
@@ -20,7 +20,8 @@ Material LECT de Leitnerzinpvp
   <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/ALGA">ALGA</a></li>
 </ul>
 
-</details>|
+</details>
+|
 
 | <details>
 <summary>2º Semestre</summary>
@@ -33,8 +34,7 @@ Material LECT de Leitnerzinpvp
   <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/MD">MD</a></li>
 </ul>
 
-</details>
-|
+</details> |
 
 # 2º ano
 <details>
