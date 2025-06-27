@@ -7,8 +7,8 @@ Material LECT de Leitnerzinpvp
 ## License
 
 # 1º Ano
-| Semestre|
-| --- |
+| 1º Semestre | 2º Semestre | 
+| --- | --- |
 | <details>
 <summary>1º Semestre</summary>
 
@@ -22,8 +22,7 @@ Material LECT de Leitnerzinpvp
 
 </details>
 |
-
-| <details>
+ <details>
 <summary>2º Semestre</summary>
 
 <ul>
