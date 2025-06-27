@@ -7,8 +7,9 @@ Material LECT de Leitnerzinpvp
 ## License
 
 # 1º Ano
-
-<details>
+| Semestre|
+| --- |
+|<details>
 <summary>1º Semestre</summary>
 
 <ul>
@@ -19,9 +20,9 @@ Material LECT de Leitnerzinpvp
   <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/ALGA">ALGA</a></li>
 </ul>
 
-</details>
+</details>|
 
-<details>
+| <details>
 <summary>2º Semestre</summary>
 
 <ul>
@@ -33,14 +34,14 @@ Material LECT de Leitnerzinpvp
 </ul>
 
 </details>
-
+|
 
 # 2º ano
 <details>
 <summary>1º Semestre</summary>
 
 <ul>
-  <li><a style="color: white;" href="https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/AC-I">AC-I</a></li>
+  <li><a href="https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/AC-I">AC-I</a></li>
   <li><a href="https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/AED">AED</a></li>
   <li><a href="https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/CI">MCE</a></li>
   <li><a href="https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/RC-I">RC</a></li>
