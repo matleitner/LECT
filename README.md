@@ -7,33 +7,30 @@ Material LECT de Leitnerzinpvp
 ## License
 
 # 1º Ano
+
+
 | 1º Semestre | 2º Semestre |
 | --- | --- |
-| <details>
-<summary>1º Semestre</summary>
+| <details><summary>Disciplinas</summary>
 
-<ul>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/FP">FP</a></li>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/IEI">IEI</a></li>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/ISD">ISD</a></li>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/C-I">C-I</a></li>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/ALGA">ALGA</a></li>
-</ul>
+[FP](https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/FP)  
+[IEI](https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/IEI)  
+[ISD](https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/ISD)  
+[C-I](https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/C-I)  
+[ALGA](https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/ALGA)  
 
-</details> | <details>
-<summary>2º Semestre</summary>
+</details> | <details><summary>Disciplinas</summary>
 
-<ul>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/POO">POO</a></li>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/LI">LI</a></li>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/LSD">LSD</a></li>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/C-II">C-II</a></li>
-  <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/MD">MD</a></li>
-</ul>
+[POO](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/POO)  
+[LI](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/LI)  
+[LSD](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/LSD)  
+[C-II](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/C-II)  
+[MD](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/MD)  
 
 </details> |
 
 # 2º ano
+
 <details>
 <summary>1º Semestre</summary>
 
