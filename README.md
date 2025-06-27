@@ -27,14 +27,14 @@ License
 <summary>1º Semestre</summary>
   <ol>
       <ul>
-        <li><a href="./FP">FP</a></li>
+        <li><a href="./1º_ano/FP">FP</a></li>
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/IEI">IEI</a></li>
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/ISD">ISD</a></li> 
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/CI">C-I</a></li>
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/ALGA">ALGA</a></li>
 
     </ul>
- <\ol>
+ </ol>
 <summary>2º Semestre<\summary>
   <ol>
       <ul>
