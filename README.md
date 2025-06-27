@@ -8,10 +8,10 @@ Material LECT de Leitnerzinpvp
 
 # 1º Ano
 
-
+<details>
 | 1º Semestre | 2º Semestre |
 | --- | --- |
-| <details><summary>Disciplinas</summary>
+| 
 
 [FP](https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/FP)  
 [IEI](https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/IEI)  
@@ -19,15 +19,15 @@ Material LECT de Leitnerzinpvp
 [C-I](https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/C-I)  
 [ALGA](https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/ALGA)  
 
-</details> | <details><summary>Disciplinas</summary>
+ |
 
 [POO](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/POO)  
 [LI](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/LI)  
 [LSD](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/LSD)  
 [C-II](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/C-II)  
 [MD](https://github.com/matleitner/LECT/tree/main/1º_ano/2º_semestre/MD)  
-
-</details> |
+ |
+</details>
 
 # 2º ano
 
