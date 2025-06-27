@@ -7,7 +7,7 @@ Material LECT de Leitnerzinpvp
 ## License
 
 # 1º Ano
-| 1º Semestre | 2º Semestre | 
+| 1º Semestre | 2º Semestre |
 | --- | --- |
 | <details>
 <summary>1º Semestre</summary>
@@ -20,9 +20,7 @@ Material LECT de Leitnerzinpvp
   <li><a href="https://github.com/matleitner/LECT/tree/main/1º_ano/1º_semestre/ALGA">ALGA</a></li>
 </ul>
 
-</details>
-|
- <details>
+</details> | <details>
 <summary>2º Semestre</summary>
 
 <ul>
