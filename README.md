@@ -23,43 +23,20 @@ License
   - [LABI]()
   - [POO]()
   - [LSD]()
-
-
-<details>
-  <summary>1º Ano</summary>
+## 1º Ano
+<summary>1º Semestre</summary>
   <ol>
-    <li>
-      <a href="#1_semestre">1º semestre</a>
       <ul>
-        <li><a href="#https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/FP">FP</a></li>
-        <li><a href="#built-with">IEI</a></li>
-        <li><a href="#built-with">ISD</a></li>
-        <li><a href="#built-with">CI</a></li>
-        <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/Alga">ALGA</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">2º semestre</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-<details>
-  <summary>1º Ano</summary>
-  <ol>
-    <li>
-      <a href="#1_semestre">1º semestre</a>
-      <ul>
-        <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/FP">FP</a></li>
+        <li><a href="./FP">FP</a></li>
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/IEI">IEI</a></li>
-        <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/ISD">ISD</a></li>
+        <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/ISD">ISD</a></li> 
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/CI">C-I</a></li>
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/1%C2%BA_semestre/ALGA">ALGA</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#2_semestre">2º semestre</a>
+
+    </ul>
+ <\ol>
+<summary>2º Semestre<\summary>
+  <ol>
       <ul>
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/2%C2%BA_semestre/POO">POO</a></li>
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/2%C2%BA_semestre/LI">LI</a></li>
@@ -67,6 +44,5 @@ License
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/2%C2%BA_semestre/CII">C-II</a></li>
         <li><a href="https://github.com/matleitner/LECT/tree/main/1%C2%BA_ano/2%C2%BA_semestre/MD">MD</a></li>
       </ul>
-    </li>
   </ol>
 </details>
