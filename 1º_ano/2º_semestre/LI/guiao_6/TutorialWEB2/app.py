@@ -58,7 +58,7 @@ class Root():
 		# eventually initialize the votes tables
 
 		db = sql.connect('database.db')
-		# db.execute(query of type INSERT (nameImg, authorImg, path, datetime))
+			#db.execute(query of type INSERT (nameImg, authorImg, path, datetime))
 		db.commit()
 		db.close()
 
@@ -67,8 +67,10 @@ class Root():
 	def list(self, id):
 		db = sql.connect('database.db')
 		if (id == "all"):
+			...
 			# result = db.execute(query of type SELECT for all images)
 		else:
+			...
 			# result = db.execute(query of type SELECT for all images of the author id)
 		rows = result.fetchall()
 		db.close()
