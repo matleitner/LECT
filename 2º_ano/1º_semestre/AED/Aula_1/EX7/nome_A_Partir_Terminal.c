@@ -2,11 +2,11 @@
 
 
 int main(int argc, char *argv[]){
-	// cc nome_A_Partir_Terminal.c Martim Leitner 
+	// ./a.out Martim Leitner 
+	char *first_name = argv[1];
+	char *last_name = argv[2];	
 	
-	char first_name[30] = argv[1];
-	char last_name[30] = argv[2];
-	printf("%s   %s", first_name, last_name);
+	printf("Primeiro nome: %s\nÚltimo nome: %s\n", first_name, last_name);
 	return 0;
 
 }
