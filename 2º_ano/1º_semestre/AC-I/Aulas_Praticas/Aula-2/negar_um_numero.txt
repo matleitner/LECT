@@ -1,0 +1,29 @@
+negar um numero 
+
+
+xor 
+
+a | b | a xor b|
+0   0	  0	       se a estiver sempre a 0 o resultado é b
+0   1     1	
+1   0	  1            se a estiver sempre a 1 o resultado é a negação de b 
+1   1	  0
+
+
+
+
+
+nor 
+
+
+a | b | a nor b|
+0   0     0			se *a* estiver a 0, sai negado do b
+0   1     0			útil para em assembly NOT : NOR $t1, $t1, $0
+1   0     0
+1   1     0 
+
+
+
+
+
+

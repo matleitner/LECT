@@ -1,0 +1,19 @@
+bin em grey 
+
+
+5 = 0101
+
+gray = bin XOR (bin >>1)
+
+gray = 0101 XOR  0010 
+
+gray = 0111
+
+
+gray -> bin 
+
+
+0    1             1          		1
+
+0 (0 XOR 1)     (0 XOR 1) XOR 1   ((0 XOR 1) XOR 1) XOR 1 
+

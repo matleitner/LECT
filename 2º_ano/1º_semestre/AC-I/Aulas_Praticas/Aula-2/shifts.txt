@@ -1,0 +1,4 @@
+shift left: << em C, sll  (shift left logic)
+
+shift right: >> em C, srl 
+		      sra (shift right arithmentic,s no bit mais sign é posto na direita de acordo com o bMs)
