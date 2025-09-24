@@ -1,0 +1,33 @@
+//
+// Tomás Oliveira e Silva, AED, October 2021
+//
+// explain the program output
+//
+// try also compiling the program with the -Wsign-compare compilation flag
+//
+
+#include <stdio.h>
+#include <limits.h>
+
+int main(void)
+{
+  unsigned int i = 1;
+  unsigned int j = -1; //cant compare unsigned and anything else
+  long  k = -2147483648; //mudar de int para long 
+
+  printf("original i = %u\n",i);
+  printf("original j = %d\n",j);
+  printf("original k = %d\n",k);
+  // compare i with j
+  if(i > j)
+    printf("i > j is true\n");
+  else
+    printf("i > j is false\n");
+  // replace k by its absolute value and print the result
+  if(k < 0)
+    k = -k;
+  printf("absolute value of k = %ld\n",k);
+  printf("%d\n",INT_MIN );
+  printf("%d\n", INT_MAX);
+  return 0;
+}
