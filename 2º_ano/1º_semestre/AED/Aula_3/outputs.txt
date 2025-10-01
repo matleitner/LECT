@@ -1,0 +1,122 @@
+ f1
+      n       f1(n)   f1(n)/f1(n/2)
+-------  ----------  --------------
+     25          25
+     50          50         2.00000
+    100         100         2.00000
+    200         200         2.00000
+    400         400         2.00000
+    800         800         2.00000
+-------  ----------  --------------
+
+Análise Experimental			| Análise Formal
+1. f1(n) duplica com o crescimento de n	| 1.Crescimento linear do número de iterações
+2. Expressão T(n) = n			| 2.Expressão Σ[i=1 -> n] (1) = n
+3. Ordem de complexidade: O(n)		| 3.Análise assintótica: O(n)
+
+
+ f2
+      n       f2(n)   f2(n)/f2(n/2)
+-------  ----------  --------------
+     25         325
+     50        1275         3.92308
+    100        5050         3.96078
+    200       20100         3.98020
+    400       80200         3.99005
+    800      320400         3.99501
+-------  ----------  --------------
+
+Análise Experimental 		                 	  Análise Formal
+1. f1(n) quadriplica com o crescimento de n	          1.Crescimento quadratico do número de iterações
+2. Expressão T(n) = n*(n+1)/2         			  2.Expressão Σ[i=1 -> n] (Σ[j = 1 -> i](1)) = n(n+1)/(2)
+3. Ordem de complexidade: O(n**2)         		  3.Análise assintótica: O(n^2)
+				
+		1 + (1+1) + (i*1)
+		 n= 25, 25+24+23 soma progressão aritmetica de r = n
+
+
+ f3
+      n       f3(n)   f3(n)/f3(n/2)
+-------  ----------  --------------
+     25         625
+     50        2500         4.00000
+    100       10000         4.00000
+    200       40000         4.00000
+    400      160000         4.00000
+    800      640000         4.00000
+-------  ----------  --------------
+
+Análise Experimental                                      Análise Formal                                 1. f1(n) quadriplica com o crescimento de n               1.Crescimento quadratico do número de iterações2. Expressão T(n) = n**2                                  2.Expressão Σ[i=1 -> n] (Σ[j=1 -> n](j)) = n**2
+3. Ordem de complexidade: O(n**2)                         3.Análise assintótica: O(n^2)
+
+	para n = 25, f3(25) = 25*25 //1+1+1+1 25 vezes vezes 25 
+
+ f4
+      n       f4(n)   f4(n)/f4(n/2)
+-------  ----------  --------------
+     25        2925
+     50       22100         7.55556
+    100      171700         7.76923
+    200     1353400         7.88235
+    400    10746800         7.94059
+    800    85653600         7.97015
+-------  ----------  --------------
+
+Análise Experimental                                      Análise Formal                                 1. f1(n) cresce 8 vezes  com o crescimento de n        1.Crescimento cubico do número de iterações2. Expressão T(n) = n*(n+1)(n+2)/6                        	 2.Expressão 
+							Σ[i=1 -> n] (Σ[j=1 ->i(Σ[k=1->j](1))) 
+							Σ[i=1 -> n] (Σ[j=1 ->i(j)) = 
+							Σ[i=1 -> n] ( i(i+1)/2) =
+							1/2 Σ[i=1 -> n]( i^2+i) =
+							1/2( Σ[i=1 -> n](i**2) + Σ[i=1 -> n](i) ) =  
+							1/2   (n(n+1)(2n+1)/6 + 3n(n+1)/6 = 
+							1/2 (n^2+n)(2n+1)/6 + 3n(n+1)/6 =
+							1/2 (2n^3+2n^2 +n^2+n +3n^2 +3n)/6 = 
+							n^3+3n^2+2n /6 = 
+							n(n^2+3n+2) /6 = 
+							n (n+1)(n+2) / 6 = 
+Ordem de complexidade: O(n^3)                          3.Análise assintótica: O(n^3)
+
+	
+
+ f5
+      n       f5(n)   f5(n)/f5(n/2)
+-------  ----------  --------------
+     25       15625
+     50      125000         8.00000
+    100     1000000         8.00000
+    200     8000000         8.00000   
+    400    64000000         8.00000
+    800   512000000         8.00000
+-------  ----------  --------------
+
+
+Análise Experimental                                      Análise Formal                                 1. f1(n) cresce 8 vezes  com o crescimento de n        1.Crescimento cubico do número de iterações2.
+Expressão T(n) = n^3	                               2.Expressão f(n) = n^3
+Ordem complxidade O(n^3)  			       3. Analise assintotica O(n^3)
+
+
+ f6
+      n       f6(n)    f6(n)/f6(n/2)
+-------  ----------  --------------
+     25           5
+     50           6         1.20000
+    100           7         1.16667
+    200           8         1.14286
+    400           9         1.12500
+    800          10         1.11111
+-------  ----------  --------------
+
+
+ f7
+      n       f7(n)   f7(n)/f7(n/2)
+-------  ----------  --------------
+      1           1
+      2           3         3.00000
+      4          15         5.00000
+      8         255        17.00000
+     16       65535       257.00000
+     32  4294967295     65537.00000
+-------  ----------  --------------
+
+
+Análise Experimental  |  Análise Formal 
