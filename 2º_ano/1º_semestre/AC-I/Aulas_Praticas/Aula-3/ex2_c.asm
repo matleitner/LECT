@@ -30,7 +30,7 @@ for: 	bge $t2, 32, endfor
 	li $t3, 0x80000000
 	and $t1, $t0, $t3
 	#addi $t5, $t2,1 
-	rem $t4, $t2, 4
+	rem $t4, $t2, 4 #$t4 = $t2 % 4,resto 
 	bne $t4, 0, next_step
 	beq $t2, 0, next_step
 	li $a0, 32  #ASCII ' '
