@@ -21,9 +21,10 @@ int binary_search(int *a,int n,int d)
     if(a[middle] == d)
       return middle; // found it
     if(a[middle] < d)
-      lo = middle;
+      lo = middle+ 1;
+
     else
-      hi = middle;
+      hi = middle -1;
   }
   return -1; // not found
 }
