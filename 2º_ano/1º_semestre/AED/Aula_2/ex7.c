@@ -34,11 +34,10 @@ unsigned int GetRealRoots(double* coef, size_t degree, double* root_1, double* r
 
 
 
-
 int main(){
-	double coef[] = {1,4,1};
-	size_t degree = 2;
-	double x = 4;
+	double coef[] = {4,5,1,4,1}; // 4 x^4 + 5x^3 + x^2 + 4 x +1
+	size_t degree = 4;
+	double x = 2;
 	DisplayPol(coef,degree);
 
 	double f_x = ComputePol(coef, degree, x);
@@ -67,7 +66,7 @@ void DisplayPol( double *coef, size_t degree){
 		if(coef[i] == 1) 
 			printf("x^%ld +  ",degree-i);
 		else{
-		if(coef[i] != 0)printf("%f * x^%ld + ", coef[i], degree-1);
+		if(coef[i] != 0)printf("%f * x^%ld + ", coef[i], degree-i);
 		}
 	}
 
