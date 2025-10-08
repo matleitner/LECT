@@ -6,7 +6,7 @@
 int main(void){
 	int num;
 	int numero = 1;
-	scanf("%d\n", &num);
+	scanf("%d", &num);
 	int potencias[10];
 	for(int i = 0; i<=9; i++){
 		int p = 1;
@@ -20,8 +20,8 @@ int main(void){
 		numero*=10;
 	
 	}
-	
-	for(int j = 1; j<numero;j++){
+
+	for(int j = 1 ; j<numero;j++){
 		int sum = 0;
 		int temp = j;
 	
@@ -30,7 +30,7 @@ int main(void){
 			sum+= potencias[dig]; 
 			temp/=10;;
 			}	
-		if(sum == num) printf("%d\n",j); 	
+		if(sum == j) printf("%d\n",j); 	
 	}
 
 	return 0;	
