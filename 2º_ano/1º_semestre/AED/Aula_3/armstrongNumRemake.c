@@ -1,39 +1,73 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+int* makePotenciasArray(int num) {
+	int* potencias = (int*)malloc(sizeof(int)*10);
+	for(int i = 0; i<=9;i++){
+                int p = 1;
+                for(int c = 0;c<num;c++){
+                        p *=i;
+                }
+                potencias[i] = p;
+        }
+	return potencias;
+}
 
 
+int countAlg(int number){
 
+	
+	if(number == 0) return 1;
+	int counter = 0;
+	while(number>0){
+		
+		number/=10;
+		counter++;
+	}
+	return counter;
+}
+
+	
+	
 int main(void){
 	int num;
 	int numero = 1;
 	scanf("%d", &num);
-	int potencias[10];
-	for(int i = 0; i<=9; i++){
-		int p = 1;
-		for(int j = 0; j<num;j++){
-			p *= i; 
-		}
-			
-		potencias[i] = p;
-	}
-	for (int m = 0; m<num;m++){
-		numero*=10;
 	
-	}
+	int counter = 1;
 
-	for(int j = 1 ; j<numero;j++){
+	int j = 1;	
+	
+	while(counter<=num){
+		
 		int sum = 0;
+			
 		int temp = j;
-	
-		while(temp>0){
-			int dig = temp %10;
-			sum+= potencias[dig]; 
-			temp/=10;;
-			}	
-		if(sum == j) printf("%d\n",j); 	
-	}
+		int temp_alg= countAlg(j);
+		
+		if(temp_alg > counter ) {
 
-	return 0;	
+			counter++;
+			continue;
+		}
+
+		
+		int* potencias = makePotenciasArray(temp_alg);
+		while(temp>0){
+			
+			int dig = temp %10;
+		
+			sum+= potencias[dig]; 
+		
+			temp/=10;;
+		
+		}	
+		if(sum == j) printf("%d\n",j); 	
+		free(potencias);
+		j++;
+			
+	}
 	
+	return 0;	
 	
 }
