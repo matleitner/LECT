@@ -10,8 +10,8 @@ array:	.word	7692,23,5,234
 # i:$t1
 #  $t2
 # soma: $t3 
-main:	li	$t3, 0 		#soma = 0
-	li	$t1, 0 		#i = 0
+main:	li	$t3, 0 	#soma = 0
+	li	$t1, 0 	#i = 0
 		
 	la	$t0, array	#$t0 = p = array
 	
@@ -25,7 +25,7 @@ while:
 	addi	$t1, $t1, 1	#i++
 		
 	j while
-	
+		
 endw:
 	move	$a0, $t3
 	li	$v0, print_int10 #print_int10(soma)

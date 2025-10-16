@@ -3,24 +3,14 @@
 
 int check(int arr[], int size){
 	int counter = 0;
-	for(int i = 0;i<size-2; i++){
-
-		for(int j = i+1; j<size-1;i++){
-
-			for(int k = j+1; k<size;k++){
-			
-				if(arr[k] == arr[i] +arr[j])counter++;	
-				
+	for(int k = 2;k<size; k++){
+		for(int j = 1;j<k; j++){
+		       for(int i= 0; i<j;i++){		
+				if(arr[k] == arr[i] +arr[j])counter++;			
 			}
-
 		}
-
-
 	}
-
 	return counter;
-
-
 }	
 
 
@@ -35,3 +25,6 @@ int main(){
 	return 0;
 
 }
+
+
+

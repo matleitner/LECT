@@ -17,7 +17,7 @@ int main(void){
 	
 	scanf("%d %c", &num,&my_char);
 	*/
-	printf("%d",*p_my_array );
+	printf("%d\n",*p_my_array );
 	
 	return 0;
 }
