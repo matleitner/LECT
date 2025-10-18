@@ -1,0 +1,34 @@
+Exercicio 1
+
+T(n) = n² + 100n - 23
+
+
+T(n) ∈ O(n²)      T(n) ∈ O(n³)  T(n) ∉ O(n)
+
+T(n) ∉ Ω(n²)      T(n) ∉ Ω(n³)  T(n) ∈  Ω(n)
+
+T(n) ∈  Θ(n2)     T(n) ∉ Θ(n3)   T(n) ∉ Θ(n)
+
+
+
+
+Exercicio 2 V ou F 
+
+	Se t(n) ≥ cg(n), para todo o n > n0, então t(n) é da ordem de O(g(n)),i.e., t(n) pertence a O(g(n)).  F
+
+	Se t(n) ≤ cg(n), para todo o n > n0, então t(n) é da ordem de Ω(g(n)), i.e., t(n) pertence a Ω(g(n)). F
+	
+	Se t(n) > cg(n), para todo o n > n0, então t(n) é da ordem de Ω(g(n)), i.e., t(n) pertence a Ω(g(n)). V
+
+
+
+Exercício 3 – Verdadeiro ou Falso
+
+	Seja t(n) = 2 n log(n) + 3 n. Então t(n) é da ordem de O(n²), i.e., t(n) pertence a O(n²)  V
+	Seja t(n) = n log(n) + 1000 n. Então t(n) é da ordem de O(n), i.e., t(n) pertence a O(n)   F
+	Seja t(n) = 1000 n² + n³. Então t(n) é da ordem de O(n²), i.e., t(n) pertence a O(n²)      F
+
+
+
+
+

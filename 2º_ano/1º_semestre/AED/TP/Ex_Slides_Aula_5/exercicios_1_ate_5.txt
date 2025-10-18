@@ -1,0 +1,67 @@
+Exercício 1 – Verdadeiro ou Falso
+
+
+• Ao efetuar, usando o algoritmo clássico, o produto de matrizes A × B = C, em que a matriz A tem 10 linhas e 20 colunas e a matriz B tem 20
+linhas e 10 colunas, são efetuadas 2000 multiplicações. 
+
+resposta: V  matrix 10x20 vezes matriz 20 x 10 
+
+10 * 20 * 10 = 2000 
+
+
+• Ao efetuar, usando o algoritmo clássico, os produtos de matrizes A × (B × C) = D, em que a matriz A tem 2 linhas e 3 colunas, a matriz B
+tem 3 linhas e 4 colunas e a matriz C tem 4 linhas e 5 colunas, são efetuadas, no total, 120 multiplicações.
+
+
+F fazem se 90 multiplicacoes
+
+
+Exercício 2 – Escolha múltipla
+A tabela apresenta o número de operações básicas efetuadas, por um
+determinado algoritmo, para sucessivos valores de n.
+n     1  2  4  8  16  32  64 128  256  512  1024
+M(n)  3  4  5  6  7    8   9  10   11   12    13
+
+Trata-se de um algoritmo com ordem de complexidade:
+a) logarítmica.  x
+b) linear.
+c) quadrática.
+d) Nenhuma está correta.
+
+
+
+Exercício 3 – Escolha múltipla
+A tabela apresenta o número de operações básicas efetuadas, por um
+determinado algoritmo, para sucessivos valores de n.
+n      1  2  4    8   16   32    64     128        256
+M(n)   4  12 40 144 544   2112   8320   33024   131584
+
+Trata-se de um algoritmo com ordem de complexidade:
+a) logarítmica.
+b) linear.
+c) quadrática. x
+d) Nenhuma está correta.
+
+
+
+Exercício 4 – Escolha múltipla
+A tabela apresenta o número de operações básicas efetuadas, por um
+determinado algoritmo, para sucessivos valores de n.
+n    1  2  4  8  16  32  64 128  256  512  1024
+M(n) 0  1  3  7  15  31  63 127  255  511  1023
+Trata-se de um algoritmo com ordem de complexidade:
+a) logarítmica.
+b) linear. x
+c) quadrática.
+d) Nenhuma está correta.
+
+
+Exercício 5 – Escolha múltipla
+Considere o array ordenado de 8 elementos. Usando o algoritmo de
+procura binária:
+i   0 1 2 3 4  5  6 7
+    1 3 5 7 9 11 13 15
+a) O elemento de valor 5 é encontrado ao fim de 3 tentativas. 
+b) O elemento de valor 11 é encontrado ao fim de 2 tentativas.
+c) Ambas estão corretas. x
+d) Nenhuma está correta.
