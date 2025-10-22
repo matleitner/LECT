@@ -1,32 +1,35 @@
 #include <stdio.h>
 #include <assert.h>
-
-int primeira_recursiva(int n,int* counter_1){
+	int counter_1 = 0;
+	int counter_2 = 0;
+	int counter_3 = 0;
+	
+int primeira_recursiva(int n){
 	assert(n>0);	
-	(*counter_1)++;
+	counter_1++;
 	if(n == 1) return 1;
-	return primeira_recursiva(n/2, counter_1) + n;
+	return primeira_recursiva(n/2) + n;
 }
 
-int segunda_recursiva(int n, int* counter_2){
+int segunda_recursiva(int n){
 	assert(n>0);
-	(*counter_2)++;
+	counter_2++;
 	if (n == 1) return 1;
-	return segunda_recursiva(n/2, counter_2) + segunda_recursiva((n+1)/2, counter_2) + n;
+	return segunda_recursiva(n/2) + segunda_recursiva((n+1)/2) + n;
 }
 
-int terceira_recursiva(int n, int* counter_3){
+int terceira_recursiva(int n){
 	assert(n>0);
 	
-	(*counter_3)++;
+	counter_3++;
 	
 	if(n==1) return 1;
 
 	if (n%2!= 0){
-		return terceira_recursiva(n/2, counter_3) + terceira_recursiva((n+1)/2, counter_3) + n;
+		return terceira_recursiva(n/2) + terceira_recursiva((n+1)/2) + n;
 		}
 	
-	return 2 * terceira_recursiva(n/2, counter_3) +n;
+	return 2 * terceira_recursiva(n/2) +n;
 
 }
 
@@ -40,16 +43,17 @@ int main(void){
 
 	for(int i = 1; i <= 16; i++){
 		
-		int	counter_1 = 0;
-		int counter_2 = 0;
-		int counter_3 = 0;
-			
-		a = primeira_recursiva(i,&counter_1);
-		b =  segunda_recursiva(i, &counter_2);
-		c = terceira_recursiva(i,&counter_3);	
+	
+		a = primeira_recursiva(i);
+		b =  segunda_recursiva(i);
+		c = terceira_recursiva(i);	
 
 		printf("%2d %20d %20d    |   %12d     %16d   |%15d %15d\n",i,a, counter_1, b, counter_2, c,counter_3);	
 
+		counter_1 = 0;	
+		counter_2 = 0;
+		counter_3 = 0;
+		
 	}
 	return 0;
 }
