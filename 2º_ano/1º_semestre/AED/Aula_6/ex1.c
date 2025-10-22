@@ -1,0 +1,103 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int ADDS = 0;
+
+int DelannoyRecurssive(int m, int n){
+	if(m == 0 || n == 0) return 1;
+	ADDS+=2;
+	return DelannoyRecurssive(m-1,n) + DelannoyRecurssive(m-1,n-1) +DelannoyRecurssive(m,n-1);
+}
+
+unsigned long DelannoyDynamicPrograming(unsigned int m, unsigned int n){
+	
+	unsigned long long  int array[m+1][n+1];
+	for(unsigned int i = 0; i<=m ; i++){
+	
+		for(unsigned int j = 0; j<=n; j++){
+		
+			if(i ==  0 || j == 0) array[i][j] = 1;
+		
+			else{
+			     array[i][j] = array[i-1][j] + array[i-1][j-1] + array[i][j-1];
+			     ADDS+=2;		
+			}
+		}
+	
+	}
+	return array[m][n];
+
+}
+unsigned long int **D;
+
+unsigned long  int **initMemo(int n){
+	unsigned long int **mem = (unsigned long int **) malloc((n+1)*sizeof(unsigned long int *));
+
+	for(int i =0; i<= n;i++){
+
+		mem[i] = malloc((n+1)*sizeof(unsigned long  int));
+	
+		for(int j = 0; j<= n; j++){
+	
+			mem[i][j] = (unsigned long int)-1;	
+
+		}
+
+	}
+	return mem;
+}
+	
+unsigned long DelannoyMemoization(unsigned int m, unsigned int n){
+	if(D[m][n] != unsigned int -1) return D[m][n];
+	unsigned long r;
+	if(n == 0||m==0) D[m][n] = 1;
+
+	else{
+		ADDS+=2;
+		r = DelannoyMemoization(m-1,n)+DelannoyMemoization(m-1,n-1) + DelannoyMemoization(m,n-1);
+	}	
+	free(D);
+	return r;
+
+
+
+} 
+
+int main(int argc, char *argv[]){
+		int num = atoi(argv[1]);
+		D = initMemo(num);	
+		for(unsigned int i = 0; i<=num; i++){
+			for(unsigned int j = 0; j<=num;j++){
+	
+	
+//				int d = DelannoyRecurssive(i,j);
+
+//				printf("Recurssive (%d,%d): %d\n",i,j, d);
+		
+	//			unsigned long int d = DelannoyDynamicPrograming(i,j); 
+				unsigned long int d = DelannoyMemoization(i,j);
+
+			
+			//	printf("Dynamic (%d,%d): %d\t%ld\n",i,j,ADDS,d);
+				printf("Memoization (%d,%d): %d\t%ld\n",i,j,ADDS,d);
+
+				ADDS = 0;			
+			}
+		
+	}
+
+	//./ex1 14 é o max p  long unsigend 
+	return 0;
+}
+
+
+
+
+/*
+ algoritmo recurssivo Res(n) = c * 2^n
+ 	O(2^n)
+ *
+ *
+ *
+ *
+ * */
