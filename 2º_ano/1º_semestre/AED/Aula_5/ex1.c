@@ -37,7 +37,7 @@ int main(void){
 
 
 
-	int a, b,c;
+	int a, b,c; 	
 
 	printf(" N\t\t1ª funcao\tNº de chamadas\t|\t2ªfuncao\tNº de chamadas\t|\t3ªfuncao\tNº chamadas\n");
 
@@ -58,7 +58,7 @@ int main(void){
 	return 0;
 }
 /*
-	 N		1ª funcao	Nº de chamadas	|	2ªfuncao	Nº de chamadas	|	3ªfuncao	Nº chamadas
+ N		1ª funcao	Nº de chamadas	|	2ªfuncao	Nº de chamadas	|	3ªfuncao	Nº chamadas
  1                    1                    0    |              1                    0   |              1               0
  2                    3                    1    |              4                    2   |              4               1
  3                    4                    1    |              8                    4   |              8               3
