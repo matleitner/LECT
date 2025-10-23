@@ -30,16 +30,16 @@ unsigned long DelannoyDynamicPrograming(unsigned int m, unsigned int n){
 }
 unsigned long int **D;
 
-unsigned long  int **initMemo(int n){
-	unsigned long int **mem = (unsigned long int **) malloc((n+1)*sizeof(unsigned long int *));
+unsigned long  int **initMemo(int num){
+	unsigned long int **mem = (unsigned long int **) malloc((num+1)*sizeof( unsigned long int *));
 
-	for(int i =0; i<= n;i++){
+	for(int i =0; i<= num;i++){
 
-		mem[i] = malloc((n+1)*sizeof(unsigned long  int));
+		mem[i] = malloc((num+1)*sizeof( unsigned long  int));
 	
-		for(int j = 0; j<= n; j++){
+		for(int j = 0; j<= num; j++){
 	
-			mem[i][j] = (unsigned long int)-1;	
+			mem[i][j] = -1;	
 
 		}
 
@@ -48,16 +48,16 @@ unsigned long  int **initMemo(int n){
 }
 	
 unsigned long DelannoyMemoization(unsigned int m, unsigned int n){
-	if(D[m][n] != unsigned int -1) return D[m][n];
-	unsigned long r;
+	if(D[m][n] !=  -1) return D[m][n];
+
 	if(n == 0||m==0) D[m][n] = 1;
 
 	else{
 		ADDS+=2;
-		r = DelannoyMemoization(m-1,n)+DelannoyMemoization(m-1,n-1) + DelannoyMemoization(m,n-1);
+		D[m][n] = DelannoyMemoization(m-1,n)+DelannoyMemoization(m-1,n-1) + DelannoyMemoization(m,n-1);
 	}	
-	free(D);
-	return r;
+	
+	return D[m][n];
 
 
 
@@ -66,26 +66,25 @@ unsigned long DelannoyMemoization(unsigned int m, unsigned int n){
 int main(int argc, char *argv[]){
 		int num = atoi(argv[1]);
 		D = initMemo(num);	
-		for(unsigned int i = 0; i<=num; i++){
-			for(unsigned int j = 0; j<=num;j++){
+		for(unsigned long int i = 0; i<=num; i++){
+			for(unsigned long int j = 0; j<=num;j++){
 	
-	
+				if(j ==i ) printf("\n");	
 //				int d = DelannoyRecurssive(i,j);
 
 //				printf("Recurssive (%d,%d): %d\n",i,j, d);
-		
-	//			unsigned long int d = DelannoyDynamicPrograming(i,j); 
+//				unsigned long int d = DelannoyDynamicPrograming(i,j); 
 				unsigned long int d = DelannoyMemoization(i,j);
 
+				printf("Memoization (%ld,%ld): %d\t%ld\n",i,j,ADDS,d);
 			
-			//	printf("Dynamic (%d,%d): %d\t%ld\n",i,j,ADDS,d);
-				printf("Memoization (%d,%d): %d\t%ld\n",i,j,ADDS,d);
+//				printf("Dynamic (%d,%d): %d\t%ld\n",i,j,ADDS,d);
 
 				ADDS = 0;			
 			}
 		
 	}
-
+	free(D);
 	//./ex1 14 é o max p  long unsigend 
 	return 0;
 }
