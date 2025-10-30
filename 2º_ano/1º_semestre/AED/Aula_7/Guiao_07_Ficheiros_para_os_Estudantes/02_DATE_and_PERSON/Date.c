@@ -35,7 +35,12 @@ Date* DateCreate(int yy, int mm, int dd) {
 
   Date* d;
   // EDIT Date* d = ...
-
+  d = (Date*)malloc(sizeof(Date));
+  if(d==NULL) return NULL;
+  d -> year = yy;
+  d -> month = mm;
+  d -> day = dd;
+  //
   assert(invariant(d));  // check invariant
   return d;
 }
@@ -45,8 +50,12 @@ Date* DateCreate(int yy, int mm, int dd) {
 // Postcondition: *pd is set to NULL.
 void DateDestroy(Date** pd) {
   assert(*pd != NULL);
-
   // EDIT ...
+  Date* date = *pd;
+  free(date);
+  *pd = NULL;
+
+  //
 }
 
 // table of month lengths in common and leap years
@@ -75,6 +84,7 @@ static char strBuffer[64];
 // Careful: the string buffer will be overwritten by the next call.
 // You should strcpy or strdup the result if you need persistence!
 char* DateFormat(const Date* d, int FMT) {
+  
   if (d == NULL)
     snprintf(strBuffer, sizeof(strBuffer), "NULL");
   else
@@ -112,6 +122,17 @@ int DateParse(Date* d, const char* str, int FMT) {
 // Return an integer >0 if a>b, 0 if a==b and <0 if a<b.
 int DateCompare(const Date* a, const Date* b) {
   // EDIT ...
+  if(a -> year > b-> year) return 1;
+  else if(a -> year < b ->year) return -1;
+  else{
+  	if(a->month > b->month) return 1;
+	else if(a-> month < b->month) return -1;
+	else{
+		if(a->day > b-> day) return 1;
+		else if(a->day < b->day) return -1;
+		}
+  }
+  //
   return 0;
 }
 
@@ -121,7 +142,19 @@ void DateIncr(Date* d) {
   assert(DateCompare(d, &DateMAX) < 0);
 
   // EDIT ...
-
+  d -> day++;
+  int check = DateIsLeapYear(d->year);
+  int dayMax = monthLength[check][d->month - 1];
+ 
+  if(d-> day > dayMax){
+  	d->day = 1;
+	d ->month++;
+	if(d ->month > 12){
+		d->month = 1;
+		d ->year++;
+	}
+  
+  }
   assert(invariant(d));  // check invariant
 }
 
@@ -131,6 +164,17 @@ void DateDecr(Date* d) {
   assert(DateCompare(d, &DateMIN) > 0);
 
   // EDIT ...
-
+  d-> day--;
+  int check = DateIsLeapYear(d->year);
+  if(d-> day <= 0){
+  	d->month--;
+	d->day = monthLength[check][d->month-1];
+	if(d->month <= 0){
+		d->year--;
+		d->month = 12;
+		d->day = 31;
+	}
+  
+  } 
   assert(invariant(d));  // check invariant
 }

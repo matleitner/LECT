@@ -26,8 +26,9 @@ static int lastID = 0;
 Person *PersonCreate(const char *fname, const char *lname, int yy, int mm,
                      int dd) {
   // EDIT Person* p = ...
-
-  return NULL;
+  Person* p = (Person*)malloc(sizeof(Person));
+  if(p == NULL) return NULL;
+  
 }
 
 // Free the memory pointed to by *pp and by the names inside it,
