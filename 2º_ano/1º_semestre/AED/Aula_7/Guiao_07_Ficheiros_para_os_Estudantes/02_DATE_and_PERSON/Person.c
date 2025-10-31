@@ -28,7 +28,17 @@ Person *PersonCreate(const char *fname, const char *lname, int yy, int mm,
   // EDIT Person* p = ...
   Person* p = (Person*)malloc(sizeof(Person));
   if(p == NULL) return NULL;
-  
+  Date d = {yy,mm,dd};
+  p -> id = ++lastID;  
+  p -> birthDate = d;
+  char* fn = (char*)malloc(strlen(fname)+1);
+  char* ln = (char*)malloc(strlen(lname)+1);
+  strcpy(fn, fname);
+  strcpy(ln,lname);
+  p -> firstName = fn;
+  p -> lastName =ln;
+
+  return p;
 }
 
 // Free the memory pointed to by *pp and by the names inside it,
@@ -39,6 +49,11 @@ void PersonDestroy(Person **pp) {
   assert(*pp != NULL);
 
   // EDIT ...
+  Person* p = *pp;
+  free(p->firstName);
+  free(p->lastName);
+  free(p);
+  *pp = NULL;
 }
 
 // Prints a person formatted as "[id, lastname, firstname, birthdate]",
@@ -56,12 +71,18 @@ void PersonPrintf(Person *p, const char *suffix) {
 // Return zero if p1 and p2 were born on the same date.
 int PersonCompareByBirth(const Person *p1, const Person *p2) {
   // EDIT ...
-  return 0;
+ 
+  return DateCompare(&p1->birthDate, &p2->birthDate);;
 }
 
 // Compare two persons by last name, then first name (if last name is the same).
 // Return a -/+/0 integer if p1 precedes/succeeds/is equal to p2.
 int PersonCompareByLastFirstName(const Person *p1, const Person *p2) {
   // EDIT ...
-  return 0;
+
+
+   
+  int result = strcmp(p1->lastName,p2->lastName);
+  if (result !=0 ) return result;
+  return strcmp(p1->firstName, p2->firstName);
 }
