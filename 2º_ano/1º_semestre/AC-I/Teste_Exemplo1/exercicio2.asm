@@ -23,7 +23,7 @@
 #val = $t2
 	.data
 str1:	.asciiz "Result is: "
-	
+
 	.eqv print_int10, 1
 	.eqv print_char, 11
 	.eqv print_string,4
@@ -53,7 +53,6 @@ do:
 	sw $t5, 0($t3)		# val[i] = val[i+SIZE/2]
 	sw $t1, 0($t6)		# val[i +SIZE/2] = v
 	
-
 while:	addi $t0, $t0,1
 	blt $t0, $t4, do
 	
@@ -73,6 +72,7 @@ do1:
 	li $v0, print_char
 	li $a0, ','  
 	syscall
+	
 	blt $t0, SIZE, do1
 
 	jr $ra
