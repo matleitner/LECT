@@ -6,7 +6,7 @@ Material LECT de Leitnerzinpvp
 
 ## License
 
-# 1º Ano
+<div align="center"># 1º Ano</div>
 
 
 | 1º Semestre | 2º Semestre |
