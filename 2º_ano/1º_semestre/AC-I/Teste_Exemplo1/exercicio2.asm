@@ -46,8 +46,8 @@ do:
 	lw $t1, 0($t3)		#v = val[i]
 	li $t4, SIZE		#$t4 = SIZE	
 	
-	srl $t4, $t4, 1		#$t4 = SIZE * 4 
-	sll $t7, $t4, 2
+	srl $t4, $t4, 1		#$t4 = SIZE/2 * 4 
+	sll $t7, $t4, 2		#
 	add $t6, $t3, $t7	#$t4 = i + SIZE /2
 	lw $t5, 0($t6) 		#$t5 = val[i +SIZE/2]
 	sw $t5, 0($t3)		# val[i] = val[i+SIZE/2]
