@@ -9,8 +9,7 @@
 #	}
 #
 #    	for (p1 = a, p2 = b; p1 < (a + N); p1++) {
-#       	if ( (*p1 % 2) != 0) {
-#			*p2++ = *p1;
+
 #            		n_odd++;
 #        	} 
 #		else 
@@ -81,8 +80,7 @@ endf2:
 	addu $t6, $t3, $t1
 for3:
 	
-	bge $t3, $t6, endf3
-	li $v0, print_int10
+
 	lw $a0, 0($t3)
 	syscall
 	addiu $t3, $t3,4

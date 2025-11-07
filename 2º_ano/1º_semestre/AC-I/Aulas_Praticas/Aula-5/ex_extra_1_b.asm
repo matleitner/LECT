@@ -22,7 +22,7 @@
 
 	.data
 	.align 2 # neste caso não seria muito necessário pois começa num registo acabado em 0	
-lista:	.word 40,1,2,3,4,5,6,7,8,9
+lista:	.word 20,1,2,3,4,5,6,7,8,9
 	
 
 	.eqv SIZE, 10
@@ -60,23 +60,22 @@ for2:	bge $t2, $t4, endfor2		#for(j = i+1;j< SIZE; j++)
 		
 		
 	lw $t6, 0($t2)			# $t6 -> *(p++)
+
 if:	ble $t5, $t6, endif		# *p < *p++
 	move $t7, $t5			# aux = lista[i]
 	sw $t6, 0($t0)			# lista[i] = lista[j] 
 	sw $t7, 0($t2)			# lista[j] = aux	
-	lw $t5, 0($t0)
+	lw $t5, 0($t0)			# 
+
 endif:	
 	
 	addi $t2, $t2, 4
+
 	j for2
 endfor2:
 	addi $t0, $t0,4
+
 	j for1	
 endfor1:
-  
-	
-	
-	
-	
-	
+
 	jr $ra
