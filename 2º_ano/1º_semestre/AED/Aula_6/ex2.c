@@ -22,8 +22,8 @@ int* loadArray(int size){
 		int* array = (int*) malloc(sizeof(int)*size);
 		if(array == NULL) return NULL;
 		
-		for (int i = 0; i<size;i++){
-				array[i] = i+1;
+		for (int i = 0; i<=size;i++){
+				array[i] = rand()%100;
 }
 
 
@@ -31,25 +31,34 @@ int* loadArray(int size){
 
 }
 
-int V_DynamicPrograming(int size, int *array, int* coins){
-	int aux[size+1];;
+
+
+int V_DynamicPrograming(int size, int *array){
+	int coins[size];
+	for (int i = 0; i < size; i++) coins[i] = 0;	
+	int aux[size+1];
        	aux[0] = 0;
 	aux[1] = array[0];
 	for(int i = 2;i<=size;i++){
 		int cond_a = array[i-1] + aux[i-2];
 		int cond_b = aux[i-1];
 		count_comparacoes++;
-		if(cond_a > cond_b)coins[i-2] = array[i-1];
+//		if(cond_a > cond_b)coins[i-1] = array[i-1];
 		
 		aux[i] = (cond_a > cond_b) ? cond_a : cond_b;
 	}
 	int j = size;
+	int k = 0;
 	while( j>0){
 		if(aux[j] > aux[j-1]) {
-			coins[size-j] = array[j];j=j-2;
+			coins[k++] = array[j-1];j-=2;
 		}
-		if(aux[j] == aux[j-1]) j--;
+		else j--;
 	}
+	for(int i = 0; i<size;i++){
+		printf("Coin: %d;", coins[i]);		
+	}
+	printf("\n");
 	return aux[size];
 
 }
@@ -114,19 +123,19 @@ void printArray(int size,int *arr){
 int main(int argc, char** argv){
 	int num = atoi(*(argv +1));
 	A = initMemo(num);
-	int coins[num];
+
 	for(int size= 0; size<=num;size++){
 				int* array = loadArray(size);
 				
-	
-				
+				for(int i = 0; i<=size; i++){printf("%d,", array[i]);}
+				printf("\n");				
   				int a = V_recurssion(size, array);
 				
 				
 				printf("i: %d\nRecursão comparações(%d)  :  %d\n",size,count_comparacoes,a);
 				count_comparacoes = 0;
-				int b = V_DynamicPrograming(size,array,coins);
-				printArray(size,coins);	
+				int b = V_DynamicPrograming(size,array);
+					
 				printf("Dynamics comparações(%d)  :  %d\n",count_comparacoes,b);
 				count_comparacoes = 0;
 				

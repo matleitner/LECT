@@ -1,8 +1,14 @@
 #include<stdio.h>
+#if 1 
+#define ola(x,y)  #x #y
 
+#endif 
 int main(void){
 	int my_array[3] = {1, 2, 3};
 	int* p_my_array = my_array;
+	
+	goto ola;
+	printf("Ola");
 	// Pointer to first element !!
 	/*
 	my_array[0] = 10;
@@ -14,10 +20,12 @@ int main(void){
 	/*
 	int num;
 	char my_char;
-	
+		
 	scanf("%d %c", &num,&my_char);
 	*/
-	printf("%d\n",*p_my_array );
 	
+	ola:
+	printf("%d\n",*p_my_array );
+	printf("%s\n",ola(1,2));	
 	return 0;
 }

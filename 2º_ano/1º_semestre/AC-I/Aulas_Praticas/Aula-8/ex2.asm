@@ -1,5 +1,6 @@
 	.data
 str1:	.space 33
+buf:	.space 33
 	.eqv print_string, 4
 	.eqv read_int, 5
 	.text
@@ -101,45 +102,64 @@ do:	rem $t0, $s0, $s1
 	
 	jr $ra
 	
+print_int_ac1:	
+	addiu $sp, $sp, -4
+	sw $ra, 0($sp)
 	
+	
+	
+	jal itoa
+	
+	move $a0, $v0
+	li $v0, print_string
+	syscall
+	 
+	lw $ra, 0($sp)
+	addiu $sp , $sp, 4
+	jr $ra
 	
 main:	addiu $sp, $sp, -4
 	sw $ra, 0($sp)
 do2:	li $v0, read_int
 	syscall
-	move $t8, $v0
-	
-	move $a0, $t8
-	li $a1, 2
-	la $a2, str1
-	
-	jal itoa
-	
 	move $a0, $v0
-	li $v0, print_string
-	syscall
-	move $a0, $t8
 	
-	la $a2, str1
-	li $a1, 8
 	
-	jal itoa
+#	li $a1, 2
+#	la $a2, str1
 	
-	move $a0, $v0
-	li $v0, print_string
-	syscall
+#	jal itoa
 	
-	move $a0, $t8
-	la $a2, str1
+#	move $a0, $v0
+#	li $v0, print_string
+#	syscall
+#	move $a0, $t8
+#	
+#	la $a2, str1
+#	li $a1, 8
+	
+#	jal itoa
+	
+#	move $a0, $v0
+#	li $v0, print_string
+#	syscall
+	
+#	move $a0, $t8
+	#la $a2, str1
+	#li $a1, 16
+	
+	#jal itoa 
+	
+	#move $a0, $v0
+	#li $v0, print_string
+	#syscall
+	
+	la $a2, buf
 	li $a1, 16
 	
-	jal itoa 
+	jal print_int_ac1
 	
-	move $a0, $v0
-	li $v0, print_string
-	syscall
-	
-	bne $t8, 0, do	
+	bne $t8, 0, do2	
 	lw $ra, 0($sp)
 	addiu $sp, $sp, 4
 	jr $ra
