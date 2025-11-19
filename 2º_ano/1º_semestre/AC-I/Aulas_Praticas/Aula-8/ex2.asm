@@ -155,7 +155,7 @@ do2:	li $v0, read_int
 	#syscall
 	
 	la $a2, buf
-	li $a1, 16
+	li $a1, 2	# 16 hexa, 8 octal, 2 binario 
 	
 	jal print_int_ac1
 	
