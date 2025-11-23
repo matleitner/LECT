@@ -1,7 +1,7 @@
 	.data
 result:	.float 1.0
 float:	.float 2.0
-int:	.word  2
+int:	.word  3
 	.text
 	.eqv print_float, 2
 	.globl main
@@ -12,24 +12,25 @@ xtoy:	addiu $sp, $sp, -12
 	sw $ra, 0($sp)
 	s.s $f20, 4($sp)
 	sw $s0, 8($sp)
-
-	move $s0 , $a0
-	mov.s $f20, $f12
+			
+	move $s0 , $a0		
+	mov.s $f20, $f12		
 	
 	jal abs
-	move $t1, $v0
-	
+	move $t1, $v0		# $t1 = abs(y)
+			
 	li $t0, 0		# i = 0
 	la $t2, result		# 
 	l.d $f0, 0($t2)		# $f0 = result
 		
-for:	bgt $t0, $t1, endfor 	# i< abs(y)
+for:	bge $t0, $t1, endfor 	# i< abs(y)
 
 if:	blez $s0, else
-	mul.s $f0, $f0, $f20
+	mul.s $f0, $f0, $f20	# result*=x
 	j endif	
 else:	
-	div.s $f0, $f0, $f20
+	div.s $f0, $f0, $f20	# result/=x
+	
 endif:	addi $t0,$t0, 1
 	j for
 endfor:

@@ -8,7 +8,7 @@ sum:	.double 0.0
 	.globl xtoy, average, sqrt
 	
 	
-	
+#xtoy xŷ
 xtoy:	addiu $sp, $sp, -12
 	sw $ra, 0($sp)
 	s.s $f20, 4($sp)
@@ -24,7 +24,7 @@ xtoy:	addiu $sp, $sp, -12
 	la $t2, result		# 
 	l.s $f0, 0($t2)		# $f0 = result
 		
-for3:	bgt $t0, $t1, endfor3 	# i< abs(y)
+for3:	bge $t0, $t1, endfor3 	# i< abs(y)
 
 if3:	blez $s0, else3
 	mul.s $f0, $f0, $f20
@@ -40,7 +40,8 @@ endfor3:
 	lw $ra, 0($sp)
 	addiu $sp, $sp, 12
 	jr $ra
-	
+######################	
+#abs
 abs:	
 if4:	bgez $a0, endif4
 	sub $a0 , $0, $a0	# -val = 0 - val
@@ -84,7 +85,7 @@ endfor5:
 	lw $s3, 12($sp)
 	addiu $sp,$sp, 16
 	jr $ra
-
+#sqrt
 sqrt:	li $t0, 0
 	la $t1, zero
 	l.d $f4, 0($t1)		# f4 = 0.0
