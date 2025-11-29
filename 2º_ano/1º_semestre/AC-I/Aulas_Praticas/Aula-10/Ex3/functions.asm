@@ -1,6 +1,6 @@
 	.data
 result:	.float 1.0
-xn:	.float 1.0 
+xn:	.double 1.0 
 zero:	.double 0.0
 k1:	.double 0.5
 sum:	.double 0.0
