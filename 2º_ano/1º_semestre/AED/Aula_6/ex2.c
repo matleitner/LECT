@@ -39,24 +39,18 @@ int V_DynamicPrograming(int size, int *array){
 	int aux[size+1];
        	aux[0] = 0;
 	aux[1] = array[0];
+	coins[0] = 1;
 	for(int i = 2;i<=size;i++){
 		int cond_a = array[i-1] + aux[i-2];
 		int cond_b = aux[i-1];
 		count_comparacoes++;
 //		if(cond_a > cond_b)coins[i-1] = array[i-1];
-		
+		coins[i-1] = (cond_a> cond_b) ? 1 : 0; 
 		aux[i] = (cond_a > cond_b) ? cond_a : cond_b;
 	}
-	int j = size;
-	int k = 0;
-	while( j>0){
-		if(aux[j] > aux[j-1]) {
-			coins[k++] = array[j-1];j-=2;
-		}
-		else j--;
-	}
+
 	for(int i = 0; i<size;i++){
-		printf("Coin: %d;", coins[i]);		
+		printf("Coin: %d:%d;", array[i], coins[i]);		
 	}
 	printf("\n");
 	return aux[size];
@@ -129,20 +123,20 @@ int main(int argc, char** argv){
 				
 				for(int i = 0; i<=size; i++){printf("%d,", array[i]);}
 				printf("\n");				
-  				int a = V_recurssion(size, array);
+//  				int a = V_recurssion(size, array);
 				
 				
-				printf("i: %d\nRecursão comparações(%d)  :  %d\n",size,count_comparacoes,a);
+//				printf("i: %d\nRecursão comparações(%d)  :  %d\n",size,count_comparacoes,a);
 				count_comparacoes = 0;
 				int b = V_DynamicPrograming(size,array);
 					
 				printf("Dynamics comparações(%d)  :  %d\n",count_comparacoes,b);
 				count_comparacoes = 0;
 				
-				int c= V_Memoization(size, array);
-				printf("Memoization comparações(%d)  :  %d\n",count_comparacoes,c);
+//				int c= V_Memoization(size, array);
+//				printf("Memoization comparações(%d)  :  %d\n",count_comparacoes,c);
 				
-				count_comparacoes = 0;
+//				count_comparacoes = 0;
 
 				printf("\n\n");
 				free(array);

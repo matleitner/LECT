@@ -91,18 +91,45 @@ void* ListGetCurrentValue(const List* l) {
   return l->current->data;
 }
 
-void ListModifyCurrentValue(const List* l, void* p) {}
+void ListModifyCurrentValue(const List* l, void* p) {
+  assert(l != NULL && p != NULL);
+  l->current->data = p;
+}
 
 // The move and search functions return 0 on success and -1 on failure (on
 // success the current node is changed, on failure it is not changed)
 
 // Search
 
-int ListSearchFromCurrent(const List* l, void* p) { return -1; }
+int ListSearchFromCurrent(const List* l, void* p) {
+  _PointersListNode* node = l->current;
+  
+  while(node != NULL){
+	if(node->data == p) return 0;
+	node = node->next; 
+  }
+  return -1; 
+}
 
 // Move to functions
 
-int ListMove(List* l, int newPos) { return -1; }
+int ListMove(List* l, int newPos) { 
+  if(newPos<0 || newPos>=l->size) return -1;
+
+  _PointersListNode* node = l->head;
+  int pos = 0;
+
+
+  while(pos<newPos){
+	node = node->next;
+	pos++;
+			
+  } 
+  l->current = node;
+  l->currentPos = newPos;
+  return 0;
+return -1;
+}
 
 int ListMoveToNext(List* l) { return -1; }
 
