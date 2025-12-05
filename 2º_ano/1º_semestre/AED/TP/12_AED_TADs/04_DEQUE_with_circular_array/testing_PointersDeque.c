@@ -44,6 +44,20 @@ int main(void) {
     printf("All is well [i = %d, o = %d]\n", i, o);
 
     DequeDestroy(&d);
+	Deque* deque = DequeCreate(5);
+	for(int n = 0; n<=4; n++){
+		int* aux = (int*)malloc(sizeof(int));
+		*aux = n; 
+		Deque_add_at_front(deque,aux);
 
+	}
+	Deque_display(deque);
+	int size = Deque_isEmpty(deque);
+	printf("isEmpty? : %d\n", size);
+
+	int full = Deque_isFull(deque);
+	printf("isFull? : %d\n", full);
+
+	DequeDestroy(&deque);
     return 0;
 }

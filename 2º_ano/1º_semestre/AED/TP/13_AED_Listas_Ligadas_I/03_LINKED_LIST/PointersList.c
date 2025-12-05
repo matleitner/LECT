@@ -102,11 +102,11 @@ void ListModifyCurrentValue(const List* l, void* p) {
 // Search
 
 int ListSearchFromCurrent(const List* l, void* p) {
-  _PointersListNode* node = l->current;
+  struct _PointersListNode* node = l->current;
   
   while(node != NULL){
-	if(node->data == p) return 0;
-	node = node->next; 
+	  if(node->data == p) return 0;
+	  node = node->next;
   }
   return -1; 
 }
@@ -116,7 +116,7 @@ int ListSearchFromCurrent(const List* l, void* p) {
 int ListMove(List* l, int newPos) { 
   if(newPos<0 || newPos>=l->size) return -1;
 
-  _PointersListNode* node = l->head;
+  struct _PointersListNode* node = l->head;
   int pos = 0;
 
 
@@ -125,15 +125,31 @@ int ListMove(List* l, int newPos) {
 	pos++;
 			
   } 
-  l->current = node;
-  l->currentPos = newPos;
-  return 0;
-return -1;
+
+  if(l->current != NULL){
+
+  	l->current = node;
+    l->currentPos = newPos;
+  	return 0;
+  }
+  return -1;
 }
 
-int ListMoveToNext(List* l) { return -1; }
+int ListMoveToNext(List* l) {
+  if(l->current->next == NULL) return -1;
+  l->current = l->current->next;
+  l->currentPos++;
 
-int ListMoveToPrevious(List* l) { return -1; }
+  return 0;
+  }
+
+int ListMoveToPrevious(List* l) { 
+	if(l->currentPos-1 <0) 	return -1;
+    
+  return ListMove(l, l->currentPos-1); 	
+
+
+}
 
 int ListMoveToHead(List* l) { return -1; }
 

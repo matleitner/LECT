@@ -43,7 +43,16 @@ GraphBFSWithQueue* GraphBFSWithQueueExecute(Graph* g,
   // traversal->distance
   // traversal->predecessor
   //
+  traversal->marked = (unsigned int*) calloc(numVertices, sizeof(unsigned int));
+  traversal->distance = (int* )calloc(GraphGetNumEdges(g)* sizeof(int));
+  for(unsigned int i = 0; i<GraphGetNumEdges(g); i++){
+    traversal->distance[i] = -1;
+  }
+  traversal->predecessor = (int*)malloc(numVertices* sizeof(int));
+  for(unsigned int i = 0; i<numVertices;i++){
 
+    traversal->predecessor[i] = -1;
+  }
   traversal->graph = g;
   traversal->startVertex = startVertex;
 
@@ -51,6 +60,31 @@ GraphBFSWithQueue* GraphBFSWithQueueExecute(Graph* g,
 
   // TO BE COMPLETED !!
 
+
+  Queue* queue = QueueCreate(numVertices);
+  QueueEnqueue(queue,startVertex);
+  traversal->marked[startVertex] = 1;
+  traversal->predecessor[startVertex] = -1;
+  traversal->distance[startVertex] = 0;
+
+  while(QueueDequeue(queue) == 0){
+    unsigned int vertex = QueueDequeue(queue);
+
+    unsigned int* neighbors = GraphGetAdjacentsTo(traversal->graph, vertex);
+    for(unsigned int i = 1; i<=neighbors[0];i++){
+      unsigned int w = neighbors[i];
+      if(traversal->marked[w] == 0){
+        traversal->marked[w] = 1;
+        traversal->predecessor[w] = vertex;
+        traversal->distance[w] = traversal->distance[vertex] + 1;
+        QueueEnqueue(queue, w);
+
+      }
+    
+    }
+    free(neighbors);
+
+  }
   return traversal;
 }
 

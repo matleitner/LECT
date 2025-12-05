@@ -50,11 +50,31 @@ GraphDFSWithStack* GraphDFSWithStackExecute(Graph* g,
   traversal->startVertex = startVertex;
 
   // CARRY OUT THE ITERATIVE TRAVERSAL
-
+  unsigned int vertex  = startVertex;
   // TO BE COMPLETED !!
+  
+  Stack* verticeStack = StackCreate(numVertices);
+  StackPush(verticeStack, startVertex);
+  traversal->marked[startVertex] = 1;
+  traversal->predecessor[startVertex] = -1;
+  traversal-> marked[vertex] = 1;
 
+  while(StackIsEmpty(verticeStack) == 0){
+    unsigned int vertex = StackPop(verticeStack);
+    
+    unsigned int* neighbors = GraphGetAdjacentsTo(traversal->graph, vertex);
+    for(unsigned int i = 1; i<= neighbors;i++ ){
+      unsigned int w = neighbors[i];
+      if(traversal->marked[w] == 0){
+        traversal->marked[w] = 1;
+        traversal->predecessor[w] = vertex;
+        StackPush(verticeStack, w);
+      }
+    }
+    free(neighbors);
+  }
   return traversal;
-}
+  }
 
 void GraphDFSWithStackDestroy(GraphDFSWithStack** p) {
   assert(*p != NULL);
