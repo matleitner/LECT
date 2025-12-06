@@ -87,8 +87,8 @@ int ListGetCurrentIndex(const List* l) {
 }
 
 void* ListGetCurrentValue(const List* l) {
-  assert(l != NULL && l->current != NULL);
-  return l->current->data;
+  assert(l != NULL);
+  return (l->current != NULL) ? l->current->data : NULL;
 }
 
 void ListModifyCurrentValue(const List* l, void* p) {
@@ -135,11 +135,23 @@ int ListMove(List* l, int newPos) {
 }
 
 int ListMoveToNext(List* l) {
-  if(l->current->next == NULL) return -1;
-  l->current = l->current->next;
-  l->currentPos++;
+    assert(l != NULL);
 
-  return 0;
+    // Se current já é NULL (ou seja, fora da lista), não podemos avançar.
+    if (l->current == NULL) return -1;
+
+    // Se o próximo nó é NULL (chegou ao fim da lista)
+    if (l->current->next == NULL) {
+        l->current = NULL; // Mova current para NULL para sinalizar o fim
+        l->currentPos = l->size; // Ou -1, dependendo da sua convenção para "depois da cauda"
+        return 0; // Sucesso na movimentação para fora da lista
+    }
+
+    // Movimento normal
+    l->current = l->current->next;
+    l->currentPos++;
+
+    return 0;
   }
 
 int ListMoveToPrevious(List* l) { 
@@ -191,12 +203,13 @@ void ListInsertAfterTail(List* l, void* p) {
     struct _PointersListNode* node = malloc(sizeof(struct _PointersListNode));
     
     if(node == NULL) return;
+    node->data = p; 
+    node->next = NULL;
     if(l->tail == NULL){
       l->head = node;
       l->tail = node;
     }
     else{
-      node->data = p; 
       l->tail->next = node;
       l->tail = node;
     }
@@ -258,7 +271,6 @@ void ListRemoveHead(List* l) {
     l->currentPos--;
   }
 
-  // One less list node, after removing the head node
   l->size--;
 
   if (l->size == 0) {
