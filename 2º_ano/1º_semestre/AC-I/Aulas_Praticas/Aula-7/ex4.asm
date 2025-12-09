@@ -40,7 +40,8 @@ while:	addi $t0,$t0,1
 	move $v0, $a0 
 	jr $ra
 	
-main:	
+main:	addiu $sp, $sp, -4
+	sw $ra, 0($sp)
 	la $a0, str2
 	la $a1, str1
 	jal strcopy
@@ -64,5 +65,7 @@ main:
 	syscall
 	
 	li $v0, 0
+	lw $ra, 0($sp)
+	addiu $sp, $sp, 4
 	
 	jr $ra 

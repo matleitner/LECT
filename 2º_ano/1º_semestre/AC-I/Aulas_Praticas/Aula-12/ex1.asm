@@ -64,7 +64,7 @@ for_read_data:	bge $t0, $s1, endfor_read_data
 	la $a0, str3
 	syscall 
 	li $v0, read_string
-	addi $a0, $t1, 22		# offset 22 => st.last_name 
+	addi $a0, $t1, 22	# offset 22 => st.last_name 
 	li   $a1, 15
 	syscall
 	#Nota 
@@ -86,9 +86,9 @@ endfor_read_data:
 	addiu $sp, $sp, 12
 	jr $ra 
 	
-#student *max(student *st, int ns, float *media)
+#         student *max(student *st, int ns, float *media)
 
-# Mapade registros p : $t0 / pmax : $t3 / max_grade : $f2 / sum _ $f4 / $t2 : ns + st / 
+#         Mapade registros p : $t0 / pmax : $t3 / max_grade : $f2 / sum _ $f4 / $t2 : ns + st / 
 max:	addiu $sp, $sp, -16 
 	
 	sw $ra, 0($sp)
@@ -132,7 +132,7 @@ endfor_max:
 	jr $ra
 	
 print_student:	
-	addiu $sp, $sp, 8
+	addiu $sp, $sp, -8
 	sw $ra, 0 ($sp)
 	sw $s0, 4($sp)
 	
@@ -176,7 +176,8 @@ print_student:
 	lw $ra, 0 ($sp)
 	lw $s0, 4($sp)
 	
-	addiu $sp, $sp, 8						
+	addiu $sp, $sp, 8
+	jr $ra						
 	
 main:	addiu $sp, $sp, -4
 	sw $ra, 0($sp)
@@ -203,10 +204,10 @@ main:	addiu $sp, $sp, -4
 	syscall
 	move $a0, $t5
 	jal print_student
-	
+	li $v0, 0	
 	lw $ra, 0($sp)
 	addiu $sp, $sp, 4
-	li $v0, 10	
+	
 	jr $ra
 	
 	 
