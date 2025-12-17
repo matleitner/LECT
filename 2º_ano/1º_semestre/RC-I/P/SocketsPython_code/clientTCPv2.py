@@ -31,6 +31,8 @@ while True:
             message+='-'*(20-size)
         pkt=struct.pack('!BLL20s',version,order,size,message[:20].encode())
         sock.send(pkt)
+        response = sock.recv(4096).decode()
+        print("Server response:", response)
     except (socket.timeout, socket.error):
         print('Server error. Done!')
         sys.exit(0)

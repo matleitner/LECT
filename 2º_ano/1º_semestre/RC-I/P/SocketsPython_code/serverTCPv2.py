@@ -24,8 +24,8 @@ def handle_client_connection(client_socket,address):
                 pkt=struct.unpack('!BLL20s',request)
                 print(pkt)
                 print('Received ver: {}, order: {}, size: {} -> {}'.format(pkt[0],pkt[1],pkt[2],pkt[3].decode()))    
-                msg=request.decode()
-                msg = ('ECHO: ' + msg).encode()
+                msg=pkt[3].decode('utf-8')
+                msg = ('ECHO: ' + msg).encode('utf-8')
                 client_socket.send(msg)    
     except (socket.timeout, socket.error):
         print('Client {} error. Done!'.format(address))
@@ -35,7 +35,7 @@ tcp_port = 5005
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((ip_addr, tcp_port))
-server.listen(5)  # max backlog of connections
+server.listen(1)  # max backlog of connections
 
 print('Listening on {}:{}'.format(ip_addr, tcp_port))
 
