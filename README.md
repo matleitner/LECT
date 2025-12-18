@@ -24,7 +24,8 @@ Vários exercícios resolvidos pelo vosso melhor amigo, compincha, camarada, gra
 
 ---
 
-### 🚀 Como Usar
+<!--### 🚀 Como Usar
 
 ```bash
 git clone https://github.com/matleitner/LECT.git
+-->
