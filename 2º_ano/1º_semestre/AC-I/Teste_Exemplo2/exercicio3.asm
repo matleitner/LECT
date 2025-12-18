@@ -45,39 +45,40 @@ sum:	.double 0.0
 	.text
 	.globl func3
 
-
-func3:	l.d $f2, sum		# double sum = 0.0;
-		li $t0, 0 		# i = 0
+		
+func3:	la $t0, sum
+	l.d $f2, 0($t0)		# double sum = 0.0;
+	li $t0, 0 		# i = 0
 
 for:	bge $t0, $a0, endfor		#for (i = 0; i < nv; i++, pt++) {
 
-		li $t1, 0		# j = 0
+	li $t1, 0		# j = 0
 
 do:	#do {
 
-		addiu $t3, $a1, 16		# pt->quest
+	addiu $t3, $a1, 16		# pt->quest
 
-		addu $t3, $t3, $t1		# pt->quest[j]
-		lb $t3, 0($t3)				#
+	addu $t3, $t3, $t1		# pt->quest[j]
+	lbu $t3, 0($t3)				#
  
-		mtc1 $t3, $f4		# 
-		cvt.d.w $f4, $f4		# (double) pt->quest[j]
-		add.d $f2, $f2, $f4 # sum += (double) pt->quest[j]
+	mtc1 $t3, $f4		# 
+	cvt.d.w $f4, $f4		# (double) pt->quest[j]
+	add.d $f2, $f2, $f4 # sum += (double) pt->quest[j]
 		
-		addiu $t1, $t1, 1		# j++;
+	addiu $t1, $t1, 1		# j++;
 		
 while:	lbu $t4, 4($a1)
-		blt $t1, $t4, do	#} while (j < pt->nm);
+	blt $t1, $t4, do	#} while (j < pt->nm);
 		
-		l.d $f6, 8($a1)		# pt->grade
+	l.d $f6, 8($a1)		# pt->grade
 
-		div.d $f8, $f2, $f6		# sum / pt->grade
-		cvt.w.d $f8, $f8		# (int) sum / pt->acc
-		mfc1 $t4, $f8		# 
-		sw $t4, 0($a1) 	# pt->acc = (int) (sum/pt->grade)
-		addiu $a1, $a1, 40	# pt++
-		addiu $t0, $t0, 1 # i++
-		j for
+	div.d $f8, $f2, $f6		# sum / pt->grade
+	cvt.w.d $f8, $f8		# (int) sum / pt->acc
+	mfc1 $t4, $f8		# 
+	sw $t4, 0($a1) 	# pt->acc = (int) (sum/pt->grade)
+	addiu $a1, $a1, 40	# pt++
+	addiu $t0, $t0, 1 # i++
+	j for
 
 endfor:
 	addiu $a1, $a1, -40
