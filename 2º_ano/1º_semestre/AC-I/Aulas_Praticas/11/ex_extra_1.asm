@@ -15,3 +15,19 @@
 # char a2[17];          |              1              17             32
 # xyz;	       |              8 	   49->56	 
 
+	.data
+
+	.align 3
+a1:	.asciiz "$t1"
+	.align 3
+g:	.double 3.141592653589
+a2:	.word 291, 756
+v:	'X'
+k:	.float 1.983
+	
+	.text
+	.globl main
+	
+	
+f1:	
+	la 

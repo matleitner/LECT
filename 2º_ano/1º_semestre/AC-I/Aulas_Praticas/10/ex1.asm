@@ -21,7 +21,7 @@ xtoy:	addiu $sp, $sp, -12
 			
 	li $t0, 0		# i = 0
 	la $t2, result		# 
-	l.d $f0, 0($t2)		# $f0 = result
+	lwc1 $f0, 0($t2)		# $f0 = result  == l.s  ldc1
 		
 for:	bge $t0, $t1, endfor 	# i< abs(y)
 
