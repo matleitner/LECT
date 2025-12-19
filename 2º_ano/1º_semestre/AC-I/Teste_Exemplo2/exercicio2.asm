@@ -48,6 +48,7 @@ for:	bge $t0, $a1, endfor		# for (k = 0; k < n; k++) {
 
 	sll $t1, $t0,2		# $t1 = k * 4
 	addu $t1, $a0, $t1 	# $f10 = a[k] 
+	l.s $f10, 0($t1)		#
 
 while:	sub.s $f8, $f4, $f2		#while ((g - oldg) > t) {
 	c.lt.s $f12, $f8		# 
@@ -55,8 +56,6 @@ while:	sub.s $f8, $f4, $f2		#while ((g - oldg) > t) {
 
 	mov.s $f2, $f4		# oldg = g
 
-	l.s $f10, 0($t1)		#
- 
 	add.s $f4, $f4, $f10		#(g + a[k]) 
 	div.s $f4, $f4, $f12		#  g = (g + a[k]) / t;
 	j while
