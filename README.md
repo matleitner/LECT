@@ -20,8 +20,9 @@ Vários exercícios resolvidos pelo vosso melhor amigo, compincha, camarada, gra
 
 | 1º Semestre | 2º Semestre |
 | --- | --- |
-| [AC-I](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/AC-I) ⚙️ <br> [AED](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/AED) 🖥️ <br> [MCE](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/CI) 📊 <br> [RC-I](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/RC-I) 📝 <br> [Competências I](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/CT-I) 💡 | [AC-II](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/AC-II) ⚙️ <br> [AS](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/AS) 📚 <br> [RC-II](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/RC-II) 📝 <br> [SSE](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/SSE) 💻 <br> [Competências II](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/Competencias_Transferiveis-II) 💡 |
-
+| [AC-I](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/AC-I) ⚙️ <br> [AED](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/AED) 🖥️ <br> [RC-I](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/RC-I) 🖧<br>[MCE](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/CI) 📝 <br>  [Competências I](https://github.com/matleitner/LECT/tree/main/2º_ano/1º_semestre/CT-I) 💡 | 
+<!-- remover este espaço dps [AC-II](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/AC-II) ⚙️ <br> [AS](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/AS) 📚 <br> [RC-II](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/RC-II) 🖧 <br> [SSE](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/SSE) 💻 <br> [Competências II](https://github.com/matleitner/LECT/tree/main/2º_ano/2º_semestre/Competencias_Transferiveis-II) 💡 |
+-->
 ---
 
 <!--### 🚀 Como Usar
