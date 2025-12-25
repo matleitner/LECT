@@ -58,9 +58,9 @@ void PersonSetDestroy(PersonSet **pps) {
   
   // COMPLETE ...
  
-      free((*pps)->array);
-      free(*pps);
-      *pps = NULL;
+  free((*pps)->array);
+  free(*pps);
+  *pps = NULL;
  
 }
 
@@ -112,8 +112,8 @@ static void append(PersonSet *ps, Person *p) {
 // Do nothing if *ps already contains a person with the same id.
 void PersonSetAdd(PersonSet *ps, Person *p) {
   // You may call the append function here!
-  if(search(ps, p->id) !=-1) append(ps,p);
   // COMPLETE ...
+  if(search(ps, p->id) ==-1) append(ps,p);
 }
 
 // Pop one person out of *ps.
@@ -134,7 +134,7 @@ Person *PersonSetRemove(PersonSet *ps, int id) {
 
   // COMPLETE ...
   int ind = search(ps,id);
-  if(ind == -1) return NULL
+  if(ind == -1) return NULL;
   
   Person *p= ps->array[ind];
   ps->array[ind] = ps-> array[ps->size-1];
@@ -188,10 +188,10 @@ PersonSet *PersonSetIntersection(const PersonSet *ps1, const PersonSet *ps2) {
   // COMPLETE ...
   PersonSet* ps = PersonSetCreate();
   if(ps == NULL)  return NULL;
-  PersonSet *minor, *greater;
-  (ps1->size >= ps2 ->size) ? (greater = ps1, minor = ps2) : (greater =ps2, minor ps1);
+  const PersonSet *minor, *greater;
+  (ps1->size >= ps2 ->size) ? (greater = ps1, minor = ps2) : (greater = ps2, minor = ps1);
   for(int i = 0; i < minor->size; i++){
-  	if(PersonSetContains(greater, minor->array[i]->id)
+  	if(PersonSetContains(greater, minor->array[i]->id))
 			PersonSetAdd(ps,minor->array[i]);
   
   }
@@ -203,15 +203,23 @@ PersonSet *PersonSetIntersection(const PersonSet *ps1, const PersonSet *ps2) {
 // NOTE: memory is allocated.  Client must call PersonSetDestroy!
 PersonSet *PersonSetDifference(const PersonSet *ps1, const PersonSet *ps2) {
   // COMPLETE ...
- 
-  return NULL;
-}
+	PersonSet* ps = PersonSetCreate();
+	if(ps == NULL) return NULL;
 
+	for(int i = 0; i < ps1->size; i++){
+		if(!PersonSetContains(ps2, ps1->array[i]->id)){
+			PersonSetAdd(ps, ps1->array[i]);
+		}
+	} 
+	return ps;
+}
 // Return true iff *ps1 is a subset of *ps2.
 int PersonSetIsSubset(const PersonSet *ps1, const PersonSet *ps2) {
   // COMPLETE ...
-
-  return 0;
+	for(int i = 0 ; i< ps1->size; i++){
+		if(!PersonSetContains(ps2, ps1->array[i]->id)) return 0;
+	}
+	return 1;
 }
 
 // Return true if the two sets contain exactly the same elements.
@@ -219,6 +227,8 @@ int PersonSetEquals(const PersonSet *ps1, const PersonSet *ps2) {
   // You may call PersonSetIsSubset here!
 
   // COMPLETE ...
-
-  return 0;
-
+	PersonSet* ps = PersonSetIntersection(ps1, ps2);
+	if(ps == NULL) return 0;
+	PersonSetDestroy(&ps);
+	return 1;
+}
