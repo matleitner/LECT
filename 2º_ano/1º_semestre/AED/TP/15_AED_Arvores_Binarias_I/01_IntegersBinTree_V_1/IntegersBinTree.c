@@ -54,10 +54,19 @@ int TreeEquals(const Tree* root1, const Tree* root2) {
 }
 
 int TreeMirrors(const Tree* root1, const Tree* root2) {
-  // ...
-  return 0;
-}
-
+	if (root1 == NULL && root2 == NULL) {
+		return 1;
+	}
+	if (root1->NULL || root2 == NULL) {
+		return 0;
+	}
+	
+  if (root1->item != root2->item) {
+		return 0;
+	}
+	return TreeMirrors(root1->left, root2->right) &&  TreeMirrors(root1->right, root2->left);
+	}
+	
 int TreeGetNumberOfNodes(const Tree* root) {
   if (root == NULL) return 0;
 
@@ -100,8 +109,14 @@ void TreeTraverseInPOSTOrder(Tree* root, void (*function)(ItemType* p)) {
 // ...
 
 int TreeContains(const Tree* root, const ItemType item) {
-  // ...
-  return 0;
+  
+	if(root->left != NULL) TreeContains(root->left, item);
+	if(root->right != NULL) TreeContains(root->right, item);
+
+	if(root->item == item) return 1;
+	
+	
+	return 0; 
 }
 
 int TreeAdd(Tree** pRoot, const ItemType item) {

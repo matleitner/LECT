@@ -38,15 +38,33 @@ static int cmpP(const void *a, const void *b) {
 PersonSet *PersonSetCreate() {
   // You must allocate space for the struct and create an empty persons list!
   // COMPLETE ...
-  
-  PersonSet *p = (PersonSet*)malloc(sizeof(PersonSet));  
-  return NULL;
+  	  
+  	PersonSet *p = (PersonSet*)malloc(sizeof(PersonSet));  
+	if(p == NULL){
+		free(p);
+		perror("Error allocating memory for Persons");
+ 		return NULL;
+		
+	}	
+	p->persons = ListCreate(cmpP);
+	
+	if(p->persons == NULL){
+		free(p);
+		perror("Error creating List for Persons");
+		return NULL; 
+	}
+	return p
 }
 
 // Destroy PersonSet *pps
 void PersonSetDestroy(PersonSet **pps) {
   assert(*pps != NULL);
   // COMPLETE ...
+  ListDestroy((*pps)->persons);
+  PersonSet *p = *pps;
+  free(p);	
+  *pps =NULL;
+  
 }
 
 int PersonSetSize(const PersonSet *ps) { return ListGetSize(ps->persons); }
@@ -76,15 +94,19 @@ static int search(const PersonSet *ps, int id) {
 // Do nothing if *ps already contains a person with the same id.
 void PersonSetAdd(PersonSet *ps, Person *p) {
   // COMPLETE ...
+  ListInsert(ps->persons, p);
+  ListTestInvariants(ps->persons);
+
 }
+
 
 // Pop one person out of *ps.
 Person *PersonSetPop(PersonSet *ps) {
   assert(!PersonSetIsEmpty(ps));
   // It is easiest to pop and return the person in the first position!
   // COMPLETE ...
-
-  return NULL;
+  
+  return (Person*)ListRemoveHead(ps->persons);
 }
 
 // Remove the person with given id from *ps, and return it.
