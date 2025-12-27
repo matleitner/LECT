@@ -86,5 +86,67 @@ R: "stored-program" significa que o programa é guardado na memória, por isso �
 
  
 ## 16. Como se codifica uma instrução? Que informação fundamental deverá ter o código máquina de uma instrução?
-A instrução codifica-se sob a forma de um número expresso em binárioA instrução codifica-se sob a forma de um número expresso em binário..
+R: A instrução codifica-se sob a forma de um número expresso em binárioA instrução codifica-se sob a forma de um número expresso em binário..
 Na codificação da instrução deverá estar presente, qual a operação a executar, qual a localização dos operandos se em registos internos do CPU se na memória externa. Onde colocar os resultados. Qual a próxima instrução a executar.
+
+
+## 17. Descreva pelas suas próprias palavras o conceito de ISA (Instruction Set Architecture).
+
+R: Conjunto completo de operações que o processador pode realizar e como os programas devem ser escritos para ele. 
+
+## 18. Independentemente do modelo da arquitetura, identifique quantas e quais as classes de instruções que compões o conjunto de instruções executáveis por um processador dessa arquitetura?
+
+R: Processamento, Transferência de informação, Controlo de fluxo de execução. 
+
+## 19. O que carateriza e distingue as arquiteturas do tipo "register-memory" e "load-store"? De que tipo é a arquitetura MIPS?
+
+R: register-memory -> operandos das instruções aritméticas e lógicas residem em registos internos do CPU ou em memória
+	 load-store -> ""   "" "" registos internos do CPU de uso geral mas nunca em memória. (MIPS)
+
+## 20. O ciclo de execução de uma instrução é composto por uma sequência ordenada de operações. Quantas e quais são essas operações (passos de execução)?
+
+R: Instruction fethc -> Instruction decode -> Operand fetch -> Execute -> Store result; 
+
+## 21. Como se designa o barramento que permite identificar, na memória, a origem ou o destino da informação transferida?
+
+R: Address bus 
+
+## 22. Qual a finalidade do barramento normalmente designado por Data Bus?
+
+R: transferência de informação exemplo: CPU <-> mem ou CPU <-> input/output
+
+## 23. Os processadores da arquitetura hipotética ZWYZ possuem 4 registos internos e todas as instruções são
+## codificadas usando 24 bits. Num dos formatos de codificação existem 5 campos: um OpCode com 5 bits,
+## três campos para identificar registos internos em operações aritméticas e lógicas e um campo para
+## codificar valores constantes imediatos em complemento para dois. Qual a gama de representação destas
+## constantes?
+		_ _ _ _ _          _ _  _ _  _ _    _ _ _ _ _ _ _ _ _ _ _ _ _
+R:  ^ ^ ^ ^ ^ opcode    rs   rt   rd             [-2¹², 2¹²-1]      
+																										
+
+
+## 24. A arquitetura hipotética ZPTZ tem um barramento de endereços de 32 bits e um barramento de dados de
+## 16 bits. Se a memória desta arquitetura for bit_addressable:
+ 
+### a. Qual a dimensão do espaço de endereçamento desta arquitetura?
+### b. Qual a dimensão máxima da memória, expressa em bytes, suportada por esta arquitetura?
+
+
+
+25. Considere agora uma arquitetura em que o respetivo ISA especifica uma organização de memória do tipo
+word-addressable, em que a dimensão da word é 32 bits. Tendo o espaço de endereçamento do
+processador 24 bits, qual a dimensão máxima de memória que este sistema pode acomodar se expresso
+em bytes?
+26. Relativamente à arquitetura MIPS:
+a. Com quantos bits são codificadas as instruções no MIPS?
+b. O que diferencia o registo $0 dos restantes registos de uso geral?
+c. Qual o endereço do registo interno do MIPS a que corresponde a designação lógica $ra?
+## 27. No MIPS, um dos formatos de codificação de instruções é designado por R:
+a. Quais os campos em que se divide este formato de codificação?
+b. Qual o significado de cada um desses campos?
+c. Qual o valor do campo opCode nesse formato?
+d. O que faz a instrução cujo código máquina é: 0x00000000?
+## 28. O símbolo ”>>“ da linguagem C significa deslocamento à direita e é traduzido em assembly por srl ou
+sra (no caso do MIPS). Dê exemplos de casos em linguagem C em que o compilador gera um srl e
+exemplos em que gera um sra.
+## 29. Qual a instrução nativa do MIPS em que é traduzida a instrução virtual "move $4,$15"?
