@@ -123,30 +123,63 @@ R: transferência de informação exemplo: CPU <-> mem ou CPU <-> input/output
 		_ _ _ _ _          _ _  _ _  _ _    _ _ _ _ _ _ _ _ _ _ _ _ _
 R:  ^ ^ ^ ^ ^ opcode    rs   rt   rd             [-2¹², 2¹²-1]      
 																										
-
-
 ## 24. A arquitetura hipotética ZPTZ tem um barramento de endereços de 32 bits e um barramento de dados de
 ## 16 bits. Se a memória desta arquitetura for bit_addressable:
  
-### a. Qual a dimensão do espaço de endereçamento desta arquitetura?
+### a. Qual a dimensão do espaço de endereçamento desta arquitetura? 
+
+R: 2³² bits enderençáveis
+
 ### b. Qual a dimensão máxima da memória, expressa em bytes, suportada por esta arquitetura?
 
+R: 2³²/8 = 2²⁹ bytes = 512MB
 
+## 25. Considere agora uma arquitetura em que o respetivo ISA especifica uma organização de memória do tipo
+## word-addressable, em que a dimensão da word é 32 bits. Tendo o espaço de endereçamento do
+## processador 24 bits, qual a dimensão máxima de memória que este sistema pode acomodar se expresso
+## em bytes?
 
-25. Considere agora uma arquitetura em que o respetivo ISA especifica uma organização de memória do tipo
-word-addressable, em que a dimensão da word é 32 bits. Tendo o espaço de endereçamento do
-processador 24 bits, qual a dimensão máxima de memória que este sistema pode acomodar se expresso
-em bytes?
-26. Relativamente à arquitetura MIPS:
-a. Com quantos bits são codificadas as instruções no MIPS?
-b. O que diferencia o registo $0 dos restantes registos de uso geral?
-c. Qual o endereço do registo interno do MIPS a que corresponde a designação lógica $ra?
+R: 2²⁴ words * 32 bits ou 4 bytes = 2²⁶ bytes  = 64 MB 
+
+## 26. Relativamente à arquitetura MIPS:
+### a. Com quantos bits são codificadas as instruções no MIPS?
+
+R: 32 bits
+
+### b. O que diferencia o registo $0 dos restantes registos de uso geral?
+
+R: $0 tem sempre o valor de zero (0x00000000) e apenas pode ser lido. 
+
+### c. Qual o endereço do registo interno do MIPS a que corresponde a designação lógica $ra?
+
+R: registo $31 o último registo. 
+
 ## 27. No MIPS, um dos formatos de codificação de instruções é designado por R:
-a. Quais os campos em que se divide este formato de codificação?
-b. Qual o significado de cada um desses campos?
-c. Qual o valor do campo opCode nesse formato?
-d. O que faz a instrução cujo código máquina é: 0x00000000?
+### a. Quais os campos em que se divide este formato de codificação?
+
+R: 6 campos op, rs,rt,rd, shamt, funct
+
+
+### b. Qual o significado de cada um desses campos?
+
+
+R: op code (6 bits) rs rt endereço dos registos que contêm 1º e 2º operandos 5 bits cada, rd registo destino onde o resultado vai ser armazenado, shamt sift amount para instruções de deslocamento (5 bits), e funct cpdigo da operação a realizar (6 bits) 
+
+### c. Qual o valor do campo opCode nesse formato?
+
+R: 000000 
+
+### d. O que faz a instrução cujo código máquina é: 0x00000000?
+
+R: op 000 000 é tipo R, rs = $0 , rt = $0, rd = $0, shamt = 0 logo fará 0 bits de possiveis shifts, funct = 0 é um sll $0, $0, 0 
+
 ## 28. O símbolo ”>>“ da linguagem C significa deslocamento à direita e é traduzido em assembly por srl ou
-sra (no caso do MIPS). Dê exemplos de casos em linguagem C em que o compilador gera um srl e
-exemplos em que gera um sra.
+## sra (no caso do MIPS). Dê exemplos de casos em linguagem C em que o compilador gera um srl e
+## exemplos em que gera um sra.
+
+R: Quando é especificado se o número é signed ou unsigned, por exemplo int x = 2 se eu fizer x  = x >> 1; ele faz sra, se eu especificar que x é unsigned int ele faz srl.
+
 ## 29. Qual a instrução nativa do MIPS em que é traduzida a instrução virtual "move $4,$15"?
+
+R: segundo os slides é or $4, $0, $15 , mas na verdade é addu $4, $0, $15.
+
