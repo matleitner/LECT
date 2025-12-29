@@ -4,6 +4,55 @@ Oferecem soluções concisas e elegantes
 
 Decomposição em subproblemas
 
+# Mergesort
+
+Ordenar um array / lista
+- Se o tamanho é 0 ou 1, já está ordenada
+- Caso contrário, subdividir em duas “metades”
+- Aprox. do mesmo tamanho !!
+- Ordenar recusivamente cada “metade”
+- Fundir as duas “metades” ordenadas num só array / lista
+- Questão : usar ou não um array / lista adicional ?
+
+```c
+void merge(int* A, int* tmpA, int lPos, int rPos, int rEnd) {
+	int lEnd = rPos -1;
+	int tmpPos = lPos;
+	int nElements = rEnd - lPos +1;
+	
+	while(lPos <= lEnd && rPos <= rEnd) {
+		if(A[lPos] <= A[rPos]) 
+			tmpA[tmpPos++] = A[lPos++];
+		else
+			tmpA[tmpPos++] = A[rPos++];	
+	}
+	while (lPos <= lEnd) 
+		tmpA[tmpPos++] = A[lPos++];
+	while (rPos <=rEnd) 	
+		tmpA[tmpPos++] = A[rPos++];
+	
+	for (int i = 0; i < nElements; i++, rEnd--)
+		A[rEnd] = tmpA[rEnd];
+}
+
+
+void mergeSort(int* A, int* tmpA, int left, int right) {
+	
+	if(left<right) {
+		int center = (left + right) / 2;
+	
+		mergeSort(A, tmpA, left, center);
+		mergeSort(A,tmpA, center+1, right);
+		merge(A, tmpA, left, center + 1, right);
+	}
+
+}
+
+
+``` 
+
+
+
 ## Diminuir-para-Reinar / Decrease-and-Conquer
 
 - Resolver 1 só subproblema em cada passo do processo recursivo
@@ -53,3 +102,4 @@ Função "smooth"
 Exemplos
 -  $\log n,\ n,\ n\ \log n\ e\ n^k$ são funções smooth
 - $a^n$ não é
+

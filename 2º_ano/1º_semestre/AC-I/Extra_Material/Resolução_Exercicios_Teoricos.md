@@ -183,3 +183,4 @@ R: Quando é especificado se o número é signed ou unsigned, por exemplo int x 
 
 R: segundo os slides é or $4, $0, $15 , mas na verdade é addu $4, $0, $15.
 
+
