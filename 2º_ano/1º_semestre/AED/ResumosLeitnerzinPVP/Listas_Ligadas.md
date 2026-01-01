@@ -226,8 +226,10 @@ ___
 - A junção de um novo elemento à lista mantém a ordem !!
 - A procura de um elemento fica facilitada
 
-### Adiciona uma função compFun na estrutura 
+### Tem uma função compFun na estrutura 
 
 Cada vez que insere compara para colocar o elemento na lista
 
+# ListInsert(List* l, void* p)
 
+Para inserir numa Lista ordenada, temos de apontar o l->node(prev)->next para new_node  e o new_node->next para o antigo node(prev)->next 
