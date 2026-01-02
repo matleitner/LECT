@@ -90,37 +90,159 @@ void* ListGetCurrentValue(const List* l) {
   assert(l != NULL && l->current != NULL);
   return l->current->data;
 }
+// Move e Search
 
-void ListModifyCurrentValue(const List* l, void* p) {}
+int ListSearchFromCurrent(const List* l, void* p) {
+    assert(l != NULL);
+    struct _PointersListNode* node = l->current;
+    int pos = l->currentPos;
+    while (node != NULL) {
+        if (node->data == p) return pos;
+        node = node->next;
+        pos++;
+    }
+    return -1;
+}
 
-// The move and search functions return 0 on success and -1 on failure (on
-// success the current node is changed, on failure it is not changed)
+int ListMove(List* l, int newPos) {
+    assert(l != NULL);
+    if (newPos < 0 || newPos >= l->size) return -1;
+    l->current = l->head;
+    l->currentPos = 0;
+    for (int i = 0; i < newPos; i++) {
+        l->current = l->current->next;
+        l->currentPos++;
+    }
+    return 0;
+}
 
-// Search
+int ListMoveToNext(List* l) {
+    assert(l != NULL);
+    if (l->current == NULL || l->current->next == NULL) return -1;
+    l->current = l->current->next;
+    l->currentPos++;
+    return 0;
+}
 
-int ListSearchFromCurrent(const List* l, void* p) { return -1; }
+int ListMoveToPrevious(List* l) {
+    assert(l != NULL);
+    if (l->current == NULL || l->currentPos == 0) return -1;
+    struct _PointersListNode* p = l->head;
+    for (int i = 0; i < l->currentPos - 1; i++)
+        p = p->next;
+    l->current = p;
+    l->currentPos--;
+    return 0;
+}
 
-// Move to functions
+int ListMoveToHead(List* l) {
+    assert(l != NULL && l->size > 0);
+    l->current = l->head;
+    l->currentPos = 0;
+    return 0;
+}
 
-int ListMove(List* l, int newPos) { return -1; }
+int ListMoveToTail(List* l) {
+    assert(l != NULL && l->size > 0);
+    l->current = l->tail;
+    l->currentPos = l->size - 1;
+    return 0;
+}
 
-int ListMoveToNext(List* l) { return -1; }
+// Insert
 
-int ListMoveToPrevious(List* l) { return -1; }
+void ListInsertBeforeHead(List* l, void* p) {
+    assert(l != NULL);
+    struct _PointersListNode* node = malloc(sizeof(struct _PointersListNode));
+    node->data = p;
+    node->next = l->head;
+    l->head = node;
+    if (l->size == 0) l->tail = node;
+    if (l->currentPos != -1) l->currentPos++;
+    l->size++;
+}
 
-int ListMoveToHead(List* l) { return -1; }
+void ListInsertAfterTail(List* l, void* p) {
+    assert(l != NULL);
+    struct _PointersListNode* node = malloc(sizeof(struct _PointersListNode));
+    node->data = p;
+    node->next = NULL;
+    if (l->size == 0) l->head = l->tail = node;
+    else {
+        l->tail->next = node;
+        l->tail = node;
+    }
+    l->size++;
+}
 
-int ListMoveToTail(List* l) { return -1; }
+void ListInsertAfterCurrent(List* l, void* p) {
+    assert(l != NULL && l->current != NULL);
+    struct _PointersListNode* node = malloc(sizeof(struct _PointersListNode));
+    node->data = p;
+    node->next = l->current->next;
+    l->current->next = node;
+    if (l->current == l->tail) l->tail = node;
+    l->size++;
+}
 
-// Insert functions
+void ListInsertBeforeCurrent(List* l, void* p) {
+    assert(l != NULL);
+    if (l->current == l->head || l->current == NULL) {
+        ListInsertBeforeHead(l, p);
+        return;
+    }
+    struct _PointersListNode* node = malloc(sizeof(struct _PointersListNode));
+    node->data = p;
+    struct _PointersListNode* prev = l->head;
+    for (int i = 0; i < l->currentPos - 1; i++)
+        prev = prev->next;
+    node->next = l->current;
+    prev->next = node;
+    l->currentPos++;
+    l->size++;
+}
 
-void ListInsertBeforeHead(List* l, void* p) {}
+// Remove
 
-void ListInsertAfterTail(List* l, void* p) {}
+void ListRemoveTail(List* l) {
+    assert(l != NULL && l->size > 0);
+    if (l->size == 1) { ListRemoveHead(l); return; }
+    struct _PointersListNode* p = l->head;
+    while (p->next != l->tail) p = p->next;
+    if (l->current == l->tail) { l->current = NULL; l->currentPos = -1; }
+    free(l->tail);
+    l->tail = p;
+    l->tail->next = NULL;
+    l->size--;
+}
 
-void ListInsertAfterCurrent(List* l, void* p) {}
+void ListRemoveCurrent(List* l) {
+    assert(l != NULL && l->current != NULL);
+    if (l->current == l->head) { ListRemoveHead(l); return; }
+    struct _PointersListNode* prev = l->head;
+    for (int i = 0; i < l->currentPos - 1; i++) prev = prev->next;
+    prev->next = l->current->next;
+    if (l->current == l->tail) l->tail = prev;
+    free(l->current);
+    l->current = prev->next;
+    l->size--;
+}
 
-void ListInsertBeforeCurrent(List* l, void* p) {}
+void ListRemoveNext(List* l) {
+    assert(l != NULL && l->current != NULL && l->current->next != NULL);
+    struct _PointersListNode* aux = l->current->next;
+    l->current->next = aux->next;
+    if (aux == l->tail) l->tail = l->current;
+    free(aux);
+    l->size--;
+}
+
+// Modify
+
+void ListModifyCurrentValue(const List* l, void* p) {
+    assert(l != NULL && l->current != NULL);
+    l->current->data = p;
+}
 
 // Remove functions
 
@@ -152,13 +274,3 @@ void ListRemoveHead(List* l) {
 
   free(aux);
 }
-
-void ListRemoveTail(List* l) {}
-
-void ListRemoveCurrent(List* l) {}
-
-void ListRemoveNext(List* l) {}
-
-// Tests
-
-void ListTestInvariants(const List* l) {}
