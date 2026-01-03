@@ -1098,9 +1098,226 @@ ReadData2 32-10
 b. 0x8D260018 (lw)
 
 1000 1101 0010 0110 0000 0000 0001 1000
-opcode 6
-rs 5  ReadReg1
-rt 5	WriteReg								
-offset 32 -6 - 10 = 16  ReadReg2 com SignExtend de 16 bits para 32 
 
-c. 0xAC6A003C (sw) 
+opcode 6
+
+rs 01001  ReadReg1
+
+rt 00110	WriteReg								
+
+offset 32 -6 - 10 = 16  
+
+ReadData1 32 - 9 = 23 
+
+
+
+c. 0xAC6A003C (sw)
+
+1010 1100 0110 1010 0000 0000 0011 1100 
+
+op code: 101011
+
+rs 00011  ReadReg1 
+
+rt 01010  ReadReg2
+
+offset 0000 0000 0011 1100 
+
+ReadData1 from rs 
+
+ReadData2 from rt 
+
+
+## 131. Considerando ainda a inicialização do banco de registos da questão anterior, indique qual o valor calculado pela ALU durante a execução das instruções LW com o código máquina 0x8CA40005 e 0x8CE6FFF3.
+
+R: 0x8CA40005 = 1000 1100 1010 0100 0000 0000 0000 0101
+	opcode 100011 
+	rs 00101  $5     0x5($5)
+	rt 00100  $4     $4, 0x5($5) 
+	offset 0000 0000 0000 0101
+	32-5 = 27 
+ valor calculado pela ALU	27 + 5 = 32 
+  	
+	0x8CE6FFF3 = 1000 1100 1110 0110 1111 1111 1111 0011
+	op 100011
+	rs 00111
+	rt 00110
+	offset 1111 1111 1111 0011 = -13  
+	
+Na alu	32 - 7 - 13 = 12 
+
+## 132. Qual o valor à saída do somador de cálculo do BTA durante a execução da instrução cujo código máquina é 0x10430023, supondo que o valor à saída do registo PC é 0x00400034?
+
+R: 0x10430023 = 0001 0000 0100 0011 0000 0000 0010 0011 
+	 000100 00010 00011 offset 0000 0000 0010 0011  off set = 35 * 4 = 140
+	 
+	0x00400034 + 4 + offset << 2 = 0x00400038 + 0000 000 1000 1100 = 0x00400038 + 0x8C = 0x004000C8
+
+## 133. Numa implementação single cycle da arquitetura MIPS, a frequência máxima de operação é de 2GHz (para os atrasos de propagação a seguir indicados). Determine o atraso máximo que pode ocorrer nas operações da ALU. Considere que, para o File Register e para as memórias, os tempos de escrita indicados são os tempos de preparação da operação antes de uma transição ativa do sinal de relógio. Memórias externas: leitura – 175ps, escrita – 120ps; File register: leitura – 45ps, escrita – 15ps; Unidade de Controlo: 10ps; Somadores: 40ps; Outros: 0ns; Setup time do Program Counter: 5ps
+
+2 GHz = 1 / 2GHz = 500 ps
+	t_atraso + T_exec <= 500ps
+	t_exec = 175 + 120 + 45 + 15 + 10 + 40 + 5 = 250 
+	R: t_atraso <= 250
+	 
+
+## 134. Determine, numa implementação single-cycle da arquitetura MIPS, a frequência máxima de operação imposta pela instrução “sw”, assumindo os atrasos a seguir indicados: 
+
+### Memórias externas: leitura – 12ns, escrita – 4ns; File register: leitura – 4ns, escrita – 1ns; Unidade de Controlo: 1ns; ALU (qualquer operação): 5ns; Somadores: 2ns; Outros: 0ns. Setup time do Program Counter: 1ns
+
+R: 12 + 4 + 4+ 1 + 1+ 5 + 2 +1 =29 ns 
+	1/29 = 34 MHz
+
+## 135. Determine, numa implementação single-cycle da arquitetura MIPS, a frequência máxima de operação imposta pela instrução "beq", assumindo os atrasos a seguir indicados:
+### Memórias externas: leitura – 11ns, escrita – 3ns; File register: leitura – 3ns, escrita – 1ns; Unidade de Controlo: 1ns; ALU (qualquer operação): 5ns; Somadores: 2ns; Outros: 0ns. Setup time do Program Counter: 1ns
+
+R: sum e 1/sum
+
+
+## 136. Determine, numa implementação single cycle da arquitetura MIPS, o período mínimo do sinal de relógio imposto pelas instruções tipo R, assumindo os atrasos a seguir indicados:
+### Memórias externas: leitura – 12ns, escrita – 4ns; File register: leitura – 3ns, escrita – 1ns; Unidade de Controlo: 1ns; ALU (qualquer operação): 6ns; Somadores: 2ns; Outros: 0ns. Setup time do Program Counter: 1ns
+
+R: sum todos os tempos 
+
+
+## 137. Identifique os principais aspetos que caracterizem uma arquitetura single cycle, quer do ponto de vista do modelo da arquitetura, como das características da sua unidade de controlo.
+
+R: Todas as etapas (busca de instrução, decodificação, leitura de registradores, execução da ALU, acesso à memória, escrita de registradores) são completadas em um único ciclo. A duração de um ciclo de clock deve ser suficiente para a instrução mais "lenta"; Sobre a unidade de controlo os sinais da instrução permanecem ligados durante o ciclo todo; 
+
+
+## 138. Numa implementação single cycle da arquitetura MIPS, no decurso da execução de uma qualquer instrução, a que corresponde o valor presente na saída do registo PC? 
+
+R: endereço da instrução atual a executar
+
+
+## 139. No datapath single-cycle a frequência do relógio é limitada. Descreva o que determina qual a frequência máxima a que um datapath deste tipo pode funcionar.
+
+R: A operação mais lenta que o datapath possa realizar 
+
+## 140. Preencha a tabela seguinte, para as instruções indicadas, com os valores presentes à saída da unidade de controlo principal da arquitetura single cycle dada nas aulas.
+
+| Instrução | Opcode | ALUOp[1..0] | Branch | RegDst | ALUSrc | MemtoReg | RegWrite | MemRead | MemWrite |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Lw** | 100011 | 00 | 0 | 0 | 1 | 1 | 1 | 1 | 0 |
+| **Sw** | 101011 | 00 | 0 | x | 1 | x | 0 | 0 | 1 |
+| **addi** | 001000 | 10 | 0 | 0 | 1 | 0 | 1 | 0 | 0 |
+| **slti** | 001010 | 10 | 0 | 0 | 1 | 0 | 0 | 1 | 0 |
+| **beq** | 000100 | 01 | 1 | x | 0 | 0 | x | 0 | 0 |
+| **R - Format** | 00000 | 10 | 0 | 1 | 0 | 0 | 0 | 1 | 0 |
+
+
+## 141. Admita que na versão single cycle do CPU MIPS dado nas aulas, pretendíamos acrescentar o suporte das instruções jal address e jr $reg. Esquematize as alterações que teria de introduzir no datapath para permitir a execução destas instruções (use como base o esquema da próxima página).
+
+<img src="datapath1.png">
+
+R: jal address, ou seja para isso acontecer teria que acontecer um Jump, MemtoReg, RegDest para escolher $ra e salvaguardar PC + 4 em $ra ou seja nessa mux adicionar uma opção para $ra, depois  o MemtoReg vai ter uma adição extra como entrada de escolher usar PC + 4 para escrever no $ra que o mux RegDest escolheu, finalmente Jump = 1 para ser feito o saltoincondicional ao endereço e atualizar PC; 
+
+jr $ra, lê o valor de $ra, e faz o salto, o Jump tem uma nova entrada que é a saída R data 1, para que a memoria PC seja atualizada;  
+
+## 142. Admita que na versão single cycle do CPU MIPS, pretendíamos executar a instrução slt $3,$5,$9. Descreva por palavras suas como é esta instrução realizada ao nível da ALU, e qual o conteúdo final no registo $3, admitindo que $5=0xFF120008 e $9=0x00C00FFF.
+
+R: slt é uma instrução tipo R opcode 000000 00101 01001 00011 00000 101010
+	 também	é lida aquilo que está no rt, e escrito no rd $3 0 ou 1 se valor guradado em $5 < valor guardado em $9, $5 - $9 se resultado < 0 set $3 ->1   else set $3 ->0
+		
+		0xFF120008 - 0x00C00FFF	
+		1111 1111 0001 0010 0000 0000 0000 1000 + 
+		1111 1111 0011 1111 1111 0000 0000 0001
+    1111  11110  0101 0001 1111 0000 1001
+		< 0 logo $3 é 1
+
+
+## 143. Analise o datapath da Fig. 1 e identifique que instruções deixariam de funcionar corretamente se a unidade de controlo bloqueasse o sinal RegWrite a '1'.
+
+
+R: Instruções que não derivem de escrever no banco de registos,  precisem de "saber" o conteúdo guardado pelo registo por exemplo sw, comparações ou jumps. 
+
+## 144. Identifique agora que consequência teria para o funcionamento do mesmo datapth o bloqueio do sinal Branch a '1'?
+
+
+R: Todas as instruções iriam ser afetadas porque estando Branch sempre a '1', certas instruções iriam realizar "saltos" não planeados, dependendo apenas da saida "zero" da ALU, causando saltos qualquer operação que resulte em 0 na saída "Zero" da ALU irá causar saltos indesejados.  
+
+## 145. Suponha que os tempos de atraso introduzidos pelos vários elementos funcionais de um datapath single-cycle são os seguintes:
+
+| Descrição do Componente | Atraso | Descrição do Componente | Atraso |
+| :--- | :--- | :--- | :--- |
+| Acesso à memória para leitura (tRM) | 12ns | Acesso à memória para preparar escrita (tWM) | 4ns |
+| Acesso ao register file para leitura (tRRF) | 5ns | Acesso ao register file para preparar escrita (tWRF) | 2ns |
+| Operação da ALU (tALU) | 7ns | Operação de um somador (tADD) | 2ns |
+| Multiplexers e restantes elementos funcionais | 0ns | Unidade de controlo (tCNTL) | 2ns |
+| Tempo de setup do PC (tstPC) | 1ns | | |
+ 
+### a. Determine o tempo mínimo para execução das instruções tipo R, LW, SW, BEQ e J.
+
+t_exec R = tRM + max( tRRF, tCNTL ) + tALU + tWRF = 12 + 5 + 7 + 2 = 28
+
+t_exec LW = tRM + max( tRRF, tCNTL ) + tALU + tRM + tWRF = 12 + 5 + 7 + 12 + 2 = 38 ns    
+
+t_exec SW = tRM + max( tRRF, tCNTL ) + tALU + tWM = 12 + 5 + 7 + 4 = 16 + 12 = 28 
+
+t_exec BEQ = tRM + max( max( tRRF, tCNTL) + tALU, tADD) + tstPC = 12 + 5 + 7 + 1 = 25
+
+t_exec J = tRM + tCNTL + tstPC = 12 + 2 + 1 = 15 
+### b. Calcule a máxima frequência do relógio que garanta uma correta execução de todas as instruções.
+
+R: 1 / 38 MHz
+
+##  146. Suponha agora que dispunha de uma tecnologia que que o período de relógio podia ser adaptado instrução a instrução, em função da instrução em curso. Determine qual o ganho de eficiência que poderia obter com esta tecnologia face a uma tecnologia em que a frequência do relógio é a que obteve na questão anterior (admita os mesmos atrasos de propagação). Para isso, assuma que o programa de benchmarking tem a seguinte distribuição de ocorrência de instruções:
+
+### 15% de lw, 15% de sw, 40% de tipo R, 20% de branches e 10% de jumps
+
+R: tMedio = 0.15 * 38 + 0.15 * 28 + .4 * 28 + 0.2 * 25 + 0.1 * 15 = 27.6
+
+	38 /27.6 = 1.38
+
+## 147. Ainda para os tempos utilizados nas duas questões anteriores, determine qual a máxima frequência de trabalho no caso de o datapath ser do tipo multi-cycle.
+
+R: 1 / 12 
+
+
+## 148. Considere um programa que executa em 10s num computador "A" com uma frequência de 4GHz. Pretende-se desenvolver um computador "B" que execute o mesmo programa em 6s. O hardware designer verificou que é possível um aumento da frequência de trabalho do CPU do computador "B", mas isso acarreta um acréscimo do número total de ciclos de relógio de 1,2 vezes relativamente a "A". Qual a frequência de trabalho que deverá ter o CPU da máquina "B"?
+
+R: t exec = # Instrucoes * CPI * CPU clock cycle 
+   	clockCycleA = 1 / f = t 
+		clockCycleA = 1 / 4Ghz = 0.25 ns
+		
+		#instr = 10 / clock Cycle = 10 / 25
+		
+		t exec = #instr 1.2 * clockCycleB 
+	  6s = (10/0.25 )* 1.2 * clckCycleB 
+		...B = 0.125 ns
+		 	
+		fB = 1/0.125 
+		FB = 8 GHz
+## 149. Considere duas máquinas com implementações distintas da mesma arquitetura do conjunto de instruções (ISA). Para um dado programa,
+### a. Máquina A: Clock_cycle = 350 ps; CPI = 2,0
+### b. Máquina B: Clock_cycle = 400 ps; CPI = 1,5
+## Qual a máquina mais rápida? Qual a relação de desempenho?
+
+R: texecA / texecB = 350 * 2 / 400 * 1.5 = 700 / 600 = 7 / 6  
+		t execA = 7 t execB / 6 logo B é mais rápido 
+
+## 150. Considere duas máquinas ("A","B") com implementações distintas da mesma arquitetura do conjunto de instruções. Para um mesmo programa, a máquina "A" apresenta um CPI de 2,0 e a "B" de 3,125. Usando a métrica tempo de execução, verificou-se que a máquina "A" é mais rápida que a máquina "B" por um fator de 1,25. Calcule a relação entre as frequências de relógio das máquinas "A" e "B".
+
+<img src="datapath2.png">
+
+
+R: tExecB = 1.25 tExecA  <=> Clock_CycleB * CPIB / Clk_CyA * CPIA  = 1.25
+
+1/fB / 1/fA = 1.25 * CPIA / CPIB
+
+fA / fB = 1.25 * 2 / 3.125  = 0.8
+
+## 151. O que limita a frequência máxima do relógio do datapath multi-cycle?
+
+R: O maior tempo do elemento funcional.
+
+## 152. Quantos ciclos de relógio demora, no datapath multi-cycle, a execução de cada uma das instruções consideradas (r-type, lw, sw, addi, slti, beq e j)?
+
+
+R: r-type 4 
+	 lw 5
+	 sw 4
+	 addi 4
+   slti 4
+	 beq 3
+		j 3	
