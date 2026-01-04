@@ -261,3 +261,9 @@ int BSTreeAdd( BSTree** pRoot, const ItemType item) {
 ### Altura O ~ (log n) 
 
 Para uma árvore ser equílibrada o fator de equilíbrio de um nó F = altura(sub-árvore Dir) - altura(sub-árvore Esq) = -1, 0, 1; 
+
+
+# Árvores Bínárias Totais
+
+Árvore com propriedade especial: todos os nós têm 0 ou 2 filhos;
+
