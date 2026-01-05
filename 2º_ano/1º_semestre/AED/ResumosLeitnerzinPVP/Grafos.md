@@ -148,8 +148,23 @@ Algoritmo útil para descobrir caminho mais curto
 
 
 # Procura exaustiva 
-c <- gerar a primeira solução candidata
-enquanto ( c é candidata ) faz
+	
+	c <- gerar a primeira solução candidata
+
+	enquanto ( c é candidata ) faz
+
 	se (c é uma solução válida) 
+
 	entao imprimir (c) 
+
 	c<- gerar a próxima solução candidata, se existir
+
+# Classe P
+
+A classe P contém todos os problemas de decisão que podem ser resolvidos, em tempo polinomial, por um algoritmo determinista.
+
+# Classe NP
+
+A classe NP contém problemas cujas soluções podem ser verificadas em tempo polinomial. Logo, apenas a primeira afirmação é correta.
+
+

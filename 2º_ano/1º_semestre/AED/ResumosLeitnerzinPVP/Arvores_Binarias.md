@@ -114,14 +114,14 @@ a + b * c + 7
 
 |DFS Postorder|DFS Preorder| DFS Inorder|
 |--|--|--|
-|bottom->top left->right|top->bottom ->top left->right| left->node ->right|
+|bottom->top left->right|top->bottom left->right| left->node ->right|
 
 
 
 
 # Travessia por níveis
 
-BFS 
+## BFS 
 
 left-> right 
 
