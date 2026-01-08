@@ -78,7 +78,7 @@ void selectionSort( int a[], int n ) {
 ```
 ### Número de Comparações
 $$\sum_{k=1}^{n-1}k  = \frac{n(n-1)}{2}= \frac{n²}{2}- \frac{n}{2}$$
-$$O(n)$$
+$$O(n²)$$
 
 ### Número de Trocas
 $W_T(n) = n-1 \Rightarrow O(n)$

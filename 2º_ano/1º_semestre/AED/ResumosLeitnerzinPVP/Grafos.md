@@ -168,3 +168,4 @@ A classe P contém todos os problemas de decisão que podem ser resolvidos, em t
 A classe NP contém problemas cujas soluções podem ser verificadas em tempo polinomial. Logo, apenas a primeira afirmação é correta.
 
 
+# Ordenação topológicas 
