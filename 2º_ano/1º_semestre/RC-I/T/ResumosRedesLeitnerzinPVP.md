@@ -246,7 +246,7 @@ Traduz endereços privados em públicos, um privado um público;
 É útil para servidores que mantenham o mesmo IP público;
 |WAN side addr | LAN side addr|
 |---|---|
-|||
+| 20.0.0.1 | 192.168.1.32|
 ### Motivação 
 
 Redes locais usam apenas 1 endereço IP
@@ -578,7 +578,7 @@ São enviados múltiplos objetos sobre uma conexão TCP entre cliente e servidor
 
 
 	_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-  PC1         PC2         PC3
+	PC1         PC2         PC3
 
 
 Estações transmitem e recebem no mesmo canal;
@@ -588,7 +588,7 @@ Podem ocorrer colisões porque as estações estão distantes uma da outra;
 # CSMA / CD (CSMA  com Colision Detection)
 
 	_ _ _ _ _ _ _ _ _ _ _ _ _ _   
-  A       B        C        D
+	A       B        C        D
 
 A estação **A** detecta o meio livre e inicia a sua transmissão;
 
