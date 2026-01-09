@@ -385,30 +385,29 @@ ___
 ### RST, SYN, FIN connection setup
 
 ## Para estabelecer uma sessão TCP
-
-|Enviar SYN, SN = x| Receber SYN, Enviar SYN + ACK SN = y AN = x+1 |
+| Aplicação 1 | Aplicação 2 |
 | ----- | ---- | 
+|Enviar SYN, SN = x| Receber SYN, Enviar SYN + ACK SN = y AN = x+1 |
 |Receber SYN + ACK, Enviar ACK, AN = y+1 | Receber ACK | 
+
+### Resumo 
 
 Estação que quer estabelecer uma ligação, envia SYN e o SN = x, o receptor recebe o SYN e envia com ACK + SYN + o seu SN por exemplo y e AN = x + 1
 A estação responde com um ACK e o AN = y + 1
     
-## Para terminar sessão 
-| Aplicação 1 | Aplicação 2 | 
-|----- |----| 
-|Enviar FIN, SN = t| Receber FIN, enviar ACK, AN = t+1|
-| Receber ACK | Enviar FIN + ACK, SN = z, AN=t+1| 
-| Receber FIN + ACK, Enviar ACK, AN = z + 1 | Receber ACK | 
-Para terminar quem quer terminar envia um FIN e o seu SN por exemplo t, receptor receber FIN e envia ACK AN = t+1 e envia um FIN + ACK com o seu SN por exemplo AN = t + 1, estação recebe FIN + ACK e envia ACK com o AN = z + 1 e recptor recebe e acaba a ligação;  
- 
+
 ## Flow Control 
 
 | Emissor | Receptor |
 |----- |----| 
-|  | Enviar W = 2500 |
-|(Envia 4000 bytes )DATA 1000 SN = x+1, DATA 1000 SN = x + 1001,  DATA 500 SN = x + 2001| ACK, AN = x+1001, W = 1500;ACK,AN = x + 2001, W=500; ACK,AN=x+25001,W=0;|
+| (Envia 400 bytes) | Enviar W = 2500 |
+| DATA 1000 SN = x+1, |ACK, AN = x+1001, W =1500  | 
+|DATA 1000 SN = x + 1001,| ACK,AN = x + 2001, W=500; |  
+| DATA 500 SN = x + 2001| ACK,AN=x+25001,W=0;|
 | | ACK, AN = x +2501, W = 2000 ( Recebe 2000 bytes )|  
 | DATA 1000 SN = x + 2501; DATA 500 SN = x + 3501 | ACK, AN = x + 3501, W = 100; ACK, AN = x+ 4001, W = 500 |
+
+### Resumo 
 
 Receptor envia a sua Window W, para o emissor saber quanto é que pode enviar, envia  o seu sequence number SN = x, na tabela é x + 1 mas aqui vou assumir que a sessão está estabelecida por isso (x = o SN inicial já com + 1), por exemplo e o Receptor recebe e envia um ACK, a atualização da janela, e o AN que é x + size data sent neste caso 1000;
 
@@ -418,6 +417,18 @@ Receptor envia a sua Window W, para o emissor saber quanto é que pode enviar, e
 - O receptor diz quanto consegue receber W (window);
 - Sequence Number refere-se ao lado da transmissão, o acknowledge Number e a Window refere-se 
 
+
+## Para terminar sessão 
+| Aplicação 1 | Aplicação 2 | 
+|----- |----| 
+|Enviar FIN, SN = t| Receber FIN, enviar ACK, AN = t+1|
+| Receber ACK | Enviar FIN + ACK, SN = z, AN=t+1| 
+| Receber FIN + ACK, Enviar ACK, AN = z + 1 | Receber ACK | 
+
+### Resumo 
+
+Para terminar quem quer terminar envia um FIN e o seu SN por exemplo t, receptor receber FIN e envia ACK AN = t+1 e envia um FIN + ACK com o seu SN por exemplo AN = t + 1, estação recebe FIN + ACK e envia ACK com o AN = z + 1 e recptor recebe e acaba a ligação;  
+ 
 
 ## TCP Round Trip Time and Time out
 
@@ -566,7 +577,7 @@ São enviados múltiplos objetos sobre uma conexão TCP entre cliente e servidor
 # CSMA (Carrier Sense Multiple Access) 
 
 
-	___________________________
+	_ _ _ _ _ _ _ _ _ _ _ _ _ _ 
   PC1         PC2         PC3
 
 
@@ -576,7 +587,7 @@ Podem ocorrer colisões porque as estações estão distantes uma da outra;
 
 # CSMA / CD (CSMA  com Colision Detection)
 
-	___________________________
+	_ _ _ _ _ _ _ _ _ _ _ _ _ _   
   A       B        C        D
 
 A estação **A** detecta o meio livre e inicia a sua transmissão;
@@ -596,8 +607,8 @@ A estação **B** pretende transmitir mas não o faz porque detecta o meio  ocup
 ## Wired vs. Wireless diferenças
 
 
-	___________________________
-  PC1         PC2         PC3
+	_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+	PC1         PC2         PC3
 
 se PC1 e PC3 envia dados ao mesmo tempo
 
@@ -722,3 +733,60 @@ Para a estação se conectar a BSS ele precisa de entrar em contacto com o AP:
 
 A troca de chaves(password) é feita após a troca de Assosiation frames  requests e replys 
 
+
+
+# Error detection 
+
+# Código de verifcação de paridade simples 
+
+
+Junta-se um bit adicional, o bit de paridade, à palavra binária a transmitir 
+Bit de paridade escolhido por forma a garantir que a palavra completa tem um número par de 1s (paridade par) ou número ímpar de 1's (paridade ímpar) 
+
+Exemplo (paridade par) 
+
+
+
+0 1 0 0 0 0 0 0 1 
+
+
+1 1 0 0 0 0 0 1 1 
+
+
+
+## CRC ( Cyclic-Redundancy Check) 
+
+Mensagem a transmitir: **57268**
+
+Emissor e recetor combinam divisor: 84
+
+No emissor executa-se 57268/84 = 681 + 64/84
+
+O emissor transmite 5726864 
+___
+
+A mensagem chega com erros ao recetor: 5754864
+
+Agora 57548 / 84 = 685 + 8/84 
+
+Como resto é diferente de 64 o erro é detetado
+
+
+(isto em décimal) 
+
+
+## Em bits
+
+Representa se por Polinómios
+
+- M(x) = x⁴ + x³ + x² + 1 (m = 5); mensagem a enviar 11101 
+- G(x) = x³ + 1 (r = 3)
+- x^rM(x)= x⁷ + x⁶ + x⁵ + x³;
+- R(x) = x² + x;
+- T(x) = x^r M(x) + R(x) = x⁷ + x⁶ + x⁵ + x³ + x² + x
+
+
+Para verificar se uma trama T(x) foi enviada com alguma alteração nos bits, o resto de T(x) + E(x) por G(x) gerador tem que ser 0;
+
+
+						 
