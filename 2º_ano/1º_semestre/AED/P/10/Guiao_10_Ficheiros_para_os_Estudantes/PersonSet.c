@@ -42,8 +42,16 @@ PersonSet *PersonSetCreate() {
   // You must allocate space for the struct and create an empty persons tree!
   // COMPLETE
   // ...
+  PersonSet* ps = (PersonSet*)malloc(sizeof(PersonSet));
+  if(ps == NULL){
+    printf("Error malloc PersonSet..");
+    return NULL;
+  }
 
-  return NULL;
+  ps->persons = BSTreeCreate(cmpP, printP);
+
+
+  return ps;
 }
 
 // Destroy PersonSet *pps
@@ -51,6 +59,12 @@ void PersonSetDestroy(PersonSet **pps) {
   assert(*pps != NULL);
   // COMPLETE
   // ...
+  PersonSet* ps = *pps;
+
+  BSTreeDestroy(&(ps->persons));
+  
+  free(*pps);
+  *pps = NULL;
 }
 
 int PersonSetSize(const PersonSet *ps) {
@@ -83,6 +97,9 @@ static Person *search(const PersonSet *ps, int id) {
 void PersonSetAdd(PersonSet *ps, Person *p) {
   // COMPLETE
   // ...
+  if(BSTreeSearch(ps->persons, p) != NULL) return;
+  BSTreeAdd(ps->persons, p);
+
 }
 
 // Pop one person out of *ps.
@@ -92,8 +109,8 @@ Person *PersonSetPop(PersonSet *ps) {
   // COMPLETE
   // ...
 	Person *p = (Person *)BSTreeGetMin(ps->persons);
-	int r r 
-  return NULL;
+	BSTreeRemove(ps->persons, p); 
+  return p == NULL ? NULL : p;
 }
 
 // Remove the person with given id from *ps, and return it.
@@ -102,11 +119,10 @@ Person *PersonSetRemove(PersonSet *ps, int id) {
   // You may call search here!
   // COMPLETE
   // ...
-	Person *person = serach(ps, id);
-	if (person == NULL)
-  return NULL;
-	int r = BSTreeRemove(ps, person);
-	if(!r) return NULL
+	Person *person = search(ps, id);
+  if(person == NULL) return NULL;
+
+	BSTreeRemove(ps->persons, person);
 	return person;
 }
 
@@ -116,8 +132,11 @@ Person *PersonSetGet(const PersonSet *ps, int id) {
   // You may call search here!
   // COMPLETE
   // ...
+  Person* p = search(ps, id);
+  if(p == NULL) return NULL;
 
-  return NULL;
+  return p;
+
 }
 
 // Return true (!= 0) if set contains person with given id, false otherwise.

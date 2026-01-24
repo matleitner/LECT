@@ -71,27 +71,72 @@ int main(int argc, char* argv[]) {
   }
 
   // Create heap
-  MinHeap* h = ... if (h == NULL) abort();
+  MinHeap* h = MinHeapCreate(k, comparator, printer);  if (h == NULL) abort();
 
   // Read the first K values into a MIN-heap
   //    Allocate memory space for an integer
   //    Read it from file
   //    Insert it in the heap
 
-  for (...) {
-    ...
+  for (int n = 0; n < k; n++) {
+		char buffer[32]; 
+		if(fgets(buffer, sizeof(buffer), f) == NULL){
+				break;
+		}
+
+		int* pInteger = (int*)malloc(sizeof(int));
+		if(pInteger == NULL){
+
+			printf("Malloc\n");
+			exit(1);
+
+		}
+
+		*pInteger = atoi(buffer);
+		MinHeapInsert(h, pInteger);
+
   }
 
   // Read and process each one of the remaining values
   while (!feof(f)) {
-    ...
-  }
+		char dummy[32]; 
 
-  // The heap stores the largest k values
-  // List them by removing each one from the heap
+   	if(fgets(dummy, sizeof(dummy), f) == NULL) break;
 
-  while (...) {
-    ...
+    int* pInteger = (int*)malloc(sizeof(int));
+		if(pInteger == NULL ){
+
+			printf("Malloc");
+			exit(1);
+		
+		}
+  	
+		
+
+		*pInteger = atoi(dummy);
+		int* min = MinHeapGetMin(h);
+		if(*pInteger > *min){ 
+
+				MinHeapRemoveMin(h); 
+				MinHeapInsert(h, pInteger);
+
+		}
+
+		else{
+
+			free(pInteger);
+
+			}
+
+	}
+
+	//The heap stores the largest k values
+	// List them by removing each one from the heap
+
+  while (!MinHeapIsEmpty(h)) {
+    int* num = MinHeapGetMin(h);
+		MinHeapRemoveMin(h);
+		printf("%d -> ", *num);
   }
 
   // House-keeping

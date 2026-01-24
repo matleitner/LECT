@@ -119,7 +119,7 @@ int main(int argc, char** argv) {
 
         // Update the HASH TABLE with the occurrence of the current word
         // ...
-
+					
         // Update the MIN-HEAP, if needed
         heapElemPtr p;
         if (MinHeapSize(topKByLength) != k) {

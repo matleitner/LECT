@@ -27,8 +27,7 @@
 // |    7    |    8    |    9    |   10    |   11    |   12    |   13    |   14
 // |
 // +----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
-// | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 |
-// 30 |
+// | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 |
 // +----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+----+
 //
 // The children of node k, if any, are 2*k+1 and 2*k+2.
@@ -104,13 +103,13 @@ void MinHeapInsert(MinHeap* ph, void* item) {
     int p = _parent(n);
 
     // if item not less than parent, then we've found the right spot!
-    if (...) break;
+    if (ph->compare(item,ph->array[p]) >= 0) break;
 
     // otherwise, move down the item at node p to open up space for new item
-    ph->array[...] = ph->array[...];
+    ph->array[n] = ph->array[p];
 
     // update
-    n = ...  // the new vacant spot
+    n = p;  // the new vacant spot
   }
   ph->array[n] = item;  // store item at node n
   ph->size++;
@@ -124,28 +123,28 @@ void MinHeapRemoveMin(MinHeap* ph) {
   int n = 0;   // the just emptied spot... must fill it with smallest child
   while (1) {
     // index of first child
-    unsigned int min = ...;  // first child (might not exist)
+    unsigned int min = _child(n, 1);  // first child (might not exist)
 
     if (!(min < ph->size)) break;  // if no second child, stop looking
 
     // if second child is smaller, choose it
-    if (...) {
-      min = ...
+    if (ph->compare(ph->array[min + 1], ph->array[min])<=0) {
+      min = min + 1;
     }
 
     // if smallest child is not smaller than last, stop looking
     if (!(ph->compare(ph->array[min], ph->array[ph->size]) < 0)) break;
 
     // move smallest child up to fill empty parent spot
-    ph->array[...] = ph->array[...];
+    ph->array[n] = ph->array[min];
 
     n = min;  // now, the smallest child spot was just emptied!
   }
   // move last element to emptied spot
-  ph->array[...] = ph->array[...];
+  ph->array[n] = ph->array[ph->size];
 
   // mark last element as vacant
-  ph->array[...] = NULL;
+  ph->array[ph->size] = NULL;
 }
 
 // Check the (min-)heap property (the heap invariant):
@@ -156,7 +155,8 @@ int MinHeapCheck(MinHeap* ph) {
   // For each node other than root: compare with its parent
   for (unsigned int n = 1; n < ph->size; n++) {
     int p = _parent(n);
-    if (... < 0) return 0;
+		
+    if (ph->compare(ph->array[n], ph->array[p]) < 0) return 0;
   }
   return 1;
 }
