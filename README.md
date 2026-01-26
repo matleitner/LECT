@@ -1,7 +1,7 @@
 # 🎓 LECT
 
 Bem-vindo a **LECT**!  
-Vários exercícios resolvidos pelo vosso melhor amigo, compincha, camarada, grande, bonito, parceiro, inigualável, inspiracional, austríaco, doce, salgado, fofo, estimado, carinhoso, alegre, perseguido (sexualmente) por todos os CTs, hidratado, alimentado, olá Henrique, olá Hugo...
+Vários exercícios resolvidos pelo vosso melhor amigo, compincha, camarada, grande, bonito, parceiro, inigualável, inspiracional, austríaco, doce, salgado, fofo, estimado, carinhoso, alegre, perseguido (sexualmente) por todos os CTs, hidratado, alimentado, olá Henrique, olá Hugo, olá João larápio...
 ---
 
 
