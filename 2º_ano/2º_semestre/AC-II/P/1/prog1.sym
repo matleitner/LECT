@@ -1,0 +1,9 @@
+GAS LISTING prog1.s 			page 1
+
+
+DEFINED SYMBOLS
+             prog1.s:6      *ABS*:0000000000000008 PRINT_STR
+             prog1.s:8      .data:0000000000000000 msg
+             prog1.s:11     .text:0000000000000000 main
+
+NO UNDEFINED SYMBOLS
