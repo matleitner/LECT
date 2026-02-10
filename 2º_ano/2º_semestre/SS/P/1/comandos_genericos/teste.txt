@@ -1,0 +1,16 @@
+# Created by Octave 8.4.0, Tue Feb 10 18:04:58 2026 WET <leitner@leitner-Zenbook-UX3402VA>
+# name: A
+# type: matrix
+# rows: 2
+# columns: 2
+ 0.8513749212549625 0.82274621919912339
+ 0.29953537688060572 0.55561203205897447
+
+
+# name: b
+# type: matrix
+# rows: 1
+# columns: 3
+ 0.99932923692719022 0.56356167003600133 0.70241905487631218
+
+
