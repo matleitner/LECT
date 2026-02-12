@@ -1,0 +1,16 @@
+% a)
+% Gera uma matriz 3 linhas e 10000 colunas de números
+% aleatórios entre 0 e 1 
+
+experiments = rand(3, 10000);
+
+
+% Gera uma matriz em que é 1 cara quando < 0.5 e 0 >= 0.5 simulando 
+% cara ou coroa
+
+tosses = experiments < 0.5; 
+
+
+% Gera um vetor linha com 10000 elementos 
+% em que 1 é quando ha 2 caras 
+sucesso = tosses == 2; 
