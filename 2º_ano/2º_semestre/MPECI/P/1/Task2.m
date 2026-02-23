@@ -1,18 +1,19 @@
-%% 
-% 1. 
-% a) Probabilidade PELO MENOS UM FILHO EM FAMILIAS DE 2 CRIANÇAS
+%% 1.
+%% a) 
+%  
+%  Probabilidade PELO MENOS UM FILHO EM FAMILIAS DE 2 CRIANÇAS
 
 p = 0.5;
 N = 1e4;
 num_Children = 2;
-
+k = 1;
 experiencias = rand(num_Children, N) <p;
-success = sum(experiencias) >=1;
+success = sum(experiencias) >=k;
 prob = sum(success)/N;
 prob;
 
-%% 
-% b) valor teórico 
+%% b) 
+% valor teórico 
 % P(>=1) = 1 - P(0)
 p = 0.5;
 k = 0;
@@ -21,8 +22,8 @@ n = 2;
 prob = nchoosek(n,k)*p^k*(1-p)^(n-k);
 probabilidade = 1-prob;
 
-%% 
-% c)
+%% c)
+%  
 % B = probabilidade um deles é rapaz
 % A = probabilidade de outro ser rapaz
 % probabilidade de (A|B) = P(A e B)/P(B)
@@ -33,20 +34,20 @@ k = 2;
 n = 2;
 % P(A e B)
 
-A_e_B = rand(n,N) < p;
-A_e_B = sum(A_e_B) == 2;
+experiments = rand(n,N) < p;
+A_e_B = sum(experiments) == 2;
 A_e_B = sum(A_e_B) / N;
 
 % P(B)
 
-B = rand(n,N) < p;
-B = sum(B) >= 1;
+
+B = sum(experiments) >= 1;
 B = sum(B) / N;
 
-Probabilidade = A_e_B / B;
+Probabilidade = A_e_B / B
 
-%%
-% d) sabendo que a primeira criança de 2 é um rapaz probabilidade da 
+%% d)
+% sabendo que a primeira criança de 2 é um rapaz probabilidade da 
 % segunda criança ser um rapaz 
 % A: segunda criança ser um rapaz
 % B: primeira criança é um rapaz 
@@ -61,10 +62,265 @@ success = sum(tosses) == 2;
 prob = sum(success) / N;
 prob
 
-%%
-% e) probabilidade de um dos outros e apenas um também ser rapaz
+%% e)
+%  probabilidade de um dos outros e apenas um também ser rapaz
 %  sabendo que pelo menos uma criança é um rapaz
 
-% A: 
+% B: pelo menos um é rapaz
 
 num_of_children = 5;
+N = 1e4;
+p = 0.5;
+
+families = rand(num_of_children, N) < p;
+success = sum(families) >= 1; % pelo menos 1 é rapaz
+prob_B = sum(success) / N;
+% A: 2 são rapazes P(A e B) = P(A )
+
+success = sum(families) == 2;
+prob_A_e_B = sum(success)/ N;
+
+prob = prob_A_e_B / prob_B;
+
+%% f)
+% repetir e) mas prob de pelo menos um dos outros é um rapaz
+% sendo X um rapaz
+% P(X >= 2 | X >= 1) = pelo menos um dos outros é rapaz sabendo que pelo 
+% menos uma criança é rapaz
+
+% P(X>=2 e X>=1) = P(X>=2)
+
+num_of_children = 5;
+N = 1e4;
+p = 20.5;
+
+families = rand(num_of_children, N) < p;
+success = sum(families) >= 2; % P(X>=
+prob_B = sum(success) / N;
+
+%% 2. 
+
+%% a)
+n = 20;
+m = 100;
+N = 1e4;
+experiments = randi(m, n, N);
+contador = 0;
+
+for i =1:N
+    
+    if length(unique(experiments(:,i))) == n
+        contador = contador + 1;
+    end
+end
+
+prob = contador / N;
+
+%% b)
+
+contador = 0;
+
+for i = 1:N
+    if length(unique(experiments(:,i))) < n
+            contador = contador + 1;
+    end
+end
+
+prob = contador / N
+
+
+%% 4. 
+%% a)
+n = 1;
+
+p = 0;
+d = 365;
+N = 1e4;
+
+while p <= 0.5   
+    n = n +1; 
+    experiments = randi(d, n, N);
+    contador = 0;
+    for i = 1:N
+        if length(unique(experiments(:, i))) < n
+            contador = contador + 1;
+        end
+    
+    end
+    p = contador/ N;
+end
+
+n 
+
+
+
+%% b)
+
+while p <= 0.9   
+    n = n +1; 
+    experiments = randi(d, n, N);
+    contador = 0;
+    for i = 1:N
+        if length(unique(experiments(:, i))) < n
+            contador = contador + 1;
+        end
+    
+    end
+    p = contador/ N;
+end
+
+n
+
+%% 5.
+%% a)
+n = 2;
+N = 1e4;
+sides = 6;
+experiments = randi(6, n, N);
+
+% A
+success_A = sum(experiments) == 9;
+prob_A = sum(success_A) / N
+
+% B
+successes_B = mod(experiments(2,:),2) == 0;
+prob_B = sum(successes_B)/ N
+
+% C
+
+contador_C = 0;
+
+for C = 1:N
+    if experiments(1,C) == 5 || experiments(2,C) == 5
+       contador_C = contador_C + 1;
+    end
+
+end
+prob_C = contador_C / N
+
+% D
+contador_D = 0;
+for D = 1:N
+        if experiments(1, D) ~= 1  && experiments(2,D) ~= 1
+           contador_D = contador_D + 1;
+       end
+end 
+
+prob_D = contador_D / N 
+
+
+%% b)
+
+
+% Prob of A
+%       1 2 3 4 5 6
+%     1 
+%     2
+%     3           x
+%     4         x
+%     5       x
+%     6     x
+% n número de experiencias
+
+prob_A = 4 / 36;    % la Place (casos favoraveis / possiveis)
+
+
+
+% Prob of B
+%       1 2 3 4 5 6
+%     1   x   x   x
+%     2   x   x   x
+%     3   x   x   x
+%     4   x   x   x
+%     5   x   x   x 
+%     6   x   x   x
+
+prob_B = 3/6;
+
+
+% Prob of A and B 
+
+%     1º  1 2 3 4 5 6  <- (2o lançamento)
+%     1   
+%     2   
+%     3             x   
+%     4   
+%     5         x
+%     6   
+
+
+prob_A_e_B = 2 / 36
+independents = 0;
+if prob_A_e_B == prob_A * prob_B
+    independents = 1;
+end
+
+independents
+
+%% c)
+
+% Prob of C
+
+%     1º  1 2 3 4 5 6  <- (2o lançamento)
+%     1           x
+%     2           x
+%     3           x     
+%     4           x  
+%     5   x x x x x x
+%     6           x 
+favoraveis = 11;
+possiveis = 36;
+prob_C = favoraveis / possiveis;
+
+% Prob of pelo menos um é 1
+%     1º  1 2 3 4 5 6  <- (2o lançamento)
+%     1   x x x x x x
+%     2   x
+%     3   x   
+%     4   x
+%     5   x
+%     6   x
+
+% 
+favoraveis =  36 - 11;
+possiveis = 36;
+prob_D = favoraveis / possiveis;
+
+% Prob of C and C 
+
+%     1º  1 2 3 4 5 6  <- (2o lançamento)
+%     1           
+%     2           x
+%     3           x     
+%     4           x  
+%     5     x x x x x
+%     6           x 
+
+prob_C_e_D = 9 / 36;
+
+independents = 0;
+if prob_C_e_D == prob_C * prob_D
+    independents = 1;
+end
+
+independents
+
+
+
+
+
+%% 6.
+%% a)
+% probability of the transmitted data packets 
+% being received with errors
+
+% normal link condition
+p1 = 0.01;
+
+% external interfences
+p2 = 0.1;
+
+% probability of being with external interfences is 2%
+p3 = 0.02;
+
+

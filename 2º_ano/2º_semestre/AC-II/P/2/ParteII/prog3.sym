@@ -1,0 +1,24 @@
+GAS LISTING prog3.s 			page 1
+
+
+DEFINED SYMBOLS
+             prog3.s:33     *ABS*:0000000000000001 inkey
+             prog3.s:34     *ABS*:000000000000000c resetCoreTimer
+             prog3.s:35     *ABS*:000000000000000b readCoreTimer
+             prog3.s:36     *ABS*:0000000000000003 putChar
+             prog3.s:37     *ABS*:0000000000000006 printInt
+             prog3.s:41     .text:0000000000000000 main
+             prog3.s:54     .text:0000000000000020 while
+             prog3.s:128    .text:0000000000000130 endwhile
+             prog3.s:74     .text:000000000000006c endif
+             prog3.s:65     .text:000000000000004c if_A
+             prog3.s:70     .text:000000000000005c if_N
+             prog3.s:133    .text:000000000000013c delay
+             prog3.s:84     .text:0000000000000078 if5
+             prog3.s:88     .text:00000000000000a0 end_if5
+             prog3.s:90     .text:00000000000000a0 if10
+             prog3.s:94     .text:00000000000000c8 end_if10
+             prog3.s:140    .text:0000000000000150 while_delay
+             prog3.s:148    .text:0000000000000174 endwhile_delay
+
+NO UNDEFINED SYMBOLS
