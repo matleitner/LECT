@@ -1,0 +1,25 @@
+h1 {
+    font-family: "/font-awesome";
+    color: blue;
+}
+
+h2 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(226, 141, 37);
+}
+
+hr {
+    border: 7px solid rgb(77, 119, 193);
+    border-radius:18px;
+}
+
+a:hover{
+    color: orange;
+    background-color: green;
+    font-style: italic;
+}
+
+h3 {
+    color: rgb(73, 154, 186);
+}
+

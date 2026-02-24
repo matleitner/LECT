@@ -334,25 +334,4 @@ p = p1 * p3 + p2 * p4
 
 %% b)
 
-% Probabilidade de erro em condições normais (sem interferências)
-p1 = 0.01; 
 
-% Probabilidade de erro com interferências externas
-p2 = 0.1; 
-
-% Probabilidade de o link estar com interferências externas
-p3 = 0.02;
-
-% Probabilidade de o link estar sem interferências externas
-p4 = 1 - p3;
-
-% Calculando a probabilidade total de erro
-p_erro = p1 * p4 + p2 * p3;
-
-% Calculando as probabilidades condicionais usando o Teorema de Bayes
-
-% Probabilidade de o link estar sem interferências, dado que houve erro
-p_sem_interferencias = (p1 * p4) / p_erro;
-
-% Probabilidade de o link estar com interferências externas, dado que houve erro
-p_com_interferencias = (p2 * p3) / p_erro 

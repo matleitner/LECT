@@ -1,0 +1,15 @@
+GAS LISTING prog3.s 			page 1
+
+
+DEFINED SYMBOLS
+             prog3.s:1      *ABS*:000000000000bf88 ADDR_BASE_HI
+             prog3.s:2      *ABS*:0000000000006100 TRISE
+             prog3.s:3      *ABS*:0000000000006110 PORTE
+             prog3.s:4      *ABS*:0000000000006120 LATE
+             prog3.s:6      *ABS*:00000000000060c0 TRISD
+             prog3.s:7      *ABS*:00000000000060d0 PORTD
+             prog3.s:8      *ABS*:00000000000060e0 LATD
+             prog3.s:13     .text:0000000000000000 main
+             prog3.s:29     .text:000000000000001c while
+
+NO UNDEFINED SYMBOLS
