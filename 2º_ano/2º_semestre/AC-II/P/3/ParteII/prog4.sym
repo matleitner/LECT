@@ -1,0 +1,18 @@
+GAS LISTING prog4.s 			page 1
+
+
+DEFINED SYMBOLS
+             prog4.s:1      *ABS*:000000000000bf88 ADDR_BASE_HI
+             prog4.s:2      *ABS*:0000000000006100 TRISE
+             prog4.s:3      *ABS*:0000000000006110 PORTE
+             prog4.s:4      *ABS*:0000000000006120 LATE
+             prog4.s:6      *ABS*:0000000000006040 TRISB
+             prog4.s:7      *ABS*:0000000000006050 PORTB
+             prog4.s:8      *ABS*:0000000000006060 LATB
+             prog4.s:9      *ABS*:000000000000000b readCoreTimer
+             prog4.s:10     *ABS*:000000000000000c resetCoreTimer
+             prog4.s:15     .text:0000000000000000 main
+             prog4.s:28     .text:0000000000000020 while
+             prog4.s:41     .text:0000000000000044 wait
+
+NO UNDEFINED SYMBOLS

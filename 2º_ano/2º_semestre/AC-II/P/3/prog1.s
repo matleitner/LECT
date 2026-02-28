@@ -33,7 +33,6 @@ while:
 		lw $t2, PORTB($t0)
 		andi $t2, $t2, 0x0001
 		
-
 		lw $t1, LATE($t0)
 		andi $t1, $t1, 0xFFFE
 		or $t1, $t1, $t2

@@ -1,11 +1,12 @@
 h1 {
-    font-family: "/font-awesome";
+    font-family:'Courier New', Courier, monospace;
     color: blue;
 }
 
 h2 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: rgb(226, 141, 37);
+    font-style: italic;
 }
 
 hr {
@@ -23,3 +24,29 @@ h3 {
     color: rgb(73, 154, 186);
 }
 
+li {
+    color: blue;
+    
+}
+
+li a{
+    text-decoration: none ;
+}
+
+
+li:first-child > ul > li{
+    
+    color:rgb(255, 98, 0);
+}
+li:first-child > ul > li > a:hover{
+    background-color: transparent;
+    font-style:normal ;
+}
+li:first-child > ul > li > a:visited{
+    color: rgb(255, 87, 115);
+    font-style: italic;
+}
+
+li:first-child > ul{
+    padding-left: 10%;
+}

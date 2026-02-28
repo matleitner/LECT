@@ -1,3 +1,42 @@
+# Respostas do Guião 1 Prático
+
+# 1 Initial Network setup + VRRP
+## a)
+
+### Routing table
+
+R1 - C-192.0.13.0/24
+	 C-192.0.12.0/24
+	 C-192.1.1.0/24
+
+
+etc para todos os routers
+
+## b)
+
+Falha porque a única gateway do PC1 foi desligada, PC1 só consegue enviar para essa gateway.
+
+## c)
+
+no GNS
+
+## d)
+
+gns
+
+## e)
+
+VRRP cria uma gateway virtual e anúncia várias vezes que existe e funciona por prioridades por exemplo neste caso R1 é o que tem mais prioridade por isso PC1 vai mandar para esse router, caso ele deixe de existir ele envia para o R2 que tem VRRP configurado.
+
+## f) 
+
+Automáticamente R2 fica como master virtual default gateway
+
+## g)
+
+## h) 
+
+
 
 # Responses to the Practical Guide 2 
 # RIP 

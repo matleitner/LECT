@@ -27,8 +27,9 @@ while:
 		andi $t2, $t2, 0x0001
 
 		lw $t1, LATE($t0)
-		andi $t1, $t1, 0xFFFE
+		
 		xor $t1, $t2, 0x1
+
 #		xor   0   1
 
 #        0    0   1
