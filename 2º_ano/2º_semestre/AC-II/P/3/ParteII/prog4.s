@@ -12,6 +12,9 @@
 		.text
 		.globl main
 
+0001 0010 0100 1000 0001 
+
+
 main:
 		lui $t0, ADDR_BASE_HI
 		lw $t1, TRISE($t0)
@@ -28,7 +31,7 @@ main:
 while:
 		lw $t1, PORTB($t0) 
 		andi $t4, $t1, 0x0002
-
+		
 		lw $t1, LATE($t0)
 		andi $t1, $t1, 0xFFE1
 		sll $t3, $t2, 1
