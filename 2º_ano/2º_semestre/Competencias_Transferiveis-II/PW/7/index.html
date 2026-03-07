@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 5 Website Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  </style>
+</head>
+<body>
+
+<div id="demo" class="carousel slide" data-bs-ride="carousel"> 
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2000">
+            <img src="imgs/img1.jpeg" alt="Imagem 1" class="d-block" style="width:100%">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="imgs/img2.jpeg" alt="Imagem 2" class="d-block" style="width:100%">
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+            <img src="imgs/img3.jpeg" alt="Imagem 3" class="d-block" style="width:100%">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+</div>
+<nav class="navbar w-100 p-0" style="background-color: rgb(87, 143, 160);">
+
+    <ul class="nav nav-tabs">
+        
+        <li class="nav-item">
+            <a class="nav-link active" href="">
+                My Travels
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-disable" href="#about">
+                About    
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href="#countriesList">
+                Countries
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" >
+                Stories
+            </a>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item" data-bs-toggle="modal" data-bs-target="#Story1">Story 1</li>
+                <li class="dropdown-item" data-bs-toggle="modal" data-bs-target="#Story2">Story 2</li>
+                <li class="dropdown-item" data-bs-toggle="modal" data-bs-target="#Story3">Story 3</li>
+
+            </ul>
+        </li>
+    
+        <li class="nav-item">
+            <a class="nav-link disabled " href="#footnote">
+                Contacts
+            </a>
+        </li>    
+    </ul>
+    
+</nav>
+
+<div class=" mt-5 p-0  px-2">
+        <div class="row">
+            
+            <h2>Faísca McQueen</h2>
+            <h5>Coisas sobre o Katchau, Mar 2, 2026</h5>
+
+            <p class="pt-5">    <i>"Faster than fast, quicker than quick. I am Speed."</i> 
+            — <b>Lightning McQueen</b> </p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+        <div class="row">
+            
+            <h2>Faísca McQueen 2 </h2>
+            <h5>Coisas sobre o Katchau, Mar 2, 2026</h5>
+
+            <p class="pt-5">    <i>"Faster than fast, quicker than quick. I am Speed."</i> 
+            — <b>Lightning McQueen</b> </p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+
+        <div class="row">
+            
+            <h2>Faísca McQueen 3 </h2>
+            <h5>Coisas sobre o Katchau, Mar 2, 2026</h5>
+
+            <p class="pt-5">    <i>"Faster than fast, quicker than quick. I am Speed."</i> 
+            — <b>Lightning McQueen</b> </p>
+            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+        <div class="row mx-5">
+            <div class="col-sm-4" id="countriesList">
+            
+            <h3 class="mt-4">My Countries List</h3>
+            <p>Stories on each contry I visited</p>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+            <hr class="d-sm-none">
+            </div>
+            <div id="about" class="col-sm-4">
+
+
+                <h2>About Me</h2>
+                <h5>Photo of me:</h5>
+                <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+            </div>
+        
+        </div>
+            
+</div>
+
+<div id="Story1" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Story 1</h4>
+                
+                <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                
+
+            </div>
+
+            <div class="modal-body m-auto">
+                <img src="imgs/img1.jpeg" >
+                <p>Halstadt</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="Story2" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Story 2</h4>
+                
+                <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                
+
+            </div>
+
+            <div class="modal-body m-auto">
+                <img src="imgs/img1.jpeg" >
+                <p>Halstadt 2</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Story3" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Story 3</h4>
+                
+                <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                
+
+            </div>
+
+            <div class="modal-body m-auto">
+                <img src="imgs/img1.jpeg" >
+                <p>Halstadt 3</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="footer">
+
+    <div class="mt-5 p-4 bg-dark text-white text-center">
+        <div class="row">
+            <div class="col-md-4 ">A</div>
+            <div class="col-md-4">B</div>
+            <div class="col-sm-4">C</div>
+        </div>  
+        <!--<p>Footer</p>-->
+    </div>
+</footer>
+
+</body>
+</html>

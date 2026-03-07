@@ -2,19 +2,14 @@
 
 int main()
 {
-    TRISB = TRISB & 0x80FF;  // 1000 0000 1111 1111 
-    TRISD = TRISD & 0xFF9F;  // 1111 1111 1001 1111 
-    LATDbits.LATD5 = 1;
-    LATDbits.LATD6 = 0;
-    
-    
-    while(1){
-        int segment = 1;
-        for(int=0; i<7;i++){
-            
-            segment = segment<<1;
-        }
-        LATB = 0x3000;       // 0gfe dcba 0000 0000  
-    }
+
+
+
+    static const char disp7Scodes[] = {
+        // 0 - 9
+        0x3F,  0x06,  0x5B,  0x4F,  0x66,  0x6D,  0x7D,  0x07,  0x7F,0x6F, 0x77,
+        // A - F
+          
+          0x7C,   0x39,   0x5E,   0x79,   0x71          };
         return 0;
 }
