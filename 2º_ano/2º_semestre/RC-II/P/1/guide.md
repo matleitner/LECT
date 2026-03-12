@@ -211,3 +211,18 @@ Se tiver mais que um router de saida, configuro E1 para melhor gestão de tráfe
 
 # Parte 4 
 # OSPF em IPv6 
+
+
+## c) soma dos custos das interfaces (cada saída é 1) 
+
+## d) nova entrada: OE2 External type 2 
+
+## e) LSA
+
+# Parte 5
+
+# OSPF e RIP a comunicarem-se
+
+## a)  R1 e R2 so conhecem o domínio RIP, e os R4, R5, R6 só conhecem o domínio OSPF
+
+
