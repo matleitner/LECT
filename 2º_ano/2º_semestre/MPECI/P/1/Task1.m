@@ -45,30 +45,71 @@ prob_b
 % 3. a) = HeadTailsProb.m
 % 3. b) 
 N = 1e4;
+
 p = 0.5;
+
 n = 100;
-Y  = zeros(1, n+1);
-for k = 0:n
-    Y(k+1) = HeadTailsProb(p,n,k,N);
+
+function Y = create(n, N, p)
+
+    Y = zeros(1, n+1);
+    for k = 0:n
+        Y(k+1) = HeadTailsProb(p,n,k,N);
+    end
 end
+Y100 = create(100, N,p);
+Y40  = create(40, N,p);
+Y20  = create(20, N,p);
 figure(3)
-stem(Y)
-xlabel("Nº de Caras")
-ylabel("Probabilidade")
-title("100 Moedas")
-grid on
+subplot(2,2,[3 4]);
+stem(Y100);
+xlabel("Nº de Caras");
+ylabel("Probabilidade");
+title("100 Moedas");
+grid on;
+
+subplot(2,2,2)
+stem(Y40);
+xlabel("Nº de Caras");
+ylabel("Probabilidade");
+title("40 Moedas");
+grid on;
+
+subplot(2,2,1)
+stem(Y20);
+xlabel("Nº de Caras");
+ylabel("Probabilidade");
+title("20 Moedas");
+grid on;
+
 
 %%
 % 4.
 p = 0.5;
 k = 2;
 n = 3;
-
+% exercicio 1 
 function prob = prob(p,n,k)
     prob = nchoosek(n,k) * p^k*(1-p)^(n-k);
 end
 
+% exercicio 2
+% a)
 prob(p,n,k)
+p = 0.5;
+k = 6;
+n = 15;
+prob(p,n,k)
+
+% b) P(X>=6) = 1 - P(X<6) = 1 - (P(0) + P(1) + ... + P(5))
+
+somador = 0;
+
+for i = 0:1:5
+    somador = somador + prob(p,n,i);
+end
+
+1 - somador 
 
 %% 
 % 5.
@@ -83,13 +124,6 @@ size = 1000 * 8;
 probabilidade_b = 1 - prob(BER,size,0) - prob(BER,size,1)
 
 
-% 6. 
-% a)
-defeito = 0.1;
-sample = 5;
 
-prob(defeito, sample, 3)
-
-% b)
 
 

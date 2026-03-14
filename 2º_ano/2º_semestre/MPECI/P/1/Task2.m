@@ -10,7 +10,7 @@ k = 1;
 experiencias = rand(num_Children, N) <p;
 success = sum(experiencias) >=k;
 prob = sum(success)/N;
-prob;
+prob
 
 %% b) 
 % valor teórico 
@@ -44,7 +44,21 @@ A_e_B = sum(A_e_B) / N;
 B = sum(experiments) >= 1;
 B = sum(B) / N;
 
-Probabilidade = A_e_B / B;
+Probabilidade = A_e_B / B
+Prob_A_e_B = nchoosek(n,k)*p^k*(1-p)^(n-k);
+
+Prob_B = 1 - nchoosek(n,0)*p^0*(1-p)^(n-0);
+
+P = Prob_A_e_B / Prob_B
+% Para 2 crianças, todos os casos equiprováveis são:
+% BB, BG, GB, GG
+% Condicionando que pelo menos um é rapaz (B), descartamos GG:
+% Casos restantes: BB, BG, GB → 3 casos.
+% Apenas BB satisfaz "outro também é rapaz" → probabilidade:
+% P(outro rapaz | pelo menos 1 rapaz)=1/3≈0.333
+
+
+
 
 %% d)
 % sabendo que a primeira criança de 2 é um rapaz probabilidade da 
@@ -61,6 +75,11 @@ tosses(2, :) = rand(1, N) < p;            % a segunda é aleatória
 success = sum(tosses) == 2; 
 prob = sum(success) / N;
 prob;
+
+% *Conclusão* O resultado mostra 
+% que o sexo da segunda criança não 
+% depende do sexo da primeira → eventos 
+% independentes.
 
 %% e)
 %  probabilidade de um dos outros e apenas um também ser rapaz
@@ -79,6 +98,7 @@ prob_B = sum(success) / N;
 
 success = sum(families) == 2;
 prob_A_e_B = sum(success)/ N;
+% P(2 rapazes | ≥1 rapaz)= P(2 rapazes) / P(≥1 rapaz)​
 
 prob = prob_A_e_B / prob_B;
 
@@ -92,18 +112,26 @@ prob = prob_A_e_B / prob_B;
 
 num_of_children = 5;
 N = 1e4;
-p = 20.5;
+p = 0.5;
 
 families = rand(num_of_children, N) < p;
-success = sum(families) >= 2; % P(X>=
-prob_B = sum(success) / N;
 
+success_A = sum(families) >= 2; % P(X >= 2) 
+prob_A = sum(success_A) / N;
+
+success_B = sum(families) >= 1;
+prob_B = sum(success_B) / N;
+
+
+prob = prob_A / prob_B
 %% 2. 
 
 %% a)
 n = 20;
 m = 100;
 N = 1e4;
+% randi( imax, m,n) cria uma matrix m X n com numeros
+% aleatorios de 1 a imax
 experiments = randi(m, n, N);
 contador = 0;
 
@@ -115,8 +143,8 @@ for i =1:N
 end
 
 prob = contador / N;
-
-%% b)
+prob_a = prob;
+% b)
 
 contador = 0;
 
@@ -126,8 +154,45 @@ for i = 1:N
     end
 end
 
-prob = contador / N
+prob = contador / N;
+fprintf("b) P(b) = %.4f == a) 1-P(a) = %.4f\n", prob,1 - prob_a)
+%% c)
 
+m = 1000;
+m1 = 100000;
+
+N = 1e4;
+
+function A = darts(m,n,N)
+    experiments = randi(m, n, N);
+    contador = 0;
+    for i =1:N
+        if length(unique(experiments(:,i))) < n
+            contador = contador + 1;
+        end
+    end
+    A = contador / N;
+end
+x = 10:10:100;
+Y = ones(1,10);
+X = ones(1,10);
+i = 1;
+for n = 10:10:100
+    Y(1,i) = darts(m,n,N);
+    X(1,i) = darts(m1,n,N);
+    i = i +1;
+end
+figure(4)
+subplot(1,2,1)
+plot(x,X)
+title("100000 targets")
+xlabel("Steps")
+grid on
+
+subplot(1,2,2)
+plot(x,Y)
+title("1000 targets")
+grid on 
 
 %% 4. 
 %% a)
@@ -155,7 +220,9 @@ n
 
 
 %% b)
-
+d = 365;
+p = 0;
+n = 1;
 while p <= 0.9   
     n = n +1; 
     experiments = randi(d, n, N);
@@ -315,7 +382,7 @@ independents
 % being received with errors
 
 % normal link condition
-p1 = 0.01;
+p1 = 0.001;
 
 % external interfences
 p2 = 0.1;
@@ -329,13 +396,13 @@ p4 = 1 - 0.02;
 % P(erro) = P(erro | sem interferencia) / P(interferencia) || P(erro | sem
 % interferencia) / P(interferencia)
 
-p = p1 * p3 + p2 * p4
+p = p1 * p4 + p2 * p3
 
 
 %% b)
 
 % Probabilidade de erro em condições normais (sem interferências)
-p1 = 0.01; 
+p1 = 0.001; 
 
 % Probabilidade de erro com interferências externas
 p2 = 0.1; 

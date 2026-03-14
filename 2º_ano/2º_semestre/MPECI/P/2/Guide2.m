@@ -14,7 +14,7 @@ title('1(a)')
 xlabel('x')
 ylabel('Prob. mass function of x')
 
-w
+
 subplot(1,2,2)
 Z = cumsum(Y);
 stairs([0 X 7],[0 Z 1])   % isto pega  no vetor X
@@ -33,18 +33,18 @@ figure(2)
 % P(event) = number of favorable banknotes / total banknotes
 % ​
 T = 90 + 9 + 1;
-prob100 = 1 / 100;
-prob10 = 9 / 100;
-prob5 = 90 / 100;
+prob100 = 1 / T;
+prob10 = 9 / T;
+prob5 = 90 / T;
 % b)
 X = [5, 10, 100];
-prob = [90/T, 9/T, 1/T ];
+prob = [prob5, prob10, prob100];
 % c) 
 x = cumsum(prob);
-stairs([0 X], [0 x])
-xticks([0 5 10 100])
+stairs([0 X 210], [0 x 1])
+xticks([0 5 10 100])        % opcional para aparecer nos exos x só os valores importantews p este exercicio
 ylim([0 1.1])
-
+xlim([0, 120])
 %% 3. 
 X = 0:4;
 % a)
@@ -84,6 +84,7 @@ for k = 0:4
     j = k + 1;
     P(1,j) = prob;
 end
+P
 % d)
 fprintf("Exercicio d)")
 
@@ -128,7 +129,8 @@ fprintf("ii) P(X<=1) = %.3f\n", p_upTo1HEAD)
 p = 0;
 
 for i = 1:3
-    p = p + P(1, i);
+    p = p + P(1, i+1);  % por causa da indexação matrix P(1,1) = probabilidade P(X=0), 
+    % P(1,2) = P(X = 1) ... etc ate 4
 end
 p_between1and3HEADS = p;
 
@@ -160,16 +162,16 @@ n = 8 * 100;
 poisson = Poisson(X, n, BER);
 binomialDistribution = binomialDis(n,X,BER);
 
-fprintf("Poisson: %.3f \t Binomial: %.3\n", poisson, binomialDistribution)
+fprintf("a)\nPoisson: %.3f \t Binomial: %.3f\n\n", poisson, binomialDistribution)
 
 % b) pelo menos 2 erros = 1 - P(0) - P(1)
 n = 8 * 1000;
-fprintf("Pelo menos 2 erros\nBinomial: ")
+fprintf("b)\n\nPelo menos 2 erros\nBinomial: ")
 probPeloMenos2ErrosD = 1 - binomialDis(n,0,BER) - binomialDis(n,1,BER);
-fprintf(" P(X>=2) = 1 - P(0) - P(1) = %.3f", probPeloMenos2ErrosD)
+fprintf(" P(X>=2) = 1 - P(0) - P(1) = %.3f%%", probPeloMenos2ErrosD*100)
 fprintf("\nPoisson: ")
 probPeloMenos2ErrosP = 1 - Poisson(0,n,BER) - Poisson(1, n, BER);
-fprintf("%.3f\n", probPeloMenos2ErrosP*100);
+fprintf("%.3f%%\n", probPeloMenos2ErrosP*100);
 
 
 %% 7.
