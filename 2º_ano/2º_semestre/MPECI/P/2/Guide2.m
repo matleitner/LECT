@@ -1,6 +1,7 @@
 %% 1.
 
 %% a) e b)
+fprintf("1.\n")
 figure(1)
 X = 1:6;
 Y = ones(1,6) * 1/6;
@@ -28,6 +29,7 @@ grid on
 
 %% 2.
 % a)
+fprintf("2.\n")
 figure(2)
 
 % P(event) = number of favorable banknotes / total banknotes
@@ -46,6 +48,7 @@ xticks([0 5 10 100])        % opcional para aparecer nos exos x só os valores i
 ylim([0 1.1])
 xlim([0, 120])
 %% 3. 
+fprintf("3. \n")
 X = 0:4;
 % a)
 fprintf("Exercicio a)")
@@ -135,10 +138,103 @@ end
 p_between1and3HEADS = p;
 
 fprintf("iii) P(1<=X<=3) = %.3f\n", p_between1and3HEADS)
+%% 4. (OPCIONAL)
+% a)
+
+p = 0.3;    % prob DEFEITUOSO
+n = 5;      % 5 samples
+N = 1e4;    % number of experiments
+prob_X = zeros(1,n);
+
+experiments = rand(n,N) < p;
+for X = 0:5
+    success = sum(experiments) == X;
+    prob_X(1,X+1) = sum(success) / N;
+
+end
+fprintf("4.\n\n a)\n   i)")
+prob_X
+
+% ii) 
+fprintf("  ii)\n Graph:\n")
+Z = cumsum(prob_X);
+X = 0:5;
+figure(4);
+subplot(1,2,1)
+stairs([-1 X 6], [0 Z 1])
+ylim([0 1.05])
+xlim([0 5.5])
+
+% iii) P(X<2) = ? 
+fprintf("\n  iii)\n")
+
+success = sum(experiments) <= 2;
+prob = sum(success) / N;
+
+fprintf("      (simulação)\n      P(X<2) = %.4f\n", prob);
+% b) 
+% i) 
+fprintf(" b)\n  i)\n")
+
+function p = calculateTHEORICALprob(n,k,p)
+    p = nchoosek(n,k) * p^k * (1-p)^(n-k);
+end
+P = zeros(1,6);
+for k = 0:5
+    P(1,k+1) = calculateTHEORICALprob(n, k, p);
+end
+Z = cumsum(P);
+
+subplot(1,2,2)
+stairs([0 X 5], [0 Z 1])
+xlim([0 5.2])
+ylim([0 1.05])
+xlabel("Number of parts")
+ylabel("Probability")
+
+fprintf("     Graph:\n")
+% ii)
+fprintf("  ii)\n")
+
+P = calculateTHEORICALprob(n,0,p) + calculateTHEORICALprob(n,1,p) + calculateTHEORICALprob(n,2,p);
+fprintf("     (teórico)\n     P(X<2) = %.4f\n", P);
+
+%% 5. (OPCIONAL)
+% 2 engines ou 4 engines 
+% P(X) = p
+% P(¬X) = 1-p
+% X são independentes logo o numero 
+% de motores segues uma Distribuição Binomial
+n2 = 2;
+n4 = 4;
+p = logspace(-3,log10(1/2),100);
+prob2 = zeros(1,100);
+prob4 = zeros(1,100);
+% para X = { 0, 1, 2 } 
+% P(X>1) = P(X = 2)
+for i = 1:100
+
+    prob2(1,i) = nchoosek(n2,2)* p(1,i)^2 * (1-p(1,i))^(n2-2);
+    % para X = { 0, 1, 2, 3, 4 }
+    % P(X <2) = ?
+    
+    prob4(1,i) = nchoosek(n4,3)*p(1,i)^3 * (1-p(1,i))^(n4-3) + nchoosek(n4,4)*p(1,i)^4 * (1-p(1,i))^(n4-4); 
+
+
+end
+figure(5)
+plot(p,prob2)
+
+hold on
+plot(p, prob4)
+xlabel('p')
+ylabel('Crash probability')
+legend('2 engines','4 engines')
+grid on
 
 
 %% 6.
-
+fprintf("6.\n")
 BER = 1e-5;
 % a) probabilidade de 100 Bytes serem 
 % recebidos sem erros ( teórico )
@@ -175,7 +271,7 @@ fprintf("%.3f%%\n", probPeloMenos2ErrosP*100);
 
 
 %% 7.
-
+fprintf("7.\n")
 
 % uma distribuição de POISSON com uma 
 % média de 5 mensagens por segundo é o
@@ -217,7 +313,7 @@ prob_sim   = 1 - prob_sim;
 
 
 %% 8.
-
+fprintf("8.\n a)\n b)\n")
 % a) Using Matlab exppdf function, plot the probability 
 % density function of X for the values from 0 to 10
 lambda  = 1;
@@ -292,6 +388,15 @@ prob = sum(success) / N;
 probCalc = lambdaX / (lambdaX+lambdaY);
 
 fprintf("P(X<Y) = %.3f\n lambdaX / (lambdaX + lambdaY) = %.3f\n", prob, probCalc)
+
+
+%% 11. (OPCIONAL)
+n = 100;
+lambda = 0.02 * n;
+
+P = lambda^1 / factorial(1) * exp(-lambda) + lambda^0 / factorial(0) * exp(-lambda);
+fprintf("P(X<=1) = %.4f\n",P)
+
 %% 12. 
 % a)
 fprintf("12.\n");

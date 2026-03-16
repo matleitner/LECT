@@ -22,15 +22,18 @@ end
 % b)
 % sunny > sunny 
 % sunny > sunny > sunny 
-
-
+state = [1 0 0]';
 % Pobability vector for Day 2
-d2 =  T(1,1);
+d2 =  T * state;
+Prob_day2_sunny = d2(1);
 
 % Probability vector for Day 3
-d3 = T(1,1)^2;
+Prob_3_sabendo_2_sunny = T(:,1);
 
-fprintf("\nb)\nDay 2: %.2f%%, Day 3: %.2f%%\n" ,d2*100, d3*100 )
+Prob_day_2_and_3 = Prob_day2_sunny * Prob_3_sabendo_2_sunny(1);
+
+fprintf("\nb)\nProbabilidade de dias 2 e 3 serem Sunny: %.2f%%\n", Prob_day_2_and_3*100)
+
 % c)
 
 fprintf("\nc)\n")
