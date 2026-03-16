@@ -45,6 +45,7 @@ fprintf("Probabilidade: %.2f%%", Prob*100)
 
 
 % d)
+fprintf("d)\n")
 v = [1 0 0]';
 somador = v;
 
@@ -57,6 +58,7 @@ somador
 
 
 % e)
+fprintf("e)\n")
 v2 = [0 0 1]';
 somador2 = v2;
 
@@ -65,7 +67,7 @@ for i = 2:31
        somador2 = somador2 + v2;
 
 end
-sombador2
+somador2
 
 % f) 
 painProb = [0.1 0.3 0.5];
@@ -77,7 +79,8 @@ for i = 2:31
 end
 
 somador3
-     % Sol Cloudy Rainy
+
+    % Sol Cloudy Rainy
 d1 = [ 0 0 1 ]';
 somador4 = painProb * d1 ;
 for i = 2:31
@@ -91,23 +94,92 @@ somador4
 % a) 
 p = 0.4;
 q = 0.6;
+fprintf("3.\na)\n\nCol -> Linha\n")
 
 T = [ p^2, (1-p)^2, p*(1-p), p*(1-p);
        0, 0 , 0, 1;
        0, 0 ,0 ,1 ;
        q^2, q*(1-q), q*(1-q), (1-q)^2]';
 T
-        
 % b) 
-
+fprintf("b)\n")
 state = [1, 0 , 0, 0]';
 
 T5 = T^5 * state
 T10 =  T^10 * state
 T100 =  T^100 * state
 T200 =  T^200 * state
+% c)
+fprintf("c)\n")
+contador = 1;
+state_A = [1,0,0,0]';
+state_B = [0,1,0,0]';
+state_C = [0,0,1,0]';
+state_D = [0,0,0,1]';
+
+function counter = limit(T, state)
+    
+    contador = 1;
+    T_new = T * state;
+    T_old = state;
+    condicao = true;
+    while condicao
+        T_old = T_new;
+        T_new = T * T_old;
+        if max(abs(T_new - T_old)) < 1e-4    % 1e-4 porque não consegui fazer T_new == T_old e T_new - 
+                                        % T_old nunca dá exatamente 0
+            condicao = false;
+        end
+        contador = contador + 1;
+    end
+
+    counter = contador;
+end
+
+contador_A = limit(T,state_A);
+contador_B = limit(T,state_B);
+contador_C = limit(T,state_C);
+contador_D = limit(T,state_D);
+fprintf("Limite Probabilidade estado A: %d \n",contador_A)
+fprintf("Limite Probabilidade estado B: %d \n",contador_B)
+fprintf("Limite Probabilidade estado C: %d \n",contador_C)
+fprintf("Limite Probabilidade estado D: %d \n",contador_D)
 
 
+%% 4.
+% a)
+fprintf("4.\na)\n\n")
+T = rand(20) % matrix 20 x 20 aleatoria 
+T = T ./ sum(T); % dividir pela soma de cada coluna 
+
+stoicastic = sum(T);
+stoicastic_check = true;
+for i = 1:20
+    if(abs(stoicastic(i)-1) > 1e-5) 
+        stoicastic_check = false;
+    end
+
+end
+
+stoicastic_check
+
+% b)
+state_1 = zeros(1,20); state_1(1,1) = 1;
+probs_2 = state_1 * T^2;
+probs_5 = state_1 * T^5;
+probs_10 = state_1 * T^10;
+probs_100 = state_1 * T^100;
+p_2 = probs_2(1,20);
+p_5 = probs_5(1,20);
+p_10 = probs_10(1,20);
+p_100 = probs_100(1,20);
+
+
+fprintf("b)\n\n     Probabilidade estado 1 → 20 em 2 transições é de: %.5f%%\n", p_2*100)
+fprintf("     Probabilidade estado 1 → 20 em 5 transições é de: %.5f%%\n", p_5*100)
+fprintf("     Probabilidade estado 1 → 20 em 10 transições é de: %.5f%%\n", p_10*100)
+fprintf("     Probabilidade estado 1 → 20 em 100 transições é de: %.5f%%\n", p_100*100)
+fprintf("\nConclusão: Após muitas transições (como 100), a probabilidade de estar no estado 20 estabiliza, \nindicando que a cadeia de Markov tende a uma distribuição estacionária, independentemente do estado inicial.\n");
 %% 5  Page Rank
 
     % A   B   C   D  E   F
@@ -117,20 +189,34 @@ T = [ 0   1   0   0  0   0;
       0   0   1   0  0   0;
       1/3 1/3 0   0  0   1/3;
       0   0   0   0  0   0]'
-
+% a)
+ 
 v = ones(6,1)/6;
-T(:,6) = ones(6,1)/6;
 pagerank = T^40 * v;
 fprintf("Page Rank:\n")
 fprintf("   %.2f\n", pagerank)
 
+% b)
+
+fprintf("b)\n Spider trap is C and D, that the only way out of C is D and the only way out D e to C and they can't go elsewhere. Dead-end is F.\n")
+% c)
+
+T(:,6) = ones(6,1)/6;
+
+fprintf("c)\nTo solve the dead-end problem:\n");
+T
+
+%d)
+
+fprintf("d)\n")
+
 betha = 0.8;
 
-T = betha * T + (1-betha)*ones(6,6)/6;
+T = betha * T + (1-betha)*ones(6)/6;
 
-pagerank = T^40 * v;
+pagerank = T^40 * v
 
-
+% e)
 v = ones(6,1)/6;
 v_ant = v;
 contador = 1;
