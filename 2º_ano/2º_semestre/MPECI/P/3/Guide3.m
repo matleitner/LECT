@@ -11,12 +11,7 @@ T = [ 0.7, 0.2, 0.1;
      0.3, 0.3, 0.4]';
 
 fprintf("a)\nT =\n")
-for i = 1:3
-    for i2 = 1:3
-        fprintf("%.1f  ", T(i,i2))
-    end
-    fprintf("\n")
-end
+disp(T)
 
 
 % b)
@@ -44,7 +39,7 @@ T3 =  T^3;
 
 Prob = T3(1,3) * T(1,1);
 
-fprintf("Probabilidade: %.2f%%", Prob*100)
+fprintf("Probabilidade: %.2f%%\n", Prob*100)
 
 
 % d)
@@ -235,3 +230,72 @@ while continuar
 end
 
 fprintf("Contador: %d\n", contador)
+
+
+%% 6. (OPCIONAL)
+fprintf("6.\n")
+% a)
+
+
+%      a    b   c   d   e  f 
+H = [  0    1   0   0   0  0;
+      1/2   0   0   0   0 1/2;
+      1/2   0   0  1/2  0  0;
+       0    0   1   0   0  0;
+      1/4  1/4 1/4 1/4  0  0;
+       0    0   0   1   0  0; ]';
+betha = 0.85;
+N = 6;
+N_X_N = ones(N)/N;
+
+A = betha * H + (1 - betha) * N_X_N;
+
+x0 = ones(N,1)/N;
+x = x0;
+iter = 1;
+epsilon = 0.01;
+fprintf("a)\n")
+while 1 
+
+    % fprintf(1,"Iter: %d\n", iter)
+    xOld = x;
+    x = A*x;
+    if max(abs(x-xOld))<epsilon 
+        break; end
+    
+    iter = iter + 1;
+end
+
+pages = ["a.pt" "b.es" "c.fr" "d.br" "e.com" "f.nl"];
+iMax = 1;
+iMin = 1;
+for i = 2:6
+    if x(i) > x(iMax)
+        iMax = i;
+    end
+    if x(i) < x(iMin)
+        iMin = i;
+    end
+end
+fprintf("  The page that has the highest pagerank is: %s with a prob of %.4f\n",pages(iMax), x(iMax) )
+fprintf("  The page that has the lowest pagerank is: %s with a prob of %.4f\n",pages(iMin), x(iMin) )
+
+
+
+% b)
+% r * T = r;
+% 
+
+fprintf("b)\n")
+
+M6 = A - eye(N);
+M6(end,:) = ones(1, N);
+b6  = zeros(N,1);
+b6(end)  = 1;
+
+solve = M6\b6;
+for i = 1:6
+    fprintf("  %s : %.4f\n", pages(i), solve(i)) 
+end
+
+
