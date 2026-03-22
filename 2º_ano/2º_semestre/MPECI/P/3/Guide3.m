@@ -289,10 +289,15 @@ fprintf("  The page that has the lowest pagerank is: %s with a prob of %.4f\n",p
 fprintf("b)\n")
 
 M6 = A - eye(N);
+M6
+sum(M6)
+M6(end,:)
 M6(end,:) = ones(1, N);
+M6
+sum(M6)
 b6  = zeros(N,1);
 b6(end)  = 1;
-
+b6
 solve = M6\b6;
 for i = 1:6
     fprintf("  %s : %.4f\n", pages(i), solve(i)) 

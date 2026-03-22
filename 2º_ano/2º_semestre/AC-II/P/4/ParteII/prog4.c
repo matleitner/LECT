@@ -4,14 +4,12 @@ int main(void)
 {
     unsigned char segment;
     int i;    
-    LATDbits.LATD5 = 0;
-    LATDbits.LATD6 = 1; 
-
+    LATD = (LATD & 0x6F) | 0x20;
 
     TRISB = TRISB & 0x80FF;        // 1000 0000
     TRISD = TRISD & 0xFFCF;   
 
-    
+ 
     while (1)
     {
       segment = 1;
@@ -20,18 +18,16 @@ int main(void)
           delay(500);
           segment = segment << 1;
       }
-      LATDbits.LATD5 = !LATDbits.LATD5;
-      LATDbits.LATD6 = !LATDbits.LATD6; 
-
     }
     
+    LATD ^= 0x60;
 
-        return 0;
+    return 0;
 }
 
 
 void delay(unsigned int ms){
-      resetCoreTimer();
+    resetCoreTimer();
 
-      while (readCoreTimer() < ms * 20000);
+    while (readCoreTimer() < ms * 20000);
 }

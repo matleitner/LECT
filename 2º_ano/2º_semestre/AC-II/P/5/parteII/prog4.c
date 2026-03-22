@@ -36,18 +36,37 @@ unsigned char toBcd(unsigned char value)
 
 int main(void)
 {
-    int counter = 0;
+    int counter = 0, ledActive = 0;
     char hexa;
     int freqIncremento = 20;    // 1 / 5 = 0.2 s = 200 ms 
-    int up = PORTBbits.RB0; 
-    TRISBbits.TRISB0 = 1;
+    TRISBbits.TRISB0   =  1;
 
+    TRISCbits.TRISC14  =  0;
     // configure RB8-RB14 as outputs
     TRISB = (TRISB & 0x80FF);
     // configure RD5-RD6 as outputs
     TRISD = (TRISD & 0x9F);
+    int i = 0;
+    int counter5s = 0;
     while(1)
     {
+        int up = PORTBbits.RB0; 
+        if((counter == 0  && up == 0) || (counter == 59 && up == 1) ){
+            counter5s = 0;
+            ledActive = 1;
+        }
+        if(ledActive){
+            LATCbits.LATC14 = 1;
+            counter5s = (counter5s + 1) % 500;
+
+            if(counter5s == 0){
+                LATCbits.LATC14 = 0;
+                ledActive = 0;
+            }
+
+        }
+
+
         if(up){
             freqIncremento = 20;
         }
@@ -57,21 +76,22 @@ int main(void)
 
         hexa = toBcd(counter);
         
-        int i = 0;
         
-        do {
-
-            send2displays(hexa);
-            // wait 100Hz 1 / 100 = 0.100 = 10ms
-            delay(10);
-
-        } while(++i <  freqIncremento);
-
-        if(up)
-            counter = (counter + 1 ) % 60;
-        else
-            counter = (counter - 1 + 60) % 60;
+        send2displays(hexa);
+        delay(10);
         
+        i = (i + 1) % freqIncremento;
+        if(i == 0){
+
+            if(up)
+                counter = (counter + 1 ) % 60;
+            else
+                counter = (counter - 1 + 60) % 60;
+        
+            }
+        
+
+    
     }   
 }
 
