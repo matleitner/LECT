@@ -129,7 +129,60 @@ C    192.40.1.0/24 is directly connected, Vlan40
 |PC7   | 192.1.1.3   |  YES  |  TUDO   | ↑==  |
 
 
+# 3. 
+---
 
+			  **Root** Dist 1
+			   /            \
+			Core 1         Core 2
+		     /   \
+		  Dist2  Dist3
+---
+
+## d)
+
+### ii) 
+
+### iii) quem é o switch que envia para as redes
+
+**Core 1**
+
+f1/1 e f1/2 Designated Port
+
+f1/15 route port
+
+**Dist 1**
+
+f1/15 DP
+
+f1/14 DP
+
+**Dist 2**
+
+f1/15 RP 
+f1/14 DP
+
+**Dist 3**
+
+f1/15 RP
+f1/14 DP
+
+
+### iv) 
+
+
+## e)
+
+PVST+ (Per VLAN ST)
+STP
+
+
+## f) 
+
+BLOCKING → LISTENING → LEARNING → FORWARDING 
+
+
+## h)
 
 
 
