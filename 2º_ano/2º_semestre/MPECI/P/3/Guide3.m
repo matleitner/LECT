@@ -303,4 +303,3 @@ for i = 1:6
     fprintf("  %s : %.4f\n", pages(i), solve(i)) 
 end
 
-
