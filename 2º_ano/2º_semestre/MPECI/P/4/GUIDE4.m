@@ -139,3 +139,5 @@ horas = 30 * 24;
 tempo_dowm = prob_down * horas;
 fprintf("e) Tempo médio down por mês: %.2f horas\n", tempo_dowm)
 
+
+%% 3. 
