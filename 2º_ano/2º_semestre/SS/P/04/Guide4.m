@@ -3,7 +3,7 @@
 
 
 x = [1 2 3 2 1];
-h = [1 -1];
+h = [1 1];
 
 % 1. Calcule a convolucao
 y = conv(x, h);
@@ -43,4 +43,12 @@ subplot(2,1,2); stem(0:length(y2)-1, y2,'filled');
 title('conv(h,x)'); grid on;
 figure(3);
 stem(0:length(y3)-1, y3, 'filled');
+
+
+
+x = [1 2 3]
+
+h = [1 0 0 1 ]
+
+y = conv(x, h)
 

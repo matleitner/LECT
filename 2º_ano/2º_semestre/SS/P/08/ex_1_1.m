@@ -12,6 +12,7 @@ title('x[n] = (0.5)^n u[n]');
 xlabel('n'); ylabel('x[n]');
 grid on;
 
+%%
 % Verificacao simbolica
 syms n;
 f=(0.5)^n;
@@ -19,11 +20,11 @@ F=ztrans(f);
 display('Transformada de Z, Ex.1.1 a)');
 display(F)
 
-% Ex 1_3 a): x[n] = delta[n] + 2*delta[n-1] + delta[n-2]
+% Ex 1_1 c): x[n] = delta[n] + 2*delta[n-1] + delta[n-2]
 % Verificacao numerica
 % ____
 % ____
-
+n  = [0:20]
 % Verificacao simbolica
 syms n;
 f=kroneckerDelta(n,0)+2*kroneckerDelta(n,1)+kroneckerDelta(n,2);
