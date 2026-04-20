@@ -8,7 +8,7 @@ T = [  0   8    0    0     0;
        0   100  0    2     0;
        0   0    20   0     1;
        0   0    0    5     0; 
-    ]'
+    ]';
 
 n = length(T);
 Q = T;
@@ -29,7 +29,8 @@ end
 
 
 % b)
-media = u*100 
+media = u*100 ;
+disp(media);
 
 
 % c)
@@ -140,4 +141,159 @@ tempo_dowm = prob_down * horas;
 fprintf("e) Tempo médio down por mês: %.2f horas\n", tempo_dowm)
 
 
-%% 3. 
+%% 3.
+% i) 
+fprintf("Exercicio 3\n3.\n  i) ")
+lambda_F = 1/200;
+lambda_R = 24/36;
+lambda = 0:99;
+lambda = (100-lambda)* lambda_F;
+miu = ones(1, 100)*lambda_R;
+miu(1,1) = lambda_R;
+
+co = [1 , lambda./miu];
+co = cumprod(co);
+
+u = co/ sum(co);
+states = 0:100;
+media = sum(u.*states);
+disp(media*100)
+
+% ii)
+fprintf("  ii)")
+
+p = 1 - u(1);
+disp(p*100);
+
+% iii) 
+
+l = sum(u(1,1:11));
+
+fprintf("  iii)")
+disp(l*100);
+
+
+
+% b
+
+% i) 
+fprintf("b)\n  i) ")
+lambda_F = 1/200;
+lambda_R = 24/36;
+lambda = 0:99;
+lambda = (100-lambda)* lambda_F;
+miu = ones(1, 100)*lambda_R*2;
+miu(1,1) = lambda_R;
+
+co = [1 , lambda./miu];
+co = cumprod(co);
+
+u = co/ sum(co);
+states = 0:100;
+media = sum(u.*states);
+disp(media*100)
+
+% ii)
+fprintf("  ii)")
+
+p =  u(2) + 2*sum(u(3:100));
+disp(p*100);
+
+% iii) 
+
+l = sum(u(1,1:11)) * 100;
+
+fprintf("  iii)")
+disp(l);
+
+
+% c
+
+% i) 
+fprintf("c)\n  i) ")
+lambda_F = 1/200;
+lambda_R = 24/36;
+lambda = 0:99;
+lambda = (100-lambda)* lambda_F;
+miu = ones(1, 100)*lambda_R*3;
+miu(1,1) = lambda_R;
+miu(1,2) = 2*lambda_R;
+
+co = [1 , lambda./miu];
+co = cumprod(co);
+
+u = co/ sum(co);
+states = 0:100;
+media = sum(u.*states);
+disp(media*100)
+
+% ii)
+fprintf("  ii)")
+
+p =  u(2) + 2*u(3) + 3*sum(u(4:100));
+disp(p*100);
+
+% iii) 
+
+l = sum(u(1,1:11)) * 100;
+
+fprintf("  iii)")
+disp(l);
+
+
+%% 4.
+fprintf("4.\na)")
+% a)
+niu = 10;
+lambda = 8;
+% Teorema de Little
+W = 1 / (niu - lambda);
+p = lambda / niu;
+
+disp(W);
+fprintf("b)")
+disp(p)
+
+
+% c) 
+
+Wq =  W - 1 / niu;
+
+Lq = lambda * Wq;
+
+fprintf("c)")
+disp(Lq)
+
+% d) 
+fprintf("d)\n")
+P6 = p^(8) * 100;
+P20 = p^22 * 100;
+P40 = p^42 * 100;
+
+fprintf("P(X>6) =")
+disp(P6);
+
+fprintf("P(X>20) =")
+disp(P20);
+
+fprintf("P(X>40) =")
+disp(P40);
+
+
+
+% e)
+
+fprintf("e)\n")
+lambda = 1 : 0.1 : 9;
+W = 1 ./ (niu - lambda);
+
+
+figure;
+plot(lambda, W, 'LineWidth', 2, 'Color', 'b');
+grid on;
+xlabel('lambda');
+ylabel('(W) ');
+title('lambda = [1, 9]');
+
+%% 5. 
+
