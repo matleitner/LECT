@@ -1,0 +1,42 @@
+function VideoStreamingSimulatorAso(lambda, invmiu, B, M, N)
+%
+% VideoStreamingSimulator(lambda, invmiu, B, M, N)
+% lambda: arrival rate of movie requests (requests/minute)
+% invmiu: average duration of movies (minutes)
+% B:      throughput of each movie (Mbps)
+% M:      capacity of the server (no. of simultaneous transmitted movies)
+% N:      stopping criterion (the simulation finishes at the end of the
+%         transmition of the Nth movie)
+
+    % Events:
+    ARRIVAL= 0; 	    % request of a movie
+    DEPARTURE= 1; 	    % end of a movie transmission
+    % Initialization of variables and List of Events:
+    Clock= 0; 		    % simulation clock
+    STATE= 0; 		    % no. of movies in transmission
+    TRANSMITTED= 0; 	% no. of transmitted movies
+    EventList= [ARRIVAL, Clock + exprnd(1/lambda)];
+    tempo = Clock;
+    filmes = STATE;
+    while TRANSMITTED < N
+        EventList= sortrows(EventList,2); % sort EventList by time
+        event= EventList(1,1);		      % register event type in first row
+        Clock= EventList(1,2);		      % update current clock with time instant of first row
+        EventList(1,:)= []; 		      % delete first row of EventList
+        tempo = [tempo, CLOCK];
+        filmes = [filmes, STATE];
+
+        switch event
+            case ARRIVAL
+                EventList= [EventList; ARRIVAL, Clock + exprnd(1/lambda)];       % add future ARRIVAL
+                if STATE < M
+                    STATE= STATE + 1;
+                    EventList= [EventList; DEPARTURE, Clock + exprnd(invmiu)];   % add future DEPARTURE
+                end
+            case DEPARTURE
+                STATE= STATE - 1;
+                TRANSMITTED= TRANSMITTED + 1;
+        end
+    end
+    plot(tempo, filmes);
+end
