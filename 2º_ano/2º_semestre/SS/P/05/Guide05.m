@@ -4,7 +4,6 @@ X = fft(x)
 fprintf("| k | Re X[k] | Im X[k] |  X[k]  | ∠X[k] |\n\n")
 for k = 1:3
   fprintf("| %d |  %.2f   |  %.2f   |  %.2f  | %.2f |\n",k-1,real(X(k)), imag(X(k)), abs(X(k)), angle(X(k))  )
-
 end
 axis = 0:3;
 subplot(2,2,[1 2])
@@ -35,4 +34,24 @@ end
 
 X(4) = X(2)
 x = ifft(X)
+
+
+
+% 9.
+f = 125;
+N = 128;
+fs = 1000;
+t =  (0:N-1)/fs;
+
+x = sin(2* f* pi * t);
+k = 0:N-1;
+X = fft(x);
+
+figure
+subplot(211)
+
+plot(t, x)
+subplot(212)
+stem(k, abs(X) / N * 2)
+
 
