@@ -1,4 +1,5 @@
 #include "detpic32.h"
+
 volatile unsigned int count = 0;
 
 void _int_(12) isr_T3(void){
@@ -23,6 +24,7 @@ int main(void)
     IPC3bits.T3IP = 2; // Interrupt priority (must be in range [1..6])
     IEC0bits.T3IE = 1; // Enable timer T2 interrupts
     IFS0bits.T3IF = 0; // Reset timer T2 interrupt flag
+
     EnableInterrupts();
     while(1)
     {
