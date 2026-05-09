@@ -233,3 +233,35 @@ Cada vez que insere compara para colocar o elemento na lista
 # ListInsert(List* l, void* p)
 
 Para inserir numa Lista ordenada, temos de apontar o l->node(prev)->next para new_node  e o new_node->next para o antigo node(prev)->next 
+
+
+
+
+
+
+
+
+
+<!-- 
+                 Selo de certificação resumo LeitnerzinhoPVP  
+                                                                         
+       XXX                                                                
+      XX                             XX                                   
+     XX                               X       XXXXX                       
+     X                               XXXXXXX                              
+    X                        XXXXXXXXXXX                                  
+   XX                                  X                                  
+   X                       X           X                  XXXXXXX         
+  X              XXXXXXX               X     X          XXX     X   X     
+  X           XXXX     X   X           X    XXXXXXXXX   X  XXXXXX   XX    
+ XX          XXXXX   XXX   X           X    XX       X  XXX          XXXXX
+ X          XX   XXXX      X          XX   XXX       X  X            X   X
+ X          X             XX         XX    X        XX  XX           X   X
+XX           XXX          X         XX     X      XXX     XXXX      X     
+X     XXXXXXX  XXXXX     XX       XXX     X      XX           XXXX  X     
+XXXXXXX                 X       XX                                           
+
+-->
+
+
+
