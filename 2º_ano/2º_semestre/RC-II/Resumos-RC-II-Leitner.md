@@ -164,7 +164,7 @@ RIPng são enviadas por IPv6 link-local FE80::/64
 
 # Exercicio RIP
 
-<img src="./Exercicios/ExerciciosRIP.png">
+![](./Exercicios/ExerciciosRIP.png)
 
 ## a) Routing table of R3
 ```
@@ -296,7 +296,7 @@ R3 vai mandar as mudanças para o R1
 
 # Exercicios OSPF
 
-<img src="Exercicios/ExerciciosOSPF.png">
+![](Exercicios/ExerciciosOSPF.png)
 
 
 ## a) OSPF entries of R3
@@ -375,7 +375,7 @@ Cada Frame precisa de uma TAG para identificar a sua VLAN
 
 ## Exercicios VLANs
 
-<img src="Exercicios/ExercicioVLAN.png">
+![](Exercicios/ExercicioVLAN.png)
 
 
 ## a) 
@@ -431,7 +431,7 @@ STP permite determinar onde bloquear portas na rede para prevenir loops, por cau
 
 
 # Exercicios
-<img src="Exercicios/ExerciciosSTP.png">
+![](Exercicios/ExerciciosSTP.png)
 
 
 ## a) 
