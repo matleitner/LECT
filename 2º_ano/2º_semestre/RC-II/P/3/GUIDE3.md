@@ -119,7 +119,7 @@ ip address 192.1.5.5 255.255.255.0
 int f0/1
 no shut
 ip ospf 1 area 0
-ip address 192.2.5.5 255.255.255.0
+ip address 192.4.5.5 255.255.255.0
 
 
 int f1/0
@@ -274,4 +274,34 @@ O ICMP request vai pelo tunnel, porque o path cost é menor por ser estático, o
 
 
 
+# 3. OverLay network
 
+```
+R1 
+
+conf t 
+interface tunnel 1
+tunnel source 200.1.1.1
+tunnel destination 200.3.3.3
+tunnel mode ipip
+ip address 192.1.3.1 255.255.255.0
+end 
+wr
+conf t
+ipv6 unicast-routing
+interface f0/0
+
+
+R3
+
+conf t 
+interface tunnel 1
+tunnel source 200.3.3.3
+tunnel destination 200.1.1.1
+tunnel mode ipip
+ip address 192.1.3.3 255.255.255.0
+end 
+wr
+
+
+```
