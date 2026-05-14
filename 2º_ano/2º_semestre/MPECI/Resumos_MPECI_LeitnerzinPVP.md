@@ -637,13 +637,19 @@ Resolvendo para $\pi_0$:
 * **Ocupação do técnico:** $\pi_1 + \pi_2 \approx \mathbf{0.277\%}$ do tempo.
 * **Disponibilidade do sistema:** $\pi_0 + \pi_1 \approx \mathbf{99.9996\%}$ do tempo.
 
+
+___
+
+
 # Processos de nascimento e morte
 
 Seja o sistema cujo estado representa o número de clientes no sistema (n = 0,1,2,...) 
 
 Sempre que o sistema tem n clientes
-(1) chegam novos clientes ao sistema a tuma taxa exponencial $\lambda_n$
-(2) partem clientes do sistema a uma taxa exponencial $µ_n$
+
+(1) chegam novos clientes ao sistema a uma **taxa exponencial $\lambda_n$**
+
+(2) partem clientes do sistema a uma **taxa exponencial $µ_n$**
 
 Este sistema é designado por processo de **nascimento e morte**, $\lambda$ taxa de chegada ou nascimento  e taxa de partida ou morte, µ.
 
@@ -664,6 +670,205 @@ Este sistema é designado por processo de **nascimento e morte**, $\lambda$ taxa
 | 1 | $µ_2 \pi _2 + \lambda_0 \pi_0 = (\lambda _ 1 + µ_1 ) \pi_1$ |
 | 2 | $µ_3 \pi _3 + \lambda_1 \pi_1 = (\lambda _ 2 + µ_2 ) \pi_2$ |
 | n | $µ_{n+1} \pi _{n+1} + \lambda_{n-1} \pi_{n-1} = (\lambda _ n + µ_n ) \pi_n$ |
+
+
+### Logo:
+
+$$\lambda_n \pi_n = \mu_{n+1}\pi_{n+1} $$
+
+## Probabilidade Limite de um processo de nascimento ou morte
+
+$$\pi_0 = \frac{1}{1+\sum_{i=1}{\frac{\lambda_0 \lambda_1\ ...\ \lambda_{i-1}}{\mu_1\mu_2\ ...\ \mu_{i}}}}$$
+
+$$\pi_n = {\frac{\lambda_0 \lambda_1\ ...\ \lambda_{n-1}}{\mu_1\mu_2\ ...\ \mu_{n}}} \pi_0$$
+
+
+
+### Condição necessária, para existência de probabilidades limite
+
+
+$$\sum_i^{\infin}{\frac{\lambda_0 \lambda_1\ ...\ \lambda_{i-1}}{\mu_1\mu_2\ ...\ \mu_{i}}} < \infin $$
+
+
+### Exemplo:
+
+Considere-se um Centro de Dados com **2 servidores** e **1 técnico de
+manutenção**. O tempo de funcionamento de cada servidor até falhar é
+**exponencialmente** distribuído com **média de 180 dias**. O tempo que o
+técnico leva a repor em funcionamento um servidor que falha é
+**exponencialmente** distribuído com **média de 6 horas**.
+
+```      
+        lambda_0   lambda_1      
+        ----->      ----->
+    (0)         (1)         (2)
+        <-----      <-----
+          µ_1         µ_2
+        
+```
+
+
+```matlab
+lambda = [2/180, 1/180];
+miu = [4 4];
+
+co = [1, lambda./miu]; % [1, lambda_0/ miu_1, lambda_1 / miu_2]
+co = cumprod(co); % [ 1, lambda_0/miu_1 * 1, 1 * lambda_0/miu_1 * lambda_1/miu_2]
+u = co/sum(co);
+
+fprintf("Prob. estado 0: %.2e\n", u(1));
+fprintf("Prob. estado 1: %.2e\n", u(2));
+fprintf("Prob. estado 2: %.2e\n", u(3));
+```
+ 
+
+2º exemplo nos acetatos teóricos.
+
+
+
+# Processo de contagem
+
+Um processo estocástico $\{N(t), t\ge 0\}$ diz-se um processo de contagem se N(t), representar o número total de eventos que ocorreram até ao instante $t$.
+
+Um processo de contagem satisfaz asual  seguintes condições:
+
+- N(t) toma apenas valores inteiros não negativos;
+- Se $s \lt t $, então $N(s) \lt N(t)$
+- Se $s \lt t$, então $N(t) -N(s) $ é igual ao número de eventos ocorridos no intervalo de tempo $[s,t]$;
+
+Um processo de contagem tem:
+
+- **incrementos independentes** se o número de eventos em intervalos de tempo disjuntos for independente
+
+- **incrementos estacionários** se o número de eventos que ocorre em qualquer intervalo de tempo depender apenas da duração do intervalo de tempo
+
+
+# Processo de Poisson
+
+Um processo de contagem diz-se um *processo de Poisson* com taxa $\lambda$, com $\lambda \gt 0$, se:
+
+- N(0) = 0
+- o processo tem incrementos independentes
+- o número de eventos num intervalo de duração $t$ tem uma distribuição de Poisson com média de $t\lambda$, i.e., para todo s, $t\gt0$
+
+$$P\{N(s+t)- N(s) = n\} = e^{-\lambda t}\frac{(\lambda t )^n}{n!}$$
+
+Um processo de Poisson tem incrementos estacionários e média
+
+$$E[N(t)] = \lambda t$$
+
+razão pela qual \lambda é designada a **taxa** do processo de Poisson.
+
+
+## Propriedades Processo de Poisson
+
+### Propriedade 1
+
+Considere-se um processo de Poisson com taxa $\lambda$ e as variáveis aleatórias $T_n$ definidas da seguinte forma:
+
+- $T_1$ é o instante do primeiro evento;
+- $T_n$, com $n\gt2$, é o intervalo de tempo entro o (n-1)-ésimo evento e o n-ésimo evento;
+
+Então, $T_n, n = 1,2,...$, são variáveis aleatórias independentes e identicamente distribuidas com **distribuição exponêncial** de média $\frac{1}{\lambda}$
+
+
+
+### Propriedade 2
+
+Sabendo que num processo de Poisson com taxa $\lambda$ ocorreram exatamente $n$ eventos entre o instante $s$ e $s+t$.
+
+Então, os instantes de ocorrência dos eventos são **distribuídos independentemente e uniformemente** no intervalo $[s, s+t]$
+
+### Propriedade 3
+
+Considere-se um processo de Poisson $\{N(t), t \ge 0 \}$ com taxa $\lambda$ cada evento é classificado de forma independente em:
+
+- evento do tipo 1 com probabilidade p
+- evento do tipo 2 com probabilidade 1-p
+
+e que $\{N_1(t), t \ge 0 \}$ e $\{N_2(t), t \ge 0 \}$, são o número de eventos de cada tipo que ocorreram no intervalo de $[0, t]$
+
+Então, $N_1(t) e N_2(t)$ são **Processos de Poisson independentes**, com taxas de $\lambda p$ e $\lambda(1-p)$
+
+### Propriedade 4
+
+Sejam $\{N_1(t), t \ge 0 \}$ e $\{N_2(t), t \ge 0 \}$ processos de Poisson independentes com taxas $\lambda_1 e \lambda_2$
+
+Então o processo $N(t) = N_1(t) + N_2(t)$ é também **um processo de Poisson** com taxa $\lambda = \lambda_1 + \lambda_2$
+
+### Exemplo 3 dos acetatos é bom 
+
+
+# Teorema de Little
+
+
+$$L = \lambda W$$
+
+O número de clientes no sistema $L$ é  igual à taxa de clientes $\lambda$ que entra no sistema vezes o tempo médio que cada cliente permanece no sistema $W$.
+
+# Propriedade PASTA
+## Poisson Arrivals always See Time Averages
+
+$$a_n = P_n$$
+
+a percentagem de clientes que chegam e encontram o
+sistema com n clientes é igual à probabilidade de estarem
+exatamente n clientes no sistema.
+
+
+# Sistemas de fila de espera
+
+Um sistema de fila de espera é caracterizado por:
+
+- um conjunto de $c$ servidores, cada um com capacidade para servir clientes a uma taxa $\mu$;
+- um fila de espera com uma determinada capacidade (em nº de clientes);
+
+A este sistema chegam clientes a uma taxa $\lambda$
+
+Quando um cliente chega:
+
+-   ele começa a ser servido por um servidor disponível
+-   ele é colocado da fila de espera se os servidores estiverem todos ocupados (ou é perdido se a fila de espera estiver cheia)
+
+
+Os clientes na fila de espera são atendidos segundo uma disciplina FIFO.
+
+
+## Sistema de fila de espera 
+
+Um sistema de fila de espera é representado por:
+
+$$A/B/c/d$$
+
+A - o processo de chegada de clientes: M - Markoviano, D - Determinístico, G - Genérico 
+B - o processo de atendimento de clientes: M - Markoviano, D - Determinístico, G - Genérico 
+c . o número de servidores
+d - capacidade do sistema (em nº de clientes): número de servidores + capacidade da fila de espera
+
+Quando $d$ é omisso a fila de espera tem capacidade infinita
+
+
+# Sistema M/M/1
+
+Processo de nascimento e morte em que 
+
+
+- a chegada de clientes é um processo de Poisson com taxa $\lambda$
+- o sistema tem 1 servidor
+- o servidor atende clientes à taxa µ, com um tempo exponencialmente distribuido de média 1/µ;
+- o sistema acomoda um número infinito de clientes
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
