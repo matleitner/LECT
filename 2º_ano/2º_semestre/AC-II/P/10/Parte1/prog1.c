@@ -19,11 +19,10 @@ int main(void){
 	U2MODEbits.STSEL = 0;	// 1 bit de stop
 		
 	// 3- Ativar os módulos de transmissão e receção 
-	U2STAbits.UTKEN = 1; 	// Módulo transmissão 
+	U2STAbits.UTXEN = 1; 	// Módulo transmissão 
 	U2STAbits.URXEN = 1;	// Módulo receção
 
 	// 4- Ativar a UART
 	
-	U2MODE.ON = 1;
-
+	U2MODEbits.ON = 1;
 }

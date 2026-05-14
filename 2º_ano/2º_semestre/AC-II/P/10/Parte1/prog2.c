@@ -1,13 +1,13 @@
 #include <detpic32.h>
 void putc(char byte){
-	while(U2STbits.UTXBF == 1);
-	U2TXREG = byte;
+	while(U2STAbits.UTXBF == 1);
+	U2TXREG = byte; 
 }
 
 
 void wait(unsigned int ms){
 	resetCoreTimer();
-	while(readCoreTimer() < (ms * PBCLK/1000));
+	while(readCoreTimer() <  ms * (PBCLK / 1000));
 }
 
 int main(void){
@@ -23,13 +23,13 @@ int main(void){
 	U2MODEbits.STSEL = 0;	// 1 bit de stop
 		
 	// 3- Ativar os módulos de transmissão e receção 
-	U2STAbits.UTKEN = 1; 	// Módulo transmissão 
+	U2STAbits.UTXEN = 1; 	// Módulo transmissão 
 	U2STAbits.URXEN = 1;	// Módulo receção
 
 	// 4- Ativar a UART
 	
-	U2MODE.ON = 1;
-	
+	U2MODEbits.ON = 1;
+	printInt(PBCLK, 10| 6<<16);
 	while(1){
 		putc('c');
 		wait(1000);
