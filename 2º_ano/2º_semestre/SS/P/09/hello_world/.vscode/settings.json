@@ -1,9 +1,10 @@
 {
   "C_Cpp.intelliSenseEngine": "default",
+  "idf.extensionActivationMode": "always",
   "idf.openOcdConfigs": [
     "board/esp32c6-builtin.cfg"
   ],
-  "idf.port": "/dev/ttyUSB0",
+  "idf.port": "/dev/ttyACM0",
   "idf.currentSetup": "/home/leitner/.espressif/v6.0/esp-idf",
   "idf.customExtraVars": {
     "IDF_TARGET": "esp32c6"
@@ -12,7 +13,7 @@
   "clangd.arguments": [
     "--background-index",
     "--query-driver=**",
-    "--compile-commands-dir=/home/leitner/LECT/2º_ano/2º_semestre/SS/P/Projects/sample_project/build"
+    "--compile-commands-dir=/home/leitner/LECT/2º_ano/2º_semestre/SS/P/09/hello_world/build"
   ],
   "idf.flashType": "UART"
 }
