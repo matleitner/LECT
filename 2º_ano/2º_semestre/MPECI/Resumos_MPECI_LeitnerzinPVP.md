@@ -859,19 +859,174 @@ Processo de nascimento e morte em que
 - o sistema acomoda um número infinito de clientes
 
 
+```
+    ←µ      ←µ      ←µ
+0       1       2       ...
+ →lambda   →lam    →lam
+```
+
+- Um sistema M/M/1 é modelado por um processo de nascimento e morte com um número infinito de estados
+- As taxas de nascimento são todas iguais a $\lambda$ pois a chegada de clientes é independente do estado do sistema
+- As taxas de morte são todas iguais a $\mu$ pois existe apenas um servidor a servir clientes, qualquer que seja o número de clientes no sistema
+
+- O estado **n** $n \ge 1$ representa o sistema estar com **1 cliente a ser atendido** e **n-1 clientes na fila de espera**
+
+$$\pi_n = \frac{(\frac{\lambda}{\mu})^n}{1 + \sum_{i=1}^\infin{(\frac{\lambda}{\mu})^i}}$$
+
+Para haver probabilidade limite $\frac{\lambda}{\mu}\lt 1$
+
+
+$$ \pi_n =  (\frac{\lambda}{\mu})^n(1-\frac{\lambda}{\mu})$$
+
+## Teorema de Little
+
+Continuação...
+
+Número médio de clientes no sistema:
+$$L = \sum_{n = 1}^\infin n × \pi_n = \frac{\lambda}{\mu - \lambda}$$
+Tempo médio de permanência de cada cliente no sistema:
+
+$$(Teorema\ de\ Little)\ L = \lambda W → W = \frac{L}{\lambda} = \frac{1}{\mu-\lambda}$$
+
+
+$$W_Q = W - \frac{1}{\mu} = \frac{\lambda}{\mu(\mu-\lambda)}$$
+$$ L_Q = \lambda W_Q → L_Q  = \frac{\lambda^2}{\mu(\mu-\lambda)}$$
+
+
+# Sistema M/M/1/m
+
+
+- a chegada de clientes é um processo de Poisson com taxa $\lambda$ 
+- o sistema tem 1 servidor
+- o servidor atente clientes à taxa de $\mu$
+- o sistema tem capacidade de $m$ clientes, a fila de espera tema  capacidade de m-1 clientes
+
+$$\pi_n = \frac{(\frac{\lambda}{\mu})^n}{1 + \sum_{i=1}^m{(\frac{\lambda}{\mu})^i}}$$
+Pela propriedade PASTA, a probabilidade de um cliente chegar e encontrar o sistema cheio é igual à probabilidade do estado m:
+
+$$\pi_m = \frac{(\frac{\lambda}{\mu})^m}{1 + \sum_{i=1}^m{(\frac{\lambda}{\mu})^i}}$$
+
+# Sistema M/M/m/m
+
+Processo de nascimento e morte em que:
+
+- a chegada de clientes é um processo de Poisson com taxa $\lambda$
+- o sistema tem $m$ servidores
+- cada servidor atende clientes à taxa $\mu$
+- o sistema acomoda $m$ clientes, não tem fila de espera
+
+
+```
+    ←µ      ←2µ      ←3µ    ←mµ
+0       1       2       ...       m
+ →lambda   →lam    →lam     →lam
+```
+Probabilidade de n clientes no sistema em estado estacionário:
+
+$$\pi_n = \frac{(\frac{\lambda}{\mu})^m / n!}{1 + \sum_{i=0}^m{((\frac{\lambda}{\mu})^i/i!)}}$$
+
+Pela propriedade PASTA, a probabilidade de um cliente chegar e
+encontrar o sistema cheio é igual à probabilidade do estado m
+(fórmula de ErlangB):
+$$\pi_m = \frac{(\frac{\lambda}{\mu})^m / m!}{1 + \sum_{i=0}^m{((\frac{\lambda}{\mu})^i/i!)}}$$
+
+
+# Sistema M/G/1
+
+Processo de nascimento e morte que:
+
+- a chegada de clientes é um processo de Poisson com taxa $\lambda$
+- o sistema tem 1 servidor
+- o servidor atende um cliente de cada vez com o tempo de atendimento S genérico e independente dos instantes de chegada dos clientes
+- o sistema acomoda um número infinito de clientes
+
+Sabendo a média E[S] e o segundo momento E[S²] do tempo
+de atendimento S, o atraso médio por cliente na fila de
+espera é (fórmula de Pollaczek – Khintchine)
+
+$$W_Q = \frac{\lambda E[S²]}{2(1-\lambda E[S])}$$
+
+Condição de validade: $\lambda E[S] \lt 1$
+
+
+Do atraso médio por cliente na fila de espera $W_Q$ , é possível
+obter os outros parâmetros de desempenho de interesse.
+
+---
+
+Número médio de clientes em fila de espera (usando o
+teorema de Little):
+$$L_Q = \lambda W_Q = \frac{\lambda^2 E[S²]}{2(1-\lambda E[S])}$$
+
+---
+Atraso médio por cliente no sistema (atraso médio na fila de
+espera + tempo médio de atendimento):
+$$ W = \frac{\lambda E[S²]}{2(1-\lambda E[S])} + E[S]$$
+
+---
+Número médio de clientes no sistema (usando o teorema de
+Little):
+$$L = \lambda W = \frac{\lambda²E[S²]}{2(1-\lambda E[S])} + \lambda E[S]$$
+
+# Simulador com estimação de probabilidade de bloqueio e com estimação do débito binário médio do servidor
+Considere-se um servidor de vídeo-streaming caracterizado por:
+- os pedidos de filmes chegam segundo um processo de Poisson a uma taxa de $\lambda$ pedidos por minuto
+- os filmes têm uma duração exponencialmente distribuída com média de 1/µ (em minutos)
+- cada filme é transmitido a um débito de B (em Mbps)
+- o servidor tem uma capacidade para servir até M filmes em simultâneo
+
+
+Pretende-se estimar:
+
+- Probabilidade de bloqueio (percentagem de pedidos de filmes que são recusados porque o servidor está a transmitir filmes à sua capacidade máxima)
+- Débito binário médio transmitido pelo servidor
+
+```matlab
+function [PB,DB] =  VideoStreamingSimulator(lambda, invmiu, B, M, N)
+
+% Events 
+ARRIVAL = 0;        % request of a movie
+DEPARTURE = 1;      % end of a movie transmission
+%Inicialization of variables and List of Events:
+Clock = 0;          % simulation time 
+STATE = 0;          % no. of movies in transmission 
+TRANSMITTED = 0;    % no. of transmitted movies
+N_ARRIVALS = 0;     % no. of movie requests
+BLOCKED = 0;        % no. of refused movies
+LOAD = 0;           % integral of the bitrate in transmission
+
+EventList = [ARRIVAL, Clock + exprnd(1/lambda)];
+
+while TRANSMITTED < N
+    EventList = sortrows(EventList, 2);             % sort EventList by time
+    event = EventList(1,1);                         % register event type in first row
+    PreviousClock = Clock;                          % save previous clock
+    Clock = EventList(1,2);                         % delete first row of EventList
+    EventList(1,:) = [];
+    LOAD = LOAD + B*STATE*(Clock- PreviousClock);
+    switch event
+        case ARRIVAL 
+            EventList = [EventList; ARRIVAL, Clock + exprnd(1/lambda)]; % add future event
+            N_ARRIVALS = N_ARRIVALS + 1;
+            if STATE < M
+                STATE = STATE + 1;
+                EventList = [EventList; DEPARTURE, Clock + exprnd(invmiu)]; % add future event
+            else 
+                BLOCKED = BLOCKED + 1;
+            end
 
 
 
+        case DEPARTURE
+            STATE = STATE - 1;
+            TRANSMITTED = TRANSMITTED + 1;
+    end 
+end
 
-
-
-
-
-
-
-
-
-
+PB = BLOCKED / N_ARRIVALS;
+DB = LOAD / Clock;
+end
+```
 
 <!-- 
                  Selo de certificação resumo LeitnerzinhoPVP  

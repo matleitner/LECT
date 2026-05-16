@@ -297,3 +297,55 @@ title('lambda = [1, 9]');
 
 %% 5. 
 
+lambda = 80;
+mu = 1/0.01;
+m = 10;
+rho = lambda/mu;
+divisor = sum(rho.^(0:m));
+% a)
+
+P = (lambda / mu).^(0:m) / divisor;
+
+pi_m = P(end);
+
+fprintf("a)\nProbabilidade de cada cliente ser discarded: pi_m = %.4f\n", pi_m)
+
+
+
+% b)
+
+L = sum((0:m) .* P);
+lambda_ef = lambda *  (1- pi_m);
+W = L / lambda_ef;
+
+fprintf("b)\nTempo médio é: %.5f que cada cliente fica no sistema *QUANDO NÃO É DISCARTADO*\n", W*1000)
+
+
+% c) 
+W_Q = W -  1/mu;
+L_Q = lambda_ef * W_Q;
+
+fprintf("c)\nA ocupação média da fila é: %0.2f\n",L_Q)
+
+% d)
+M = 5:5:40
+P = zeros(1,length(M))
+
+function P = prob(m)
+    lambda = 80;
+    mu = 1/0.01;
+    rho = lambda/mu;
+    divisor = sum(rho.^(0:m));
+    P = (lambda / mu).^(0:m) / divisor;
+    P = P(end);
+end
+
+for i = 1:length(M)
+    P(i) = prob(M(i))
+end
+figure
+bar(M, P)
+grid on;
+xlabel('Capacidade do Sistema (m)');
+ylabel('Probabilidade de Descarte (P_m)');
+title('Probabilidade de Descarte vs. Capacidade do Sistema');
