@@ -479,10 +479,20 @@ Nenhuma interface muda de estado. A alteração de prioridade de Sw1 não afeta 
 
 
 
+---
+
+# Exercicios sobre Túnel. 
+
+![](Exercicios/.d_f_erradas.png)
+
+**d** e **f** erradas 
+
+![](Exercicios/.2_a_parte.png)
+
+![](Exercicios/.d_e_erradas.png)
 
 
-
-
+**d** e **e** erradas
 
 
 

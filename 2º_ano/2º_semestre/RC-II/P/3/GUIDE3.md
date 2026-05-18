@@ -285,12 +285,21 @@ tunnel source 200.1.1.1
 tunnel destination 200.3.3.3
 tunnel mode ipip
 ip address 192.1.3.1 255.255.255.0
-end 
-wr
 conf t
 ipv6 unicast-routing
 interface f0/0
+ipv6 address 2001:0:1:1::1/64
+end
+wr
 
+R2 
+
+conf t
+ipv6 unicast-routing
+interface f0/0
+ipv6 address 2001:0:2:2::2/64
+end
+wr
 
 R3
 
@@ -300,8 +309,77 @@ tunnel source 200.3.3.3
 tunnel destination 200.1.1.1
 tunnel mode ipip
 ip address 192.1.3.3 255.255.255.0
+conf t
+ipv6 unicast-routing
+interface f0/0
+ipv6 address 2001:0:3:3::3/64
+end
+wr
+
+PC1 
+
+ip 2001:0:1:1::100/64
+save
+
+PC2
+
+ip 2001:0:2:2::100/64
+
+PC3
+
+ip 2001:0:3:3::100/64
+```
+
+
+
+```
+R1 
+conf t
+interface tunnel 0
+ipv6 address 2001:12::1/64
+interface tunnel 1 
+ipv6 address 2001:13::1/64
 end 
 wr
 
 
+R2
+
+conf t
+interface tunnel 0
+ipv6 address 2001:12::2/64
+end 
+wr
+
+
+R3 
+
+
+conf t
+interface tunnel 1 
+ipv6 address 2001:13::3/64
+end
+wr
+
 ```
+## c.
+
+O R1 consegue pingar o IPv4 e IPv6 do outro extremo do tunel.
+
+
+```
+conf t
+int f0/0
+ipv6 ospf 1 area 0
+int tunnel 0
+ipv6 ospf 1 area 0
+int tunnel 1
+ipv6 ospf 1 area 0
+end 
+wr
+
+
+
+```
+
+## 

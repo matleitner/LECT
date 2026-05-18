@@ -206,4 +206,90 @@ wr
 ```
 
 
+### e.
 
+OPEN 
+
+KEEPALIVE 
+BGP UPDATE
+
+### i.
+
+```
+conf t
+router ospf 1
+default-information originate always
+end
+write
+
+```
+
+### j.
+
+Isto junta, o BGP agrega os ips todos do AS e envia num só, em vez de 2 redes distintas, junta numa só, isto pode não ser assim tão vantajoso....
+
+```
+conf t
+router bgp 100
+aggregate-address 200.10.0.0 255.255.254.0 summary-only
+end
+wr
+```
+
+
+No R5 `B     200.10.0.0/23 [20/0] via 192.4.5.5, 00:00:13
+`, R3 anuncia ao AS 300 como tendo uma so rede.
+
+# 3. BGP: Autonomous Systems with multiple Border Routers
+
+```
+R3
+
+conf t 
+router bgp 100 
+neighbor 192.1.3.1  remote-as 200
+end 
+wr
+
+
+R1
+
+
+conf t
+router bgp 200
+neighbor 192.1.3.3 remote-as 100
+redistribute ospf 1
+end 
+wr
+
+e)
+
+R2 
+
+conf t 
+router bgp 200 
+neighbor 192.1.3.1  remote-as 200
+end 
+wr
+
+f)
+
+R1
+
+conf t
+router bgp 200
+neighbor 200.20.2.2 remote-as 200
+end 
+wr
+
+
+R2
+
+conf t
+router bgp 200
+neighbor 200.20.3.1 remote-as 200
+end 
+wr
+
+
+```
