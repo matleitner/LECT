@@ -6,7 +6,7 @@
 #define IdleMode() asm volatile("wait")
 
 volatile char voltage; 
-
+volatile char blocked;
 void cfgADC(void){
     int N = 4;                      // numero de conversoes consecutivas 
     int x = 4;
@@ -25,6 +25,9 @@ void cfgADC(void){
     AD1CHSbits.CH0SA = x;           // replace x by the desired input
                                     // analog channel (0 to 15)
     AD1CON1bits.ON = 1;             // Enable A/D converter
+    IPC6bits.AD1IP = 2;
+    IFS1bits.AD1IF = 0;
+    IEC1bits.AD1IE = 1;
 
 }
 
@@ -88,8 +91,10 @@ unsigned char toBcd(unsigned char value)
 }
 
 void _int_(VECTOR_TIMER1) isr_T1(void){
-    
-    AD1CON1bits.ASAM = 1;       
+    blocked = (PORTB & 0x3) && 0x1;
+    if(!blocked){
+	    AD1CON1bits.ASAM = 1;       
+    }
     IFS0bits.T1IF = 0;
 }
 
@@ -126,7 +131,8 @@ void _int_(VECTOR_ADC) isr_adc(void){
 
 int main()
 {
-
+    blocked = 0;
+    TRISB = TRISB | 0x0003;
     configureAll();
     IFS0bits.T3IF = 0; // Reset timer T3 interrupt flag
     IFS0bits.T1IF = 0; // Reset timer T1 interrupt flag

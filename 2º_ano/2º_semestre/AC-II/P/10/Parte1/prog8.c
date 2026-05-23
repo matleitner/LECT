@@ -1,8 +1,15 @@
 #include <detpic32.h>
-
 void putc(char byte){
 	while(U2STAbits.UTXBF == 1);
 	U2TXREG = byte; 
+}
+
+
+void putstr(char* str){
+	while(*str != '\0'){
+		putc(*str);
+	}
+
 }
 
 
@@ -10,11 +17,14 @@ void wait(unsigned int ms){
 	resetCoreTimer();
 	while(readCoreTimer() <  ms * (PBCLK / 1000));
 }
-
+char getc(){
+	while(U2STAbits.URXDA == 0);
+	return U2RXREG;
+}
 int main(void){
 	// Configuração do UART
 	int baudrate = 115200;
-
+	
 	// Configurar o gerador de baudrate	
 	U2BRG = (PBCLK + 8 * baudrate) / (16 * (baudrate)) -1;
 	U2MODEbits.BRGH = 0; // 0 para o fator de divisão ser 16, se o FD for 4 o bit tem que ser 0;
@@ -30,9 +40,24 @@ int main(void){
 	// 4- Ativar a UART
 	
 	U2MODEbits.ON = 1;
+	char counter = 0;
 	while(1){
-		putc('+');
-		wait(1000);
+		
+		
+		int i;
+		for(i = 3; i>=0; i--){
+			if((counter>>i) & 1){
+				putc('1');
+			}else{
+				putc('0');
+			}
+		
+		}
+	
+		counter = (counter + 1) % 10;
+		putc('\n');
+
+		wait(200);
 	}
 
 	return 0;
