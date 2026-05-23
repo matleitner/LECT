@@ -1,69 +1,177 @@
 clear all; 
 clc;       
 close all; 
+clear; close all; clc;
+
+
 %% 1.
+function [Tempo, FilmesTransmissao] = VideoStreamingSimulatorAso(lambda, invmiu, B, M, N)
+    % Events:
+    ARRIVAL= 0; 	    % request of a movie
+    DEPARTURE= 1; 	    % end of a movie transmission
+    % Initialization of variables and List of Events:
+    Clock= 0; 		    % simulation clock
+    STATE= 0; 		    % no. of movies in transmission
+    TRANSMITTED= 0; 	% no. of transmitted movies
+    EventList= [ARRIVAL, Clock + exprnd(1/lambda)];
+
+    %!!!!!!! 
+    Tempo = [];
+    FilmesTransmissao = [];
+    %!!!!!!!
+    
+    while TRANSMITTED < N
+        EventList= sortrows(EventList,2); % sort EventList by time
+        event= EventList(1,1);		      % register event type in first row
+        Clock= EventList(1,2);		      % update current clock with time instant of first row
+        EventList(1,:)= []; 		      % delete first row of EventList
+        switch event
+            case ARRIVAL
+                EventList= [EventList; ARRIVAL, Clock + exprnd(1/lambda)];       % add future ARRIVAL
+                if STATE < M
+                    STATE= STATE + 1;
+                    EventList= [EventList; DEPARTURE, Clock + exprnd(invmiu)];   % add future DEPARTURE
+                end
+            case DEPARTURE
+                STATE= STATE - 1;
+                TRANSMITTED= TRANSMITTED + 1;
+        end
+        %!!!!!!!
+        Tempo = [Tempo; Clock];
+        FilmesTransmissao = [FilmesTransmissao; STATE];
+        %!!!!!!!
+    end
+    
+end
 
 % a)
+figure;
 
 lambda = 2;
 invmiu = 90;
 B = 2;
 M = 200;
 N = 1e3;
+[x, y] = VideoStreamingSimulatorAso(lambda,invmiu, B,M,N);
+subplot(2,2,1);
+plot(x,y);
+title("a)")
+xlabel("Time(minutes)")
+ylabel("No. of simultaneous movies")
+xlim([0,600])
 
-VideoStreamingSimulatorAso(lambda, invmiu, B, M, N);
 
-% b) 
+% b)
 lambda = 2;
-invmiu = 90;
-B = 2;
-M = 200;
 N = 1e4;
+[x, y] = VideoStreamingSimulatorAso(lambda,invmiu, B,M,N);
+subplot(2,2,2);
+plot(x,y);
+title("b)")
+xlabel("Time(minutes)")
+ylabel("No. of simultaneous movies")
+xlim([0,500])
 
-VideoStreamingSimulatorAso(lambda, invmiu, B, M, N);
+
+
 
 % c)
 
 lambda = 3;
-invmiu = 90;
-B = 2;
-M = 200;
 N = 1e3;
+[x, y] = VideoStreamingSimulatorAso(lambda,invmiu, B,M,N);
+subplot(2,2,3);
+plot(x,y);
+title("c)")
+xlabel("Time(minutes)")
+ylabel("No. of simultaneous movies")
+xlim([0,500])
 
-VideoStreamingSimulatorAso(lambda, invmiu, B, M, N);
 
 % d)
 
 lambda = 3;
-invmiu = 90;
-B = 2;
-M = 200;
 N = 1e4;
-
-VideoStreamingSimulatorAso(lambda, invmiu, B, M, N);
+[x, y] = VideoStreamingSimulatorAso(lambda,invmiu, B,M,N);
+subplot(2,2,4);
+plot(x,y);
+title("d)")
+xlabel("Time(minutes)")
+ylabel("No. of simultaneous movies")
+xlim([0,4500])
 
 %% 2.
+
+function [PB,DB] =  VideoStreamingSimulator2(lambda, invmiu, B, M, N)
+
+% Events 
+ARRIVAL = 0;        % request of a movie
+DEPARTURE = 1;      % end of a movie transmission
+%Inicialization of variables and List of Events:
+Clock = 0;          % simulation time 
+STATE = 0;          % no. of movies in transmission 
+TRANSMITTED = 0;    % no. of transmitted movies
+N_ARRIVALS = 0;     % no. of movie requests
+BLOCKED = 0;        % no. of refused movies
+LOAD = 0;           % integral of the bitrate in transmission
+
+EventList = [ARRIVAL, Clock + exprnd(1/lambda)];
+
+while TRANSMITTED < N
+    EventList = sortrows(EventList, 2);             % sort EventList by time
+    event = EventList(1,1);                         % register event type in first row
+    PreviousClock = Clock;                          % save previous clock
+    Clock = EventList(1,2);                         % delete first row of EventList
+    EventList(1,:) = [];
+    LOAD = LOAD + B*STATE*(Clock- PreviousClock);
+    switch event
+        case ARRIVAL 
+            EventList = [EventList; ARRIVAL, Clock + exprnd(1/lambda)]; % add future event
+            N_ARRIVALS = N_ARRIVALS + 1;
+            if STATE < M
+                STATE = STATE + 1;
+                EventList = [EventList; DEPARTURE, Clock + exprnd(invmiu)]; % add future event
+            else 
+                BLOCKED = BLOCKED + 1;
+            end
+
+
+
+        case DEPARTURE
+            STATE = STATE - 1;
+            TRANSMITTED = TRANSMITTED + 1;
+    end 
+end
+
+PB = BLOCKED / N_ARRIVALS;
+DB = LOAD / Clock;
+end
+% a)
 lambda = 2;
 invmiu = 90;
 B = 2;
 M = 200;
 N = 1e4;
+Nsim = 10;
+PB = zeros(1,Nsim);
+DB = zeros(1,Nsim);
 
-Nsim = 100;
-% number of simulations
-PB= zeros(1,Nsim); % vector to save results
-DB= zeros(1,Nsim); % vector to save results
-for it= 1:Nsim
-    [PB(it), DB(it)]= VideoStreamingSimulatorAso(lambda, invmiu, B, M, N);
+
+for it = 1:Nsim
+    [PB(it),DB(it)] = VideoStreamingSimulator2(lambda,invmiu, B,M,N);
 end
+fprintf("Esercise 2(a)\n")
 
-alfa= 0.1; % 90% confidence interval
-media = mean(PB);
-[~, ~, ci] = ttest(PB, media,'alpha',alfa);
-fprintf('PB = %.4f [%.4f - %.4f] \n',media*100,ci(1)*100,ci(2)*100);
-media = mean(DB);
-[~, ~, ci] = ttest(DB, media,'alpha',alfa);
-fprintf('DB = %.2f Mbps [%.2f - %.2f]\n',media,ci(1),ci(2));
+alpha = 0.1;
+media_PB = mean(PB);
+[~,~,ci] = ttest(PB, media_PB, 'alpha',alpha);
+fprintf("PB = %.4f [%.4f - %.4f] %%\n", media_PB*100, ci(1)*100, ci(2)*100);
+
+fprintf("Esercise 2(b)\n")
+
+media_DB = mean(DB);
+[~,~,ci] = ttest(DB, media_DB, 'alpha',alpha);
+fprintf("PB = %.2f [%.2f - %.2f] Mbps\n", media_DB, ci(1), ci(2));
 
 
 %% 3.
@@ -88,14 +196,14 @@ for i= 1:length(D)
 end
 Prob= w/sum(w);
 
-%% 3. (Continuação)
 % a) Calcular a duração média D
-D_avg = sum(D .* Prob'); % O vetor Prob tem de estar alinhado com D
+D_avg = sum(D(:) .* Prob(:)); % O vetor Prob tem de estar alinhado com D
 fprintf('Exercise 3(a):\nD = %.2f minutes\n\n', D_avg);
+percentagem = Prob * 100;
 
 % b) Plot the probability mass function
-figure(1);
-stem(D, Prob * 100, 'b', 'Marker', 'o', 'MarkerSize', 5);
+figure;
+stem(D, percentagem, 'b', 'Marker', 'o', 'MarkerSize', 5);
 xlabel('Movie duration (min)');
 ylabel('Probability (%)');
 xlim([60 130]);
@@ -103,19 +211,71 @@ ylim([0 3.5]);
 grid on;
 title('Exercise 3(b)');
 
-%% 4. 
+% 4. 
+
+
+% a) Usando o novo simulador (duração discreta)
+function [PB,DB] =  VideoStreamingSimulator4(lambda, B, M, N,Prob,D)
+cdf = cumsum(Prob);
+
+% Events 
+ARRIVAL = 0;        % request of a movie
+DEPARTURE = 1;      % end of a movie transmission
+%Inicialization of variables and List of Events:
+Clock = 0;          % simulation time 
+STATE = 0;          % no. of movies in transmission 
+TRANSMITTED = 0;    % no. of transmitted movies
+N_ARRIVALS = 0;     % no. of movie requests
+BLOCKED = 0;        % no. of refused movies
+LOAD = 0;           % integral of the bitrate in transmission
+
+EventList = [ARRIVAL, Clock + exprnd(1/lambda)];
+
+while TRANSMITTED < N
+    EventList = sortrows(EventList, 2);             % sort EventList by time
+    event = EventList(1,1);                         % register event type in first row
+    PreviousClock = Clock;                          % save previous clock
+    Clock = EventList(1,2);                         % delete first row of EventList
+    EventList(1,:) = [];
+    LOAD = LOAD + B*STATE*(Clock- PreviousClock);
+    switch event
+        case ARRIVAL 
+            
+            EventList = [EventList; ARRIVAL, Clock + exprnd(1/lambda)]; % add future event
+            N_ARRIVALS = N_ARRIVALS + 1;
+            if STATE < M
+                STATE = STATE + 1;
+                r = rand();
+                % Encontra o primeiro índice onde a probabilidade acumulada é maior que r
+                idx = find(cdf >= r, 1, 'first'); 
+                duracao_filme = D(idx);
+                EventList = [EventList; DEPARTURE, Clock + duracao_filme]; % add future event
+            else 
+                BLOCKED = BLOCKED + 1;
+            end
+
+
+
+        case DEPARTURE
+            STATE = STATE - 1;
+            TRANSMITTED = TRANSMITTED + 1;
+    end 
+end
+
+PB = BLOCKED / N_ARRIVALS;
+DB = LOAD / Clock;
+end
+
 lambda = 2;
 B = 2;
 M = 200;
 N = 1e5;
 Nsim = 20;
-
-% a) Usando o novo simulador (duração discreta)
 PB_a = zeros(1, Nsim);
 DB_a = zeros(1, Nsim);
 for it = 1:Nsim
     % Assumindo que criou uma função VideoStreamingSimulator_Ex4
-    [PB_a(it), DB_a(it)] = VideoStreamingSimulatorAso(lambda, D, Prob, B, M, N);
+    [PB_a(it), DB_a(it)] = VideoStreamingSimulator4(lambda, B, M, N, Prob, D);
 end
 
 alfa = 0.1;
@@ -129,66 +289,10 @@ fprintf('PB = %.3f [%.3f - %.3f] %%\n', media_PB_a*100, ci_PB_a(1)*100, ci_PB_a(
 fprintf('DB = %.2f [%.2f - %.2f] Mbps\n\n', media_DB_a, ci_DB_a(1), ci_DB_a(2));
 
 % b) Usando o simulador da Tarefa 2 com média D
-function [PB, DB] = VideoStreamingSimulator_Ex4(lambda, D, Prob, B, M, N)
-    % lambda: taxa de chegada (pedidos/minuto)
-    % D: vetor com as durações dos filmes (minutos) - do Ex 3
-    % Prob: vetor com as probabilidades de cada duração - do Ex 3
-    % B: débito de cada filme (Mbps)
-    % M: capacidade do servidor (número máximo de filmes)
-    % N: critério de paragem (número de filmes terminados)
-
-    % --- Inicialização ---
-    NextArrival = -log(rand())/lambda;
-    NextDeparture = inf(1, M);
-    CurrentMovies = 0;
-    BlockedRequests = 0;
-    TotalMovies = 0;
-    
-    % Contadores para DB (Average Throughput)
-    TotalThroughputTime = 0;
-    LastEventTime = 0;
-    Clock = 0;
-
-    % --- Ciclo de Simulação ---
-    while TotalMovies < N
-        [NextEventTime, EventType] = min([NextArrival, NextDeparture]);
-        
-        % Atualiza estatísticas de Throughput antes de mudar o estado
-        TotalThroughputTime = TotalThroughputTime + CurrentMovies * B * (NextEventTime - Clock);
-        Clock = NextEventTime;
-
-        if EventType == 1 % Caso: Chegada de um pedido
-            if CurrentMovies < M
-                CurrentMovies = CurrentMovies + 1;
-                % --- PARTE ALTERADA: Escolha da duração discreta ---
-                % Usa o método da transformada inversa para a distribuição discreta 
-                idx = find(rand <= cumsum(Prob), 1);
-                movieDuration = D(idx);
-                % --------------------------------------------------
-                
-                % Encontra um slot livre no servidor
-                freeSlot = find(NextDeparture == inf, 1);
-                NextDeparture(freeSlot) = Clock + movieDuration;
-            else
-                BlockedRequests = BlockedRequests + 1;
-            end
-            NextArrival = Clock - log(rand())/lambda;
-            
-        else % Caso: Partida (filme terminou)
-            CurrentMovies = CurrentMovies - 1;
-            NextDeparture(EventType - 1) = inf;
-            TotalMovies = TotalMovies + 1;
-        end
-    end
-
-    % --- Resultados ---
-    PB = BlockedRequests / (TotalMovies + BlockedRequests); % Probabilidade de bloqueio 
-    DB = TotalThroughputTime / Clock; % Débito médio 
-end
 PB_b = zeros(1, Nsim);
 DB_b = zeros(1, Nsim);
 for it = 1:Nsim
-    [PB_b(it), DB_b(it)] = VideoStreamingSimulator_Ex4(lambda, D_avg, B, M, N);
+    [PB_b(it), DB_b(it)] = VideoStreamingSimulator2(lambda, D_avg, B, M, N);
 end
 
 media_PB_b = mean(PB_b);
@@ -201,6 +305,7 @@ fprintf('PB = %.3f [%.3f - %.3f] %%\n', media_PB_b*100, ci_PB_b(1)*100, ci_PB_b(
 fprintf('DB = %.2f [%.2f - %.2f] Mbps\n\n', media_DB_b, ci_DB_b(1), ci_DB_b(2));
 
 %% 5. Valores Teóricos (M/M/m/m)
+lambda = 2;
 
 rho = lambda * D_avg; % Tráfego em Erlangs
 
