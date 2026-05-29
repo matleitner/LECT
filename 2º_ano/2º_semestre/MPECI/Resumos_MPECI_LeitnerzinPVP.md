@@ -156,7 +156,7 @@ AXIOMATIZAÇÃO
 
 ## Probabilidade em espeços de amostragem não contáveis
 
-$ P(A) = \frac{Área\ (A)}{ Área\ (S)} $
+$P(A) = \frac{Área\ (A)}{ Área\ (S)} $
 
 ## Independência 
 
@@ -189,11 +189,11 @@ $P(A|B) = \frac{P(A \cap B)}{P(B)}$
 
 # Regra da Cadeia 
 
-$ P(AB) = P(A|B) × P(B) $
+$P(AB) = P(A|B) × P(B) $
 
 
-$ P(A_1\ A_2\ ...\ A_n) = P(A_1|A_2\ ...\ A_n) × P(A_2\ ...\ A_n) $
-$ P(A_1\ A_2\ ...\ A_n) = P(A_1|A_2\ ...\ A_n) × P(A_2|A_3\ ...\ A_n) × P(A_{n-1}|A_n) $
+$P(A_1\ A_2\ ...\ A_n) = P(A_1|A_2\ ...\ A_n) × P(A_2\ ...\ A_n) $
+$P(A_1\ A_2\ ...\ A_n) = P(A_1|A_2\ ...\ A_n) × P(A_2|A_3\ ...\ A_n) × P(A_{n-1}|A_n) $
 
 
 # Lei Probabilidade total
@@ -299,7 +299,7 @@ $p_{X}(k) = Pr(X = k) = \binom{n}{k}\ p^k\ {(1-p)}^{n-k}$
 
 $E[X] = n\ p$
 
-$ Var(X) = n\ p\ (1-p)$
+$Var(X) = n\ p\ (1-p)$
 
 
 # Distribuição de Poisson
@@ -320,9 +320,9 @@ um sucesso
 
 $p_X(k) = p(1-p)^{k-1}, k = 1,2,3,\ ...$
 
-$ E[X]  = \frac{1}{p}$
+$E[X]  = \frac{1}{p}$
 
-$ Var(X) = \frac{(1-p)}{p²}$
+$Var(X) = \frac{(1-p)}{p²}$
 
 
 
@@ -369,7 +369,7 @@ filas de espera e fiabilidade
 
 $f_X(x) = 𝜆e^{−𝜆𝑥}$
 
-$ E[X] = \frac{1}{𝜆}$
+$E[X] = \frac{1}{𝜆}$
 
 $Var(x) = \frac{1}{𝜆²}$
 
@@ -432,7 +432,7 @@ $x^{(k+1)} = Tx^{(k)}$
 $Tu = u$
 
 Ou de forma matricial, 
-$ (T-I)u = 0$
+$ T-I)u = 0$
 
 Em matlab 
 
@@ -491,7 +491,7 @@ $H_{new} = \beta * H + (1 - \beta) \times\frac{ones(length(H))}{length(H)}$
 
 # Google Matix
 
-$ A = \beta H + (1 - \beta)[\frac{1}{N}]_{N×N}$
+$A = \beta H + (1 - \beta)[\frac{1}{N}]_{N×N}$
 
 
 ## Alguns problemas do Page Rank
@@ -510,7 +510,7 @@ específico
 
 # Intervalos de Confiança
 
-$ IC = estimativa ± valor\_critico × erro\_padrão$
+$IC = estimativa ± valor\_critico × erro\_padrão$
 ### Exemplo 
 
 
@@ -876,7 +876,7 @@ $$\pi_n = \frac{(\frac{\lambda}{\mu})^n}{1 + \sum_{i=1}^\infin{(\frac{\lambda}{\
 Para haver probabilidade limite $\frac{\lambda}{\mu}\lt 1$
 
 
-$$ \pi_n =  (\frac{\lambda}{\mu})^n(1-\frac{\lambda}{\mu})$$
+$\pi_n$ =  (\frac{\lambda}{\mu})^n(1-\frac{\lambda}{\mu})$$
 
 ## Teorema de Little
 
@@ -890,7 +890,7 @@ $$(Teorema\ de\ Little)\ L = \lambda W → W = \frac{L}{\lambda} = \frac{1}{\mu-
 
 
 $$W_Q = W - \frac{1}{\mu} = \frac{\lambda}{\mu(\mu-\lambda)}$$
-$$ L_Q = \lambda W_Q → L_Q  = \frac{\lambda^2}{\mu(\mu-\lambda)}$$
+$$L_Q = \lambda W_Q → L_Q  = \frac{\lambda^2}{\mu(\mu-\lambda)}$$
 
 
 # Sistema M/M/1/m
@@ -961,7 +961,7 @@ $$L_Q = \lambda W_Q = \frac{\lambda^2 E[S²]}{2(1-\lambda E[S])}$$
 ---
 Atraso médio por cliente no sistema (atraso médio na fila de
 espera + tempo médio de atendimento):
-$$ W = \frac{\lambda E[S²]}{2(1-\lambda E[S])} + E[S]$$
+$$W = \frac{\lambda E[S²]}{2(1-\lambda E[S])} + E[S]$$
 
 ---
 Número médio de clientes no sistema (usando o teorema de

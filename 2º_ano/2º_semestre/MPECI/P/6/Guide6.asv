@@ -106,45 +106,9 @@ T = L / lambda_eff;
 fprintf("Service blocking probability = %f%%\n", Pb* 100)
 fprintf("Avg. service time per request = %.3f microseconds\n", T*1e6)
 
-B_valores = [200, 250, 300, 350];
+B = [200, 250, 300, 350];
 
-Pb_grafico = zeros(size(B_valores));
-T_grafico = zeros(size(B_valores));
 
-for i = 1:length(B_valores)
-    B_atual = B_valores(i);
-    
-    % Recalcular Pb para o B atual
-    Pb_atual = ((1 - ro) / (1 - ro^(B_atual + 1))) * (ro^B_atual);
-    
-    % Recalcular L para o B atual
-    n_atual = 0:B_atual;
-    Pn_atual = ((1 - ro) / (1 - ro^(B_atual + 1))) .* (ro.^n_atual);
-    L_atual = sum(n_atual .* Pn_atual);
-    
-    % Recalcular T (em segundos)
-    lambda_eff_atual = lambda * (1 - Pb_atual);
-    T_atual = L_atual / lambda_eff_atual;
-    
-    % Guardar resultados convertidos (Pb em % e T em microsegundos)
-    Pb_grafico(i) = Pb_atual * 100;
-    T_grafico(i) = T_atual * 1e6;
-end
-
-figure;
-subplot(2,1,1); % Divide a janela em 2 linhas, 1 coluna (Gráfico superior)
-bar(categorical(B_valores), Pb_grafico, 'FaceColor', [0.8500 0.3250 0.0980]);
-grid on;
-ylabel('Blocking Prob. (%)');
-title('Service Blocking Probability vs Acceptance Limit (B)');
-
-% --- Gráfico 2: Average Service Time ---
-subplot(2,1,2); % Gráfico inferior
-bar(categorical(B_valores), T_grafico, 'FaceColor', [0 0.4470 0.7410]);
-grid on;
-xlabel('Acceptance Limit (B)');
-ylabel('Avg. Service Time (\mu s)');
-title('Average Service Time per Request vs Acceptance Limit (B)');
 
 
 %% 3.
@@ -167,86 +131,10 @@ title('Average Service Time per Request vs Acceptance Limit (B)');
 %370 and 380, when the number of operators is m = 20. What do you conclude? Results:
 lambda = 370;
 m = 20;
-miu = 1 / (3 / 60); % miu = 20 pedidos/hora
-racio = lambda / miu;
-rho = lambda / (m * miu); % Fator de utilização (rho = 0.925)
+miu = 1/ (3 / 60);
 
-range = 0:(m-1);
-divisor = sum((racio.^range) ./ factorial(range));
-
-termo_m = (racio^m / factorial(m)) * (1 / (1 - rho));
-
-% P(ocupados) = termo_m / (somatório_0_to_m-1 + termo_m)
-prob_ocupados = termo_m / (divisor + termo_m);
-
-% Fórmula: Wq = P(ocupados) / (m * miu - lambda) -> resultado em horas
-Wq_horas = prob_ocupados / (m * miu - lambda);
-Wq_segundos = Wq_horas * 3600; % Converter horas para segundos
-
-fprintf('Prob. of all operators occupied = %.3f%%\n', prob_ocupados * 100);
-fprintf('Avg. queuing time per request = %.3f seconds\n', Wq_segundos);
-
-% Queremos encontrar o 'm' mínimo para que Wq <= 10 segundos
-Wq_limite = 10; 
-m_b = ceil(lambda / miu); % Começa no mínimo teórico para o sistema ser estável (m > 18.5)
-Wq_b_seg = Inf;           % Inicializar com valor alto para entrar no loop
-
-while Wq_b_seg > Wq_limite
-    m_b = m_b + 1; % Incrementa o número de operadores
-    
-    rho_b = lambda / (m_b * miu);
-    range_b = 0:(m_b-1);
-    
-    % Recalcular fórmulas para o m atual
-    divisor_b = sum((racio.^range_b) ./ factorial(range_b));
-    termo_m_b = (racio^m_b / factorial(m_b)) * (1 / (1 - rho_b));
-    
-    prob_b = termo_m_b / (divisor_b + termo_m_b);
-    Wq_b_seg = (prob_b / (m_b * miu - lambda)) * 3600;
-end
-
-fprintf('(b) \n');
-fprintf('Minimum number of operators = %d\n', m_b);
-fprintf('Prob. of all operators occupied = %.3f%%\n', prob_b * 100);
-fprintf('Avg. queuing time per request = %.3f seconds\n', Wq_b_seg);
-
-lambdas_c = 320:10:380; % Vetor com os valores de lambda pedidos
-m_c = 20;               % Número fixo de operadores
-Wq_resultados = zeros(size(lambdas_c)); % Vetor para guardar os tempos (Wq)
-
-for i = 1:length(lambdas_c)
-    l_atual = lambdas_c(i);
-    rho_c = l_atual / (m_c * miu);
-    
-    % Fórmulas Erlang-C para o lambda atual
-    range_c = 0:(m_c-1);
-    divisor_c = sum((racio.^range_c) ./ factorial(range_c));
-    
-    % Nota: o racio depende do lambda atual
-    racio_atual = l_atual / miu;
-    divisor_c = sum((racio_atual.^range_c) ./ factorial(range_c));
-    termo_m_c = (racio_atual^m_c / factorial(m_c)) * (1 / (1 - rho_c));
-    
-    prob_c = termo_m_c / (divisor_c + termo_m_c);
-    
-    % Guardar o tempo médio em fila (convertido para segundos)
-    Wq_resultados(i) = (prob_c / (m_c * miu - l_atual)) * 3600;
-end
-
-% --- Desenhar o Gráfico ---
-figure;
-bar(lambdas_c, Wq_resultados, 'FaceColor', [0.2 0.6 0.8], 'EdgeColor', [0 0.2 0.4]);
-grid on;
-xlabel('\lambda - Taxa de Chegada (pedidos/hora)', 'FontSize', 11);
-ylabel('Tempo Médio em Fila W_q (segundos)', 'FontSize', 11);
-title('Impacto da Taxa de Chegada no Tempo de Espera (m = 20)', 'FontSize', 12);
-
-% Mostrar a tabela de valores calculados no Command Window
-disp('--- Alínea (c) ---');
-disp('Resultados para o gráfico (lambda vs Wq):');
-for i = 1:length(lambdas_c)
-    fprintf('  lambda = %d pedidos/h -> Wq = %.3f segundos\n', lambdas_c(i), Wq_resultados(i));
-end
+divisor = ones(m,1)* lambda/miu;
+range = 
 
 %% 4.
 %Consider a server based on a VM (Virtual Machine) provided by a Hypervisor that runs

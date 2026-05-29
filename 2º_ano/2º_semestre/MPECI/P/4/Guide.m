@@ -1,4 +1,32 @@
 %% 1. 
+
+
+%% 1.
+% Consider a wireless link between multiple stations for data communications. Consider the
+% bit error rate (ber) introduced by the wireless link (due to the variation of the propagation
+% and interference factors along with time) given by the following Markov chain:
+%
+%   600          100           20            5
+% ------> 10^-6 ------> 10^-5 ------> 10^-4 ------> 10^-3 ------> 10^-2
+% <------       <------       <------       <------       <------
+%    8             5             2             1
+%
+% where the state transition rates are in number of transitions per hour. Assume that all
+% stations detect with a probability of 100% when the data frames sent by the other stations
+% are received with errors.
+%
+% (a) Determine the probability of the link being on each state.
+% (b) Determine the average time percentage the link is on each state.
+% (c) Determine the average holding time (in minutes) of the link on each state.
+% (d) Determine the probability (in %) of a data frame of 100 Bytes to be received with
+%     errors (i.e., with at least one bit in error).
+% (e) Determine the probability (in %) of a data frame of 1500 Bytes to be received without
+%     errors.
+% (f) When a data frame of 1500 Bytes is received with errors, what is the probability of the
+%     link being in state 10^-6? And in state 10^-2? Compare these probabilities with the
+%     probabilities in 1(a) and draw conclusions.
+%
+
 % a)
 
    % 1e-6 1e-5 1e-4 1e-3 1e-2
@@ -101,6 +129,22 @@ P = (P_Erro_dado_X(5) * u(5) )/P_Erro_Total;
 fprintf("1e-2: %.2e\n", P);
 
 %% 2. 
+%% 2.
+% Consider a company providing all services on a single server. The server can break down
+% due to 2 causes: hardware failure or software failure. The amount of time the server runs
+% until a hardware/software failure is exponentially distributed with an average of 500 days
+% and 90 days, respectively. The hardware/software repair time is exponentially distributed
+% with an average of 1 day and 4 hours, respectively. A hardware failure requires first the
+% hardware repair and then the software repair, while a software failure requires only the
+% software repair.
+%
+% (a) Draw the state transition diagram of the Markov chain modeling this system with state
+%     transition rates in number of transitions per day.
+% (b) Define, in Matlab, the corresponding state transition matrix.
+% (c) Compute the limiting probabilities (in %) of each state.
+% (d) What is the probability (in %) of the server being available?
+% (e) What is the average time (in hours) that the server is down in one month of 30 days?
+
 % b)
 lambda_s = 1/90;
 lambda_h = 1/500;
@@ -142,6 +186,21 @@ fprintf("e) Tempo médio down por mês: %.2f horas\n", tempo_dowm)
 
 
 %% 3.
+%
+%% 3.
+% Consider a Data Center with 100 servers and t maintenance technicians. The amount of
+% time each server runs until it fails is exponentially distributed with an average of 200 days.
+% The server repair time of each technician is exponentially distributed with an average of 36
+% hours. Consider a birth-dead process with states n = 0, 1, ..., 100 representing the number
+% of failing servers.
+%
+% (a) Consider t = 1 technician. Compute first the state limiting probabilities and then:
+%     i) determine the average number of servers down,
+%     ii) determine the average number of technicians in repairing activities,
+%     iii) determine the probability (in %) of at least 90 servers being in operation.
+% (b) Repeat 3(a) considering t = 2 technicians.
+% (c) Repeat 3(a) considering t = 3 technicians. Compare all results and draw conclusions.
+
 % i) 
 fprintf("Exercicio 3\n3.\n  i) ")
 lambda_F = 1/200;
@@ -242,6 +301,20 @@ disp(l);
 
 
 %% 4.
+%
+%% 4.
+% Consider a M/M/1 queuing system such that the arriving rate of clients is lambda = 8 clients per
+% minute and the average serving time of each client is 1/mu = 0.1 minutes.
+%
+% (a) What is the average time each client stays in the system?
+% (b) What is the average server occupation (in %)?
+% (c) What is the average queue occupation, i.e., the average number of clients in the queue?
+% (d) What is the probability (in %) of the queue occupation becoming larger than 6 clients?
+%     And larger than 20 clients? And larger than 40 clients?
+% (e) Using Matlab plot function, plot a graph of the average time each client stays in the
+%     system as a function of the client arriving rate lambda (from lambda = 1 to lambda = 9).
+%
+
 fprintf("4.\na)")
 % a)
 niu = 10;
@@ -296,7 +369,18 @@ ylabel('(W) ');
 title('lambda = [1, 9]');
 
 %% 5. 
-
+%% 5.
+% Consider a M/M/1/m queuing system such that the arriving rate of clients is lambda = 80 clients
+% per second, the average serving time of each client is 1/mu = 0.01 seconds and the system
+% capacity is m = 10 clients. Clients are discarded when they arrive and the system is full.
+%
+% (a) What is the probability of each client being discarded?
+% (b) What is the average time (in milliseconds) each client stays in the system when it is
+%     not discarded?
+% (c) What is the average queue occupation?
+% (d) Using Matlab bar function, plot a bar chart of the client discard probability as a
+%     function of the system capacity m (for m = 5, 10, 15, ..., 40). What do you conclude
+%     from this chart?
 lambda = 80;
 mu = 1/0.01;
 m = 10;
