@@ -481,6 +481,63 @@ Nenhuma interface muda de estado. A alteração de prioridade de Sw1 não afeta 
 
 ---
 
+
+# Trafic TUNNELING & Overlay Networks
+
+Tunel é implementado adicionando mais 1 cabeçalho ao IP original 
+
+`| Delivery Header(s) | (Pacote Original com Cabeçalho Original e os Dados)|`
+
+
+## Propósito
+
+- Para garantir que os pacotes IP para um determinado destino são encaminhados através deu um "nó" específico na sua tabela de encaminhamento até ao destino;
+- Para garantir o encaminhamento dos pacotes IP para um destino, quando nos caminhos intermediarios não existe suporte o protocólo original;
+
+- Segurança
+
+
+
+
+
+
+
+# Exercicios slides 
+
+## a)
+
+R3 
+
+O 198.2.4.0 [120/2] via 198.1.34.4    custo R3 (1) R4(1) 
+198.1.2.0   [120/4] via 192.2.20.1    custo R3 (3) R1(1)
+192.3.66.0  [120/5[ via 192.2.20.1    custo R3 (3) R1(1) R2(1) 
+192.1.14.0  [120/4] via tunnel        tunnel (1) R2(2) R1(1) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Exercicios sobre Túnel. 
 
 ![](Exercicios/.d_f_erradas.png)
@@ -493,6 +550,19 @@ Nenhuma interface muda de estado. A alteração de prioridade de Sw1 não afeta 
 
 
 **d** e **e** erradas
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
