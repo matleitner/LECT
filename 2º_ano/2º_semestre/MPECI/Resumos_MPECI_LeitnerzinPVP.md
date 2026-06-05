@@ -144,12 +144,7 @@ pA= fr
 
 # Teoria Axiomática de Probabilidade
 
-Em determinado ponto da evolução de uma
-teoria de pensamento matemático, torna-se
-imperioso ordenar, sistematizar e relacionar
-todos os conhecimentos entretanto nela
-reconhecidos, isto é, proceder à sua
-AXIOMATIZAÇÃO
+Em determinado ponto da evolução de uma teoria de pensamento matemático, torna-se imperioso ordenar, sistematizar e relacionar todos os conhecimentos entretanto nela reconhecidos, isto é, proceder à sua **AXIOMATIZAÇÃO**
 
 
 ---
@@ -189,7 +184,7 @@ $P(A|B) = \frac{P(A \cap B)}{P(B)}$
 
 # Regra da Cadeia 
 
-$P(AB) = P(A|B) × P(B) $
+$P(AB) = P(A|B) × P(B)$
 
 
 $P(A_1\ A_2\ ...\ A_n) = P(A_1|A_2\ ...\ A_n) × P(A_2\ ...\ A_n)$
@@ -203,12 +198,12 @@ Ter $P(B|A_i)$, para todos os $i$
 $P(B) = P(B|A_1)P(A_1) + P(B|A_2)P(A_2) + P(B|A_3)$
 
 
-Em geral: $P(B) = \sum{j} P(B|A_j)P(A_j)$
+Em geral: $P(B) = \sum_{j} P(B|A_j)P(A_j)$
 
 
 # Regra de Bayes
 
-$P(A_i|B) = \frac{P(B|A_i)P(A_i)}{\sum{j}P(B|A_j)P(A_j)}$
+$P(A_i|B) =\\ \frac{P(A_i \cap B)}{P(B)})  = \frac{P(B|A_i)P(A_i)}{\sum_{j}P(B|A_j)P(A_j)}$
 
 
 A Regra de Bayes, em consequência, pode ser
