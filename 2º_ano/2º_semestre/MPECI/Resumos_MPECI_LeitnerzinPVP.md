@@ -1,5 +1,7 @@
 # Resumo MPECI inteira
 
+Uns trabalham, outros vêm ler isto...
+
 
 # Aleatório 
 
@@ -1013,7 +1015,7 @@ $$\pi_n = \frac{(\frac{\lambda}{µ})^n / n!}{\sum_{i = 0}^ m ((\frac{\lambda}{µ
 -  Nº médio de filmes em transmissão: $L = \sum_{n = 0}^m(n × \pi_n)$
 
 - Débito  binário médio do servidor: $B_m = B × L$
- ![[M_M_1_mPS.png]]
+ ![](T/EXEMPLOS/M_M_1_mPS.png)
 
 ## Serviço de dados
 
@@ -1050,7 +1052,7 @@ Na notação M/M/1/m * PS, o termo ‘m * PS’ significa que o
 servidor pode atender até m clientes em simultâneo e atende
 os clientes segundo uma disciplina Processor Sharing.
 
-![](M_M_1_bPS.png)
+![](T/EXEMPLOS/M_M_1_bPS.png)
 
 ## Desempenho de um servidor de um serviço do tipo Call Center
 
@@ -1070,7 +1072,7 @@ Processo de nascimento e morte em que:
 
 Nos estados n = 1,2, ..., m o sistema tem $n$ clientes em atendimento e 0 clientes em espera, nos estados n = m+1, m+2, ..., m+i, o sistema tem $m$ clientes em atendimento e i clientes em espera.
 
-![](M_M_m.png)
+![](T/EXEMPLOS/M_M_m.png)
 
 
 
@@ -1168,7 +1170,7 @@ garantido que os serviços continuam a ser suportados.
 -  Exemplo: redes de circuitos virtuais tais como o MPLS
 
 
-![[mecanismo_restauro.png]]
+![](T/EXEMPLOS/mecanismo_restauro.png)
 
 
 Disponibilidade do serviço VPN:
@@ -1182,9 +1184,10 @@ O fluxo é enviado duplicdado pelos 2 percursos
 ### Proteção 1:1 (um para um):
 O fluxo é enviado por um dos percursos e o outro percurso é só usado em caso de falha
 
-![[exemploProtecao.png]]
-![[umMaisUm.png]]
-![[umParaUm.png]]
+![](T/EXEMPLOS/exemploProtecao.png)
+
+![](T/EXEMPLOS/umMaisUm.png)
+![](T/EXEMPLOS/umParaUm.png)
 
 <!-- 
                  Selo de certificação resumo LeitnerzinhoPVP  

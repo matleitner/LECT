@@ -1,3 +1,5 @@
+Outra vez aqui? Deves pensar que isto te vai salvar...
+
 # IP Routing Protocols
 
 Routers precisam de saber como enviar pacotes para qualquer rede IP. 
