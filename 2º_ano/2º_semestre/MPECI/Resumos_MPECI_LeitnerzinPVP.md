@@ -90,7 +90,7 @@ Prob de obter face 5?
 
 6 resultados ou eventos elementares {1,2,3,4,5,6}
 
-$ P(face\ 5) = \frac{1}{6}$
+$P(face\ 5) = \frac{1}{6}$
 
 
 # Regras básicas 
@@ -102,19 +102,19 @@ $ P(A) = 1 - P(\neg A) $
 ## Interseção
 
 
-$ P(A \cap B) =  P(A) × P(B) $
+$P(A \cap B) =  P(A) × P(B)$
 
 
 
 ## Disjunção
 
-$ P(A \vee B) = P(A) + P(B) - P(A \cap B) $ 
+$P(A \vee B) = P(A) + P(B) - P(A \cap B)$ 
 
 ## Abordagem Frequencista
 Usa-se esta frequência como uma medida empírica de probabilidade
 
 ### Definição
-$ f(A) = \frac{\#\ ocorreências\ do\ evento\ A}{N} $ 
+$f(A) = \frac{\#\ ocorreências\ do\ evento\ A}{N}$ 
 
 
 
@@ -156,11 +156,11 @@ AXIOMATIZAÇÃO
 
 ## Probabilidade em espeços de amostragem não contáveis
 
-$P(A) = \frac{Área\ (A)}{ Área\ (S)} $
+$P(A) = \frac{Área\ (A)}{ Área\ (S)}$
 
 ## Independência 
 
-2 acontecimentos são independentes se e só se $ P(A \cap B) = P(A) × P(B) $
+2 acontecimentos são independentes se e só se $P(A \cap B) = P(A) × P(B)$
 
 # Experiências de Bernoulli
 Uma experiência de **Bernoulli** consiste em realizar uma experiência e registar se eum dado acontecimento se verifica ou não, sucesso ou falha.
@@ -172,7 +172,7 @@ k sucessos em n experiências
 Face → sucesso
 
 Verso → falha 
-$P(FVVFFF) = {p}^{k}\ ×\ {(1-p)}^{n-k}  = {p}^{4}×{(1-p)}^{4-2} $
+$P(FVVFFF) = {p}^{k}\ ×\ {(1-p)}^{n-k}  = {p}^{4}×{(1-p)}^{4-2}$
 
 
 ## Lei Binomial
@@ -192,18 +192,18 @@ $P(A|B) = \frac{P(A \cap B)}{P(B)}$
 $P(AB) = P(A|B) × P(B) $
 
 
-$P(A_1\ A_2\ ...\ A_n) = P(A_1|A_2\ ...\ A_n) × P(A_2\ ...\ A_n) $
-$P(A_1\ A_2\ ...\ A_n) = P(A_1|A_2\ ...\ A_n) × P(A_2|A_3\ ...\ A_n) × P(A_{n-1}|A_n) $
+$P(A_1\ A_2\ ...\ A_n) = P(A_1|A_2\ ...\ A_n) × P(A_2\ ...\ A_n)$
+$P(A_1\ A_2\ ...\ A_n) = P(A_1|A_2\ ...\ A_n) × P(A_2|A_3\ ...\ A_n) × P(A_{n-1}|A_n)$
 
 
 # Lei Probabilidade total
 Partição do espaço de amostragem $A_1\ A_2\ A_3$
 Ter $P(B|A_i)$, para todos os $i$
 
-$ P(B) = P(B|A_1)P(A_1) + P(B|A_2)P(A_2) + P(B|A_3) $
+$P(B) = P(B|A_1)P(A_1) + P(B|A_2)P(A_2) + P(B|A_3)$
 
 
-Em geral: $ P(B) = \sum{j} P(B|A_j)P(A_j)$
+Em geral: $P(B) = \sum{j} P(B|A_j)P(A_j)$
 
 
 # Regra de Bayes
@@ -220,16 +220,11 @@ $$P(causa|efeito) = \frac{P(efeito|causa)P(causa)}{P(efeito)}$$
 
 # Variável aleatória
 
-Uma função que mapeia o espaço de
-amostragem na recta real é designada de
-VARIÁVEL ALEATÓRIA
+Uma função que mapeia o espaço de amostragem na recta real é designada de 
 
-Uma variável aleatória escalar 𝑋 é
-formalmente definida como sendo um
-mapeamento de um espaço amostral S para a
-recta real
+**VARIÁVEL ALEATÓRIA**
 
-
+Uma variável aleatória escalar 𝑋 é formalmente definida como sendo um mapeamento de um espaço amostral S para a reta real
 
 - Discretas - se os valores que a variável aleatória pode assumir forem finitos ou infinitos mas contáveis, exemplo: número de acessos por minuto a uma página web
 
@@ -240,23 +235,23 @@ recta real
 
 # Esperança E[X]
 
-| $x_1$| $p_x(x_i)$| $x_i p_X(x_i)$ |
-| -- | --- | ---|
-| -1 |  .1 | -.1|
-| 0 |  .2 | .0|
-| 1 |  .4 | .4|
-| 2 |  .2 | .4|
-| 3 |  .1 | .3|
-| $E[X]$ |  | 1.0|
+| $x_1$  | $p_x(x_i)$ | $x_i p_X(x_i)$ |
+| ------ | ---------- | -------------- |
+| -1     | .1         | -.1            |
+| 0      | .2         | .0             |
+| 1      | .4         | .4             |
+| 2      | .2         | .4             |
+| 3      | .1         | .3             |
+| $E[X]$ |            | 1.0            |
 
 
 
 # Variância
 
-$ Var(X) = E[ {(X - E(X))}^{2}]$
+$Var(X) = E[ {(X - E(X))}^{2}]$
 
 
-$ Var(X) = 𝜎² = \sum{i} [x_i - E(X)]²\ p(x_i)$
+$Var(X) = 𝜎² = \sum{i} [x_i - E(X)]²\ p(x_i)$
 
 ### Propriedades 
 
@@ -271,13 +266,9 @@ Raiz quadrada da variância é o desvio padrão representado por 𝜎.
 
 # Distribruições
 
-As funções de massa de probabilidade e de
-densidade de probabilidade (para o caso
-contínuo) podem assumir as mais variadas
-formas.
+As funções de massa de probabilidade e de densidade de probabilidade (para o caso contínuo) podem assumir as mais variadas formas.
 
-Mas existe um conjunto de “formas”
-(distribuições) que aparecem repetidamente em
+Mas existe um conjunto de “formas” (distribuições) que aparecem repetidamente em
 muitos e variados problemas.
 
 # Distribuições Discretas
@@ -290,10 +281,8 @@ $E[X] = p$
 $Var(I) = p(1-p)$
 
 # Distribuição Binomial
-Seja 𝑋 o número de vezes que um
-acontecimento 𝐴 ocorre em 𝑛 experiências de
-Bernoulli, isto é, 𝑋 representa o número de sucessos em 𝑛
-experiências (observações)
+Seja 𝑋 o número de vezes que um acontecimento 𝐴 ocorre em 𝑛 experiências de
+Bernoulli, isto é, 𝑋 representa o número de sucessos em $𝑛$ experiências (observações)
 
 $p_{X}(k) = Pr(X = k) = \binom{n}{k}\ p^k\ {(1-p)}^{n-k}$
 
@@ -330,13 +319,14 @@ $Var(X) = \frac{(1-p)}{p²}$
 
 # Distribuição uniforme
 
-$E[X] = \frac{a+b}{2} $
+$E[X] = \frac{a+b}{2}$
 
-$Var[X] = \frac{(b-a)²}{12} $
+$Var[X] = \frac{(b-a)²}{12}$
  
 ### Função rand() do Matlab
 
-Para ter U(a,b) basta usar: 
+Para ter $U(a,b)$ basta usar:
+
 ```matlab
 a+rand()*(b-a)
 ```
@@ -347,6 +337,7 @@ $f_X(x) = \frac{1}{\sqrt{2 \pi}𝜎}e^{-\frac{(x-m)²}{2𝜎²}}$
 $E[X] = m$
 
 $Var(X) = 𝜎²$
+
 - É muito provavelmente a mais conhecida e utilizada de todas as distribuições (contínuas)
 
 Adequa-se/ajusta-se a muitas características humanas
@@ -373,8 +364,6 @@ $E[X] = \frac{1}{𝜆}$
 
 $Var(x) = \frac{1}{𝜆²}$
 
-
-
 # Desigualdade de Markov
 
 $P(X\ge a) \le \frac{E[X]}{a},\ qualquer\ a> 0  $
@@ -385,33 +374,22 @@ $P(|X-E[X]| \ge a) \le \frac{Var(X)}{a²}$
 
 # Teorema do Limite Central
 
-$P(|M_n - f| \le 0.05) \ge 0.95 $
+$P(|M_n - f| \le 0.05) \ge 0.95$
+<br><br>
 <br>
 <br>
-<br>
-<br>
-<br>
-
 # Cadeias de Markov
 
-Um processo de **Markov** é um processo
-estocástico em que a probabilidade de o
-sistema estar num estado específico num
-determinado período de observação depende
-apenas do seu estado no período de
-observação imediatamente precedente
+Um processo de **Markov** é um processo estocástico em que a probabilidade de o
+sistema estar num estado específico num determinado período de observação depende
+apenas do seu estado no período de observação imediatamente precedente
 
 
 ## Matriz de transição 
 
 Seja $t_{ji}$, a probabilidade de transitar do estado i para o estado j.
 
-$
-\begin{bmatrix}
-t_{11} & ... &  t_{1n}\\
- ... & ... &  ...  \\   
-t_{n1} & ... & t_{nn}\\ 
-\end{bmatrix}$
+$\begin{bmatrix} t_{11} & ... &  t_{1n}\\ ... & ... &  ...  \\ t_{n1} & ... & t_{nn}\\ \end{bmatrix}$
 
 ## Matriz T é estocástica
 
@@ -432,9 +410,9 @@ $x^{(k+1)} = Tx^{(k)}$
 $Tu = u$
 
 Ou de forma matricial, 
-$ T-I)u = 0$
+$T-I×u = 0$
 
-Em matlab 
+Em matlab:
 
 ```matlab
 M = [T - eye(length(T)); ones(1,length(T))];
@@ -449,47 +427,29 @@ O pagerank (r) de uma página $P_j$ é por definição:
 $r(P_j) = \sum{i} \frac{r(P_i)}{d_i}$ 
 
 
-estado estacionário $r = Hr$
+Estado estacionário $r = Hr$
 
 
-## Problemas 
+## Problemas: 
 
 ### Dead ends
-$
-H = 
-\begin{bmatrix}
- 0 & 0.5 & 0& 0\\
-1/3 & 0 & 0& 0.5\\
-1/3 & 0 & 0& 0.5\\
-1/3 & 0.5 & 0& 0\\
-\end{bmatrix}$
+
+$H =\begin{bmatrix} 0 & 0.5 & 0& 0\\1/3 & 0 & 0& 0.5\\1/3 & 0 & 0& 0.5\\1/3 & 0.5 & 0& 0\\\end{bmatrix}$
 
 ### Solução:
-$
-H = 
-\begin{bmatrix}
- 0 & 0.5 & 1/4& 0\\
-1/3 & 0 & 1/4& 0.5\\
-1/3 & 0 & 1/4& 0.5\\
-1/3 & 0.5 & 1/4& 0\\
-\end{bmatrix}$
+
+$H = \begin{bmatrix} 0 & 0.5 & 1/4& 0\\1/3 & 0 & 1/4& 0.5\\1/3 & 0 & 1/4& 0.5\\1/3 & 0.5 & 1/4& 0\\\end{bmatrix}$
 
 
 ### Spider traps
 
-$
-H = 
-\begin{bmatrix}
- 0.5 & 0.5& 0\\
- 0.5 & & 0\\
- 0 & 0.5& 1\\
-\end{bmatrix}$
+$H = \begin{bmatrix} 0.5 & 0.5& 0\\0.5 & 0 & 0\\ 0 & 0.5& 1\\\end{bmatrix}$
 
 ### Solução:
 
 $H_{new} = \beta * H + (1 - \beta) \times\frac{ones(length(H))}{length(H)}$
 
-# Google Matix
+# Google Matriz
 
 $A = \beta H + (1 - \beta)[\frac{1}{N}]_{N×N}$
 
@@ -518,7 +478,7 @@ $IC = M_n ± z_{σ/2}(σ / \sqrt{n})$
 
 $M_n = 10.2, σ = 1.5, n= 25$
 
-$IC = 10.2 ± 1.96 (1.5 / \sqrt{25}) = [9.61, 10.79]$ 
+$IC = 10.2 ± 1.96 × (1.5 / \sqrt{25}) = [9.61, 10.79]$ 
 
 em Matlab **ztest()**
 
@@ -585,21 +545,9 @@ No diagrama de uma CTMC (Cadeia de Markov em Tempo Contínuo), as setas represen
            4 (μ1)            4 (μ2)
 ```
 
-$
-T = \begin{pmatrix}
-0 & 4 & 0 \\
-\frac{2}{180} & 0 & 4 \\
-0 & \frac{1}{180} & 0
-\end{pmatrix}
-$
+$T = \begin{pmatrix}0 & 4 & 0 \\\frac{2}{180} & 0 & 4 \\0 & \frac{1}{180} & 0\end{pmatrix}$
 
-$
-Q = \begin{pmatrix}
--\frac{2}{180} & 4 & 0 \\
-\frac{2}{180} & -\left(4 + \frac{1}{180}\right) & 4 \\
-0 & \frac{1}{180} & -4
-\end{pmatrix}
-$
+$Q = \begin{pmatrix}-\frac{2}{180} & 4 & 0 \\\frac{2}{180} & -\left(4 + \frac{1}{180}\right) & 4 \\0 & frac{1}{180} & -4\end{pmatrix}$
 
 Calculamos as taxas de transição $q_{ij}$ (taxa de passagem do estado $i$ para o estado $j$):
 
@@ -687,7 +635,7 @@ $$\pi_n = {\frac{\lambda_0 \lambda_1\ ...\ \lambda_{n-1}}{\mu_1\mu_2\ ...\ \mu_{
 ### Condição necessária, para existência de probabilidades limite
 
 
-$$\sum_i^{\infin}{\frac{\lambda_0 \lambda_1\ ...\ \lambda_{i-1}}{\mu_1\mu_2\ ...\ \mu_{i}}} < \infin $$
+$$\sum_i^{\infty}{\frac{\lambda_0 \lambda_1\ ...\ \lambda_{i-1}}{\mu_1\mu_2\ ...\ \mu_{i}}} < \infty $$
 
 
 ### Exemplo:
@@ -724,6 +672,7 @@ fprintf("Prob. estado 2: %.2e\n", u(3));
 
 2º exemplo nos acetatos teóricos.
 
+----
 
 
 # Processo de contagem
@@ -811,9 +760,7 @@ O número de clientes no sistema $L$ é  igual à taxa de clientes $\lambda$ que
 
 $$a_n = P_n$$
 
-a percentagem de clientes que chegam e encontram o
-sistema com n clientes é igual à probabilidade de estarem
-exatamente n clientes no sistema.
+a percentagem de clientes que chegam e encontram o sistema com n clientes é igual à probabilidade de estarem exatamente n clientes no sistema.
 
 
 # Sistemas de fila de espera
@@ -871,19 +818,19 @@ Processo de nascimento e morte em que
 
 - O estado **n** $n \ge 1$ representa o sistema estar com **1 cliente a ser atendido** e **n-1 clientes na fila de espera**
 
-$$\pi_n = \frac{(\frac{\lambda}{\mu})^n}{1 + \sum_{i=1}^\infin{(\frac{\lambda}{\mu})^i}}$$
+$$\pi_n = \frac{(\frac{\lambda}{\mu})^n}{1 + \sum_{i=1}^\infty{(\frac{\lambda}{\mu})^i}}$$
 
 Para haver probabilidade limite $\frac{\lambda}{\mu}\lt 1$
 
 
-$\pi_n$ =  (\frac{\lambda}{\mu})^n(1-\frac{\lambda}{\mu})$$
+$\pi_n =(\frac{\lambda}{\mu})^n(1-\frac{\lambda}{\mu})$
 
 ## Teorema de Little
 
 Continuação...
 
 Número médio de clientes no sistema:
-$$L = \sum_{n = 1}^\infin n × \pi_n = \frac{\lambda}{\mu - \lambda}$$
+$$L = \sum_{n = 1}^\infty n × \pi_n = \frac{\lambda}{\mu - \lambda}$$
 Tempo médio de permanência de cada cliente no sistema:
 
 $$(Teorema\ de\ Little)\ L = \lambda W → W = \frac{L}{\lambda} = \frac{1}{\mu-\lambda}$$
@@ -940,8 +887,8 @@ Processo de nascimento e morte que:
 - o servidor atende um cliente de cada vez com o tempo de atendimento S genérico e independente dos instantes de chegada dos clientes
 - o sistema acomoda um número infinito de clientes
 
-Sabendo a média E[S] e o segundo momento E[S²] do tempo
-de atendimento S, o atraso médio por cliente na fila de
+Sabendo a média $E[S]$ e o segundo momento $E[S²]$ do tempo
+de atendimento $S$, o atraso médio por cliente na fila de
 espera é (fórmula de Pollaczek – Khintchine)
 
 $$W_Q = \frac{\lambda E[S²]}{2(1-\lambda E[S])}$$
@@ -959,17 +906,16 @@ teorema de Little):
 $$L_Q = \lambda W_Q = \frac{\lambda^2 E[S²]}{2(1-\lambda E[S])}$$
 
 ---
-Atraso médio por cliente no sistema (atraso médio na fila de
-espera + tempo médio de atendimento):
+Atraso médio por cliente no sistema (atraso médio na fila de espera + tempo médio de atendimento):
 $$W = \frac{\lambda E[S²]}{2(1-\lambda E[S])} + E[S]$$
 
 ---
-Número médio de clientes no sistema (usando o teorema de
-Little):
+Número médio de clientes no sistema (usando o teorema de Little):
 $$L = \lambda W = \frac{\lambda²E[S²]}{2(1-\lambda E[S])} + \lambda E[S]$$
 
 # Simulador com estimação de probabilidade de bloqueio e com estimação do débito binário médio do servidor
 Considere-se um servidor de vídeo-streaming caracterizado por:
+
 - os pedidos de filmes chegam segundo um processo de Poisson a uma taxa de $\lambda$ pedidos por minuto
 - os filmes têm uma duração exponencialmente distribuída com média de 1/µ (em minutos)
 - cada filme é transmitido a um débito de B (em Mbps)
@@ -1028,9 +974,226 @@ DB = LOAD / Clock;
 end
 ```
 
+
+---
+
+# Desempenho de Servidores
+
+Recursos de um Servidor:
+-  Capacidade de processamento;
+-  Capacidade **C** de ligação à rede 
+
+O **Desempenho** de um servidor depende do tipo de serviço disponibilizado pelo servidor.
+
+3 tipos de serviços estudados:
+
+- **Video-streaming**, cujo desempenho está limitado pela capacidade **C** da ligação do servidor à Rede;
+- Serviços de dados, cujo desempenho está limitado pela **capacidade de processamento** do servidor;
+-  Serviços do tipo **Call Center**, cujo desempenho está limitado pelo número disponível de operadores;
+
+## Serviços Video-streaming
+
+Se considerarmos que: 
+
+- a chegada de pedidos de filmes é um **Processo de Poisson** com taxa de $\lambda$ 
+- a duração dos filmes é exponencialmente distribuída de média 1/µ 
+- os filmes são codificados num único formato cuja transmissão tem um débito binário $B$ bps
+- capacidade de ligação $C$ bps, então a capacidade do servidor é $m = \lfloor \frac{C}{B} \rfloor$
+ - os pedidos são bloqueados se  o servidor estiver a transmitir $m$ filmes
+Então o servidor pode ser modelado por um sistema M/M/m/m
+
+- Processo de **nascimento** e **morte** 
+```   
+ µ←  |  λ→
+ 
+      µ  2µ  3µ     mµ
+	0 → 1 → 2 →  ... → m
+	  λ   λ   λ      λ   
+```   
+
+- Probabilidade de cada estado: 
+$$\pi_n = \frac{(\frac{\lambda}{µ})^n / n!}{\sum_{i = 0}^ m ((\frac{\lambda}{µ})^i)/i!}$$
+- Probabilidade de bloqueio  (Formula de ErlangB): $\pi_m$
+ 
+-  Nº médio de filmes em transmissão: $L = \sum_{n = 0}^m(n × \pi_n)$
+
+- Débito  binário médio do servidor: $B_m = B × L$
+ ![[M_M_1_mPS.png]]
+
+## Serviço de dados
+
+Em serviços de dados, o desempenho do servidor é limitado
+pela sua capacidade de processamento.
+
+- Por exemplo, um servidor Web pode receber milhares de pedidos HTTP por dia cujo tempo de resposta por pedido pode tornar-se demasiado grande se o número de pedidos em processamento for muito grande.
+
+Para evitar esta situação:
+
+-  através de testes de stress, determina-se um tempo médio de serviço por pedido 1/µ para um número m de pedidos simultâneos em processamento,
+- se o valor 1/µ for adequado, o servidor é configurado para recusar os pedidos que chegam quando está a processar m pedidos simultâneos.
+
+O servidor serve os pedidos à sua capacidade máxima e dividindo
+igualmente os seus recursos pelos pedidos em processamento:
+
+- disciplina PS (Processor Sharing): cada pedido recebe um tempo de serviço que é suspenso até que todos os outros pedidos recebam o mesmo tempo de serviço
+
+
+Este sistema pode ser modelado por um sistema M/M/1m * PS
+
+(1) A chegada de clientes é um processo de Poisson de taxa λ
+
+(2) o sistema tem 1 servidor
+
+(3) o servidor atende até $m$ clientes
+
+(4) o sistema tem a capacidade de $m$ clientes
+
+(5) o servidor atende os clientes com um tempo exponencialmente distribuido por cliente de n/mµ em que $n$ é o número de clientes do sistema 
+
+
+Na notação M/M/1/m * PS, o termo ‘m * PS’ significa que o
+servidor pode atender até m clientes em simultâneo e atende
+os clientes segundo uma disciplina Processor Sharing.
+
+![](M_M_1_bPS.png)
+
+## Desempenho de um servidor de um serviço do tipo Call Center
+
+O desempenho do serviço é modelado por um sistema M/M/m
+
+Processo de nascimento e morte em que:
+
+(1) a chegada de clientes é um processo de Poisson com taxa λ
+
+(2) o sistema tem $m$ servidores
+
+(3) cada servidor atende um cliente de cada vez com um tempo exponencialmente distríbuido de média 1/µ 
+
+(4) o sistema acomoda um número infinito de clientes
+
+
+
+Nos estados n = 1,2, ..., m o sistema tem $n$ clientes em atendimento e 0 clientes em espera, nos estados n = m+1, m+2, ..., m+i, o sistema tem $m$ clientes em atendimento e i clientes em espera.
+
+![](M_M_m.png)
+
+
+
+# Disponibilidade de serviços com servidores de backup 
+
+Sabendo que cada servidor tem uma disponibilidade de 0.995 e os serviços precisam ter uma disponibilidade de pelo menos quatro noves 0.9999
+
+### Servidores de backup partilhados 
+
+n+b servidores, i servidores estão disponíveis com probabilidade de $f(i) = \binom{n+b}{i}p^i(1 - p)^{n+b-1}$ em que  $p = 0.995$
+
+
+Sistemas baseados em servidores de backup dedicados
+• São menos complexos de gerir:
+	- cada servidor de backup tem de estar preparado apenas para os serviços suportados pelo seu servidor primário 
+	 - a reposição dos serviços para o servidor primário (quando fica disponível) não tem requisitos temporais exigentes
+• Impõem maiores custos, pois precisam de mais servidores de backup para atingir o valor desejado de disponibilidade
+
+Sistemas baseados em servidores de backup partilhados
+• São mais complexos de gerir:
+	- cada servidor de backup tem de estar preparado para suportar os serviços de todos os servidores primários
+	- a reposição dos serviços para o servidor primário (quando fica disponível) deverá ser rápida (para o servidor de backup ficar disponível para falhas de outros servidores primários)
+• Impõem menores custos, pois precisam de menos servidores de backup para atingir o valor desejado de disponibilidade
+
+
+### Pretende-se que o serviço tenha uma disponibilidade de $A_d$
+
+Considere, um serviço que, para cumprir com os requisitos de desempenho
+precisa de correr em n servidores semelhantes, cada servidor tem uma disponibilidade de a, pretende-se que o serviço tenho uma disponibilidade de $A_d$
+
+$$ a_b = \sum_{i=n}^{n+b}\binom{n+b}{i} a^i(1-a)$$
+
+### Disponibilidade de um serviço composto por múltiplos elementos de serviço
+
+
+Muitos serviços são compostos por múltiplos elementos de serviço.
+
+Considere-se um sistema em **série** com 3 elementos:
+
+``` 
+→  [ 1 ] → [ 2 ] → [ 3 ] → 
+```
+cujas disponibilidades são $a_1\ a_2\ a_3$ 
+
+Então $A = a_1\ ×\ a_2\ ×\ a_2$
+
+Considere-se um sistema em **paralelo**:
+```
+	[1] → 
+→             →  [3] → [4] → 
+	[2] →
+```
+
+Então $A = (1 - [(1-a_1)*(1-a_2)]) * (a_3) * (a_4)$
+
+Se $A \lt A_d$ é preciso adicionar redundância, para isso identifica-se o elemento menos disponível e acrescenta-se um elemento em paralelo ao elemento identificado  → Calcula-se a disponibilidade A do sistema → se $A < A_d$
+
+
+## Modelo de disponibilidade de ligações em redes de telecomunicações
+
+$$\frac{MTBF}{MTBF + MTTR}$$
+
+$MTTR = 24\ horas$
+$MTBF = \frac{CC × 365 × 24}{comprimento\ da\ ligação\ [Km]}[horas]$
+$CC (Cable\ Cut\ metric) = 450 Km$
+
+
+
+
+o “comprimento” de cada ligação dado por $–\log{a_p}$
+
+
+## Robustez a falhas de serviços de rede
+
+A robustez de uma rede de telecomunicações é genericamente
+definida como a capacidade da rede em manter os serviços que
+suporta quando um ou mais elementos (nós e/ou ligações) falham.
+
+A robustez de uma rede pode ser melhorada com dois tipos de
+mecanismos.
+
+**Mecanismos de restauro**: os serviços são suportados assumindo que
+não há falhas; quando uma falha acontece, a rede reencaminha o mais
+possível os fluxos dos serviços pelos recursos que se mantêm
+disponíveis (i.e., nós e ligações que não falharam).
+- Exemplo: as redes IP com protocolos tais como o RIP e o OSPF
+
+**Mecanismos de proteção**: os recursos da rede são atribuídos (aos
+diferentes fluxos dos diferentes serviços) não só para o caso de
+nenhuma falha mas também para um subconjunto de casos de
+possíveis falhas.
+
+Assim, se acontecer uma das falhas do subconjunto considerado, é
+garantido que os serviços continuam a ser suportados.
+-  Exemplo: redes de circuitos virtuais tais como o MPLS
+
+
+![[mecanismo_restauro.png]]
+
+
+Disponibilidade do serviço VPN:
+
+$A = a_{BD} × A^{up}_{BD}+ (1-a_{BD} )× A^{down}_{BD}$
+## Mecanismos proteção
+
+### Proteção 1+1 (um mais um)
+O fluxo é enviado duplicdado pelos 2 percursos
+
+### Proteção 1:1 (um para um):
+O fluxo é enviado por um dos percursos e o outro percurso é só usado em caso de falha
+
+![[exemploProtecao.png]]
+![[umMaisUm.png]]
+![[umParaUm.png]]
+
 <!-- 
                  Selo de certificação resumo LeitnerzinhoPVP  
-                                                                         
+	        Considera-te triste se espetas isto na IA e pedes para resumir                                             
        XXX                                                                
       XX                             XX                                   
      XX                               X       XXXXX                       
