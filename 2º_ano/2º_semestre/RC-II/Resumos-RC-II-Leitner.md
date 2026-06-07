@@ -484,7 +484,7 @@ Nenhuma interface muda de estado. A alteração de prioridade de Sw1 não afeta 
 ---
 
 
-# Trafic TUNNELING & Overlay Networks
+# Traffic TUNNELING & Overlay Networks
 
 Tunel é implementado adicionando mais 1 cabeçalho ao IP original 
 
@@ -540,6 +540,7 @@ O 198.2.4.0 [120/2] via 198.1.34.4    custo R3 (1) R4(1)
 
 
 
+
 # Exercicios sobre Túnel. 
 
 ![](Exercicios/.d_f_erradas.png)
@@ -556,21 +557,96 @@ O 198.2.4.0 [120/2] via 198.1.34.4    custo R3 (1) R4(1)
 
 
 
+# BGP (Border Gateway Protocol)
 
 
 
 
+BGP é usado para encaminhamento de pacotes entre Sistemas Autónomos (**AS**)
+
+Um sistema autónomo é um conjunto de redes controladas por uma admnistração através de protocolos IGP (RIP, OSPF, IS-IS...)
+
+
+BGP é um protocolo *path-vector* , similar a um *distance-vector*, mas cada rota anunciada com a respetiva sequencia de ASs 
+
+
+## BGP Messages
+
+**OPEN** usadas para estabelecier uma sessão BGP
+
+**UPDATE** usadas para enviar prefixos IP, e os atributos BGP
+
+**KEEPALIVE** surge para verificação, sem enviar UPDATE 
+
+
+### BGP Attributes
+
+**AS_PATH**
+
+é a lista de ASs que precisa de percorrer até chegar à rede anúnciada
 
 
 
+ **ORIGIN** 
+
+Indica como é que o BGP aprendeu a rota até ao AS. 
+
+pode ser:
+- 0 → iGP 
+- 1 → eGP
+- 2 → incomplete,  se a rota foi aprendida por outros métodos, nomeadamente redistribuição de outros protócolos de encaminhamento 
 
 
+**Next-Hop**
+
+Próximo salto
 
 
+# MPLS
+
+Vem simplificar o processo de encaminhamento de pacotes, diminuindo o esforço computacional de cada router individualmente.
+
+Simplifica também a gestão da rede. 
+
+Consegue encapsular pacotes de diferentes protócolos.
 
 
+Resumidamente **MPLS** resume-se a em vez de cada router procurar na lista de todos as redes que conhece   
 
 
+### MPLS Labels
+
+```mermaid 
+block-beta 
+	columns 4 
+	col1["Label(20 bits)"] 
+	col2["Exp (3 bits)"] 
+	col3["Stack (1 bit)"] 
+	col4["TTL (8 bits)"]
+```
+
+### MPLS Label Stacking 
+
+Labels podem ser usadas em stacks para suportar mais efecientemente multiplos serviços, S bit é 1 para a última entrada da stack
+
+### MPLS Label Swapping 
+
+```mermaid
+    title 
+    PC1
+    PC2
+    R1
+    PC1->R1: 288 | Packet
+    R1->PC2: 417 | Packet
+```
+
+```zenuml
+    title Declare participant (optional)
+    Bob
+    Alice
+    Alice->Bob: Hi Bob
+    Bob->Alice: Hi Alice
+```
 <!--
                  Selo de certificação resumo LeitnerzinhoPVP
 
