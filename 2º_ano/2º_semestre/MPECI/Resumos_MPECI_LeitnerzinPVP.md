@@ -95,11 +95,33 @@ Prob de obter face 5?
 $P(face\ 5) = \frac{1}{6}$
 
 
+# Função massa Probabilidade 
+
+$p_X(x_i) = P(X = x_i)$
+$P_X(x_i) \ge 0$
+$\sum_i p_X(x_i) = 1$
+
+# Função distribuição acumuldad
+
+$F_X(x) = p_X(X \le x)$
+### Importante 
+
+$P(a < X \le b) = F_X(b) - F_X(a)$
+
+# Função densidade de probabilidade
+
+$f_X(x)$ define os valores de probabilidade quando integrada num intervalo 
+
+$p(a< X \le b) = F_X(b)- F_X(a) = \int_a^bf_X(x)dx$
+por isso 
+
+$p(X = x) = F_X(x^+) - F_X(x^-)$
+
 # Regras básicas 
 
 ## Regra do complemento
 
-$ P(A) = 1 - P(\neg A) $
+$P(A) = 1 - P(\neg A)$
 
 ## Interseção
 
@@ -254,7 +276,7 @@ $Var(X) = 𝜎² = \sum{i} [x_i - E(X)]²\ p(x_i)$
 
 $var(X +c) = var(X)$
 
-$var(c\ X) = c³\ var(X)$
+$var(c\ X) = c^2\ var(X)$
 
 # Desvio padrão
 Raiz quadrada da variância é o desvio padrão representado por 𝜎.
@@ -331,6 +353,7 @@ a+rand()*(b-a)
 
 $f_X(x) = \frac{1}{\sqrt{2 \pi}𝜎}e^{-\frac{(x-m)²}{2𝜎²}}$
 
+
 $E[X] = m$
 
 $Var(X) = 𝜎²$
@@ -363,7 +386,7 @@ $Var(x) = \frac{1}{𝜆²}$
 
 # Desigualdade de Markov
 
-$P(X\ge a) \le \frac{E[X]}{a},\ qualquer\ a> 0  $
+$P(X\ge a) \le \frac{E[X]}{a},\ qualquer\ a> 0$
 
 # Desigualdade de Chebyshev
 
