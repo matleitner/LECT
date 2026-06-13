@@ -632,21 +632,175 @@ Labels podem ser usadas em stacks para suportar mais efecientemente multiplos se
 ### MPLS Label Swapping 
 
 ```mermaid
-    title 
-    PC1
-    PC2
-    R1
-    PC1->R1: 288 | Packet
-    R1->PC2: 417 | Packet
+graph LR
+  A[PC1] -->|288  Packet| B[Router MPLS]
+  B -->|417 Packet | C[PC2]
 ```
 
-```zenuml
-    title Declare participant (optional)
-    Bob
-    Alice
-    Alice->Bob: Hi Bob
-    Bob->Alice: Hi Alice
+### MPLS Pushing Labels 
+
+
+
+```mermaid
+graph LR
+  A[PC1] -->|288 - Packet| B[Router MPLS]
+  B -->|417 - 288 - Packet | C[PC2]
 ```
+
+
+### MPLS Popping Labels
+
+```mermaid
+graph LR
+  A[PC1] -->|288 - Packet| B[Router MPLS]
+  B -->| Packet | C[PC2]
+```
+
+
+### LSP Labels Switched Path
+
+```mermaid
+
+graph LR
+  A[Entry Edge Router] -->|233 Packet| B[Router MPLS 1]
+  B -->|666 Packet| C
+  C -->|417 Packet| D
+  D -->|Packet| E[Exit Edge Router]
+```
+
+LSP é referida como um túnel MPLS, porque os labels intermediários não tão processados pelos routers de uma LSP.
+
+### PHP Penultimate Hop Popping 
+
+PHP é o processo de popping do label no ulitimo antes de chegar ao Router Fronteira de saída.
+
+```mermaid
+graph LR
+
+A[R1] --> | 233 IP | B[R2]
+	B --> | 666 IP | C[R3]
+	C --> | IP | D[Exit Edge Router] 
+	D --> | IP | R5
+```
+	
+Reduz o esforço de processamento do router Fronteira
+
+# Traffic Engineering em MPLS 
+
+É o processo de seleção de caminhos de LSPs que melhor se enquadram ao trafego em capacidade de recursos da rede.
+
+
+
+# RSVP Resource Reservation Protocol
+
+RSVP é um protocólo sinalizador que permiter reservar recursos de uma rede de uma origem a um destino num IP flow.
+
+
+# Comunicações Multicast
+
+
+Multicast: um → alguns
+
+### Classe D
+
+Range de 224.0.0.0 até 239.255.255.255
+
+sendo que 224.0.0.1 até 224.0.0.255 são reservados para routing protocols e outros protocolos de descoberta manutenção.
+
+e 239.0.0.0 até 239.255.255.255 reservado para redes privadas
+
+
+Em Redes IP multicast, uma sessão multicast é identificada pelo seu endereço IP multicast, acordado entre todos os hosts interessados
+
+### Forwarding IP multicast packets on LANs
+
+ Em cada LAN, cada pacote IP com endereço multicast como destino é enviado por Layer 2, através do envio para um MAC address standard para IPv4 e IPv6  
+ 
+ IPv4: 01:00:5E:0 Multicast ID
+
+# Internet Group membership Protocol (IGMP) 
+
+Em cada rede o **Querier Router** (QR)  é o router multicast com menor IP.
+
+- MR ( Membership Report) - enviado por hosts para declarar interesse de receber para os endereços multicast
+- GMQ (General Membership Query) - enviado pelo QR, request de um refresh 
+- LGR (Leave Group Repoirt)
+- SMQ (Specific Membership  Query) - pelo QR a pedir um refresh em sessões especificas
+
+Basicamente o QR envia periodicamente GMQ, caso alguém queira participar numa sessão multicast envia através de MR, caso não queira mais ou envia um LGR ou não envia nada e quando o QR envias GMQ percebe que não vai ter resposta, por isso a sessão fecha.
+
+# Multicast Listener Discovery (MLD) 
+
+
+É equivalente ao IGMP.
+
+
+### Mensagens MLD
+
+Multicast Listener Query - Do IGMP,  GMQ
+Multicast Listener Report - Do IGMP, MR 
+Multicast listener Done - Do IGMP, LGP
+
+
+# Princípios Multicast Routing 
+
+Baseado em árvores, **multicast Tree**, um conjunto de links a conectar um conjunto de routers multicast e defenindo um único caminho entre qualquer par de routers,  não tem ciclos.  
+
+Não há múltiplos caminhos logo, não há ECMP.
+
+## Group-shared trees
+
+**Minimum cost Steiner tree**: determina o conjunto de links com custo mínimo que liga todos os routers multicast com os hosts participantes numa sessão multicast
+
+
+
+## Source-based trees
+
+**Minimum cost tree from a Rendezvous Point** 
+
+RP é definido inicialmente e é conhecido por todos os routers multicast.
+
+RP faz parte da árvore mesmo que não tenha hosts a participar na sessão. 
+
+A árvore  é composta pelos links do caminho mais curto desde cada Multicast Router com hosts participantes até ao RP.
+
+# Distance Vector Multicast Routing Protocol (DVMRP)
+
+Based **Sender-Initiated Source-Based Trees with Reverse Path Forwarding with Pruning**
+
+
+Permite túneis entre routers multicast
+
+# Multicast Open Shortest Path First (MOSPF)
+
+Based **Receiver-Initiated Source-Based Trees**
+
+# Protocol-Independent Multicast (PIM)
+
+Contrói routing tables através de um protócolo rounting unicast
+
+## PIM Dense Mode (PIM-DM)
+
+### Prune messages
+Para dizer "não quero receber mais"
+### Graft messages
+"quero voltar"
+
+### Join messages 
+"quero entrar"
+
+### Assert Messages
+"caso hajam vários routers a enviar, quem manda os pacotes"
+
+
+## PIM Sparse Mode (PIM-SM)
+
+Tem Rendezvous Point, a ligação começa unicast
+
+#  Voice over IP (VoIP)
+
+
+
 <!--
                  Selo de certificação resumo LeitnerzinhoPVP
 
