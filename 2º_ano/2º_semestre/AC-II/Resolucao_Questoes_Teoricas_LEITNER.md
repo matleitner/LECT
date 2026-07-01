@@ -273,13 +273,17 @@ logo 40 * 2 = 80 ciclos pelas 40 instruções
 # 29. 
 
 F = 40 MHz
+
 CPI = 2.5
+
 f\_intr = 200 kHz
+
 overhead : 75 ciclos 
 
 40 * 10⁶ / x + (75) = 200 000 <=> x = 125 ciclos
 
 2.5 - 1 
+
 125 - y= 125/2.5 = 50
 
 
@@ -289,7 +293,43 @@ overhead : 75 ciclos
 
 # 31. 
 
+f = 10 MHz 
+
+CPI = 2
+
+70 instruções 
+
+f\_max = 50kHz 
+
+x + 70*2 (ciclos) → 1/50kHz
+
+1  → 1/10Mhz
+
+(x + 70*2) / 10 * 10⁹ = 1 / 50 000
+
+x = 60
+
+
 # 32.
+
+f = 80 Mhz 
+
+CPI = 2
+
+overhead = 40 ciclos
+
+rot. interrupt = 20 instruções = 40 ciclos
+
+
+f\_max = ? 
+
+tempo 1 ciclo => 1 / 80Mhz
+tempo de 40+40 ciclos => 1 / f\_max 
+
+1/ f\_max = 80 / (80 * 10⁶)
+f_max => 1 Mhz
+
+
 
 # 33. 
 
