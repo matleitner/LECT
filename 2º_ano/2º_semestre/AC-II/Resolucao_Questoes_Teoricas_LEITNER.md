@@ -1065,11 +1065,202 @@ Pagemode, em vez de cada acesso a mesma linha ser enviar endereço linha, RAS = 
 O RAS permanece a 0 mandando assim apenas o endereço Coluna 
 
 # 136 
+## a.
+1 comparador por ser map direto 
 
+## b. 
+
+mm coisa
+
+## c.
+
+4 
+
+## d.
+
+8
+
+## e.
+
+256kB / 256 B = 1024 linhas 
+
+1024 comparadores
+
+
+
+# 137 
+
+| map direto | map parcialmente associativa | totalmente associativa |
+| ----| ---- | --- |
+| tag - set - offset | tag - set - offset | tag - offset | 
+
+
+## a.
+
+32 = tag - 8(256 linhas) - 6 =>  tag = 18 bits
+
+## ...
+
+# 138 
+
+Total associativa: mais comparadores mais custo de hardware, taxa de acertos maior
+
+Map direto: mais rapido, mas maior chance de falhas por conflito 
+
+# 139
+
+FIFO – First in first out: é substituído o bloco que foi carregado há
+mais tempo
+
+LRU – Least Recently Used: é substituído o bloco da cache que
+está há mais tempo sem ser referenciado
+
+LFU – Least Frequently Used: substituído o bloco menos
+acedido
+
+Random: substituição aleatória (testes indicam que não é muito
+pior do que LRU)
+
+# 140 
+
+**Write-through**
+
+• Todas as escritas são realizadas simultaneamente na cache e na
+memória principal
+
+• Se endereço ausente na cache, atualiza apenas a memória principal
+(write-no-allocate)
+
+• A memória principal está sempre consistente
+
+**Write-back**
+
+• Valor escrito apenas na cache; novo valor é escrito na memória
+quando o bloco da cache é substituído
+
+• "Dirty bit" (este bit é ativado quando houver uma escrita em
+qualquer endereço do bloco presente na linha da cache)
+
+• Se endereço ausente na cache, carrega o bloco para a cache e
+atualiza-o (write-allocate)
+
+• Mais complexo do que "write-through"
+
+# 141 
+
+"Dirty bit" (este bit é ativado quando houver uma escrita em
+qualquer endereço do bloco presente na linha da cache)
+
+# 142
+
+## a.
+
+group/set: linhas 
+
+512 kBy 
+
+32 B 
+
+2¹⁹ / 2⁵ = 14 
+
+2¹⁴ / 4 = 2¹² (porque a associatividade é 4 ) 
+
+12 bits
+
+
+# 143
+
+# 144
+
+# 145 
+## a.
+h_r = 0.9
+
+6 * 0.9 * 0.1 * 60 = 5,4 + 6 = 11,4 ns
+
+
+# 146
+## a. 
+.9 * 2 + 100 * 0.1 = 11.8 
+
+# 147
+
+8 kB / 32 B = 2¹³ / 2⁵ = 2^8 / 2² = 2⁶
+
+
+
+## a.
+
+4*4 = 16 bits
+
+16 - 5 - 6 = 5 bits tag
+
+00010 010101 11000
+2       21     24 
+
+
+## b.
+
+0x355f
+
+0011 0101 0101 1111 
+        32 + 8 + 2 = 42 
+
+# 149
+
+Numero do bloco, qual o bloco de memoria está a ser acedido, o resto é o offset
+
+# 150 
+
+endereço real / dimensão do bloco % n linhas memoria 
+
+# 151 
+
+
+# 152 
+
+## a.
+
+n = 4 por causa do mux que 
+
+totalmente associativa => tag + offset = 16
+
+tag = 16 - 4 = 12
+
+
+## b.
+
+0x3785, ir à linha 0x378 que é a 4ª e 5ª coluna logo > 19 
+
+0xF0A3, linha 3F coluna 3 > C1
+
+0x1932, cache miss, valid bit = 0
+
+# Memória Virtual
+
+# 152
+
+# 172
+
+32 bits endereçamento 
+
+
+1 G = 2³⁰
+
+## a
+
+
+30 - 12 = 18 
+
+NN = 17
+
+
+KK = 18
 
 
 
 <!--
+
                  Selo de certificação resumo LeitnerzinhoPVP
 
        XXX
