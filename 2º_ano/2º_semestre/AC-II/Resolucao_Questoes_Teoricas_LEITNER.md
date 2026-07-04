@@ -138,7 +138,9 @@ saída
 
 O processador está a executar uma instrução de leitura do estado atual do pino (ex: valor = PORTAbits.RA0;). Curiosamente, embora o porto esteja configurado como saída, o hardware permite ler o estado real do pino através do registo PORT para verificar se o nível elétrico corresponde ao esperado.
 
-# 17. ????
+# 17. 
+
+buffer tri-state
 
 # 18. 
 Sincronização: Como os sinais provenientes do exterior são assíncronos em relação ao relógio (clock) interno do sistema, estes flip-flops garantem que o valor lido pelo processador está devidamente alinhado com o ciclo de funcionamento do CPU. 
@@ -392,11 +394,19 @@ DMA torna-se o BUS master, Fetch, Liberta os barramento, Espera, Torna se bus ma
 1/500*10⁶ * 2 *512 = 2048 ns
 ## b. 
 
+512  * 2 * 2 * 1 / (10⁹) = 2048 ns 
+
+
+
+
 
 1/500*10⁶ * 2 *512 * 2 (por que controlador é de 16 bits)  = 4096 ns
 
 # ...
-
+# 43.
+**bus cycle = 2 ciclos de relógio**
+## a. 
+1000 * 2/10⁹ * 2
 # 44. 
 
 é exatamente igual mas apenas precisa de fazer 1 bus-cycle
@@ -484,11 +494,18 @@ k = 50 * 10 ⁶ / 65536 * 85 = 8.9757  = 16
 
 PR2 + 1  = 50  * 10⁶ / k (85 * 16) => PR2 = 36764
 
+# 56. 
+**T1 do tipo A só tem 1 8 64 256**
+## a. 
+PBCLK = 50MHz
+85 = 50 * 10⁶ / 2¹⁶ * (k) => k = 50 * 10 ⁶ / 2¹⁶*85 = 8.97 => 64 
+## b.
+PR2 = 50 * 10⁶ / 64 * 85 - 1 = 9190
 
 # 57 
 
 ## a. 
-f_out = 100 Hz 
+f\_out = 100 Hz 
 
 
 40 * 10 ⁶/ (k * 2^16)  = 100
@@ -506,6 +523,16 @@ OC5RS / (PR3 +1) = Duty Cycle
 ## c. 
 
 log_2(PR3+1) = 15.6 bits  
+
+# 58
+
+TCLK > 20MHz; k = 8; 
+PR ? OCK ?, f = 200Hz, D.C = 25%
+
+200 = 20 000 000 / (8 * PR - 1) => PR = 200 000 / 8 - 1 => 25 000 - 1 => 24 999
+
+OC / (PR+1) = D.C => OC = 0.25 * (24 999+1) = 6250 
+ 
 
 
 
@@ -579,6 +606,64 @@ laranjinha A15\⋅A14\⋅A13\⋅A12\⋅A11⋅A10\⋅A9\⋅A8\⋅A7\⋅A6\⋅A5\�
 
 RAM 0000 0011 F F A15\.A14\.A13\.A12\.A11\.A10\
 
+# 68
+
+2³ = 8 linhas 
+32 - 3 => 29 bits para guardar dados 
+
+K = 0x00102 => 0000 0000 0001 0000 0010 => 20 bits
+
+N = k + S + R => R = 32 - 3 - 20 = 9 bits 0 0000 0000 <-> 1FF
+
+0x00102 Sbits1 1111 1111
+
+para S = 000
+
+[0x00102000, 0x001021FF]
+
+etc...
+
+# 69
+
+## a. 
+
+N = 20 
+
+S = 2 [ 0, 3 ]
+
+R = 8KByte => 2^13 Bytes
+
+K = 20 - 15 = 5
+
+## b.
+
+lol
+
+## c. 
+
+## d.
+
+## e. 
+
+0011 1010 1100 0100 0101 
+
+00111 = K
+
+01 = S 
+
+0110001000101 = R
+
+0011 1010 0000 0000 0000 
+
+R: 0x3A000
+
+
+
+
+
+
+
+
 ---
 
 # BARRAMENTOS DE COMUNICAÇÃO EM SÉRIE
@@ -649,15 +734,337 @@ Orientada ao Byte (ou Caractere): Os dados são transmitidos em blocos de tamanh
 A principal diferença é a eficiência: protocolos orientados ao bit são geralmente mais robustos e eficientes para transmissão de grandes tramas de dados, pois não precisam de bits de controlo para cada pequeno grupo de 8 bits.
 
 
+# Protocolo SPI 
+
+# 87 
+
+## a.
+
+Ligação ponto a ponto, slave select
+
+## b.
+
+Transmissão síncrona, o relógio é sempre gerado pelo master que o disponibiliza para todos os slaves
+
+## c.
+
+Bidirecional, são transferidos dados válidos em ambos os sentidos
+
+# 88
+ 
+## a.
+
+n = 20
+
+f = 100 kHz 
+
+resolução = 16
+
+
+20 * 16 = 320 bits
+
+t = 1 / 10^5 = 10 µs
+
+t_min = 3200 µs = 3,2 ms
+
+
+# 89
+
+Tem apenas um master; Ponto a ponto sincrono 
+
+# 90
+
+Não, dezenas de cm.
+
+# 91
+
+# 92
+
+
+Configurar a frequência de relógio
+
+Configurar o nível lógico de repouso ("idle") do sinal de relógio
+
+Especificar qual o flanco do relógio usado para a transmissão (a
+receção é efetuada no flanco oposto)
+
+Transmissão no flanco ascendente (consequentemente, a receção
+é feita no flanco descendente)
+
+Transmissão no flanco descendente (consequentemente, a
+receção é feita no flanco ascendente)
+
+
+# 93. 
+
+## a.
+
+0110101
+
+## b. 
+
+leitura porque RD / WR\ está a 1
+
+## c.
+
+1 ack após o envio do endereço do elemento da ADC
+
+## d. 
+
+1 ack após o envio dos primeiros 8 bits de dados 
+
+## e.
+
+1 nack antes de anunciar stop bit 
+
+## f
+
+00000010 10 0110 11
+
+0x29B
+
+## g.
+
+Uma pelo slave
+
+## h.
+
+30 * 1/ 10**6 = 30 µs 
+
+# 94
+
+É enviado o endereço de 7 bits logo apos o start bit que é scl = 1  e a transição de 1→0 do sda, o 8 bit é o tipo de operação 1 leitura 0 escrita-
+
+# 95
+
+2 linhas SDA serial data line e SCL serial clock line.
+
+# 96
+
+Após um Sinal de STOP até o próximo START
+
+# 97
+
+
+master, clock strech 
+
+# 98
+
+Bit dominante, sda enviado pelos masters todos, o que pervalecer com 0 torna-se o dominante
+
+
+# RS232
+
+# 102
+
+Erro de fase: erro cometido ao determinar o instante inicial de sincronização
+
+Erro provocado por desvio de frequência: a requência dos
+relógios do transmissor e do recetor não são exatamente iguais (e.g.
+tolerância dos cristais de quartzo dos osciladores, constantes de divisão
+dos timers). Este erro é cumulativo e proporcional ao comprimento da
+trama (no caso da figura abaixo, no bit D4 o erro é 11*∆2)
 
 
 
+# 106
+
+
+## a.
+
+b = 19200 bps
+
+b Dados = 7 
+
+1 bit paridade
+
+1 bit start 
+
+1 bit stop
+
+9bits - x 
+
+19200 - 1
+
+
+7 * 19200 / 10 / 8 = 1680 B/s   
+
+# 111
+
+## a.
+
+Traduzir as chamadas realizadas pela aplicação/SO 
+
+# TECNOLOGIA, ORGANIZAÇÃO E FUNCIONAMENTO DE RAMs
+
+# 124
+
+Vantagem SRAM, rapida e simples, não precisa de ser refrescada constantemente. DRAM apenas precisa 1 transistor e um condensador menor custo e menor espaço ocupado.
+
+
+# 125
+
+Matricial reduz complexidade dos descodificadores de endereços. 
+
+# 126 
+
+
+Tempo mínimo que precisa passar entre o início e o fim da operação de leitura.
+
+
+# 128 
+
+## a.
+
+128 k * 8 = 2^17 * 2³ = 2²⁰
+
+32 k * n = 1 M
+
+2¹⁵ * 2⁵ = 1 M
 
 
 
+# 129 
+
+256k X 8 
+| address | byte  |
+| ------- | ----  |
+|0        | 8 bits|
+|..       | 8 bits|
+|256 k    | 8 bits|
+
+256k = 2¹⁸ = (2⁹)²
+
+| col | row | matrix num | 
+| --- | --- |  ----  |
+| 512 | 512 |   8    |
+
+Cada matriz guarda 1 bit dos 8 ou seja é preciso 8 matrizes, quando antes eu acessava 0x00000, e acessava ao byte logo, agora ao acessar 0x00000 vou ativar nas 8 matrrizes, e cada uma retorna os 8 bits separadamente.
 
 
+# 130 
 
+## a. word 4bits
+
+2^20 * 2^2 * 2^4  = 2^26
+
+26 - 2 = 24 
+
+2^24 = 16 M
+
+16Mx4
+
+## b. 
+
+26-3 = 23 => 2^23 = 8M 
+
+8M x 8
+
+## c. 
+
+26- 5 = 21 → 2 M
+
+2Mx32 
+
+## d.
+
+64 M / 2 M = 32 
+
+2M x 32
+
+## e.
+
+64 / 8 = 8 
+
+8M x 8
+
+# 131
+
+## a.
+
+512 M x 8
+
+512 M = 2²⁹
+
+16k => 2^14 
+
+29 - 14 = 15 
+
+col: 15
+max(15,14) = 15
+
+
+## b.
+
+256M x 1 
+
+256M = 2^28 
+
+28 - 14 = 14
+
+14 col
+
+max(14,14) = 14
+
+## c.
+
+4G = 2³²
+
+16 bits
+
+16
+
+## d. 
+
+1 G = 2³⁰
+
+32k = 2¹⁵
+
+15
+
+## e.
+
+2 G = 2³¹
+
+64k = 2¹⁶
+
+31 - 16 = 15 
+
+
+16 bits
+
+## f.
+
+256 M = 2²⁸
+
+8k = 2¹³
+
+28 - 13 = 15
+
+R: 15
+
+
+# 132 
+
+2M = 2^21 
+
+21 - 11 = 10 
+
+1024 linhas * (RAS width + Precharge time)
+
+
+# 133 igual 
+
+# 134
+
+Ambos sinais de RAS e CAS estão a 1, primeiro o sinal RAS na transição para 0 liga a leitura da linha, depois guarda o valor lido num buffer temporário, e o sinal CAS vai a 0 lendo a coluna, o sinal WE\ = 1 para ligar o modo leitura o valor é lido   
+
+# 135 
+
+Pagemode, em vez de cada acesso a mesma linha ser enviar endereço linha, RAS = 0, enviar endereço coluna CAS = 0;
+O RAS permanece a 0 mandando assim apenas o endereço Coluna 
+
+# 136 
 
 
 
