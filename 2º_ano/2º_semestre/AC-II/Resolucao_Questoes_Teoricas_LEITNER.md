@@ -1,7 +1,7 @@
 # Resolução exercicios teóricos
 # INTRODUÇÂO 
 ---
-
+[[AC-II]]
 # 1.
 
 O espaço de endereçamento refere-se à dimensão ou ao conjunto total de endereços que um processador consegue aceder.
