@@ -86,43 +86,100 @@ def lista_subconjuntos(lista):
 
     if lista == []:
         return [[]]
+    primeiro = lista[0]
+    restantes = lista[1:]
 
-    return lista_subconjuntos(lista[1:]) + [
-        [lista[0]] + sub for sub in lista_subconjuntos(lista[1:])
-    ]
+    subconjuntos_do_resto = lista_subconjuntos(restantes)
+
+    comb_com_o_primeiro = [[primeiro] + sub for sub in lista_subconjuntos(lista[1:])]
+
+    return subconjuntos_do_resto + comb_com_o_primeiro
 
 
 # Exercicio 2.1
 def separar(lista):
-    pass
+    if lista == []:
+        return [], []
+
+    primeiro_par = lista[0]
+
+    lista1, lista2 = separar(lista[1:])
+
+    return ([primeiro_par[0]] + lista1, [primeiro_par[1]] + lista2)
 
 
 # Exercicio 2.2
 def remove_e_conta(lista, elem):
+    if lista == []:
+        return ([], 0)
+    if lista[0] == elem:
+        lista_1, num = remove_e_conta(lista[1:], elem)
+        return lista_1, 1 + num
 
-    pass
+    lista_1, num = remove_e_conta(lista[1:], elem)
+
+    return [lista[0]] + lista_1, 0 + num
 
 
 # Exercicio 3.1
 def cabeca(lista):
-    pass
+    if lista == []:
+        return None
+    return lista[0]
 
 
 # Exercicio 3.2
 def cauda(lista):
-    pass
+    if lista == []:
+        return None
+
+    return lista[-1]
 
 
 # Exercicio 3.3
 def juntar(l1, l2):
-    pass
+    if len(l1) != len(l2):
+        return None
+    if l1 == []:
+        return []
+
+    primeiroPar = l1[0], l2[0]
+
+    return [primeiroPar] + juntar(l1[1:], l2[1:])
 
 
 # Exercicio 3.4
 def menor(lista):
-    pass
+    if lista == []:
+        return None
+    if len(lista) == 1:
+        return lista[0]
+    menor_do_resto = menor(lista[1:])
+    return lista[0] if lista[0]< menor_do_resto else menor_do_resto
+
+    
+
+
 
 
 # Exercicio 3.6
 def max_min(lista):
-    pass
+    if lista == []:
+        return None
+    if len(lista) == 1:
+        return lista[0], lista[0]
+    maior_resto, menor_resto = max_min(lista[1:])
+    if lista[0] > maior_resto:
+            novo_maior = lista[0]
+    else:
+            novo_maior = maior_resto
+    
+        # Descobrimos o verdadeiro menor
+    if lista[0] < menor_resto:
+            novo_menor = lista[0]
+    else:
+            novo_menor = menor_resto
+    
+    return novo_maior, novo_menor
+
+    
