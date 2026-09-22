@@ -36,5 +36,16 @@ def menor_e_resto_ordem(lista, f):
 
 
 #Exercicio 5.2
-def ordenar_seleccao(lista, ordem):
-    ...
+def ordenar_seleccao(lista):
+    for i in range(len(lista)):
+        for j in range(i):
+            if lista[i]< lista[j]:
+                tmp = lista[i]
+                lista[i] =lista[j]
+                lista[j] = tmp
+
+    return lista;
+
+print(ordenar_seleccao([1,10,3,2,5,1]))
+
+
