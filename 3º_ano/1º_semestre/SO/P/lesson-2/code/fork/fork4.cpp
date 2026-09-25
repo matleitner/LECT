@@ -10,8 +10,7 @@
 int main(void) {
   printf("Before the fork: PID = %d, PPID = %d\n", getpid(), getppid());
 
-  pid_t ret =
-      pfork(); // equivalent to fork(), dealing internally with error situations
+  pid_t ret = pfork(); // equivalent to fork(), dealing internally with error situations
   if (ret == 0) {
     execlp("./child", "./child", NULL);
     printf("why doesn't this message show up?\n");

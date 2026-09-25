@@ -14,7 +14,7 @@ int main(void) {
     bwRandomDelay(100, 100000);
     printf("After the fork, in the child: PID = %d, PPID = %d\n", getpid(),
            getppid());
-    for (int i = 11; i <= 20; i++) {
+    for (int i = 0; i <= 10; i++) {
       printf("%d\n", i);
     }
 
@@ -22,7 +22,7 @@ int main(void) {
     bwRandomDelay(100, 100000);
     printf("After the fork, in the parent: PID = %d, PPID = %d\n", getpid(),
            getppid());
-    for (int i = 0; i <= 10; i++) {
+    for (int i = 11; i <= 20; i++) {
       printf("%d\n", i);
     }
     pwait(NULL); // equivalent to wait(.), dealing internally with error
