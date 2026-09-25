@@ -32,8 +32,17 @@ def menor_ordem(lista, f):
 
 #Exercicio 4.10
 def menor_e_resto_ordem(lista, f):
-    pass
+    
+    if lista == []: 
+        return None, []
 
+    menor = reduce(lambda menor, atual: atual if f(atual, menor) else menor, lista)
+    resto = lista.copy()
+
+    resto.remove(menor)
+
+    return menor, resto
+    
 
 #Exercicio 5.2
 def ordenar_seleccao(lista):
