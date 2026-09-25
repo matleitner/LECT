@@ -32,6 +32,6 @@ void app_main(void) {
 
         printf("Estado do botão %d\n", !level);
 
-        vTaskDelay(pdMS_TO_TICKS(1000)); // check every 1s
+        vTaskDelay(pdMS_TO_TICKS(100)); // check every 1s
     }
 }
