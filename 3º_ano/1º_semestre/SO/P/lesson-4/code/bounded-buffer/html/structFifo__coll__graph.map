@@ -1,0 +1,5 @@
+<map id="Fifo" name="Fifo">
+<area shape="rect" id="Node000001" title="The FIFO data structure." alt="" coords="7,93,51,119"/>
+<area shape="rect" id="Node000002" href="$structItem.html" title="The item for test purposes." alt="" coords="5,5,53,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="32,45,32,93,27,93,27,45"/>
+</map>
