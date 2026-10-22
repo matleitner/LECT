@@ -42,3 +42,8 @@ LECT.md
 
 /1º_ano/1º_semestre/ISD/ISD.md
 
+# Ignore ESP-IDF / development tools and large binaries
+**/components/tools/
+**/build/
+**/sdkconfig
+.DS_Store
