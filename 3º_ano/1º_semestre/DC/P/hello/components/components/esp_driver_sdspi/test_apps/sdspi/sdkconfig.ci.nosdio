@@ -1,2 +1,0 @@
-# SDMMC Configuration
-CONFIG_SD_ENABLE_SDIO_SUPPORT=n

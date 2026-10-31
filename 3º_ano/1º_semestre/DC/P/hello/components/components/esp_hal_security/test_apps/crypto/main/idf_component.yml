@@ -1,3 +1,0 @@
-## IDF Component Manager Manifest File
-dependencies:
-  espressif/ccomp_timer: ">=1.0.0"

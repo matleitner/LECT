@@ -1,6 +1,0 @@
-{
-	"chipname": "esp32c5",
-	"extra_instruction_groups": [
-		"addcti"
-	]
-}

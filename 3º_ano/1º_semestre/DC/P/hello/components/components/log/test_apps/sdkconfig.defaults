@@ -1,3 +1,0 @@
-# General options for additional checks
-CONFIG_ESP_TASK_WDT_INIT=n
-CONFIG_LOG_MASTER_LEVEL=y

@@ -1,2 +1,0 @@
-# enable sorted commands in the help command
-CONFIG_CONSOLE_SORTED_HELP=y

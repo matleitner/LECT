@@ -1,5 +1,0 @@
-{
-    "idf.currentSetup": "/home/leitner/.espressif/v6.0/esp-idf",
-    "idf.flashType": "UART",
-    "idf.port": "/dev/ttyUSB0"
-}
